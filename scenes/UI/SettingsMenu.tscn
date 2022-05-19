@@ -43,6 +43,7 @@ __meta__ = {
 }
 
 [node name="Video" type="Tabs" parent="SettingsTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -253,7 +254,6 @@ max_value = 25.0
 value = -10.0
 
 [node name="Gameplay" type="Tabs" parent="SettingsTabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -342,3 +342,5 @@ step = 0.1
 value = 2.5
 
 [connection signal="item_selected" from="SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn" to="." method="_on_DisplayOptionBtn_item_selected"]
+[connection signal="pressed" from="SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn" to="." method="_on_VsyncCheckBtn_pressed"]
+[connection signal="value_changed" from="SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider" to="." method="_on_MaxFpsSlider_value_changed"]
