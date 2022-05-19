@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/textures/floors/Wood_14-512x512.png" type="Texture" id=1]
 [ext_resource path="res://scenes/objects/walls/Wall1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 1 )
@@ -94,3 +95,5 @@ transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 1.65373, 0 )
 
 [node name="Door2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5, 0, 0 )
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]

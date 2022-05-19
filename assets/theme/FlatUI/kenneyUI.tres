@@ -174,7 +174,7 @@ texture = ExtResource( 1 )
 region_rect = Rect2( 1051, 317, 4, 100 )
 
 [sub_resource type="DynamicFont" id=23]
-size = 40
+size = 25
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )

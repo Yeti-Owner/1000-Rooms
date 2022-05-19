@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/UI/SettingsMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/UI/PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/theme/FlatUI/kenneyUI.tres" type="Theme" id=3]
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.364706 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = -96.0
+margin_top = -140.5
+margin_right = 96.0
+margin_bottom = 140.5
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 192.0
+margin_bottom = 29.0
+text = "Paused"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 33.0
+margin_right = 192.0
+margin_bottom = 53.0
+custom_constants/margin_top = 20
+
+[node name="ResumeBtn" type="Button" parent="VBoxContainer"]
+margin_top = 57.0
+margin_right = 192.0
+margin_bottom = 110.251
+text = "Resume"
+
+[node name="OptionsBtn" type="Button" parent="VBoxContainer"]
+margin_top = 114.0
+margin_right = 192.0
+margin_bottom = 167.251
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartMenuBtn" type="Button" parent="VBoxContainer"]
+margin_top = 171.0
+margin_right = 192.324
+margin_bottom = 224.251
+text = "Main Menu"
+
+[node name="QuitBtn" type="Button" parent="VBoxContainer"]
+margin_top = 228.0
+margin_right = 192.0
+margin_bottom = 281.251
+text = "Quit"
+
+[node name="SettingsMenu" parent="." instance=ExtResource( 1 )]
+
+[connection signal="pressed" from="VBoxContainer/ResumeBtn" to="." method="_on_ResumeBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartMenuBtn" to="." method="_on_StartMenuBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
