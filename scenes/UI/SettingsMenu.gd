@@ -16,7 +16,6 @@ func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
 func _on_VsyncCheckBtn_pressed():
 	VsyncEnabled = !VsyncEnabled
 	OS.set_use_vsync(VsyncEnabled)
-	print(VsyncEnabled)
 
 # Max Fps
 func _on_MaxFpsSlider_value_changed(MaxFps):
