@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/UI/PauseMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/theme/FlatUI/kenvector_future.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/UI/GUI.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 2 )
 
 [node name="GUI" type="CanvasLayer"]
+script = ExtResource( 3 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 1 )]
 visible = false
+
+[node name="FpsCounter" type="Label" parent="."]
+margin_left = 31.0
+margin_top = 29.0
+margin_right = 139.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 1 )
+text = "Fps: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
