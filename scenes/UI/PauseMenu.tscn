@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/UI/SettingsMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/UI/PauseMenu.gd" type="Script" id=2]
-[ext_resource path="res://assets/theme/FlatUI/kenneyUI.tres" type="Theme" id=3]
+[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
@@ -26,48 +31,53 @@ margin_left = -96.0
 margin_top = -140.5
 margin_right = 96.0
 margin_bottom = 140.5
-theme = ExtResource( 3 )
+theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 192.0
-margin_bottom = 29.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
 text = "Paused"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 33.0
+margin_top = 44.0
 margin_right = 192.0
-margin_bottom = 53.0
+margin_bottom = 64.0
 custom_constants/margin_top = 20
 
 [node name="ResumeBtn" type="Button" parent="VBoxContainer"]
-margin_top = 57.0
+margin_top = 68.0
 margin_right = 192.0
-margin_bottom = 110.251
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 1 )
 text = "Resume"
 
 [node name="OptionsBtn" type="Button" parent="VBoxContainer"]
 margin_top = 114.0
 margin_right = 192.0
-margin_bottom = 167.251
+margin_bottom = 156.0
+custom_fonts/font = SubResource( 1 )
 text = "Options"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StartMenuBtn" type="Button" parent="VBoxContainer"]
-margin_top = 171.0
-margin_right = 192.324
-margin_bottom = 224.251
+margin_top = 160.0
+margin_right = 192.0
+margin_bottom = 202.0
+custom_fonts/font = SubResource( 1 )
 text = "Main Menu"
 
 [node name="QuitBtn" type="Button" parent="VBoxContainer"]
-margin_top = 228.0
+margin_top = 206.0
 margin_right = 192.0
-margin_bottom = 281.251
+margin_bottom = 248.0
+custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
 [node name="SettingsMenu" parent="." instance=ExtResource( 1 )]
