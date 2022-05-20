@@ -197,10 +197,10 @@ value = 1.0
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 1.0
+margin_top = 19.0
+margin_right = -1.0
+margin_bottom = -1.0
 tab_align = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Audio"]
@@ -217,8 +217,8 @@ __meta__ = {
 [node name="AudioSettings" type="GridContainer" parent="SettingsTabs/Audio/MarginContainer"]
 margin_left = 25.0
 margin_top = 25.0
-margin_right = 667.0
-margin_bottom = 339.0
+margin_right = 673.0
+margin_bottom = 355.0
 custom_constants/vseparation = 13
 columns = 2
 
@@ -229,8 +229,8 @@ custom_fonts/font = SubResource( 3 )
 text = "Master Volume"
 
 [node name="MasterVolSlider" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
-margin_left = 242.0
-margin_right = 642.0
+margin_left = 248.0
+margin_right = 648.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
@@ -247,9 +247,9 @@ custom_fonts/font = SubResource( 3 )
 text = "Music Volume"
 
 [node name="MusicVolSlider" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
-margin_left = 242.0
+margin_left = 248.0
 margin_top = 45.0
-margin_right = 642.0
+margin_right = 648.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
@@ -266,9 +266,9 @@ custom_fonts/font = SubResource( 3 )
 text = "Sfx Volume"
 
 [node name="SfxVolSlider" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
-margin_left = 242.0
+margin_left = 248.0
 margin_top = 90.0
-margin_right = 642.0
+margin_right = 648.0
 margin_bottom = 122.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
@@ -281,10 +281,10 @@ value = -10.0
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 1.0
+margin_top = 19.0
+margin_right = -1.0
+margin_bottom = -1.0
 tab_align = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Gameplay"]
@@ -301,8 +301,8 @@ __meta__ = {
 [node name="GameplaySettings" type="GridContainer" parent="SettingsTabs/Gameplay/MarginContainer"]
 margin_left = 25.0
 margin_top = 25.0
-margin_right = 667.0
-margin_bottom = 339.0
+margin_right = 673.0
+margin_bottom = 355.0
 custom_constants/vseparation = 13
 columns = 2
 
@@ -313,8 +313,8 @@ custom_fonts/font = SubResource( 4 )
 text = "FOV"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-margin_left = 212.0
-margin_right = 642.0
+margin_left = 218.0
+margin_right = 648.0
 margin_bottom = 31.0
 size_flags_horizontal = 10
 
@@ -323,7 +323,7 @@ margin_right = 26.0
 margin_bottom = 31.0
 size_flags_horizontal = 12
 custom_fonts/font = SubResource( 4 )
-text = "90"
+text = "70"
 
 [node name="FovSlider" type="HSlider" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer"]
 margin_left = 30.0
@@ -333,7 +333,7 @@ rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
 min_value = 70.0
-value = 75.0
+value = 70.0
 
 [node name="MouseSensitivityLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
 margin_top = 44.0
@@ -345,31 +345,33 @@ text = "Mouse Sensitivity"
 [node name="HBoxContainer2" type="HBoxContainer" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
 margin_left = 199.0
 margin_top = 44.0
-margin_right = 642.0
+margin_right = 648.0
 margin_bottom = 75.0
 
 [node name="MouseSensitivityVal" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2"]
-margin_left = 7.0
-margin_right = 39.0
+margin_right = 45.0
 margin_bottom = 31.0
 size_flags_horizontal = 10
 custom_fonts/font = SubResource( 4 )
-text = "2.5"
+text = "0.18"
 align = 2
 valign = 1
 
 [node name="MouseSensitivitySlider" type="HSlider" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2"]
-margin_left = 43.0
-margin_right = 443.0
+margin_left = 49.0
+margin_right = 449.0
 margin_bottom = 31.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
 min_value = 0.05
-max_value = 5.0
-step = 0.1
-value = 2.5
+max_value = 0.5
+step = 0.01
+value = 0.2
 
 [connection signal="item_selected" from="SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn" to="." method="_on_DisplayOptionBtn_item_selected"]
 [connection signal="pressed" from="SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn" to="." method="_on_VsyncCheckBtn_pressed"]
+[connection signal="pressed" from="SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn" to="." method="_on_ShowFpsCheckBtn_pressed"]
 [connection signal="value_changed" from="SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider" to="." method="_on_MaxFpsSlider_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider" to="." method="_on_FovSlider_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider" to="." method="_on_MouseSensitivitySlider_value_changed"]

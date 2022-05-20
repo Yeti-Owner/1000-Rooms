@@ -22,6 +22,9 @@ func _on_MaxFpsSlider_value_changed(MaxFps):
 	$SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue.set_text(str(MaxFps))
 	Engine.set_target_fps(int(MaxFps))
 
+# Show Fps
+func _on_ShowFpsCheckBtn_pressed():
+	Settingsholder.ShowFps = !Settingsholder.ShowFps
 
 # Below is Audio Tab
 # Nothing is added lmao
@@ -31,3 +34,13 @@ func _on_MaxFpsSlider_value_changed(MaxFps):
 
 # Below is Gameplay Tab
 # Nothing is added here either lmao
+
+# Sensitivity
+func _on_MouseSensitivitySlider_value_changed(Sensitivity):
+	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal.set_text(str(Sensitivity))
+	Settingsholder.MouseSensitivity = Sensitivity
+
+# Fov
+func _on_FovSlider_value_changed(CurrentFov):
+	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal.set_text(str(CurrentFov))
+	Settingsholder.PlayerFOV = CurrentFov
