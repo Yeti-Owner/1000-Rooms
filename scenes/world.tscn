@@ -10,6 +10,8 @@
 
 [node name="world" type="Spatial"]
 
+[node name="GUI" parent="." instance=ExtResource( 5 )]
+
 [node name="walls" type="Spatial" parent="."]
 
 [node name="Wall" parent="walls" instance=ExtResource( 2 )]
@@ -61,12 +63,13 @@ transform = Transform( 6.28829e-06, 0, 0.01, 0, 2, 0, -2, 0, 3.1403e-08, -15, 2,
 transform = Transform( 6.28829e-06, 0, 0.01, 0, 2, 0, -2, 0, 3.1403e-08, -15, 2, 4 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -12, 1.65373, 0 )
+transform = Transform( -1.88589e-06, 0, -0.6, 0, 0.6, 0, 0.6, 0, -1.88589e-06, -14.5, 1, 0 )
 
 [node name="Door2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5, 0, 0 )
 
-[node name="GUI" parent="." instance=ExtResource( 5 )]
+[node name="Door3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -15, 0, 0 )
 
 [node name="Roof" parent="." instance=ExtResource( 8 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 3.999, 0 )

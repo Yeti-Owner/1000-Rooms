@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/UI/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/UI/GUI.gd" type="Script" id=3]
+[ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
 font_data = ExtResource( 2 )
 
 [node name="GUI" type="CanvasLayer"]
@@ -16,21 +21,49 @@ script = ExtResource( 3 )
 visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-custom_constants/margin_top = 25
-custom_constants/margin_left = 25
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -139.0
+margin_bottom = 120.0
+custom_constants/margin_right = 70
+custom_constants/margin_top = 40
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FpsCounter" type="Label" parent="MarginContainer"]
-margin_left = 25.0
-margin_top = 25.0
-margin_right = 94.0
-margin_bottom = 65.0
+margin_top = 60.0
+margin_right = 69.0
+margin_bottom = 100.0
 custom_fonts/font = SubResource( 1 )
 text = "Fps: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RoomNumHolder" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -211.0
+margin_bottom = 54.0
+theme = ExtResource( 4 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="RoomNumHolder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RoomNum" type="Label" parent="RoomNumHolder/CenterContainer"]
+margin_left = 12.0
+margin_top = 4.0
+margin_right = 199.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 2 )
+text = "Room: 1000"
+align = 1
