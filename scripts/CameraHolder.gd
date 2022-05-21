@@ -14,5 +14,5 @@ func _input(event: InputEvent) -> void:
 		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
 		_camera.rotation_degrees.x = clamp(_camera.rotation_degrees.x, -89.9, 89.9)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$Camera.set_fov(Settingsholder.PlayerFOV)

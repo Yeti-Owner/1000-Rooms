@@ -37,4 +37,4 @@ func _on_OptionsBtn_pressed():
 func _on_StartMenuBtn_pressed():
 	self.isPaused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().change_scene("res://scenes/StartMenu.tscn")
+	var _error = get_tree().change_scene("res://scenes/StartMenu.tscn")
