@@ -79,4 +79,4 @@ process_material = SubResource( 4 )
 draw_pass_1 = SubResource( 3 )
 
 [node name="OmniLight" type="OmniLight" parent="Flame"]
-omni_range = 12.0
+omni_range = 13.0

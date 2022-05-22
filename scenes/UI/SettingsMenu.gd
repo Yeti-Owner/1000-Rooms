@@ -3,6 +3,8 @@ var VsyncEnabled = 0
 
 # Below is Video tab
 # code not made: ShowFps, Bloom, Brightness
+func _ready():
+	Engine.set_target_fps(int(Settingsholder.FrameRate))
 
 # Windowed/Fullscreen option
 func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
@@ -20,7 +22,8 @@ func _on_VsyncCheckBtn_pressed():
 # Max Fps
 func _on_MaxFpsSlider_value_changed(MaxFps):
 	$SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue.set_text(str(MaxFps))
-	Engine.set_target_fps(int(MaxFps))
+	Settingsholder.FrameRate = MaxFps
+	Engine.set_target_fps(int(Settingsholder.FrameRate))
 
 # Show Fps
 func _on_ShowFpsCheckBtn_pressed():
