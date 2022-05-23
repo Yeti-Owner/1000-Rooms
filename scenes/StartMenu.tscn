@@ -101,7 +101,6 @@ custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
 [node name="SettingsMenu" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartBtn" to="." method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]

@@ -57,6 +57,7 @@ material = SubResource( 2 )
 [node name="WallTorch" type="StaticBody"]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+cast_shadow = 2
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null
@@ -79,4 +80,5 @@ process_material = SubResource( 4 )
 draw_pass_1 = SubResource( 3 )
 
 [node name="OmniLight" type="OmniLight" parent="Flame"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.912822, 1.30367 )
 omni_range = 13.0

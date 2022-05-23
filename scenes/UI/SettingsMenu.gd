@@ -47,3 +47,8 @@ func _on_MouseSensitivitySlider_value_changed(Sensitivity):
 func _on_FovSlider_value_changed(CurrentFov):
 	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal.set_text(str(CurrentFov))
 	Settingsholder.PlayerFOV = CurrentFov
+
+
+func _on_BloomCheckBtn_pressed():
+	Settingsholder.BloomSet = !Settingsholder.BloomSet
+	print(Settingsholder.BloomSet)
