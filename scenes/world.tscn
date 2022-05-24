@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/objects/walls/Wall1.tscn" type="PackedScene" id=2]
@@ -8,80 +8,85 @@
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/objects/floors/Floor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/objects/roofs/Roof.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/load_world.gd" type="Script" id=10]
 
 [node name="world" type="Spatial"]
+script = ExtResource( 10 )
 
-[node name="GUI" parent="." instance=ExtResource( 5 )]
+[node name="Fader" parent="." instance=ExtResource( 9 )]
 
-[node name="walls" type="Spatial" parent="."]
+[node name="GUI" parent="Fader" instance=ExtResource( 5 )]
 
-[node name="Wall" parent="walls" instance=ExtResource( 2 )]
+[node name="walls" type="Spatial" parent="Fader"]
+
+[node name="Wall" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 0.01, 3, 2, -5 )
 
-[node name="Wall2" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall2" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 0.01, -1, 2, -5 )
 
-[node name="Wall3" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall3" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 0.01, -5, 2, -5 )
 
-[node name="Wall4" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall4" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 0.01, -9, 2, -5 )
 
-[node name="Wall5" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall5" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 0.01, -13, 2, -5 )
 
-[node name="Wall6" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall6" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( -2, 0, -8.74228e-10, 0, 2, 0, 1.74846e-07, 0, -0.01, -13, 2, 5 )
 
-[node name="Wall7" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall7" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( -2, 0, -8.74228e-10, 0, 2, 0, 1.74846e-07, 0, -0.01, -9, 2, 5 )
 
-[node name="Wall8" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall8" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( -2.01, 0, -1.50996e-09, 0, 2, 0, 3.03502e-07, 0, -0.01, -5.00045, 2, 4.99999 )
 
-[node name="Wall9" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall9" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( -2, 0, -8.74228e-10, 0, 2, 0, 1.74846e-07, 0, -0.01, -1, 2, 5 )
 
-[node name="Wall10" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall10" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( -2, 0, -8.74228e-10, 0, 2, 0, 1.74846e-07, 0, -0.01, 3, 2, 5 )
 
-[node name="Wall11" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall11" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( 6.3777e-06, 0, -0.01, 0, 2, 0, 2, 0, 3.18978e-08, 5, 2, 4 )
 
-[node name="Wall12" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall12" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( 6.3777e-06, 0, -0.01, 0, 2, 0, 2, 0, 3.18978e-08, 5, 2, 0 )
 
-[node name="Wall13" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall13" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( 6.3777e-06, 0, -0.01, 0, 2, 0, 2, 0, 3.18978e-08, 5, 2, -4 )
 
-[node name="Wall14" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall14" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( 6.28829e-06, 0, 0.01, 0, 2, 0, -2, 0, 3.1403e-08, -15, 2, -4 )
 
-[node name="Wall15" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall15" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( 6.28829e-06, 0, 0.01, 0, 2, 0, -2, 0, 3.1403e-08, -15, 2, 0 )
 
-[node name="Wall16" parent="walls" instance=ExtResource( 2 )]
+[node name="Wall16" parent="Fader/walls" instance=ExtResource( 2 )]
 transform = Transform( 6.28829e-06, 0, 0.01, 0, 2, 0, -2, 0, 3.1403e-08, -15, 2, 4 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="Fader" instance=ExtResource( 3 )]
 transform = Transform( -1.88589e-06, 0, -0.6, 0, 0.6, 0, 0.6, 0, -1.88589e-06, -14.5, 1, 0 )
 
-[node name="Door2" parent="." instance=ExtResource( 4 )]
+[node name="Door2" parent="Fader" instance=ExtResource( 4 )]
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5, 0, 0 )
 
-[node name="Door3" parent="." instance=ExtResource( 4 )]
+[node name="Door3" parent="Fader" instance=ExtResource( 4 )]
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -15, 0, 0 )
 
-[node name="Roof" parent="." instance=ExtResource( 8 )]
+[node name="Roof" parent="Fader" instance=ExtResource( 8 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 3.999, 0 )
 
-[node name="Roof2" parent="." instance=ExtResource( 8 )]
+[node name="Roof2" parent="Fader" instance=ExtResource( 8 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -10, 3.999, 0 )
 
-[node name="Floor" parent="." instance=ExtResource( 7 )]
+[node name="Floor" parent="Fader" instance=ExtResource( 7 )]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0 )
 
-[node name="WallTorch" parent="." instance=ExtResource( 6 )]
+[node name="WallTorch" parent="Fader" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.81184, 1.52849, -5.01085 )
 
-[node name="WorldEnvironment" parent="." instance=ExtResource( 1 )]
+[node name="WorldEnvironment" parent="Fader" instance=ExtResource( 1 )]

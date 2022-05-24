@@ -6,7 +6,6 @@ onready var _camera := $Camera
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$Camera.set_fov(Settingsholder.PlayerFOV)
 
 func _input(event: InputEvent) -> void:
 	mouse_sensitivity = Settingsholder.MouseSensitivity

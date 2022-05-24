@@ -36,6 +36,9 @@ func _physics_process(delta: float) -> void:
 	
 	var acc := _vel.linear_interpolate(_dir * walk_speed, acceleration_speed * delta)
 	_vel = move_and_slide(Vector3(acc.x, _vel.y, acc.z), Vector3.UP)
+	
+	# Fix FOV
+	$CameraHolder/Camera.set_fov(Settingsholder.PlayerFOV)
 
 
 

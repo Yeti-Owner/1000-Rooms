@@ -1,10 +1,17 @@
 extends Popup
-var VsyncEnabled = 0
 
 # Below is Video tab
-# code not made: ShowFps, Bloom, Brightness
+# code not made: Bloom, Brightness
 func _ready():
+	$SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue.set_text(str(Settingsholder.FrameRate))
+	$SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider.set_value(Settingsholder.FrameRate)
 	Engine.set_target_fps(int(Settingsholder.FrameRate))
+	$SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn.set_pressed_no_signal(Settingsholder.VsyncEnabled)
+	$SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn.set_pressed_no_signal(Settingsholder.ShowFps)
+	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal.set_text(str(Settingsholder.PlayerFOV))
+	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider.set_value(Settingsholder.PlayerFOV)
+	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal.set_text(str(Settingsholder.MouseSensitivity))
+	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider.set_value(Settingsholder.MouseSensitivity)
 
 # Windowed/Fullscreen option
 func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
@@ -16,8 +23,8 @@ func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
 
 # Vsync
 func _on_VsyncCheckBtn_pressed():
-	VsyncEnabled = !VsyncEnabled
-	OS.set_use_vsync(VsyncEnabled)
+	Settingsholder.VsyncEnabled = !Settingsholder.VsyncEnabled
+	OS.set_use_vsync(Settingsholder.VsyncEnabled)
 
 # Max Fps
 func _on_MaxFpsSlider_value_changed(MaxFps):
@@ -45,10 +52,9 @@ func _on_MouseSensitivitySlider_value_changed(Sensitivity):
 
 # Fov
 func _on_FovSlider_value_changed(CurrentFov):
-	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal.set_text(str(CurrentFov))
 	Settingsholder.PlayerFOV = CurrentFov
+	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal.set_text(str(CurrentFov))
 
 
 func _on_BloomCheckBtn_pressed():
 	Settingsholder.BloomSet = !Settingsholder.BloomSet
-	print(Settingsholder.BloomSet)
