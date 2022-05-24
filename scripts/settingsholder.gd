@@ -1,5 +1,7 @@
 extends Node
 
+var RoomNum = 0
+
 var ShowFps = false
 var MouseSensitivity = 0.18
 var PlayerFOV = 70
