@@ -27,6 +27,7 @@ func set_is_paused(value):
 
 func _on_ResumeBtn_pressed():
 	self.isPaused = false
+	get_tree().reload_current_scene()
 
 func _on_QuitBtn_pressed():
 	Settingsholder._save()

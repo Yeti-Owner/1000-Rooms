@@ -57,7 +57,6 @@ __meta__ = {
 }
 
 [node name="Video" type="Tabs" parent="SettingsTabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -193,9 +192,9 @@ margin_bottom = 259.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
-max_value = 2.0
-step = 0.1
-value = 1.0
+min_value = 5.0
+max_value = 15.0
+value = 5.0
 
 [node name="WarningLabel" type="Label" parent="SettingsTabs/Video"]
 anchor_top = 1.0
@@ -308,6 +307,7 @@ __meta__ = {
 }
 
 [node name="Gameplay" type="Tabs" parent="SettingsTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -415,5 +415,6 @@ __meta__ = {
 [connection signal="pressed" from="SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn" to="." method="_on_ShowFpsCheckBtn_pressed"]
 [connection signal="value_changed" from="SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider" to="." method="_on_MaxFpsSlider_value_changed"]
 [connection signal="pressed" from="SettingsTabs/Video/MarginContainer/VideoSettings/BloomCheckBtn" to="." method="_on_BloomCheckBtn_pressed"]
+[connection signal="value_changed" from="SettingsTabs/Video/MarginContainer/VideoSettings/BrightnessSlider" to="." method="_on_BrightnessSlider_value_changed"]
 [connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider" to="." method="_on_FovSlider_value_changed"]
 [connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider" to="." method="_on_MouseSensitivitySlider_value_changed"]

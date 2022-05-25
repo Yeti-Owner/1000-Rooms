@@ -1,7 +1,5 @@
 extends Popup
 
-# Below is Video tab
-# code not made: Bloom, Brightness
 
 # Cleaned up referencing
 onready var MaxFpsValue = $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue
@@ -12,6 +10,8 @@ onready var FovVal = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBo
 onready var FovSlider = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider
 onready var MouseSensitivityVal = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal
 onready var MouseSensitivitySlider = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider
+onready var BloomCheckBtn = $SettingsTabs/Video/MarginContainer/VideoSettings/BloomCheckBtn
+onready var BrightnessSlider = $SettingsTabs/Video/MarginContainer/VideoSettings/BrightnessSlider
 
 func _ready():
 	# Set FPS to correct value
@@ -26,6 +26,9 @@ func _ready():
 	FovSlider.set_value(Settingsholder.PlayerFOV)
 	MouseSensitivityVal.set_text(str(Settingsholder.MouseSensitivity))
 	MouseSensitivitySlider.set_value(Settingsholder.MouseSensitivity)
+	BloomCheckBtn.set_pressed_no_signal(Settingsholder.BloomSet)
+	BrightnessSlider.set_value(Settingsholder.Brightness)
+
 
 # Windowed/Fullscreen option
 func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
@@ -50,15 +53,6 @@ func _on_MaxFpsSlider_value_changed(MaxFps):
 func _on_ShowFpsCheckBtn_pressed():
 	Settingsholder.ShowFps = !Settingsholder.ShowFps
 
-# Below is Audio Tab
-# Nothing is added lmao
-
-# placeholder
-
-
-# Below is Gameplay Tab
-# Nothing is added here either lmao
-
 # Sensitivity
 func _on_MouseSensitivitySlider_value_changed(Sensitivity):
 	MouseSensitivityVal.set_text(str(Sensitivity))
@@ -69,6 +63,10 @@ func _on_FovSlider_value_changed(CurrentFov):
 	Settingsholder.PlayerFOV = CurrentFov
 	FovVal.set_text(str(CurrentFov))
 
-
+# Enable/Disable Bloom
 func _on_BloomCheckBtn_pressed():
 	Settingsholder.BloomSet = !Settingsholder.BloomSet
+
+# Adjust Brightness
+func _on_BrightnessSlider_value_changed(CurrentBrightness):
+	Settingsholder.Brightness = CurrentBrightness

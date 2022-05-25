@@ -6,9 +6,9 @@
 ambient_light_color = Color( 0.556863, 0.556863, 0.556863, 1 )
 ambient_light_energy = 0.5
 ambient_light_sky_contribution = 0.0
-glow_intensity = 2.95
-glow_strength = 1.31
-glow_bloom = 0.48
+glow_enabled = true
+glow_bloom = 0.15
+adjustment_enabled = true
 
 [node name="WorldEnvironment1" type="WorldEnvironment"]
 environment = SubResource( 1 )
