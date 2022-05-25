@@ -29,6 +29,7 @@ func _on_ResumeBtn_pressed():
 	self.isPaused = false
 
 func _on_QuitBtn_pressed():
+	Settingsholder._save()
 	get_tree().quit()
 
 func _on_OptionsBtn_pressed():

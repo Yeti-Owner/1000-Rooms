@@ -12,8 +12,8 @@ func _on_OptionsBtn_pressed():
 	$Fader/SettingsMenu.popup_centered()
 
 func _on_QuitBtn_pressed():
+	Settingsholder._save()
 	get_tree().quit()
 
 func on_fade_finished():
-	preload("res://scenes/world.tscn")
 	var _error = get_tree().change_scene("res://scenes/world.tscn")

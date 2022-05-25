@@ -1,6 +1,6 @@
 extends Spatial
 
-var mouse_sensitivity = Settingsholder.MouseSensitivity
+var mouse_sensitivity = float(Settingsholder.MouseSensitivity)/100
 
 onready var _camera := $Camera
 
@@ -8,7 +8,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event: InputEvent) -> void:
-	mouse_sensitivity = Settingsholder.MouseSensitivity
+	mouse_sensitivity = float(Settingsholder.MouseSensitivity)/100
 	if event is InputEventMouseMotion && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		_camera.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
 		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))

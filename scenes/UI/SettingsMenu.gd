@@ -2,16 +2,30 @@ extends Popup
 
 # Below is Video tab
 # code not made: Bloom, Brightness
+
+# Cleaned up referencing
+onready var MaxFpsValue = $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue
+onready var MaxFpsSlider = $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider
+onready var VsyncCheckBtn = $SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn
+onready var ShowFpsCheckBtn = $SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn
+onready var FovVal = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal
+onready var FovSlider = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider
+onready var MouseSensitivityVal = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal
+onready var MouseSensitivitySlider = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider
+
 func _ready():
-	$SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue.set_text(str(Settingsholder.FrameRate))
-	$SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider.set_value(Settingsholder.FrameRate)
+	# Set FPS to correct value
 	Engine.set_target_fps(int(Settingsholder.FrameRate))
-	$SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn.set_pressed_no_signal(Settingsholder.VsyncEnabled)
-	$SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn.set_pressed_no_signal(Settingsholder.ShowFps)
-	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal.set_text(str(Settingsholder.PlayerFOV))
-	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider.set_value(Settingsholder.PlayerFOV)
-	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal.set_text(str(Settingsholder.MouseSensitivity))
-	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider.set_value(Settingsholder.MouseSensitivity)
+	
+	# Set values and sliders to correct value
+	MaxFpsValue.set_text(str(Settingsholder.FrameRate))
+	MaxFpsSlider.set_value(Settingsholder.FrameRate)
+	VsyncCheckBtn.set_pressed_no_signal(Settingsholder.VsyncEnabled)
+	ShowFpsCheckBtn.set_pressed_no_signal(Settingsholder.ShowFps)
+	FovVal.set_text(str(Settingsholder.PlayerFOV))
+	FovSlider.set_value(Settingsholder.PlayerFOV)
+	MouseSensitivityVal.set_text(str(Settingsholder.MouseSensitivity))
+	MouseSensitivitySlider.set_value(Settingsholder.MouseSensitivity)
 
 # Windowed/Fullscreen option
 func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
@@ -28,7 +42,7 @@ func _on_VsyncCheckBtn_pressed():
 
 # Max Fps
 func _on_MaxFpsSlider_value_changed(MaxFps):
-	$SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue.set_text(str(MaxFps))
+	MaxFpsValue.set_text(str(MaxFps))
 	Settingsholder.FrameRate = MaxFps
 	Engine.set_target_fps(int(Settingsholder.FrameRate))
 
@@ -47,13 +61,13 @@ func _on_ShowFpsCheckBtn_pressed():
 
 # Sensitivity
 func _on_MouseSensitivitySlider_value_changed(Sensitivity):
-	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal.set_text(str(Sensitivity))
+	MouseSensitivityVal.set_text(str(Sensitivity))
 	Settingsholder.MouseSensitivity = Sensitivity
 
 # Fov
 func _on_FovSlider_value_changed(CurrentFov):
 	Settingsholder.PlayerFOV = CurrentFov
-	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal.set_text(str(CurrentFov))
+	FovVal.set_text(str(CurrentFov))
 
 
 func _on_BloomCheckBtn_pressed():

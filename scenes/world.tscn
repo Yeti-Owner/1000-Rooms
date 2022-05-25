@@ -13,6 +13,7 @@
 
 [node name="world" type="Spatial"]
 script = ExtResource( 10 )
+_room = "res://scenes/world.tscn"
 
 [node name="Fader" parent="." instance=ExtResource( 9 )]
 
