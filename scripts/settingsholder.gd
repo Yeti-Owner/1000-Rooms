@@ -12,7 +12,6 @@ var FrameRate = 60
 var BloomSet = 0
 var VsyncEnabled = 0
 var Brightness = 10
-
 var CurrentRoom = ''
 
 # Check saved data
@@ -31,9 +30,11 @@ func _ready():
 	BloomSet = file.get_8()
 	VsyncEnabled = file.get_8()
 	Brightness = file.get_8()
+	CurrentRoom = file.get_line()
 	file.close()
 
 func _save():
 	file.open(save_game, File.WRITE)
 	file.store_buffer([RoomNum, ShowFps, MouseSensitivity, PlayerFOV, FrameRate, BloomSet, VsyncEnabled, Brightness])
+	file.store_string(CurrentRoom)
 	file.close()

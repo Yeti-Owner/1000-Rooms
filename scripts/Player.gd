@@ -1,6 +1,6 @@
 extends KinematicBody
 var walk_speed := 6.0
-var jump_speed := 10.0
+var jump_speed := 8.5
 var acceleration_speed := 6.5
 var gravity := -32.0
 var _dir := Vector3.ZERO
