@@ -24,6 +24,7 @@ func set_is_paused(value):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		get_tree().reload_current_scene()
 
 func _on_ResumeBtn_pressed():
 	self.isPaused = false

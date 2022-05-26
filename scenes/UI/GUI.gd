@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _ready():
 	$RoomNumHolder/CenterContainer/RoomNum.set_text("Room: " + str(Settingsholder.RoomNum))

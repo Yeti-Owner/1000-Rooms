@@ -39,9 +39,3 @@ func _physics_process(delta: float) -> void:
 	
 	# Fix FOV
 	$CameraHolder/Camera.set_fov(Settingsholder.PlayerFOV)
-
-
-
-
-
-

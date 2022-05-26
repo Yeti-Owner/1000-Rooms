@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://interactable/Interactable.gd"
+} ]
+_global_script_class_icons={
+"Interactable": ""
+}
+
 [application]
 
 config/name="1000-Rooms"
