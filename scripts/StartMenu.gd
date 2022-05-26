@@ -19,7 +19,7 @@ func _on_QuitBtn_pressed():
 	get_tree().quit()
 
 func on_fade_finished():
-	var _error = get_tree().change_scene("res://scenes/world.tscn")
+	var _error = get_tree().change_scene(Settingsholder.CurrentRoom)
 
 
 func _on_ClearSave_pressed():

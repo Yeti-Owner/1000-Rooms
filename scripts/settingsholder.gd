@@ -11,8 +11,8 @@ var PlayerFOV = 70
 var FrameRate = 60
 var BloomSet = 0
 var VsyncEnabled = 0
-var Brightness = 10
-var CurrentRoom = ""
+var Brightness = 6
+var CurrentRoom = "res://scenes/world.tscn"
 
 # Check saved data
 func _ready():
