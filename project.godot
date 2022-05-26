@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Settingsholder="*res://scripts/settingsholder.gd"
+RoomLoader="*res://scripts/RoomLoader.gd"
 
 [display]
 

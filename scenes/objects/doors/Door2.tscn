@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/3D models/doors/Door2.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/textures/general/Wood076_1K_Color.jpg" type="Texture" id=2]
@@ -13,7 +13,7 @@ data = PoolVector3Array( -0.03, 0, 0.4, 0.03, 0, 0.4, -0.03, 0, 0.2905, -0.03, 0
 [sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/path = NodePath("..:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -24,23 +24,11 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, -0.399813 ) ]
-}
 
 [sub_resource type="Animation" id=4]
 resource_name = "opening"
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/path = NodePath("..:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -49,32 +37,39 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -90, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, -0.4 ), Vector3( 0.152, 0, -0.39 ), Vector3( 0.262452, 0, -0.305 ), Vector3( 0.37, 0, -0.208 ), Vector3( 0.4, 0, -0.03 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 90, 0 ) ]
 }
 
-[node name="Door2" type="MeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.399813 )
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=5]
+material = SubResource( 6 )
+size = Vector3( 0.05, 1.99, 0.79 )
+
+[node name="Pivot" type="Spatial"]
+
+[node name="Door2" type="Spatial" parent="."]
+
+[node name="Door2" type="MeshInstance" parent="Door2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4 )
 mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
 material/0 = SubResource( 2 )
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="StaticBody" type="StaticBody" parent="Door2/Door2"]
 script = ExtResource( 3 )
 
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Door2/Door2/StaticBody"]
 shape = SubResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Door2/Door2"]
 anims/RESET = SubResource( 3 )
 anims/opening = SubResource( 4 )
+
+[node name="Backside" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Backside"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, 1, -0.4 )
+mesh = SubResource( 5 )
+material/0 = null

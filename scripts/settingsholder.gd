@@ -12,7 +12,7 @@ var FrameRate = 60
 var BloomSet = 0
 var VsyncEnabled = 0
 var Brightness = 10
-var CurrentRoom = ''
+var CurrentRoom = ""
 
 # Check saved data
 func _ready():

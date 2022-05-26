@@ -55,6 +55,7 @@ albedo_texture = ExtResource( 3 )
 material = SubResource( 2 )
 
 [node name="WallTorch" type="StaticBody"]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 cast_shadow = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/tilesets/YGAWFUYGAWFUYG.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://assets/tilesets/Meshlib1.meshlib" type="MeshLibrary" id=1]
 
 [node name="GridMap1" type="GridMap"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
@@ -8,9 +8,9 @@ mesh_library = ExtResource( 1 )
 cell_size = Vector3( 2, 1, 1 )
 cell_center_y = false
 data = {
-"cells": PoolIntArray( 196612, 1, 1441794, 262130, 1, 1048578, 196608, 4, 655362, 196611, 4, 655362, 262129, 4, 655362, 262132, 4, 655362, 262135, 4, 655362, 262138, 4, 655362, 262141, 4, 655362, 196608, 65528, 2, 196611, 65528, 2, 262129, 65528, 2, 262132, 65528, 2, 262135, 65528, 2, 262138, 65528, 2, 262141, 65528, 2, 196612, 65531, 1441794, 262130, 65531, 1048578, 1, 65534, 786432, 65525, 65534, 786432, 65531, 65534, 786432, 393217, 65534, 262145, 458741, 65534, 262145, 458747, 65534, 262145 )
+"cells": PoolIntArray(  )
 }
 __meta__ = {
 "_editor_clip_": 0,
-"_editor_floor_": Vector3( 0, 6, 0 )
+"_editor_floor_": Vector3( 0, 0, 0 )
 }

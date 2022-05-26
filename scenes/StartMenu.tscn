@@ -81,27 +81,36 @@ custom_constants/margin_top = 140
 
 [node name="StartBtn" type="Button" parent="Fader/MarginContainer/VBoxContainer"]
 margin_top = 228.0
-margin_right = 200.0
+margin_right = 250.0
 margin_bottom = 290.0
-rect_min_size = Vector2( 200, 0 )
+rect_min_size = Vector2( 250, 0 )
 size_flags_horizontal = 2
 custom_fonts/font = SubResource( 2 )
 text = "Start"
 
 [node name="OptionsBtn" type="Button" parent="Fader/MarginContainer/VBoxContainer"]
 margin_top = 294.0
-margin_right = 200.0
+margin_right = 250.0
 margin_bottom = 356.0
-rect_min_size = Vector2( 200, 0 )
+rect_min_size = Vector2( 250, 0 )
 size_flags_horizontal = 2
 custom_fonts/font = SubResource( 2 )
 text = "Options"
 
-[node name="QuitBtn" type="Button" parent="Fader/MarginContainer/VBoxContainer"]
+[node name="ClearSave" type="Button" parent="Fader/MarginContainer/VBoxContainer"]
 margin_top = 360.0
-margin_right = 200.0
+margin_right = 250.0
 margin_bottom = 422.0
-rect_min_size = Vector2( 200, 0 )
+rect_min_size = Vector2( 250, 0 )
+size_flags_horizontal = 2
+custom_fonts/font = SubResource( 2 )
+text = "Clear Save"
+
+[node name="QuitBtn" type="Button" parent="Fader/MarginContainer/VBoxContainer"]
+margin_top = 426.0
+margin_right = 250.0
+margin_bottom = 488.0
+rect_min_size = Vector2( 250, 0 )
 size_flags_horizontal = 2
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
@@ -111,4 +120,5 @@ show_behind_parent = true
 
 [connection signal="pressed" from="Fader/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="Fader/MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]
+[connection signal="pressed" from="Fader/MarginContainer/VBoxContainer/ClearSave" to="." method="_on_ClearSave_pressed"]
 [connection signal="pressed" from="Fader/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
