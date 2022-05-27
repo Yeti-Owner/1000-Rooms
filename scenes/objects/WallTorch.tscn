@@ -72,7 +72,7 @@ shape = SubResource( 1 )
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.813805, 0.62 )
 
 [node name="Particles" type="Particles" parent="Flame"]
-amount = 100
+amount = 200
 lifetime = 0.5
 randomness = 1.0
 local_coords = false

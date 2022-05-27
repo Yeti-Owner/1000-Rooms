@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=8]
+[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=9]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 8 )
@@ -33,3 +34,5 @@ cell_size = Vector3( 3, 1, 1 )
 data = {
 "cells": PoolIntArray( 196629, 1, 1441794, 262141, 1, 1048578, 196608, 4, 655362, 196610, 4, 655362, 196612, 4, 655362, 196614, 4, 655362, 196616, 4, 655362, 196618, 4, 655362, 196620, 4, 655362, 196622, 4, 655362, 196624, 4, 655362, 196626, 4, 655362, 196628, 4, 655362, 262142, 4, 655362, 196608, 65528, 2, 196610, 65528, 2, 196612, 65528, 2, 196614, 65528, 2, 196616, 65528, 2, 196618, 65528, 2, 196620, 65528, 2, 196622, 65528, 2, 196624, 65528, 2, 196626, 65528, 2, 196628, 65528, 2, 262142, 65528, 2, 196629, 65531, 1441794, 262141, 65531, 1048578, 3, 65534, 786432, 7, 65534, 786432, 11, 65534, 786432, 15, 65534, 786432, 19, 65534, 786432, 65535, 65534, 786432, 393219, 65534, 262145, 393223, 65534, 262145, 393227, 65534, 262145, 393231, 65534, 262145, 393235, 65534, 262145, 458751, 65534, 262145 )
 }
+
+[node name="console" parent="." instance=ExtResource( 9 )]

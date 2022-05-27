@@ -6,7 +6,7 @@ var gravity := -32.0
 var _dir := Vector3.ZERO
 var _vel := Vector3.ZERO
 onready var _camera := $CameraHolder
-
+onready var anim_player = $CameraHolder/Camera/AnimationPlayer
 
 func _physics_process(delta: float) -> void:
 	var input := Vector2.ZERO
@@ -36,6 +36,9 @@ func _physics_process(delta: float) -> void:
 	
 	var acc := _vel.linear_interpolate(_dir * walk_speed, acceleration_speed * delta)
 	_vel = move_and_slide(Vector3(acc.x, _vel.y, acc.z), Vector3.UP)
+	
+	if _dir != Vector3():
+		anim_player.play("Head Bob")
 	
 	# Fix FOV
 	$CameraHolder/Camera.set_fov(Settingsholder.PlayerFOV)

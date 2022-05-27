@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Gridmaps/GridMap1.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=9]
+[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=10]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 9 )
@@ -26,6 +27,12 @@ transform = Transform( -1.57158e-06, 0, 0.5, 0, 0.5, 0, -0.5, 0, -1.57158e-06, 0
 [node name="WallTorch" parent="Fader" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6, 1.1, -0.8 )
 
+[node name="WallTorch3" parent="Fader" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 1.1, -0.8 )
+
+[node name="WallTorch2" parent="Fader" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -13, 1.1, 11.2 )
+
 [node name="Pivot" parent="Fader" instance=ExtResource( 7 )]
 transform = Transform( -3.14315e-06, 0, -1, 0, 1, 0, 1, 0, -3.14315e-06, -11.4, 0, 11.24 )
 
@@ -37,3 +44,5 @@ cell_size = Vector3( 3, 1, 1 )
 data = {
 "cells": PoolIntArray( 196608, 1, 1441794, 262134, 1, 1048578, 65526, 4, 786432, 65530, 4, 786432, 65534, 4, 786432, 458742, 4, 262145, 458746, 4, 262145, 458750, 4, 262145, 196608, 7, 1441794, 262134, 7, 1048578, 262139, 10, 655362, 262141, 10, 655362, 262143, 10, 655362, 262134, 13, 1048578, 262138, 13, 1441794, 65526, 16, 786432, 65530, 16, 786432, 458742, 16, 262145, 458746, 16, 262145, 262134, 19, 1048578, 262138, 19, 1441794, 262135, 22, 655362, 262137, 22, 655362, 262135, 65534, 2, 262137, 65534, 2, 262139, 65534, 2, 262141, 65534, 2, 262143, 65534, 2 )
 }
+
+[node name="console" parent="." instance=ExtResource( 10 )]
