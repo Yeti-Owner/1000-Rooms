@@ -19,11 +19,12 @@ func _unhandled_input(event):
 
 func _on_console_text_entered(cmd):
 	cmd = cmd.split(" ")
-	if cmd[0] == "print":
-		print(cmd[1])
-	if cmd[0] == "goto":
-		get_tree().change_scene(str("res://scenes/rooms/100/room" + cmd[1] + ".tscn"))
-		# res://scenes/rooms/100/room1.tscn
-	if cmd[0] == "room":
-		Settingsholder.RoomNum = int(cmd[1])
+	if cmd[0] == "BB":
+		if cmd[1] == "print":
+			print(cmd[2])
+		if cmd[1] == "goto":
+			get_tree().change_scene(str("res://scenes/rooms/100/room" + cmd[2] + ".tscn"))
+			# res://scenes/rooms/100/room1.tscn
+		if cmd[1] == "room":
+			Settingsholder.RoomNum = int(cmd[2])
 	
