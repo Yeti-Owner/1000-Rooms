@@ -1,7 +1,7 @@
 extends Control
 var isPaused = false setget set_is_paused
-onready var VCont = $VBoxContainer
 
+onready var VCont = $VBoxContainer
 
 func _ready():
 	# Math to center the pause menu based off window size
@@ -36,6 +36,7 @@ func _on_QuitBtn_pressed():
 
 func _on_OptionsBtn_pressed():
 	$SettingsMenu.popup_centered()
+
 
 func _on_StartMenuBtn_pressed():
 	self.isPaused = false

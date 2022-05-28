@@ -27,4 +27,6 @@ func _on_console_text_entered(cmd):
 			# res://scenes/rooms/100/room1.tscn
 		if cmd[1] == "room":
 			Settingsholder.RoomNum = int(cmd[2])
+		if cmd[1] == "hp":
+			Settingsholder.PlayerHP = int(cmd[2])
 	

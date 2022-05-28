@@ -5,8 +5,12 @@ var acceleration_speed := 6.5
 var gravity := -32.0
 var _dir := Vector3.ZERO
 var _vel := Vector3.ZERO
+var SubtractStam
+
+# References
 onready var _camera := $CameraHolder
 onready var anim_player = $CameraHolder/Camera/AnimationPlayer
+onready var Stamina = get_parent().get_node("GUI/HPandStam/HBoxContainer2/StamBar")
 
 func _physics_process(delta: float) -> void:
 	var input := Vector2.ZERO
@@ -19,7 +23,13 @@ func _physics_process(delta: float) -> void:
 		input.x += 1
 	if Input.is_action_pressed("left"):
 		input.x -= 1
-	
+	if Input.is_action_pressed("sprint") && Stamina.get_value() > 0:
+		walk_speed = 9.0
+		SubtractStam = Stamina.get_value()
+		SubtractStam = SubtractStam - 0.4
+		Stamina.set_value(SubtractStam)
+	else:
+		walk_speed = 6.0
 	input = input.normalized()
 	
 	if is_on_floor():
