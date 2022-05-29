@@ -32,3 +32,6 @@ func _on_console_text_entered(cmd):
 			print(Settingsholder.JumpScareAmt)
 		elif cmd[1] == "scare":
 			Settingsholder.JumpScareAmt = int(cmd[2])
+	elif cmd[0] == "close":
+		self.set_visible(false)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=8]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/objects/signs/JumpScareSign3.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/objects/signs/JumpScareSign8.tscn" type="PackedScene" id=11]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 8 )
@@ -24,7 +26,7 @@ _room = "res://scenes/rooms/100/room8.tscn"
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.38211, 0.77414, -0.302073 )
 
 [node name="Pivot" parent="Fader" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.198, 0, 8.28 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.802, 0, 8.28 )
 
 [node name="WallTorch5" parent="Fader" instance=ExtResource( 7 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.3, 1.2839, -15.7437 )
@@ -49,6 +51,12 @@ transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 1
 
 [node name="WallTorch12" parent="Fader" instance=ExtResource( 7 )]
 transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, -15.7, 1.36262, -0.7 )
+
+[node name="JumpScareSign1" parent="Fader" instance=ExtResource( 10 )]
+transform = Transform( -2.1, -1.83588e-07, -1.83588e-07, 1.83588e-07, -2.1, -1.27055e-21, 1.83588e-07, 1.60498e-14, -2.1, -2.62876, 3.55497, 7.66141 )
+
+[node name="JumpScareSign2" parent="Fader" instance=ExtResource( 11 )]
+transform = Transform( 2.1, 1.83588e-07, -1.83588e-07, 1.83588e-07, -2.1, 0, 1.83588e-07, 1.60498e-14, 2.1, 1, 4.7081, -9.64201 )
 
 [node name="GridMap1" parent="." instance=ExtResource( 4 )]
 cell_size = Vector3( 3, 1, 1 )

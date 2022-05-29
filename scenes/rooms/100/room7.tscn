@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=8]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/objects/signs/JumpScareSign6.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/objects/signs/JumpScareSign1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/objects/signs/JumpScareSign4.tscn" type="PackedScene" id=12]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 8 )
@@ -49,6 +52,15 @@ transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 1
 
 [node name="WallTorch4" parent="Fader" instance=ExtResource( 7 )]
 transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, -15.7, 1.36262, -0.7 )
+
+[node name="JumpScareSign1" parent="Fader" instance=ExtResource( 10 )]
+transform = Transform( -1.27279, -0.989949, 0, 1.27279, -0.989949, 0, 0, 0, 1.4, 2.35181, 2.09495, -9.01943 )
+
+[node name="JumpScareSign2" parent="Fader" instance=ExtResource( 11 )]
+transform = Transform( -1.22392e-07, -2.8, 0, 2.8, -1.22392e-07, 0, 0, 0, 2.8, 14.2879, 1.58725, -7.32415 )
+
+[node name="JumpScareSign3" parent="Fader" instance=ExtResource( 12 )]
+transform = Transform( 1.05697e-07, 9.24033e-15, 1.4, -1.22392e-07, 1.4, 0, 1.4, 1.22392e-07, -1.05697e-07, -4.4395, -0.131163, 9.05825 )
 
 [node name="GridMap1" parent="." instance=ExtResource( 4 )]
 cell_size = Vector3( 3, 1, 1 )
