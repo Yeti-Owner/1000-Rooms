@@ -13,7 +13,9 @@ var BloomSet = 0
 var VsyncEnabled = 0
 var Brightness = 6
 var PlayerHP = 100
+var JumpScareAmt = 0
 var CurrentRoom = "res://scenes/world.tscn"
+
 
 # Check saved data
 func _ready():
@@ -32,11 +34,12 @@ func _ready():
 	VsyncEnabled = file.get_8()
 	Brightness = file.get_8()
 	PlayerHP = file.get_8()
+	JumpScareAmt = file.get_8()
 	CurrentRoom = file.get_line()
 	file.close()
 
 func _save():
 	file.open(save_game, File.WRITE)
-	file.store_buffer([RoomNum, ShowFps, MouseSensitivity, PlayerFOV, FrameRate, BloomSet, VsyncEnabled, Brightness, PlayerHP])
+	file.store_buffer([RoomNum, ShowFps, MouseSensitivity, PlayerFOV, FrameRate, BloomSet, VsyncEnabled, Brightness, PlayerHP, JumpScareAmt])
 	file.store_string(CurrentRoom)
 	file.close()

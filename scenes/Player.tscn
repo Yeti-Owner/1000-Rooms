@@ -75,3 +75,9 @@ spot_angle = 48.2042
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CameraHolder/Camera"]
 "anims/Head Bob" = SubResource( 3 )
 anims/RESET = SubResource( 4 )
+
+[node name="PlayerArea" type="Area" parent="."]
+
+[node name="CollisionShape2" type="CollisionShape" parent="PlayerArea"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )

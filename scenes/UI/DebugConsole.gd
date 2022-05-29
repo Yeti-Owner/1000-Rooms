@@ -2,7 +2,6 @@ extends Control
 
 var isActive = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	self.set_visible(false)
 
@@ -22,11 +21,14 @@ func _on_console_text_entered(cmd):
 	if cmd[0] == "BB":
 		if cmd[1] == "print":
 			print(cmd[2])
-		if cmd[1] == "goto":
+		elif cmd[1] == "goto":
 			get_tree().change_scene(str("res://scenes/rooms/100/room" + cmd[2] + ".tscn"))
 			# res://scenes/rooms/100/room1.tscn
-		if cmd[1] == "room":
+		elif cmd[1] == "room":
 			Settingsholder.RoomNum = int(cmd[2])
-		if cmd[1] == "hp":
+		elif cmd[1] == "hp":
 			Settingsholder.PlayerHP = int(cmd[2])
-	
+		elif cmd[1] == "jumpscare?":
+			print(Settingsholder.JumpScareAmt)
+		elif cmd[1] == "scare":
+			Settingsholder.JumpScareAmt = int(cmd[2])
