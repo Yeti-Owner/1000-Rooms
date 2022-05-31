@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bass1.wav-bbc68a6bea3666f1086b7f939f83a57e.sample"
+
+[deps]
+
+source_file="res://assets/audio/scary/Bass1.wav"
+dest_files=[ "res://.import/Bass1.wav-bbc68a6bea3666f1086b7f939f83a57e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -12,7 +12,8 @@ func _jumpscare():
 	get_node("CollisionShape").set_deferred("disabled",  false)
 	HasNotJumpScared = !HasNotJumpScared
 	Settingsholder.JumpScareAmt = 0
-	# play scary sound ig (placeholder)
+	get_parent().get_node("ScarePlayer")._scare_sound()
+	
 
 func _on_Area_area_entered(area):
 	if area.name == "PlayerArea" && HasNotJumpScared:

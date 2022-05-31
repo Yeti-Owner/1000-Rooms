@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Victima1.mp3-9ffda3073af71839298219e52b9c15ca.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Victima1.mp3"
+dest_files=[ "res://.import/Victima1.mp3-9ffda3073af71839298219e52b9c15ca.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

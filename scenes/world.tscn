@@ -40,8 +40,6 @@ transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 7.2882, 1.12849, -2.8108
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.3 )
 skeleton = NodePath("../..")
 
-[node name="console" parent="Fader" instance=ExtResource( 8 )]
-
 [node name="JumpScareSign1" parent="Fader" instance=ExtResource( 11 )]
 transform = Transform( -4.40042e-06, 6.11547e-08, -1.4, 1.4, 1.31234e-05, -4.40042e-06, 1.31234e-05, -1.4, -6.11959e-08, 15.95, 1.37888, 3.76604 )
 
@@ -50,6 +48,8 @@ transform = Transform( 4.40041e-06, 6.1182e-08, -1.4, 1.4, -4.44492e-06, 4.40041
 
 [node name="JumpScareSign3" parent="Fader" instance=ExtResource( 13 )]
 transform = Transform( -6.11959e-08, -5.34992e-15, -1.4, -1.22392e-07, 1.4, 0, -1.4, -1.22392e-07, 6.11959e-08, 21.4, -0.1, 0 )
+
+[node name="console" parent="Fader" instance=ExtResource( 8 )]
 
 [node name="GridMap1" parent="." instance=ExtResource( 2 )]
 data = {

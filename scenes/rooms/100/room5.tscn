@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/objects/signs/JumpScareSign5.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/signs/JumpScareSign8.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=13]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 9 )
@@ -46,6 +47,8 @@ transform = Transform( 2.82884e-06, -0.7, 1.38312e-11, -0.9, -2.20021e-06, -4.40
 
 [node name="JumpScareSign2" parent="Fader" instance=ExtResource( 12 )]
 transform = Transform( -0.554509, -3.48584e-06, 1.2855, 8.80083e-06, -1.4, -2.76623e-11, -1.2855, -8.08106e-06, -0.554509, -9.7, 3.4, 5.4 )
+
+[node name="ScarePlayer" parent="Fader" instance=ExtResource( 13 )]
 
 [node name="GridMap1" parent="." instance=ExtResource( 4 )]
 cell_size = Vector3( 3, 1, 1 )

@@ -2,6 +2,7 @@ extends Control
 var isPaused = false setget set_is_paused
 
 onready var VCont = $VBoxContainer
+onready var ClickPlayer = $SettingsMenu/ClickPlayer
 
 func _ready():
 	# Math to center the pause menu based off window size
@@ -24,21 +25,23 @@ func set_is_paused(value):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-#		get_tree().reload_current_scene()
 
 func _on_ResumeBtn_pressed():
+	ClickPlayer._click_sound()
 	self.isPaused = false
-#	get_tree().reload_current_scene()
 
 func _on_QuitBtn_pressed():
+	ClickPlayer._click_sound()
 	Settingsholder._save()
 	get_tree().quit()
 
 func _on_OptionsBtn_pressed():
+	ClickPlayer._click_sound()
 	$SettingsMenu.popup_centered()
 
 
 func _on_StartMenuBtn_pressed():
+	ClickPlayer._click_sound()
 	self.isPaused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var _error = get_tree().change_scene("res://scenes/StartMenu.tscn")

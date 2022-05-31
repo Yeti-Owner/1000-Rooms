@@ -35,3 +35,7 @@ func _on_console_text_entered(cmd):
 	elif cmd[0] == "close":
 		self.set_visible(false)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	elif cmd[0] == "stuck":
+		get_tree().reload_current_scene()
+	elif cmd[0] == "p":
+		get_parent().get_node("ScarePlayer")._scare_sound()

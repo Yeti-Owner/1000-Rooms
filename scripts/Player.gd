@@ -23,17 +23,24 @@ func _physics_process(delta: float) -> void:
 		input.x += 1
 	if Input.is_action_pressed("left"):
 		input.x -= 1
-	if Input.is_action_pressed("sprint") && Stamina.get_value() > 0:
-		walk_speed = 9.0
+	if Input.is_action_just_pressed("sprint"):
 		SubtractStam = Stamina.get_value()
-		SubtractStam = SubtractStam - 0.4
+		SubtractStam = SubtractStam - 7.5
+		Stamina.set_value(SubtractStam)
+	if Input.is_action_pressed("sprint") && Stamina.get_value() > 0:
+		walk_speed = 7.5
+		SubtractStam = Stamina.get_value()
+		SubtractStam = SubtractStam - 0.3
 		Stamina.set_value(SubtractStam)
 	else:
 		walk_speed = 6.0
 	input = input.normalized()
 	
 	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") && Stamina.get_value() > 10:
+			SubtractStam = Stamina.get_value()
+			SubtractStam = SubtractStam - 10
+			Stamina.set_value(SubtractStam)
 			_vel.y = jump_speed
 	
 	_vel.y += gravity * delta

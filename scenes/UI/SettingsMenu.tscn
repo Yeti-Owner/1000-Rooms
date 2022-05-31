@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/UI/SettingsMenu.gd" type="Script" id=2]
 [ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/audio/ClickPlayer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -17,6 +18,10 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 25
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -251,9 +256,8 @@ margin_bottom = 32.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
-min_value = -50.0
-max_value = 25.0
-value = -10.0
+max_value = 55.0
+value = 25.0
 
 [node name="MusicVolLabel" type="Label" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
 margin_top = 45.0
@@ -270,9 +274,8 @@ margin_bottom = 77.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
-min_value = -50.0
-max_value = 25.0
-value = -10.0
+max_value = 75.0
+value = 50.0
 
 [node name="SfxVolLabel" type="Label" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
 margin_top = 90.0
@@ -289,19 +292,28 @@ margin_bottom = 122.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
-min_value = -50.0
-max_value = 25.0
-value = -10.0
+max_value = 60.0
+value = 50.0
 
 [node name="WarningLabel2" type="Label" parent="SettingsTabs/Audio"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -27.0
+margin_top = -32.0
 custom_fonts/font = SubResource( 5 )
 text = "Some changes only take effect on restart or loading"
 align = 1
-valign = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WarningLabel" type="Label" parent="SettingsTabs/Audio"]
+anchor_right = 1.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 6 )
+text = "BE VERY CAREFUL ADJUSTING AUDIO, JUMPSCARES CAN GET LOUD"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -410,11 +422,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ClickPlayer" parent="." instance=ExtResource( 4 )]
+
+[connection signal="tab_changed" from="SettingsTabs" to="." method="_on_SettingsTabs_tab_changed"]
 [connection signal="item_selected" from="SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn" to="." method="_on_DisplayOptionBtn_item_selected"]
 [connection signal="pressed" from="SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn" to="." method="_on_VsyncCheckBtn_pressed"]
 [connection signal="pressed" from="SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn" to="." method="_on_ShowFpsCheckBtn_pressed"]
 [connection signal="value_changed" from="SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider" to="." method="_on_MaxFpsSlider_value_changed"]
 [connection signal="pressed" from="SettingsTabs/Video/MarginContainer/VideoSettings/BloomCheckBtn" to="." method="_on_BloomCheckBtn_pressed"]
 [connection signal="value_changed" from="SettingsTabs/Video/MarginContainer/VideoSettings/BrightnessSlider" to="." method="_on_BrightnessSlider_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolSlider" to="." method="_on_MasterVolSlider_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolSlider" to="." method="_on_MusicVolSlider_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider" to="." method="_on_SfxVolSlider_value_changed"]
 [connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider" to="." method="_on_FovSlider_value_changed"]
 [connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider" to="." method="_on_MouseSensitivitySlider_value_changed"]
