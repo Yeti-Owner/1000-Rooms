@@ -169,5 +169,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/fg = SubResource( 6 )
 custom_styles/bg = SubResource( 7 )
+max_value = 150.0
 value = 50.0
 percent_visible = false

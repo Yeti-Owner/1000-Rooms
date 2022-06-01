@@ -2,6 +2,7 @@ extends Interactable
 
 onready var AnimPlayer = get_parent().get_node("AnimationPlayer")
 onready var fader = get_parent().get_parent().get_parent().get_parent()
+onready var DoorSound = get_parent().get_node("DoorSound")
 var InteractedWith = 0
 
 func _ready():
@@ -12,9 +13,12 @@ func get_interaction_text():
 
 func interact():
 	AnimPlayer.play("opening")
+	DoorSound.pitch_scale = rand_range(0.85, 1.15)
+	DoorSound.play()
 	fader._fade_out()
 	InteractedWith = 1
 
 func on_fade_finished():
 	if InteractedWith:
 		RoomLoader._get_next_room()
+

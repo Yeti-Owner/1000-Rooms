@@ -24,7 +24,7 @@ _room = "res://scenes/rooms/100/room8.tscn"
 [node name="GUI" parent="Fader" instance=ExtResource( 1 )]
 
 [node name="Player" parent="Fader" instance=ExtResource( 5 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.38211, 0.77414, -0.302073 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.382, 0.679, -0.302 )
 
 [node name="Pivot" parent="Fader" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.802, 0, 8.28 )

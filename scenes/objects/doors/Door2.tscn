@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/3D models/doors/Door2.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/textures/general/Wood076_1K_Color.jpg" type="Texture" id=2]
 [ext_resource path="res://interactable/InteractableDoor.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/misc/doors/DoorOpen1.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 2 )
@@ -66,6 +67,11 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Door2/Door2"]
 anims/RESET = SubResource( 3 )
 anims/opening = SubResource( 4 )
+
+[node name="DoorSound" type="AudioStreamPlayer" parent="Door2/Door2"]
+stream = ExtResource( 4 )
+volume_db = -0.5
+bus = "SfxBus"
 
 [node name="Backside" type="Spatial" parent="."]
 
