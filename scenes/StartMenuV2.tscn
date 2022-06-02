@@ -1,0 +1,413 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://scenes/Gridmaps/GridMap1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=5]
+[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scripts/StartMenuCamera.gd" type="Script" id=7]
+[ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/UI/SettingsMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=12]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -4.5, 25.358, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.95714, 2.086, 11.7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "loc1"
+length = 10.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -4.5, 55.358, 0 ), Vector3( -4.5, 25.358, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -23.686, 2.086, 18.111 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 9, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "loc2"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -11.5166, 2.086, 11.7 ), Vector3( 1.95714, 2.086, 11.7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -10, 0 ), Vector3( 0, 10, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 9, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "loc3"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 17.0282, 0.774781, 11.7 ), Vector3( 21.0823, 0.774781, 15.0631 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 13.301, 0, 0 ), Vector3( 13.301, -90, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 9, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "loc4"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 53.209, 1.569, 29.826 ), Vector3( 53.209, 0.988, 16.22 ), Vector3( 53.2092, 1.58959, 0.853768 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -22.394, 0, 0 ), Vector3( 3.705, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 9, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 85
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+font_data = ExtResource( 6 )
+
+[node name="StartMenuV2" type="CanvasLayer"]
+
+[node name="CustomFader" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rooms" type="Spatial" parent="CustomFader"]
+
+[node name="GridMap1" parent="CustomFader/Rooms" instance=ExtResource( 1 )]
+cell_size = Vector3( 3, 1, 1 )
+data = {
+"cells": PoolIntArray( 196609, 0, 2, 196618, 0, 2, 196620, 0, 2, 196642, 0, 2, 196644, 0, 2, 262135, 0, 2, 262137, 0, 2, 262143, 0, 2, 262117, 1, 2, 262119, 1, 2, 262121, 1, 2, 262123, 1, 2, 262125, 1, 2, 262127, 1, 2, 196610, 3, 1441794, 196617, 3, 1048578, 196621, 3, 1441794, 196641, 3, 1048578, 196645, 3, 1441794, 262134, 3, 1048578, 262138, 3, 1441794, 262142, 3, 1048578, 262116, 4, 1048578, 262128, 4, 1441794, 0, 6, 786432, 11, 6, 786432, 35, 6, 786432, 65528, 6, 786432, 393216, 6, 262145, 393227, 6, 262145, 393251, 6, 262145, 458744, 6, 262145, 65510, 7, 786432, 65514, 7, 786432, 65518, 7, 786432, 458726, 7, 262145, 458730, 7, 262145, 458734, 7, 262145, 196610, 9, 1441794, 196617, 9, 1048578, 196621, 9, 1441794, 196641, 9, 1048578, 196645, 9, 1441794, 262134, 9, 1048578, 262138, 9, 1441794, 262142, 9, 1048578, 262116, 10, 1048578, 262128, 10, 1441794, 262139, 12, 2, 262141, 12, 2, 262121, 13, 655362, 262123, 13, 655362, 196610, 15, 1441794, 196617, 15, 1048578, 196621, 15, 1441794, 196641, 15, 1048578, 196645, 15, 1441794, 262134, 15, 1048578, 262116, 16, 1048578, 262120, 16, 1441794, 262124, 16, 1048578, 262128, 16, 1441794, 0, 18, 786432, 11, 18, 786432, 35, 18, 786432, 65528, 18, 786432, 65532, 18, 786432, 393216, 18, 262145, 393227, 18, 262145, 393251, 18, 262145, 458744, 18, 262145, 458748, 18, 262145, 65510, 19, 786432, 65518, 19, 786432, 458726, 19, 262145, 458734, 19, 262145, 196610, 21, 1441794, 196617, 21, 1048578, 196621, 21, 1441794, 196641, 21, 1048578, 196645, 21, 1441794, 262134, 21, 1048578, 262116, 22, 1048578, 262120, 22, 1441794, 262124, 22, 1048578, 262128, 22, 1441794, 196609, 24, 655362, 196622, 24, 2, 196624, 24, 2, 196626, 24, 2, 196628, 24, 2, 262135, 24, 655362, 262137, 24, 655362, 262139, 24, 655362, 262141, 24, 655362, 262143, 24, 655362, 262121, 25, 2, 262123, 25, 2, 196617, 27, 1048578, 196629, 27, 1441794, 196641, 27, 1048578, 196645, 27, 1441794, 262116, 28, 1048578, 262128, 28, 1441794, 11, 30, 786432, 15, 30, 786432, 19, 30, 786432, 35, 30, 786432, 393227, 30, 262145, 393231, 30, 262145, 393235, 30, 262145, 393251, 30, 262145, 65510, 31, 786432, 65514, 31, 786432, 65518, 31, 786432, 458726, 31, 262145, 458730, 31, 262145, 458734, 31, 262145, 196617, 33, 1048578, 196629, 33, 1441794, 196641, 33, 1048578, 196645, 33, 1441794, 262116, 34, 1048578, 262128, 34, 1441794, 196618, 36, 655362, 196620, 36, 655362, 196622, 36, 655362, 196624, 36, 655362, 196626, 36, 655362, 196628, 36, 655362, 262117, 37, 655362, 262119, 37, 655362, 262121, 37, 655362, 262123, 37, 655362, 262125, 37, 655362, 262127, 37, 655362, 196641, 39, 1048578, 196645, 39, 1441794, 35, 42, 786432, 393251, 42, 262145, 196641, 45, 1048578, 196645, 45, 1441794, 196641, 51, 1048578, 196645, 51, 1441794, 35, 54, 786432, 393251, 54, 262145, 196641, 57, 1048578, 196645, 57, 1441794, 196642, 60, 655362, 196644, 60, 655362 )
+}
+
+[node name="WallTorch" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 3.65915, 1.34728, 3.64835 )
+
+[node name="WallTorch10" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 20.1546, 1.34728, 1.07609 )
+
+[node name="WallTorch13" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 20.1546, 1.34728, 11.2447 )
+
+[node name="WallTorch11" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 21.3408, 1.34728, 12.3461 )
+
+[node name="WallTorch12" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 30.3408, 1.34728, 12.3461 )
+
+[node name="WallTorch2" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, -14.2246, 1.34728, 3.64835 )
+
+[node name="WallTorch14" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, -29.2398, 1.34728, 9.71683 )
+
+[node name="WallTorch15" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( 1.04907e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, 1.04907e-07, -35.3436, 1.34728, 9.71683 )
+
+[node name="WallTorch16" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( 0.8, 0, 1.39876e-07, 0, 0.8, 0, -1.39876e-07, 0, 0.8, -32.288, 1.34728, 12.8567 )
+
+[node name="WallTorch17" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( -0.8, 0, -2.09815e-07, 0, 0.8, 0, 2.09815e-07, 0, -0.8, -32.288, 1.34728, 6.69515 )
+
+[node name="WallTorch3" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -5.22457, 1.34728, 6.27875 )
+
+[node name="WallTorch4" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( -0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 51.0427, 1.34728, 30.1483 )
+
+[node name="WallTorch5" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( -0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 55.6427, 1.34728, 30.1483 )
+
+[node name="WallTorch8" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( 0.8, 0, 1.39876e-07, 0, 0.8, 0, -1.39876e-07, 0, 0.8, 55.6427, 1.34728, 0.277289 )
+
+[node name="WallTorch9" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( 0.8, 0, 1.39876e-07, 0, 0.8, 0, -1.39876e-07, 0, 0.8, 51.0427, 1.34728, 0.277289 )
+
+[node name="WallTorch6" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( 1.04907e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, 1.04907e-07, 56.18, 1.347, 15 )
+
+[node name="WallTorch7" parent="CustomFader/Rooms" instance=ExtResource( 2 )]
+transform = Transform( -1.74846e-07, 0, 0.8, 0, 0.8, 0, -0.8, 0, -1.74846e-07, 50.329, 1.347, 15 )
+
+[node name="Door2Closed" parent="CustomFader/Rooms" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.653036, 0, 0.263932 )
+
+[node name="Door2Closed2" parent="CustomFader/Rooms" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.3583, 0, 0.263932 )
+
+[node name="Door2Closed3" parent="CustomFader/Rooms" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32.3144, 0, 0.75948 )
+
+[node name="Door2Closed4" parent="CustomFader/Rooms" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32.3144, 0, 18.7439 )
+
+[node name="Door2Closed5" parent="CustomFader/Rooms" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.2704, 0, 0.254817 )
+
+[node name="Door2Closed6" parent="CustomFader/Rooms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2281, 0, 15.1714 )
+
+[node name="Door2Closed7" parent="CustomFader/Rooms" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 53.2281, 0, 0.269609 )
+
+[node name="Door2Closed8" parent="CustomFader/Rooms" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 53.2281, 0, 30.2443 )
+
+[node name="WorldEnvironment1" parent="CustomFader" instance=ExtResource( 3 )]
+
+[node name="StartMenuCamera" type="Camera" parent="CustomFader"]
+transform = Transform( 0.903649, -0.0336019, 0.426953, 0, 0.996917, 0.0784591, -0.428273, -0.0708995, 0.900864, 1.95714, 2.086, 11.7 )
+script = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CustomFader/StartMenuCamera"]
+anims/RESET = SubResource( 4 )
+anims/loc1 = SubResource( 3 )
+anims/loc2 = SubResource( 5 )
+anims/loc3 = SubResource( 6 )
+anims/loc4 = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="CustomFader"]
+wait_time = 9.1
+
+[node name="Fader" parent="." instance=ExtResource( 8 )]
+
+[node name="Menu" type="Control" parent="Fader"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Fader/Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Fader/Menu/CenterContainer"]
+margin_left = 452.0
+margin_top = 196.0
+margin_right = 828.0
+margin_bottom = 524.0
+
+[node name="Title" type="Label" parent="Fader/Menu/CenterContainer/VBoxContainer"]
+margin_right = 376.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 2 )
+text = "1000-Rooms"
+
+[node name="MarginContainer" type="MarginContainer" parent="Fader/Menu/CenterContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 376.0
+margin_bottom = 120.0
+custom_constants/margin_top = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
+margin_top = 124.0
+margin_right = 376.0
+margin_bottom = 172.0
+custom_fonts/font = SubResource( 1 )
+text = "Start"
+
+[node name="OptionsBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
+margin_top = 176.0
+margin_right = 376.0
+margin_bottom = 224.0
+custom_fonts/font = SubResource( 1 )
+text = "Options"
+
+[node name="ClearSaveBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
+margin_top = 228.0
+margin_right = 376.0
+margin_bottom = 276.0
+custom_fonts/font = SubResource( 1 )
+text = "Clear Save"
+
+[node name="QuitBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
+margin_top = 280.0
+margin_right = 376.0
+margin_bottom = 328.0
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+
+[node name="SettingsMenu" parent="Fader/Menu" instance=ExtResource( 11 )]
+
+[node name="console" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="ScarePlayer" parent="." instance=ExtResource( 10 )]
+
+[connection signal="animation_finished" from="CustomFader/StartMenuCamera/AnimationPlayer" to="CustomFader/StartMenuCamera" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="CustomFader/Timer" to="CustomFader/StartMenuCamera" method="_on_Timer_timeout"]
+[connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/StartBtn" to="Fader/Menu" method="_on_StartBtn_pressed"]
+[connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/OptionsBtn" to="Fader/Menu" method="_on_OptionsBtn_pressed"]
+[connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/ClearSaveBtn" to="Fader/Menu" method="_on_ClearSaveBtn_pressed"]
+[connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/QuitBtn" to="Fader/Menu" method="_on_QuitBtn_pressed"]
