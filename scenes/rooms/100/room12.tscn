@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scripts/load_world.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Gridmaps/GridMap1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/objects/signs/JumpScareSign1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/objects/signs/JumpScareSign6.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=14]
+
+[node name="world" type="Spatial"]
+script = ExtResource( 1 )
+_room = "res://scenes/rooms/100/room12.tscn"
+
+[node name="Fader" parent="." instance=ExtResource( 6 )]
+
+[node name="GUI" parent="Fader" instance=ExtResource( 10 )]
+
+[node name="Player" parent="Fader" instance=ExtResource( 14 )]
+transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -9.3397, 0.679, -6.68985 )
+
+[node name="ScarePlayer" parent="Fader" instance=ExtResource( 7 )]
+
+[node name="Door2Closed" parent="Fader" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.73649, 0, -6.68238 )
+
+[node name="Door2Closed2" parent="Fader" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.26351, 0, -15.7373 )
+
+[node name="Door2Closed3" parent="Fader" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.2367, 0, 2.23007 )
+
+[node name="Door2Closed4" parent="Fader" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.2367, 0, -15.7305 )
+
+[node name="Pivot" parent="Fader" instance=ExtResource( 9 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.84379, 0, 2.23112 )
+
+[node name="WorldEnvironment1" parent="Fader" instance=ExtResource( 5 )]
+
+[node name="WallTorch" parent="Fader" instance=ExtResource( 3 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 11.1846, 1.26974, -9.85575 )
+
+[node name="WallTorch5" parent="Fader" instance=ExtResource( 3 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.815353, 1.26974, -9.85575 )
+
+[node name="WallTorch6" parent="Fader" instance=ExtResource( 3 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 22.1846, 1.26974, -9.85575 )
+
+[node name="WallTorch7" parent="Fader" instance=ExtResource( 3 )]
+transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 20.1591, 1.26974, -12.7965 )
+
+[node name="WallTorch10" parent="Fader" instance=ExtResource( 3 )]
+transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 8.2069, 1.26974, -12.7965 )
+
+[node name="WallTorch8" parent="Fader" instance=ExtResource( 3 )]
+transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 20.1591, 1.26974, -0.796517 )
+
+[node name="WallTorch9" parent="Fader" instance=ExtResource( 3 )]
+transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 8.29756, 1.26974, -0.796517 )
+
+[node name="WallTorch2" parent="Fader" instance=ExtResource( 3 )]
+transform = Transform( -0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 11.1846, 1.26974, -3.77643 )
+
+[node name="WallTorch3" parent="Fader" instance=ExtResource( 3 )]
+transform = Transform( -0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, -0.815353, 1.26974, -3.77643 )
+
+[node name="WallTorch4" parent="Fader" instance=ExtResource( 3 )]
+transform = Transform( -0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 22.1846, 1.26974, -3.77643 )
+
+[node name="JumpScareSign1" parent="Fader" instance=ExtResource( 11 )]
+transform = Transform( 9.17939e-08, 2.1, -1.83588e-07, 2.1, -9.17939e-08, 1.83588e-07, 1.83588e-07, -1.83588e-07, -2.1, 2.23708, 1.37172, 1.15851 )
+
+[node name="JumpScareSign2" parent="Fader" instance=ExtResource( 12 )]
+transform = Transform( 1.90919, 1.48492, -1.83588e-07, 1.90919, -1.48492, 0, 1.66907e-07, 1.29816e-07, 2.1, 2.10456, 3.05365, -10.345 )
+
+[node name="console" parent="." instance=ExtResource( 8 )]
+
+[node name="GridMap1" parent="." instance=ExtResource( 2 )]
+cell_size = Vector3( 3, 1, 1 )
+data = {
+"cells": PoolIntArray( 196609, 1, 1048578, 196613, 1, 1441794, 196617, 1, 1048578, 196621, 1, 1441794, 196610, 4, 655362, 196612, 4, 655362, 196618, 4, 655362, 196620, 4, 655362, 196610, 65504, 2, 196612, 65504, 2, 196618, 65504, 2, 196620, 65504, 2, 196609, 65507, 1048578, 196613, 65507, 1441794, 196617, 65507, 1048578, 196621, 65507, 1441794, 3, 65510, 786432, 11, 65510, 786432, 393219, 65510, 262145, 393227, 65510, 262145, 196609, 65513, 1048578, 196613, 65513, 1441794, 196617, 65513, 1048578, 196621, 65513, 1441794, 196608, 65516, 2, 196614, 65516, 2, 196616, 65516, 2, 196622, 65516, 2, 196624, 65516, 2, 262138, 65516, 2, 262140, 65516, 2, 262142, 65516, 2, 196625, 65519, 1441794, 262137, 65519, 1048578, 3, 65522, 786432, 7, 65522, 786432, 11, 65522, 786432, 15, 65522, 786432, 65531, 65522, 786432, 65535, 65522, 786432, 393219, 65522, 262145, 393223, 65522, 262145, 393227, 65522, 262145, 393231, 65522, 262145, 458747, 65522, 262145, 458751, 65522, 262145, 196625, 65525, 1441794, 262137, 65525, 1048578, 196608, 65528, 655362, 196614, 65528, 655362, 196616, 65528, 655362, 196622, 65528, 655362, 196624, 65528, 655362, 262138, 65528, 655362, 262140, 65528, 655362, 262142, 65528, 655362, 196609, 65531, 1048578, 196613, 65531, 1441794, 196617, 65531, 1048578, 196621, 65531, 1441794, 3, 65534, 786432, 11, 65534, 786432, 393219, 65534, 262145, 393227, 65534, 262145 )
+}

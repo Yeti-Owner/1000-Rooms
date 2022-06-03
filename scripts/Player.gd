@@ -69,7 +69,6 @@ func _physics_process(delta: float) -> void:
 	$CameraHolder/Camera.set_fov(Settingsholder.PlayerFOV)
 	
 
-
 func _on_Timer_timeout():
 	StepPlayer.pitch_scale = rand_range(0.85, 1.15)
 	StepPlayer.play()

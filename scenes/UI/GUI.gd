@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var Stamina = 150
+var Stamina = 200
 
 # References
 onready var RoomNum = $RoomNumHolder/CenterContainer/RoomNum
@@ -24,7 +24,7 @@ func _process(_delta):
 	HpBar.set_value(Settingsholder.PlayerHP)
 	
 	# Regen Stamina Bar
-	if !Input.is_action_pressed("sprint") && StamBar.get_value() < 150:
+	if !Input.is_action_pressed("sprint") && StamBar.get_value() < 200:
 		Stamina = StamBar.get_value() + 0.5
 		StamBar.set_value(Stamina)
 

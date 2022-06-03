@@ -33,3 +33,10 @@ func _on_QuitBtn_pressed():
 
 func on_fade_finished():
 	var _error = get_tree().change_scene(Settingsholder.CurrentRoom)
+
+func _on_VersionBtn_pressed():
+	get_node("VersionDialog").popup_centered()
+
+
+func _on_CloseBtn_pressed():
+	get_node("VersionDialog").visible = false

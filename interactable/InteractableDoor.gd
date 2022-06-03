@@ -9,7 +9,7 @@ func _ready():
 	fader.connect("fade_finished", self, "on_fade_finished")
 
 func get_interaction_text():
-	return "open the door"
+	return "Press E to open the door"
 
 func interact():
 	AnimPlayer.play("opening")

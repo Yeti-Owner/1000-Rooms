@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Victima2.ogg-e7e4e86f29ad7c8081e266927506773a.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Victima2.ogg"
+dest_files=[ "res://.import/Victima2.ogg-e7e4e86f29ad7c8081e266927506773a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
