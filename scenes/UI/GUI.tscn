@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/UI/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=4]
 [ext_resource path="res://assets/UI/Heart.png" type="Texture" id=5]
 [ext_resource path="res://assets/UI/lightning.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/hand.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -55,11 +56,26 @@ border_color = Color( 0, 0, 0, 1 )
 layer = -1
 script = ExtResource( 3 )
 
-[node name="InteractLabel" type="Label" parent="."]
-anchor_top = 1.0
+[node name="hand" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -42.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="handpng" type="TextureRect" parent="hand"]
+margin_left = 621.0
+margin_top = 334.0
+margin_right = 659.0
+margin_bottom = 385.0
+texture = ExtResource( 7 )
+
+[node name="InteractLabel" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 30.0
+margin_bottom = 62.0
 custom_fonts/font = SubResource( 3 )
 text = "Press E to Interact"
 align = 1

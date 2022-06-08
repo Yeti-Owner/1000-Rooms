@@ -3,14 +3,17 @@ extends RayCast
 var current_collider
 
 onready var interaction_label = get_node("/root/world/Fader/GUI/InteractLabel")
+onready var interaction_hand = get_node("/root/world/Fader/GUI/hand/handpng")
 
 func _ready():
+	interaction_hand.visible = false
 	set_interaction_text("")
 
 func _process(_delta):
 	var collider = get_collider()
 	
 	if is_colliding() and collider is Interactable:
+		interaction_hand.visible = true
 		if current_collider != collider:
 			set_interaction_text(collider.get_interaction_text())
 			current_collider = collider
@@ -19,6 +22,7 @@ func _process(_delta):
 			collider.interact()
 			set_interaction_text(collider.get_interaction_text())
 	elif current_collider:
+		interaction_hand.visible = false
 		current_collider = null
 		set_interaction_text("")
 
