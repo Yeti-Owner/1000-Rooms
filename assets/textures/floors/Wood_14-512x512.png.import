@@ -2,21 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Wood_14-512x512.png-081f38ca38034aca69c9e072ba309f83.s3tc.stex"
-path.etc2="res://.import/Wood_14-512x512.png-081f38ca38034aca69c9e072ba309f83.etc2.stex"
+path="res://.import/Wood_14-512x512.png-081f38ca38034aca69c9e072ba309f83.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/floors/Wood_14-512x512.png"
-dest_files=[ "res://.import/Wood_14-512x512.png-081f38ca38034aca69c9e072ba309f83.s3tc.stex", "res://.import/Wood_14-512x512.png-081f38ca38034aca69c9e072ba309f83.etc2.stex" ]
+dest_files=[ "res://.import/Wood_14-512x512.png-081f38ca38034aca69c9e072ba309f83.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

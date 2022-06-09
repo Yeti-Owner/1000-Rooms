@@ -472,7 +472,8 @@ custom_fonts/font = SubResource( 9 )
 text = "- Added hand icon to interactions
 - Updated textures used (better optimization)
 - Updated all rooms
-- Minor bugfixes in pause menu"
+- Minor bugfixes in pause menu
+- Added narrator (working on storyline (: )"
 align = 1
 valign = 1
 __meta__ = {
