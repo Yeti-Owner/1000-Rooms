@@ -19,6 +19,8 @@ var MusicVolume = 50
 var SfxVolume = 50
 var CurrentRoom = "res://scenes/world.tscn"
 
+# Unsaved Vars
+var isChased = 0
 
 # Check saved data
 func _ready():

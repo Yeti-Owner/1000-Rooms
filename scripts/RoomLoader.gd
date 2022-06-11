@@ -9,7 +9,9 @@ func _ready():
 
 func _get_next_room():
 	LastRoom = Settingsholder.CurrentRoom
-	if Settingsholder.RoomNum < 99:
+	if (Settingsholder.RoomNum == 50):
+		get_tree().change_scene("res://scenes/rooms/100/room50.tscn")
+	elif Settingsholder.RoomNum < 99:
 		RoomRNG = randi() % 15 + 1
 		GotoRoom = str("res://scenes/rooms/100/room" + str(RoomRNG) + ".tscn")
 		if GotoRoom != LastRoom:

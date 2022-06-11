@@ -12,7 +12,7 @@ onready var _camera := $CameraHolder
 onready var anim_player = $CameraHolder/Camera/AnimationPlayer
 onready var Stamina = get_parent().get_node("GUI/HPandStam/HBoxContainer2/StamBar")
 onready var StepPlayer = $StepPlayer
-
+onready var Health = get_parent().get_node("GUI/HPandStam/HBoxContainer/HpBar")
 
 func _physics_process(delta: float) -> void:
 	var input := Vector2.ZERO
@@ -68,7 +68,17 @@ func _physics_process(delta: float) -> void:
 	# Fix FOV
 	$CameraHolder/Camera.set_fov(Settingsholder.PlayerFOV)
 	
+	if (Health.value <= 0):
+		_die()
 
 func _on_Timer_timeout():
 	StepPlayer.pitch_scale = rand_range(0.85, 1.15)
 	StepPlayer.play()
+
+
+func _on_PlayerArea_area_entered(PlayerArea):
+	if PlayerArea.name == "EnemyArea":
+		Settingsholder.PlayerHP -= 20
+
+func _die():
+	pass

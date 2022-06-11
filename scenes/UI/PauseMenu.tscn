@@ -36,9 +36,9 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 561.0
+margin_left = 530.0
 margin_top = 236.0
-margin_right = 719.0
+margin_right = 750.0
 margin_bottom = 484.0
 theme = ExtResource( 4 )
 __meta__ = {
@@ -46,7 +46,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 158.0
+margin_right = 220.0
 margin_bottom = 40.0
 custom_fonts/font = SubResource( 1 )
 text = "Paused"
@@ -54,20 +54,21 @@ align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 44.0
-margin_right = 158.0
+margin_right = 220.0
 margin_bottom = 64.0
+custom_constants/margin_right = 220
 custom_constants/margin_top = 20
 
 [node name="ResumeBtn" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 68.0
-margin_right = 158.0
+margin_right = 220.0
 margin_bottom = 110.0
 custom_fonts/font = SubResource( 1 )
 text = "Resume"
 
 [node name="OptionsBtn" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 114.0
-margin_right = 158.0
+margin_right = 220.0
 margin_bottom = 156.0
 custom_fonts/font = SubResource( 1 )
 text = "Options"
@@ -77,14 +78,14 @@ __meta__ = {
 
 [node name="StartMenuBtn" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 160.0
-margin_right = 158.0
+margin_right = 220.0
 margin_bottom = 202.0
 custom_fonts/font = SubResource( 1 )
 text = "Main Menu"
 
 [node name="QuitBtn" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 206.0
-margin_right = 158.0
+margin_right = 220.0
 margin_bottom = 248.0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
