@@ -100,5 +100,5 @@ func _on_SfxVolSlider_value_changed(SfVol):
 	SfVol = SfVol - 50
 	AudioServer.set_bus_volume_db(2, SfVol)
 
-func _on_SettingsTabs_tab_changed(tab):
+func _on_SettingsTabs_tab_changed(_tab):
 	ClickPlayer._click_sound()

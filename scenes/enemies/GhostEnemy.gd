@@ -5,7 +5,7 @@ export var speed = 5
 var path = []
 var cur_path_idx = 0
 var velocity = Vector3.ZERO
-var threshold = 0.01
+var threshold = 0.1
 var old_speed
 var dir
 

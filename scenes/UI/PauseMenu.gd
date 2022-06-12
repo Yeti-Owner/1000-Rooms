@@ -4,19 +4,10 @@ var isPaused = false setget set_is_paused
 onready var VCont = $CenterContainer/VBoxContainer
 onready var ClickPlayer = $SettingsMenu/ClickPlayer
 
-func _ready():
-	pass
-#	# Math to center the pause menu based off window size
-#	var CenterOfScreen = Vector2(OS.get_window_size().x/2, OS.get_window_size().y/2)
-#	CenterOfScreen.y = CenterOfScreen.y - VCont.get_size().y/2
-#	CenterOfScreen.x = CenterOfScreen.x - VCont.get_size().x/0.33
-#	VCont._set_position(CenterOfScreen)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		self.isPaused = !isPaused
-		# Re-run math to center pause menu incase window changed size
-		_ready()
 
 func set_is_paused(value):
 	isPaused = value

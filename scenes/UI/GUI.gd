@@ -10,7 +10,7 @@ onready var StamBar = $HPandStam/HBoxContainer2/StamBar
 
 func _ready():
 	StamBar.set_value(Stamina)
-	RoomNum.set_text("Room: " + str(Settingsholder.RoomNum))
+	RoomNum.set_text("Room: " + str(SaveGame.game_data.RoomNum))
 
 func _process(_delta):
 	# Show FPS if enabled
@@ -21,7 +21,7 @@ func _process(_delta):
 		$MarginContainer.set_visible(false)
 	
 	# Update HP bar
-	HpBar.set_value(Settingsholder.PlayerHP)
+	HpBar.set_value(SaveGame.game_data.PlayerHP)
 	
 	# Regen Stamina Bar
 	if !Input.is_action_pressed("sprint") && StamBar.get_value() < 200:

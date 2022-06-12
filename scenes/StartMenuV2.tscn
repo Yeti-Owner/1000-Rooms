@@ -473,7 +473,13 @@ text = "- Added hand icon to interactions
 - Updated textures used (better optimization)
 - Updated all rooms
 - Minor bugfixes in pause menu
-- Added narrator (working on storyline (: )"
+- Added narrator (working on storyline (: )
+- Added unique room 50
+- Added enemy
+- Updated and optimized save data
+- Made torches look better
+- Added 5 new objects
+- Added death"
 align = 1
 valign = 1
 __meta__ = {

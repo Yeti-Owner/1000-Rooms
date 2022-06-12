@@ -1,0 +1,36 @@
+extends Node
+
+var file = File.new()
+var save_data = "user://save_game.dat"
+
+# Temp Vars
+var FirstTimeRoom6 = 1
+var FirstTimeRoom13 = 1
+
+# Saved Vars
+var game_data = {
+	"RoomNum" : 0,
+	"PlayerHP" : 100,
+	"JumpScareAmt" : 0,
+	"isChased" : 0,
+	"CurrentRoom" : "res://scenes/world.tscn",
+	"CurrentPos" : 1,
+	"LastCheckPoint" : "res://scenes/world.tscn",
+	"LastSavedRoom" : 0
+}
+
+# Check saved data
+func _ready():
+	# If save file doesnt exist put in default values
+	if not file.file_exists(save_data):
+		_save()
+	
+	# Open save file and read values
+	file.open(save_data, File.READ)
+	game_data = file.get_var()
+	file.close()
+
+func _save():
+	file.open(save_data, File.WRITE)
+	file.store_var(game_data)
+	file.close()

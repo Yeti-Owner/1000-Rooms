@@ -11,7 +11,7 @@ func _jumpscare():
 	self.set_visible(true)
 	get_node("CollisionShape").set_deferred("disabled",  false)
 	HasNotJumpScared = !HasNotJumpScared
-	Settingsholder.JumpScareAmt = 0
+	SaveGame.game_data.JumpScareAmt = 0
 	get_parent().get_node("ScarePlayer")._scare_sound()
 	
 
@@ -20,8 +20,8 @@ func _on_Area_area_entered(area):
 		RNG = randi() % 30 + 1
 		if RNG == 1:
 			_jumpscare()
-		elif int(Settingsholder.JumpScareAmt) == 20:
+		elif int(SaveGame.game_data.JumpScareAmt) == 20:
 			_jumpscare()
 		else:
-			Settingsholder.JumpScareAmt += 1
+			SaveGame.game_data.JumpScareAmt += 1
 			queue_free()

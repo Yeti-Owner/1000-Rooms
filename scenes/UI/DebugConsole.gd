@@ -25,13 +25,13 @@ func _on_console_text_entered(cmd):
 			get_tree().change_scene(str("res://scenes/rooms/100/room" + cmd[2] + ".tscn"))
 			# res://scenes/rooms/100/room1.tscn
 		elif cmd[1] == "room":
-			Settingsholder.RoomNum = int(cmd[2])
+			SaveGame.game_data.RoomNum = int(cmd[2])
 		elif cmd[1] == "hp":
-			Settingsholder.PlayerHP = int(cmd[2])
+			SaveGame.game_data.PlayerHP = int(cmd[2])
 		elif cmd[1] == "jumpscare?":
-			print(Settingsholder.JumpScareAmt)
+			print(SaveGame.game_data.JumpScareAmt)
 		elif cmd[1] == "scare":
-			Settingsholder.JumpScareAmt = int(cmd[2])
+			SaveGame.game_data.JumpScareAmt = int(cmd[2])
 	elif cmd[0] == "close":
 		self.set_visible(false)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

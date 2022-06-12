@@ -13,6 +13,7 @@ onready var anim_player = $CameraHolder/Camera/AnimationPlayer
 onready var Stamina = get_parent().get_node("GUI/HPandStam/HBoxContainer2/StamBar")
 onready var StepPlayer = $StepPlayer
 onready var Health = get_parent().get_node("GUI/HPandStam/HBoxContainer/HpBar")
+onready var PlayerAnim = $PlayerAnims
 
 func _physics_process(delta: float) -> void:
 	var input := Vector2.ZERO
@@ -78,7 +79,14 @@ func _on_Timer_timeout():
 
 func _on_PlayerArea_area_entered(PlayerArea):
 	if PlayerArea.name == "EnemyArea":
-		Settingsholder.PlayerHP -= 20
+		SaveGame.game_data.PlayerHP -= 20
 
 func _die():
-	pass
+	PlayerAnim.play("die")
+
+
+func _on_PlayerAnims_animation_finished(anim_name):
+	if anim_name == "die":
+		SaveGame.game_data.PlayerHP = 100
+		SaveGame.game_data.RoomNum = SaveGame.game_data.LastSavedRoom
+		get_tree().change_scene(SaveGame.game_data.LastCheckPoint)

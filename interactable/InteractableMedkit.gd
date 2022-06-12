@@ -4,12 +4,12 @@ func get_interaction_text():
 	return "Press E to use Medkit"
 
 func interact():
-	if Settingsholder.PlayerHP <= 80:
-		Settingsholder.PlayerHP += 20
+	if SaveGame.game_data.PlayerHP <= 80:
+		SaveGame.game_data.PlayerHP += 20
 		get_parent().queue_free()
-	elif Settingsholder.PlayerHP == 100:
+	elif SaveGame.game_data.PlayerHP == 100:
 		return
 	else:
-		Settingsholder.PlayerHP = 100
+		SaveGame.game_data.PlayerHP = 100
 		get_parent().queue_free()
 
