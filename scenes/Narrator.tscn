@@ -5,6 +5,8 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
+outline_size = 3
+use_mipmaps = true
 font_data = ExtResource( 2 )
 
 [node name="Narrator" type="Control"]
@@ -21,6 +23,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 422.0
 margin_bottom = -1.0
+custom_colors/font_color = Color( 0.345098, 0, 0.894118, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 align = 1
 valign = 1

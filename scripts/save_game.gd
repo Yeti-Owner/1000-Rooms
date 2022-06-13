@@ -3,16 +3,22 @@ extends Node
 var file = File.new()
 var save_data = "user://save_game.dat"
 
-# Temp Vars
+# Onetime Vars
 var FirstTimeRoom6 = 1
 var FirstTimeRoom13 = 1
+
+# Unsaved vars
+var isChased = 0
+var ChasedBy = 0 # 0 = ghost, 1 = [PLACEHOLDER]
+
+# Signals
+signal BeingChased
 
 # Saved Vars
 var game_data = {
 	"RoomNum" : 0,
 	"PlayerHP" : 100,
 	"JumpScareAmt" : 0,
-	"isChased" : 0,
 	"CurrentRoom" : "res://scenes/world.tscn",
 	"CurrentPos" : 1,
 	"LastCheckPoint" : "res://scenes/world.tscn",
@@ -34,3 +40,7 @@ func _save():
 	file.open(save_data, File.WRITE)
 	file.store_var(game_data)
 	file.close()
+
+func _player_chased():
+	isChased = !isChased
+	emit_signal("BeingChased")

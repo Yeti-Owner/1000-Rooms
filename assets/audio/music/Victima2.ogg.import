@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Victima2.ogg-e7e4e86f29ad7c8081e266927506773a.oggstr
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

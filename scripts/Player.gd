@@ -6,6 +6,7 @@ var gravity := -32.0
 var _dir := Vector3.ZERO
 var _vel := Vector3.ZERO
 var SubtractStam
+var EnabledWalking = 1
 
 # References
 onready var _camera := $CameraHolder
@@ -30,13 +31,13 @@ func _physics_process(delta: float) -> void:
 		SubtractStam = Stamina.get_value()
 		SubtractStam = SubtractStam - 7.5
 		Stamina.set_value(SubtractStam)
-	if Input.is_action_pressed("sprint") && Stamina.get_value() > 0:
+	if Input.is_action_pressed("sprint") && Stamina.get_value() > 0 && EnabledWalking :
 		walk_speed = 7.5
 		SubtractStam = Stamina.get_value()
 		SubtractStam = SubtractStam - 0.3
 		Stamina.set_value(SubtractStam)
 		$Timer.set_wait_time(0.3)
-	else:
+	elif EnabledWalking:
 		walk_speed = 6.0
 		$Timer.set_wait_time(0.5)
 	input = input.normalized()
@@ -79,11 +80,15 @@ func _on_Timer_timeout():
 
 func _on_PlayerArea_area_entered(PlayerArea):
 	if PlayerArea.name == "EnemyArea":
+		PlayerAnim.play("hurt")
+		$CameraHolder/Camera/HurtPlayer.play()
 		SaveGame.game_data.PlayerHP -= 20
 
 func _die():
+	EnabledWalking = 0
 	PlayerAnim.play("die")
-
+	jump_speed = 0
+	walk_speed = 0
 
 func _on_PlayerAnims_animation_finished(anim_name):
 	if anim_name == "die":

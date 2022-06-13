@@ -2,6 +2,7 @@ extends KinematicBody
 
 export var speed = 5
 
+var GhostFx = ["res://assets/audio/scary/ghost1.ogg", "res://assets/audio/scary/ghost2.ogg", "res://assets/audio/scary/ghost3.ogg"]
 var path = []
 var cur_path_idx = 0
 var velocity = Vector3.ZERO
@@ -12,6 +13,9 @@ var dir
 onready var nav = get_parent()
 onready var target = get_node("/root/world/Fader/Player")
 
+func _ready():
+	$SoundTimer.start()
+	randomize()
 
 func _process(delta):
 	look_at(target.get_translation(), Vector3.UP)
@@ -48,3 +52,13 @@ func _on_EnemyArea_area_entered(area):
 
 func _on_stun_timer_timeout():
 	speed = old_speed
+
+
+func _on_SoundTimer_timeout():
+	$AudioStreamPlayer3D.stream = load(GhostFx [randi() % GhostFx.size()])
+	$AudioStreamPlayer3D.play()
+
+func _on_AudioStreamPlayer3D_finished():
+	var SoundTime = randi() % 3 + 1
+	$SoundTimer.set_wait_time(SoundTime)
+	$SoundTimer.start()

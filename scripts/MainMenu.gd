@@ -42,3 +42,6 @@ func _on_VersionBtn_pressed():
 
 func _on_CloseBtn_pressed():
 	get_node("VersionDialog").visible = false
+
+func _on_FeedbackBtn_pressed():
+	OS.shell_open("https://forms.gle/FtncNqYqHXxhzjqg7")

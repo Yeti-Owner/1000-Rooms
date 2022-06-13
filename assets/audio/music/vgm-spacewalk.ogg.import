@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/vgm-spacewalk.ogg-828b80c78ff4b13c6196eec9694a3818.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/vgm-spacewalk.ogg"
+dest_files=[ "res://.import/vgm-spacewalk.ogg-828b80c78ff4b13c6196eec9694a3818.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

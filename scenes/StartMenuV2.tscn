@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=3]
@@ -229,6 +229,10 @@ font_data = ExtResource( 6 )
 size = 20
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=10]
+size = 45
+font_data = ExtResource( 6 )
+
 [node name="StartMenuV2" type="CanvasLayer"]
 
 [node name="CustomFader" type="ColorRect" parent="."]
@@ -421,7 +425,6 @@ __meta__ = {
 }
 
 [node name="VersionDialog" type="Popup" parent="Fader/Menu"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -470,18 +473,30 @@ anchor_bottom = 1.0
 margin_top = 58.0
 custom_fonts/font = SubResource( 9 )
 text = "- Added hand icon to interactions
-- Updated textures used (better optimization)
 - Updated all rooms
-- Minor bugfixes in pause menu
-- Added narrator (working on storyline (: )
+- Minor bugfixes and optimizations everywhere
+- Added narrator
 - Added unique room 50
 - Added enemy
-- Updated and optimized save data
+- Changed save data management
 - Made torches look better
 - Added 5 new objects
-- Added death"
+- Added death
+- Added many new sounds + music
+- Updated audio system"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FeedbackBtn" type="Button" parent="Fader/Menu"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -48.0
+margin_right = 183.0
+custom_fonts/font = SubResource( 10 )
+text = "Feedback"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -499,3 +514,4 @@ visible = false
 [connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/QuitBtn" to="Fader/Menu" method="_on_QuitBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/VersionBtn" to="Fader/Menu" method="_on_VersionBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/VersionDialog/CloseBtn" to="Fader/Menu" method="_on_CloseBtn_pressed"]
+[connection signal="pressed" from="Fader/Menu/FeedbackBtn" to="Fader/Menu" method="_on_FeedbackBtn_pressed"]

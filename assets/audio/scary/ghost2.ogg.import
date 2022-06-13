@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ghost2.ogg-dd3ecba290731473d0938f4e553cec18.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/scary/ghost2.ogg"
+dest_files=[ "res://.import/ghost2.ogg-dd3ecba290731473d0938f4e553cec18.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
