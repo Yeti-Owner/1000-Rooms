@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/audio/music/Victima1.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/audio/music/Victima2.ogg" type="AudioStream" id=1]
 [ext_resource path="res://scenes/audio/MusicPlayer.gd" type="Script" id=2]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
@@ -11,8 +11,7 @@ bus = "MusicBus"
 script = ExtResource( 2 )
 
 [node name="TransitionTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
 
-[connection signal="finished" from="." to="." method="_on_MusicPlayer_finished"]
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_TransitionTimer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/WoodBreaking.ogg-4240427b0023b3643e5c0f5ef4b18420.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/misc/WoodBreaking.ogg"
+dest_files=[ "res://.import/WoodBreaking.ogg-4240427b0023b3643e5c0f5ef4b18420.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -4,15 +4,11 @@ var file = File.new()
 var save_data = "user://save_game.dat"
 
 # Onetime Vars
-var FirstTimeRoom6 = 1
 var FirstTimeRoom13 = 1
 
 # Unsaved vars
 var isChased = 0
 var ChasedBy = 0 # 0 = ghost, 1 = [PLACEHOLDER]
-
-# Signals
-signal BeingChased
 
 # Saved Vars
 var game_data = {
@@ -40,7 +36,3 @@ func _save():
 	file.open(save_data, File.WRITE)
 	file.store_var(game_data)
 	file.close()
-
-func _player_chased():
-	isChased = !isChased
-	emit_signal("BeingChased")

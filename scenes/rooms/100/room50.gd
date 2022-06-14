@@ -11,7 +11,7 @@ onready var player = get_node("/root/world/Fader/Player")
 
 func _ready():
 	fader._fade_in()
-	Monster.transform.origin = Vector3(0, 3, 4.6)
+	Monster.transform.origin = Vector3(0, 3, 9)
 	SaveGame.game_data.CurrentRoom = _room
 	# if completed room
 	if typeof(SaveGame.game_data.CurrentPos) == TYPE_VECTOR3:
@@ -20,8 +20,6 @@ func _ready():
 		player.transform.origin = Vector3(SaveGame.game_data.CurrentPos)
 		Narrator.messages = ["Welcome back"]
 	else: # if not
-		SaveGame._player_chased()
-		SaveGame.ChasedBy = 0
 		get_node("ObjHolder/WallObj").visible = false
 		get_node("ObjHolder/WallObj/StaticBody/CollisionShape").disabled = true
 		Narrator.messages = ["Run", "you need to run"]
@@ -47,10 +45,60 @@ func _on_Check3_area_entered(area3):
 		get_node("ObjHolder/WallObj/StaticBody/CollisionShape").set_deferred("disabled",  false)
 		$Timer.start()
 
+func _on_Check4_area_entered(area4):
+	if area4.name == "PlayerArea":
+		$BricksBreaking.play()
+		$AreaHolder/Check4.queue_free()
+		$ObjHolder/WallObj2.queue_free()
+		Narrator.messages = ["It's back"]
+		Narrator.start_dialogue()
+		Monster.transform.origin = Vector3(-29.2, -2.475, -38.136)
+		Monster.speed = 10
+
+func _on_Check5_area_entered(area5):
+	if area5.name == "PlayerArea":
+		Monster.transform.origin = Vector3(0, 3, 4.6)
+		$AreaHolder/Check5.queue_free()
+		Narrator.messages = ["STOP! STAND STILL","...","This room is dark and it's vision is bad","Maybe you've lost it for now"]
+		Narrator.start_dialogue()
+
+func _on_Check6_area_entered(area6):
+	if area6.name == "PlayerArea":
+		Monster.transform.origin = Vector3(-42.8, 9.825, -41.936)
+		Monster.speed = 8
+		$AreaHolder/Check6.queue_free()
+
+func _on_Check7_area_entered(area7):
+	if area7.name == "PlayerArea":
+		Narrator.messages = ["Don't"]
+		Narrator.start_dialogue()
+		$AreaHolder/Check7.queue_free()
+
+func _on_Check8_area_entered(area):
+	if area.name == "PlayerArea":
+		$WoodBreaking.play()
+		$AreaHolder/Check8.queue_free()
+		$AreaHolder/Check9.queue_free()
+		$ObjHolder/FloorObj9pt2.queue_free()
+		Narrator.messages = ["It doesn't want you to escape","and I don't just mean the monster"]
+		Narrator.start_dialogue()
+
+func _on_Check9_area_entered(area):
+	if area.name == "PlayerArea":
+		$WoodBreaking.play()
+		$AreaHolder/Check8.queue_free()
+		$AreaHolder/Check9.queue_free()
+		$ObjHolder/FloorObj9.queue_free()
+		Narrator.messages = ["It doesn't want you to escape","and I don't just mean the monster"]
+		Narrator.start_dialogue()
+
+func _on_Check10_area_entered(area):
+	if area.name == "PlayerArea":
+		$AreaHolder/Check10.queue_free()
+		$ObjHolder/FloorObj11.transform.origin = Vector3(-44, 2, -37.9)
 
 func _on_Timer_timeout():
 	Monster.queue_free()
-	SaveGame._player_chased()
 	Narrator.messages = ["You're safe now", "take this time to look around before leaving", "you can trust me"]
 	Narrator.start_dialogue()
 

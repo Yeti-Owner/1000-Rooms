@@ -31,7 +31,6 @@ config/icon="res://assets/ExportData/title.png"
 
 Settingsholder="*res://scripts/settingsholder.gd"
 RoomLoader="*res://scripts/RoomLoader.gd"
-MusicPlayer="*res://scenes/audio/MusicPlayer.tscn"
 SaveGame="*res://scripts/save_game.gd"
 
 [display]

@@ -197,9 +197,8 @@ margin_bottom = 259.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
-min_value = 3.0
 max_value = 8.0
-value = 6.0
+value = 3.0
 
 [node name="WarningLabel" type="Label" parent="SettingsTabs/Video"]
 anchor_top = 1.0

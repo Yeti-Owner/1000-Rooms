@@ -1,11 +1,10 @@
 extends KinematicBody
-var walk_speed := 6.0
-var jump_speed := 8.5
-var acceleration_speed := 6.5
-var gravity := -32.0
-var _dir := Vector3.ZERO
-var _vel := Vector3.ZERO
-var SubtractStam
+var walk_speed = 6.0
+var jump_speed = 8.9
+var acceleration_speed = 6.5
+var gravity = -32.0
+var _dir = Vector3.ZERO
+var _vel = Vector3.ZERO
 var EnabledWalking = 1
 
 # References
@@ -17,7 +16,7 @@ onready var Health = get_parent().get_node("GUI/HPandStam/HBoxContainer/HpBar")
 onready var PlayerAnim = $PlayerAnims
 
 func _physics_process(delta: float) -> void:
-	var input := Vector2.ZERO
+	var input = Vector2.ZERO
 	
 	if Input.is_action_pressed("up"):
 		input.y += 1
@@ -27,28 +26,23 @@ func _physics_process(delta: float) -> void:
 		input.x += 1
 	if Input.is_action_pressed("left"):
 		input.x -= 1
-	if Input.is_action_just_pressed("sprint"):
-		SubtractStam = Stamina.get_value()
-		SubtractStam = SubtractStam - 7.5
-		Stamina.set_value(SubtractStam)
+	if Input.is_action_just_pressed("sprint"): # when you first sprint it takes more
+		Stamina.set_value(Stamina.get_value() - 7.5)
 	if Input.is_action_pressed("sprint") && Stamina.get_value() > 0 && EnabledWalking :
 		walk_speed = 7.5
-		SubtractStam = Stamina.get_value()
-		SubtractStam = SubtractStam - 0.3
-		Stamina.set_value(SubtractStam)
+		Stamina.set_value(Stamina.get_value() - 0.2)
 		$Timer.set_wait_time(0.3)
-	elif EnabledWalking:
+	elif EnabledWalking: # When _die() is triggered walking is disabled here, dunno a better way to do it but I'm sure there is
 		walk_speed = 6.0
 		$Timer.set_wait_time(0.5)
 	input = input.normalized()
 	
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump") && Stamina.get_value() > 10:
-			SubtractStam = Stamina.get_value()
-			SubtractStam = SubtractStam - 10
-			Stamina.set_value(SubtractStam)
+			Stamina.set_value(Stamina.get_value() - 10)
+		if Input.is_action_pressed("jump") && Stamina.get_value() > 10:
 			_vel.y = jump_speed
-	else:
+	else: # footstep timer
 		$Timer.stop()
 	
 	_vel.y += gravity * delta
@@ -59,9 +53,10 @@ func _physics_process(delta: float) -> void:
 	_dir += basis.x * input.x
 	_dir = _dir.normalized()
 	
-	var acc := _vel.linear_interpolate(_dir * walk_speed, acceleration_speed * delta)
+	var acc = _vel.linear_interpolate(_dir * walk_speed, acceleration_speed * delta)
 	_vel = move_and_slide(Vector3(acc.x, _vel.y, acc.z), Vector3.UP)
 	
+	# If moving play head bob animation
 	if _dir != Vector3():
 		anim_player.play("Head Bob")
 		if $Timer.is_stopped():

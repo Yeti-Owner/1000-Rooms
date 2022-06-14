@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
+[ext_resource path="res://scenes/audio/MusicPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=4]
@@ -505,6 +506,8 @@ __meta__ = {
 visible = false
 
 [node name="ScarePlayer" parent="." instance=ExtResource( 10 )]
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 1 )]
 
 [connection signal="animation_finished" from="CustomFader/StartMenuCamera/AnimationPlayer" to="CustomFader/StartMenuCamera" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="CustomFader/Timer" to="CustomFader/StartMenuCamera" method="_on_Timer_timeout"]
