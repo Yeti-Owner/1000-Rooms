@@ -9,6 +9,7 @@ var FirstTimeRoom13 = 1
 # Unsaved vars
 var isChased = 0
 var ChasedBy = 0 # 0 = ghost, 1 = [PLACEHOLDER]
+var LastSavedRoomNum = 0
 
 # Saved Vars
 var game_data = {
@@ -23,10 +24,13 @@ var game_data = {
 
 # Check saved data
 func _ready():
+	_load()
+
+func _load():
 	# If save file doesnt exist put in default values
 	if not file.file_exists(save_data):
 		_save()
-	
+		
 	# Open save file and read values
 	file.open(save_data, File.READ)
 	game_data = file.get_var()

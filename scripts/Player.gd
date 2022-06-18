@@ -78,6 +78,10 @@ func _on_PlayerArea_area_entered(PlayerArea):
 		PlayerAnim.play("hurt")
 		$CameraHolder/Camera/HurtPlayer.play()
 		SaveGame.game_data.PlayerHP -= 20
+	elif PlayerArea.name == "KillBox":
+		_die()
+	elif PlayerArea.name == "ResetBox":
+		get_tree().reload_current_scene()
 
 func _die():
 	EnabledWalking = 0
@@ -89,4 +93,4 @@ func _on_PlayerAnims_animation_finished(anim_name):
 	if anim_name == "die":
 		SaveGame.game_data.PlayerHP = 100
 		SaveGame.game_data.RoomNum = SaveGame.game_data.LastSavedRoom
-		get_tree().change_scene(SaveGame.game_data.LastCheckPoint)
+		var _error = get_tree().change_scene(SaveGame.game_data.LastCheckPoint)

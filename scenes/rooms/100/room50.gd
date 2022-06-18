@@ -10,6 +10,9 @@ onready var player = get_node("/root/world/Fader/Player")
 
 
 func _ready():
+	SaveGame.game_data.RoomNum = 50
+	SaveGame.game_data.LastCheckPoint = "res://scenes/rooms/100/room50.tscn"
+	SaveGame._save()
 	fader._fade_in()
 	Monster.transform.origin = Vector3(0, 3, 9)
 	SaveGame.game_data.CurrentRoom = _room
@@ -59,7 +62,7 @@ func _on_Check5_area_entered(area5):
 	if area5.name == "PlayerArea":
 		Monster.transform.origin = Vector3(0, 3, 4.6)
 		$AreaHolder/Check5.queue_free()
-		Narrator.messages = ["STOP! STAND STILL","...","This room is dark and it's vision is bad","Maybe you've lost it for now"]
+		Narrator.messages = ["STOP", "STAND STILL","The room is dark and it's vision is bad"]
 		Narrator.start_dialogue()
 
 func _on_Check6_area_entered(area6):
@@ -112,6 +115,9 @@ func _on_KillBox2_area_entered(kill2):
 	if kill2.name == "PlayerArea":
 		player._die()
 
-func _on_KillBox3_area_entered(kill3):
-	if kill3.name == "PlayerArea":
-		player._die()
+
+func _on_Check11_area_entered(area):
+	if area.name == "PlayerArea":
+		player.transform.origin = Vector3(51.09, 5.07, -112.6)
+		
+

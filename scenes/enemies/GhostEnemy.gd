@@ -9,6 +9,7 @@ var velocity = Vector3.ZERO
 var threshold = 0.1
 var old_speed
 var dir
+var EnabledChasing = 1
 
 onready var nav = get_parent()
 onready var target = get_node("/root/world/Fader/Player")
@@ -17,9 +18,9 @@ func _ready():
 	$SoundTimer.start()
 	randomize()
 
-func _process(delta):
+func _process(_delta):
 	look_at(target.get_translation(), Vector3.UP)
-	if path.size() > 0:
+	if path.size() > 0 && EnabledChasing:
 		move_to_target()
 
 func move_to_target():
@@ -45,13 +46,12 @@ func _on_Timer_timeout():
 
 func _on_EnemyArea_area_entered(area):
 	if area.name == "PlayerArea":
-		old_speed = speed
-		speed = 0
+		EnabledChasing = 0
 		$stun_timer.start()
 
 
 func _on_stun_timer_timeout():
-	speed = old_speed
+	EnabledChasing = 1
 
 
 func _on_SoundTimer_timeout():

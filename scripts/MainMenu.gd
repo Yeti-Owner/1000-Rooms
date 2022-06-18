@@ -11,6 +11,7 @@ func _ready():
 	fader.connect("fade_finished", self, "on_fade_finished")
 
 func _on_StartBtn_pressed():
+	SaveGame._load()
 	MusicPlayer._music_transition()
 	ClickPlayer._click_sound()
 	fader._fade_out()
@@ -22,6 +23,7 @@ func _on_OptionsBtn_pressed():
 func _on_ClearSaveBtn_pressed():
 	ClickPlayer._click_sound()
 	dir.remove(save_data)
+	get_tree().quit()
 
 func _on_QuitBtn_pressed():
 	ClickPlayer._click_sound()
@@ -39,4 +41,4 @@ func _on_CloseBtn_pressed():
 	get_node("VersionDialog").visible = false
 
 func _on_FeedbackBtn_pressed():
-	OS.shell_open("https://forms.gle/FtncNqYqHXxhzjqg7")
+	var _error = OS.shell_open("https://forms.gle/FtncNqYqHXxhzjqg7")

@@ -3,6 +3,7 @@ extends Spatial
 onready var fader = $Fader
 onready var Narrator = $Narrator
 export(String) var _room 
+#export(Vector3) var MonsterLocation
 
 func _ready():
 	SaveGame.game_data.CurrentRoom = _room

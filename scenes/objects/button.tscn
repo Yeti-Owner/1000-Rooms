@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/3D models/button/uploads_files_2691895_button.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/3D models/button/button_Base_Color_red.png" type="Texture" id=2]
+[ext_resource path="res://assets/3D models/button/button_button_OcclusionRoughnessMetallic.png" type="Texture" id=3]
+[ext_resource path="res://interactable/InteractableButton.gd" type="Script" id=4]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+metallic_texture = ExtResource( 3 )
+roughness_texture = ExtResource( 3 )
+ao_enabled = true
+ao_light_affect = 0.0
+ao_texture = ExtResource( 3 )
+ao_on_uv2 = false
+ao_texture_channel = 0
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 0.25, 1 )
+
+[sub_resource type="CylinderShape" id=4]
+radius = 0.2
+height = 0.1
+
+[node name="Button" type="StaticBody"]
+collision_layer = 3
+script = ExtResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.014, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("")
+material/0 = SubResource( 2 )
+material/1 = SubResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.0625, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0 )
+shape = SubResource( 4 )

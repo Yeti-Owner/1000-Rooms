@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/objects/Lightbulb.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/WorldEnvironment2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/objects/Floors Walls Etc/WallObj2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/load_world2.gd" type="Script" id=10]
+
+[node name="world" type="Spatial"]
+script = ExtResource( 10 )
+_room = "res://scenes/rooms/200/room1.tscn"
+MonsterLocation = Vector3( 3, 1.8, 1 )
+
+[node name="Fader" parent="." instance=ExtResource( 2 )]
+mouse_filter = 1
+
+[node name="GUI" parent="Fader" instance=ExtResource( 5 )]
+pause_mode = 2
+layer = 0
+
+[node name="Player" parent="Fader" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.7, 1.6 )
+
+[node name="Lightbulb" parent="Fader" instance=ExtResource( 7 )]
+transform = Transform( -1, 6.28631e-06, 0, -6.28631e-06, -1, 0, 0, 0, 1, -0.946095, 3.93911, -4.3304 )
+Bulb_On = true
+
+[node name="Lightbulb2" parent="Fader" instance=ExtResource( 7 )]
+transform = Transform( -1, 6.28631e-06, 0, -6.28631e-06, -1, 0, 0, 0, 1, -0.946095, 3.93911, -15.3304 )
+Bulb_On = true
+
+[node name="Lightbulb3" parent="Fader" instance=ExtResource( 7 )]
+transform = Transform( -1, 6.28631e-06, 0, -6.28631e-06, -1, 0, 0, 0, 1, -0.946095, 3.93911, -28.3304 )
+Bulb_On = true
+Flashing = true
+
+[node name="console" parent="Fader" instance=ExtResource( 3 )]
+
+[node name="wall" parent="Fader" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
+
+[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 8 )]
+
+[node name="Narrator" parent="." instance=ExtResource( 6 )]
+
+[node name="GridMap2" parent="." instance=ExtResource( 1 )]
+data = {
+"cells": PoolIntArray( 2, 0, 0, 65534, 0, 0, 65536, 0, 0, 65538, 0, 0, 131070, 0, 0, 131073, 0, 1, 196607, 0, 1, -65536, 0, 2, -65535, 0, 2, -1, 0, 2, 0, 1, 0, 1, 1, 0, 65535, 1, 0, 65536, 1, 0, 65537, 1, 0, 131071, 1, 0, 65535, 65519, 0, 131071, 65519, 0, 0, 65520, 0, 65534, 65520, 0, 65536, 65520, 0, 131070, 65520, 0, 196607, 65520, 1, -1, 65520, 2, 0, 65521, 0, 65534, 65521, 0, 65536, 65521, 0, 131070, 65521, 0, 196607, 65521, 1, -1, 65521, 2, 0, 65522, 0, 65534, 65522, 0, 65536, 65522, 0, 131070, 65522, 0, 196607, 65522, 1, -1, 65522, 2, 0, 65523, 0, 65534, 65523, 0, 65536, 65523, 0, 131070, 65523, 0, 196607, 65523, 1, -1, 65523, 2, 0, 65524, 0, 65534, 65524, 0, 65536, 65524, 0, 131070, 65524, 0, 196607, 65524, 1, -1, 65524, 2, 0, 65525, 0, 65534, 65525, 0, 65536, 65525, 0, 131070, 65525, 0, 196607, 65525, 1, -1, 65525, 2, 0, 65526, 0, 65534, 65526, 0, 65536, 65526, 0, 131070, 65526, 0, 196607, 65526, 1, -1, 65526, 2, 0, 65527, 0, 65534, 65527, 0, 65536, 65527, 0, 131070, 65527, 0, 196607, 65527, 1, -1, 65527, 2, 0, 65528, 0, 65534, 65528, 0, 65536, 65528, 0, 131070, 65528, 0, 196607, 65528, 1, -1, 65528, 2, 0, 65529, 0, 65534, 65529, 0, 65536, 65529, 0, 131070, 65529, 0, 196607, 65529, 1, -1, 65529, 2, 0, 65530, 0, 65534, 65530, 0, 65536, 65530, 0, 131070, 65530, 0, 196607, 65530, 1, -1, 65530, 2, 0, 65531, 0, 65534, 65531, 0, 65536, 65531, 0, 131070, 65531, 0, 196607, 65531, 1, -1, 65531, 2, 0, 65532, 0, 65534, 65532, 0, 65536, 65532, 0, 131070, 65532, 0, 196607, 65532, 1, -1, 65532, 2, 0, 65533, 0, 65534, 65533, 0, 65536, 65533, 0, 131070, 65533, 0, 196607, 65533, 1, -1, 65533, 2, 0, 65534, 0, 65534, 65534, 0, 65536, 65534, 0, 131070, 65534, 0, 196607, 65534, 1, -1, 65534, 2, 0, 65535, 0, 1, 65535, 0, 65534, 65535, 0, 65536, 65535, 0, 65537, 65535, 0, 131070, 65535, 0, 196607, 65535, 1, -1, 65535, 2 )
+}

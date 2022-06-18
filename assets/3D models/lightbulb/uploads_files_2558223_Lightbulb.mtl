@@ -1,0 +1,17 @@
+# Blender MTL File: 'lamp.blend'
+# Material Count: 1
+
+newmtl Lightbulb
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump Textures\\Lightbulb_Normal.png
+map_Kd Textures\\Lightbulb_AlbedoTransparency.png
+map_Ke Textures\\Lightbulb_Emission.png
+map_d Textures\\Lightbulb_AlbedoTransparency.png
+refl Textures\\Lightbulb_MetallicSmoothness.png
