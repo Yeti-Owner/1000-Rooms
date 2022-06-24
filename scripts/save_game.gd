@@ -4,7 +4,15 @@ var file = File.new()
 var save_data = "user://save_game.dat"
 
 # Onetime Vars
+# first # is which hundred it is, ie 1 = 100
 var FirstTimeRoom13 = 1
+var FirstTimeRoom210 = 1
+var FirstTimeRoom211 = 1
+var FirstTimeRoom212 = 1
+var FirstTimeRoom213 = 1
+var FirstTimeRoom214 = 1
+var FirstTimeRoom215 = 1
+var FirstTimeParkour = 1
 
 # Unsaved vars
 var isChased = 0

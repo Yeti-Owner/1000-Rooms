@@ -65,7 +65,7 @@ FontSize = 30
 
 [node name="Plaque2" parent="Fader" instance=ExtResource( 8 )]
 transform = Transform( 3.14315e-06, 8.74228e-08, 1, 0, 1, -8.74228e-08, 1, -2.74783e-13, -3.14315e-06, 10, 0.6, -9 )
-Text = "He can't read these signs"
+Text = "He can't read, he doesn't know what I tell you"
 FontSize = 30
 
 [node name="Plaque3" parent="Fader" instance=ExtResource( 8 )]
@@ -85,7 +85,7 @@ FontSize = 30
 
 [node name="Plaque6" parent="Fader" instance=ExtResource( 8 )]
 transform = Transform( -9.42946e-06, -8.74228e-08, -1, 0, 1, -8.74228e-08, -1, 8.2435e-13, 9.42946e-06, -10, 0.6, -35 )
-Text = "He didn't make this"
+Text = "He isn't The Creator "
 FontSize = 30
 
 [node name="Lightbulb" parent="Fader" instance=ExtResource( 9 )]

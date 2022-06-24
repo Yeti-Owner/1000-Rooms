@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	_vel = move_and_slide(Vector3(acc.x, _vel.y, acc.z), Vector3.UP)
 	
 	# If moving play head bob animation
-	if _dir != Vector3():
+	if _dir != Vector3() && EnabledWalking:
 		anim_player.play("Head Bob")
 		if $Timer.is_stopped():
 			$Timer.start()
@@ -69,8 +69,9 @@ func _physics_process(delta: float) -> void:
 		_die()
 
 func _on_Timer_timeout():
-	StepPlayer.pitch_scale = rand_range(0.85, 1.15)
-	StepPlayer.play()
+	if EnabledWalking:
+		StepPlayer.pitch_scale = rand_range(0.85, 1.15)
+		StepPlayer.play()
 
 
 func _on_PlayerArea_area_entered(PlayerArea):

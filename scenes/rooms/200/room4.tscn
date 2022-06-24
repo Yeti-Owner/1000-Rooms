@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/Floors Walls Etc/WallObj2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/objects/Lightbulb.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/objects/KillBox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/objects/ResetBox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/WorldEnvironment2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/load_world2.gd" type="Script" id=9]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=10]
@@ -31,7 +31,7 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.7, 1.6 )
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.863, -15 )
 Bulb_On = true
 
-[node name="KillBox" parent="Fader" instance=ExtResource( 7 )]
+[node name="ResetBox" parent="Fader" instance=ExtResource( 7 )]
 transform = Transform( 22, 0, 0, 0, 1, 0, 0, 0, 35, -3, -7, -51 )
 
 [node name="wall" parent="Fader" instance=ExtResource( 5 )]
