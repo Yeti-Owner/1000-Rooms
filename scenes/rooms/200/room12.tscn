@@ -64,7 +64,7 @@ Text = "Go to the right"
 FontSize = 30
 
 [node name="Plaque2" parent="Fader" instance=ExtResource( 8 )]
-transform = Transform( 3.14315e-06, 8.74228e-08, 1, 0, 1, -8.74228e-08, 1, -2.74783e-13, -3.14315e-06, 10, 0.6, -9 )
+transform = Transform( 2.90135e-06, 8.74231e-08, 1, -7.43094e-08, 1, -8.74228e-08, 0.85, 8.74225e-08, -3.41336e-06, 10, 0.6, -9 )
 Text = "He can't read, he doesn't know what I tell you"
 FontSize = 30
 
@@ -74,7 +74,7 @@ Text = "Go to the left"
 FontSize = 30
 
 [node name="Plaque4" parent="Fader" instance=ExtResource( 8 )]
-transform = Transform( -9.42946e-06, -8.74228e-08, -1, 0, 1, -8.74228e-08, -1, 8.2435e-13, 9.42946e-06, -10, 0.6, -21 )
+transform = Transform( -8.04206e-06, -8.74236e-08, -1, -7.43094e-08, 1, -8.74228e-08, -0.85, -8.7422e-08, 9.46125e-06, -10, 0.6, -21 )
 Text = "He isn't who he claims to be"
 FontSize = 30
 
@@ -84,7 +84,7 @@ Text = "Go to the left"
 FontSize = 30
 
 [node name="Plaque6" parent="Fader" instance=ExtResource( 8 )]
-transform = Transform( -9.42946e-06, -8.74228e-08, -1, 0, 1, -8.74228e-08, -1, 8.2435e-13, 9.42946e-06, -10, 0.6, -35 )
+transform = Transform( -8.04206e-06, -8.74236e-08, -1, -7.43094e-08, 1, -8.74228e-08, -0.85, -8.7422e-08, 9.46125e-06, -10, 0.6, -35 )
 Text = "He isn't The Creator "
 FontSize = 30
 
