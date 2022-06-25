@@ -10,6 +10,8 @@ onready var player = get_node("/root/world/Fader/Player")
 
 
 func _ready():
+	get_node("ObjHolder/WallObj3").queue_free()
+	get_node("ObjHolder/WallObj4").queue_free()
 	SaveGame.game_data.RoomNum = 50
 	SaveGame.game_data.LastCheckPoint = "res://scenes/rooms/100/room50.tscn"
 	SaveGame._save()
@@ -102,7 +104,7 @@ func _on_Check10_area_entered(area):
 
 func _on_Timer_timeout():
 	Monster.queue_free()
-	Narrator.messages = ["You're safe now", "take this time to look around before leaving", "you can trust me"]
+	Narrator.messages = ["You're safe now", "take this time to look around before leaving"]
 	Narrator.start_dialogue()
 
 

@@ -1,0 +1,12 @@
+[gd_resource type="ParticlesMaterial" format=2]
+
+[resource]
+emission_shape = 1
+emission_sphere_radius = 0.2
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+linear_accel = -100.0
+radial_accel = -100.0
+tangential_accel = 73.72
+scale = 0.5
+color = Color( 1, 0.972549, 0, 1 )

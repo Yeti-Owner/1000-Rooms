@@ -14,14 +14,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="dialogue" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 10.0
 margin_top = 422.0
+margin_right = -10.0
 margin_bottom = -1.0
 custom_colors/font_color = Color( 0.345098, 0, 0.894118, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -29,9 +28,6 @@ custom_fonts/font = SubResource( 1 )
 align = 1
 valign = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="next_char" type="Timer" parent="."]
 

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/meshlib/HubMeshlib.meshlib" type="MeshLibrary" id=1]
+
+[node name="HubGridmap" type="GridMap"]
+mesh_library = ExtResource( 1 )
+__meta__ = {
+"_editor_clip_": 0
+}

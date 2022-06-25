@@ -82,7 +82,7 @@ func _on_PlayerArea_area_entered(PlayerArea):
 	elif PlayerArea.name == "KillBox":
 		_die()
 	elif PlayerArea.name == "ResetBox":
-		get_tree().reload_current_scene()
+		var _error = get_tree().reload_current_scene()
 
 func _die():
 	EnabledWalking = 0

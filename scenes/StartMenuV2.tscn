@@ -436,9 +436,6 @@ margin_top = -200.0
 margin_right = 350.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 700, 400 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="Fader/Menu/VersionDialog"]
 anchor_right = 1.0
@@ -452,12 +449,9 @@ __meta__ = {
 anchor_right = 1.0
 margin_bottom = 57.0
 custom_fonts/font = SubResource( 8 )
-text = "Version 1.03"
+text = "Version 1.04"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CloseBtn" type="Button" parent="Fader/Menu/VersionDialog"]
 anchor_left = 1.0
@@ -477,12 +471,13 @@ custom_fonts/font = SubResource( 9 )
 text = "- Added 100 more rooms!
 - Added new monster
 - Added some basic storyline
-- Added 3 new objects"
+- Added 4 new objects
+- Fixed some major bugs (including sign text being buggy)
+- Added 20+ new textures
+- Added 5+ new models
+- Added 3+ new sounds"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FeedbackBtn" type="Button" parent="Fader/Menu"]
 anchor_top = 1.0
@@ -491,9 +486,6 @@ margin_top = -48.0
 margin_right = 183.0
 custom_fonts/font = SubResource( 10 )
 text = "Feedback"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="console" parent="." instance=ExtResource( 9 )]
 visible = false

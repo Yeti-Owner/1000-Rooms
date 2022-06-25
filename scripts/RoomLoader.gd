@@ -21,14 +21,16 @@ func _get_next_room():
 		else: 
 			_get_next_room()
 	elif (SaveGame.game_data.RoomNum == 99):
-#		PLACEHOLDER ADD A ROOM 100 INTRO TO ROOM 200s
-		var _error = get_tree().change_scene("res://scenes/EndScreen.tscn")
+		var _error = get_tree().change_scene("res://scenes/rooms/100/room100.tscn")
 	elif (SaveGame.game_data.RoomNum > 99):
-		RoomRNG = randi() % 15 + 1
-		GotoRoom = str("res://scenes/rooms/200/room" + str(RoomRNG) + ".tscn")
-		if GotoRoom != LastRoom:
-			var _error = get_tree().change_scene(GotoRoom)
-			SaveGame.game_data.RoomNum += 1
-		else: 
-			_get_next_room()
+		var _error = get_tree().change_scene("res://scenes/EndScreen.tscn")
+		# Uncomment stuff below when it's fully working
+		
+#		RoomRNG = randi() % 15 + 1
+#		GotoRoom = str("res://scenes/rooms/200/room" + str(RoomRNG) + ".tscn")
+#		if GotoRoom != LastRoom:
+#			var _error = get_tree().change_scene(GotoRoom)
+#			SaveGame.game_data.RoomNum += 1
+#		else: 
+#			_get_next_room()
 

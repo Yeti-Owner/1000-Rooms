@@ -1,13 +1,13 @@
 extends Control
 
 var messages = [""]
-
 var typing_speed = 0.07
 var read_time = 1.5
-
 var current_message = 0
 var display = ""
 var current_char = 0
+
+signal DialogueFinished
 
 func _ready():
 	start_dialogue()
@@ -21,6 +21,7 @@ func start_dialogue():
 	$next_char.start()
 
 func stop_dialogue():
+	emit_signal("DialogueFinished")
 	$dialogue.text = ""
 
 func _on_next_char_timeout():

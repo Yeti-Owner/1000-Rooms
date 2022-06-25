@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/audio/misc/BricksCrumbling.ogg" type="AudioStream" id=1]
+
+[node name="BricksBreaking" type="AudioStreamPlayer3D"]
+stream = ExtResource( 1 )
+unit_db = 25.0
+bus = "SfxBus"

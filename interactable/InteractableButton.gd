@@ -18,7 +18,7 @@ func interact():
 		"pos":
 			player.transform.origin = Arg3
 		"die":
-			get_tree().reload_current_scene()
+			var _error = get_tree().reload_current_scene()
 		"continue":
 			RoomLoader._get_next_room()
 		"delete":
@@ -28,3 +28,9 @@ func interact():
 			get_node(Arg4).queue_free()
 		"summon_monster":
 			pass
+		"health_set":
+			SaveGame.game_data.PlayerHP = Arg2
+		"health_add":
+			SaveGame.game_data.PlayerHP += Arg2
+			if SaveGame.game_data.PlayerHP > 100:
+				SaveGame.game_data.PlayerHP = 100

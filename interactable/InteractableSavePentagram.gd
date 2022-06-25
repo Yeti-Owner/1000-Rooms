@@ -3,6 +3,7 @@ extends Interactable
 var Saved = "Press E to Save"
 onready var player = get_node("/root/world/Fader/Player")
 onready var SaveSound = get_parent().get_node("SaveSound")
+#signal GameSaved
 
 func get_interaction_text():
 	return Saved
