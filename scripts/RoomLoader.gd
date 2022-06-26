@@ -25,6 +25,7 @@ func _get_next_room():
 	elif (SaveGame.game_data.RoomNum > 99):
 		var _error = get_tree().change_scene("res://scenes/EndScreen.tscn")
 		# Uncomment stuff below when it's fully working
+		# also add in code so you always arrive at room 201 after room 100
 		
 #		RoomRNG = randi() % 15 + 1
 #		GotoRoom = str("res://scenes/rooms/200/room" + str(RoomRNG) + ".tscn")

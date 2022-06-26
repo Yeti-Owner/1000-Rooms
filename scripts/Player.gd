@@ -78,7 +78,6 @@ func _on_PlayerArea_area_entered(PlayerArea):
 	if PlayerArea.name == "EnemyArea":
 		PlayerAnim.play("hurt")
 		$CameraHolder/Camera/HurtPlayer.play()
-		SaveGame.game_data.PlayerHP -= 20
 	elif PlayerArea.name == "KillBox":
 		_die()
 	elif PlayerArea.name == "ResetBox":

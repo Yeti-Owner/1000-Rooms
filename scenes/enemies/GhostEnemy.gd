@@ -46,6 +46,7 @@ func _on_Timer_timeout():
 
 func _on_EnemyArea_area_entered(area):
 	if area.name == "PlayerArea":
+		SaveGame.game_data.PlayerHP -= 15
 		EnabledChasing = 0
 		$stun_timer.start()
 

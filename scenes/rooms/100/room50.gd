@@ -64,7 +64,7 @@ func _on_Check5_area_entered(area5):
 	if area5.name == "PlayerArea":
 		Monster.transform.origin = Vector3(0, 3, 4.6)
 		$AreaHolder/Check5.queue_free()
-		Narrator.messages = ["STOP", "STAND STILL","The room is dark and it's vision is bad"]
+		Narrator.messages = ["STOP", "STAND STILL","Maybe we lost him?"]
 		Narrator.start_dialogue()
 
 func _on_Check6_area_entered(area6):

@@ -40,6 +40,7 @@ func _dialogue_finished():
 			RoomStage += 1
 		3:
 			print("stage 3")
+			RoomStage += 1
 
 
 func _on_Area_area_entered(area):
@@ -99,18 +100,24 @@ func _door_triggered():
 		DoorStage += 1
 
 func _release_fairy():
-	var FairyEnemy2 = FairyEnemy.instance()
-	FairyEnemy2.transform.origin = Vector3(0, 1, -51.3)
-	add_child(FairyEnemy2)
+	$Timer.start()
 	
+	# Instance in Hatch
 	var Hatch2 = Hatch.instance()
 	Hatch2.transform.origin = Vector3(0, 0, -32.3)
 	get_node("Fader").add_child(Hatch2)
 	
+	# remove door and wall
 	$Fader/FakeDoor.queue_free()
-	
 	get_node("Fader/ObjHolder/WallObj3").queue_free()
 	$BricksBreaking2.play()
 	
 	Narrator.messages = ["UH OH","IT'S LOOSE","FIND THE HATCH TO ESCAPE"]
 	Narrator.start_dialogue()
+
+
+func _on_Timer_timeout():
+	# instance in Fairy
+	var FairyEnemy2 = FairyEnemy.instance()
+	FairyEnemy2.transform.origin = Vector3(0, 1, -50.3) # 0,1,-51.3
+	add_child(FairyEnemy2)

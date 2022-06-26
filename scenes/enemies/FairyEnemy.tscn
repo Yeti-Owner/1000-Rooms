@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://resources/FairyParticleMaterial.tres" type="Material" id=1]
 [ext_resource path="res://assets/textures/general/Fairy.png" type="Texture" id=2]
+[ext_resource path="res://scenes/enemies/FairyEnemy.gd" type="Script" id=3]
+[ext_resource path="res://scenes/enemies/FairyCast.gd" type="Script" id=4]
 
 [sub_resource type="SpatialMaterial" id=2]
 flags_transparent = true
@@ -16,12 +18,64 @@ material = SubResource( 2 )
 size = Vector2( 0.5, 0.5 )
 
 [sub_resource type="SphereShape" id=1]
-radius = 0.497102
+radius = 0.497
+
+[sub_resource type="SphereShape" id=4]
+radius = 0.6
+
+[sub_resource type="Animation" id=5]
+resource_name = "Idle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fairy:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 2, 2, 2 ), Vector3( 1, 1, 1 ), Vector3( 2, 2, 2 ), Vector3( 1, 1, 1 ), Vector3( 2, 2, 2 ), Vector3( 1, 1, 1 ), Vector3( 2, 2, 2 ), Vector3( 1, 1, 1 ), Vector3( 2, 2, 2 ), Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fairy:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Fairy:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="SphereShape" id=7]
+radius = 2.69505
 
 [node name="FairyEnemy" type="KinematicBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+script = ExtResource( 3 )
 
-[node name="FairyBody" type="Particles" parent="."]
+[node name="Fairy" type="Spatial" parent="."]
+
+[node name="FairyBody" type="Particles" parent="Fairy"]
 amount = 100
 lifetime = 0.1
 visibility_aabb = AABB( -1.343, -1.209, -1.038, 2, 2, 2 )
@@ -31,3 +85,86 @@ draw_pass_1 = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
+
+[node name="FairyArea" type="Area" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="FairyArea"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="FairyVision" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="FairyVision"]
+shape = SubResource( 7 )
+
+[node name="RayCast1" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0.5, 0.5, 0 )
+script = ExtResource( 4 )
+
+[node name="RayCast2" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0.5, 0, 0 )
+script = ExtResource( 4 )
+
+[node name="RayCast3" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0.5, -0.5, 0 )
+script = ExtResource( 4 )
+
+[node name="RayCast4" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( -0.5, 0.5, 0 )
+script = ExtResource( 4 )
+
+[node name="RayCast5" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( -0.5, 0, 0 )
+script = ExtResource( 4 )
+
+[node name="RayCast6" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( -0.5, -0.5, 0 )
+script = ExtResource( 4 )
+
+[node name="RayCast7" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0.5, 0.5 )
+script = ExtResource( 4 )
+
+[node name="RayCast8" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0, 0.5 )
+script = ExtResource( 4 )
+
+[node name="RayCast9" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -0.5, 0.5 )
+script = ExtResource( 4 )
+
+[node name="RayCast10" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0.5, -0.5 )
+script = ExtResource( 4 )
+
+[node name="RayCast11" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0, -0.5 )
+script = ExtResource( 4 )
+
+[node name="RayCast12" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -0.5, -0.5 )
+script = ExtResource( 4 )
+
+[node name="DirTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="FairyArea" to="." method="_on_FairyArea_area_entered"]
+[connection signal="area_entered" from="FairyVision" to="." method="_on_FairyVision_area_entered"]
+[connection signal="timeout" from="DirTimer" to="." method="_on_DirTimer_timeout"]
