@@ -14,6 +14,7 @@ var Brightness = 3
 var MasterVolume = 25
 var MusicVolume = 50
 var SfxVolume = 50
+var Intro = 0
 
 # Check saved data
 func _ready():
@@ -33,9 +34,10 @@ func _ready():
 	MasterVolume = file.get_8()
 	MusicVolume = file.get_8()
 	SfxVolume = file.get_8()
+	Intro = file.get_8()
 	file.close()
 
 func _save():
 	file.open(save_settings, File.WRITE)
-	file.store_buffer([ShowFps, MouseSensitivity, PlayerFOV, FrameRate, BloomSet, VsyncEnabled, Brightness, MasterVolume, MusicVolume, SfxVolume])
+	file.store_buffer([ShowFps, MouseSensitivity, PlayerFOV, FrameRate, BloomSet, VsyncEnabled, Brightness, MasterVolume, MusicVolume, SfxVolume, Intro])
 	file.close()

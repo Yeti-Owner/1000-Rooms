@@ -12,7 +12,7 @@ func _ready():
 
 func _check_room():
 	if _room == "res://scenes/world.tscn":
-		Narrator.messages = ["Welcome to my dungeon", "have fun"]
+		Narrator.messages = ["Welcome to my dungeon", "it's a bit bigger on the inside"]
 	elif _room == "res://scenes/rooms/100/room13.tscn" && SaveGame.FirstTimeRoom13:
 		Narrator.messages = ["This room is an interesting one", "I'll give you a hint though", "I'm not a fan of tedious puzzles.", "I'd rather just hide the solution in plain sight"]
 		SaveGame.FirstTimeRoom13 = 0

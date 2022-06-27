@@ -22,6 +22,8 @@ func _on_OptionsBtn_pressed():
 func _on_ClearSaveBtn_pressed():
 	ClickPlayer._click_sound()
 	dir.remove(save_data)
+	Settingsholder.Intro = 0
+	Settingsholder._save()
 	get_tree().quit()
 
 func _on_QuitBtn_pressed():
