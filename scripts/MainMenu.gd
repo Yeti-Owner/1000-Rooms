@@ -11,7 +11,6 @@ func _ready():
 	fader.connect("fade_finished", self, "on_fade_finished")
 
 func _on_StartBtn_pressed():
-	SaveGame._load()
 	MusicPlayer._music_transition()
 	ClickPlayer._click_sound()
 	fader._fade_out()

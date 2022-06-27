@@ -10,16 +10,17 @@ onready var player = get_node("/root/world/Fader/Player")
 
 
 func _ready():
+	print(SaveGame.game_data.CurrentRoom)
 	get_node("ObjHolder/WallObj3").queue_free()
 	get_node("ObjHolder/WallObj4").queue_free()
-	SaveGame.game_data.RoomNum = 50
-	SaveGame.game_data.LastCheckPoint = "res://scenes/rooms/100/room50.tscn"
 	SaveGame._save()
 	fader._fade_in()
 	Monster.transform.origin = Vector3(0, 3, 9)
 	SaveGame.game_data.CurrentRoom = _room
 	# if completed room
 	if typeof(SaveGame.game_data.CurrentPos) == TYPE_VECTOR3:
+		SaveGame.game_data.RoomNum = 50
+		SaveGame.game_data.LastCheckPoint = "res://scenes/rooms/100/room50.tscn"
 		$AreaHolder/Check3.queue_free()
 		Monster.queue_free()
 		player.transform.origin = Vector3(SaveGame.game_data.CurrentPos)

@@ -121,3 +121,4 @@ func _on_Timer_timeout():
 	var FairyEnemy2 = FairyEnemy.instance()
 	FairyEnemy2.transform.origin = Vector3(0, 1, -50.3) # 0,1,-51.3
 	add_child(FairyEnemy2)
+	get_node("FairyEnemy")._change_state(2)

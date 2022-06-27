@@ -32,6 +32,8 @@ func _on_console_text_entered(cmd):
 			print(SaveGame.game_data.JumpScareAmt)
 		elif cmd[1] == "scare":
 			SaveGame.game_data.JumpScareAmt = int(cmd[2])
+		elif cmd[1] == "rc": # Room Check
+			print(SaveGame.game_data.CurrentRoom)
 	elif cmd[0] == "close":
 		self.set_visible(false)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

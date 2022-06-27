@@ -33,7 +33,7 @@ func move_to_target():
 	else:
 		var direction = path[cur_path_idx] - global_transform.origin
 		velocity = direction.normalized() * speed
-		move_and_slide(velocity, Vector3.UP)
+		var _error = move_and_slide(velocity, Vector3.UP)
 
 
 func get_target_path(target_pos):
