@@ -10,9 +10,9 @@ var EnabledWalking = 1
 # References
 onready var _camera := $CameraHolder
 onready var anim_player = $CameraHolder/Camera/AnimationPlayer
-onready var Stamina = get_parent().get_node("GUI/HPandStam/HBoxContainer2/StamBar")
+onready var Stamina = get_parent().get_node("GUI/HPandStam/StamBar2")
 onready var StepPlayer = $StepPlayer
-onready var Health = get_parent().get_node("GUI/HPandStam/HBoxContainer/HpBar")
+onready var Health = get_parent().get_node("GUI/HPandStam/HpBar2")
 onready var PlayerAnim = $PlayerAnims
 
 func _physics_process(delta: float) -> void:
@@ -82,6 +82,7 @@ func _on_PlayerArea_area_entered(PlayerArea):
 		_die()
 	elif PlayerArea.name == "ResetBox":
 		var _error = get_tree().reload_current_scene()
+		SaveGame.game_data.PlayerHP -= 20
 
 func _die():
 	EnabledWalking = 0

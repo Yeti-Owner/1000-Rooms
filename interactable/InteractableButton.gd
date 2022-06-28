@@ -34,3 +34,5 @@ func interact():
 			SaveGame.game_data.PlayerHP += Arg2
 			if SaveGame.game_data.PlayerHP > 100:
 				SaveGame.game_data.PlayerHP = 100
+	$ButtonNoise.pitch_scale = rand_range(0.80, 1.2)
+	$ButtonNoise.play()

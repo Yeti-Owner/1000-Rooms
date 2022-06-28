@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/3D models/button/uploads_files_2691895_button.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/3D models/button/button_Base_Color_red.png" type="Texture" id=2]
 [ext_resource path="res://assets/3D models/button/button_button_OcclusionRoughnessMetallic.png" type="Texture" id=3]
 [ext_resource path="res://interactable/InteractableButton.gd" type="Script" id=4]
+[ext_resource path="res://assets/audio/misc/ButtonPress.ogg" type="AudioStream" id=5]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.278431, 0.278431, 0.278431, 1 )
@@ -45,3 +46,7 @@ shape = SubResource( 3 )
 [node name="CollisionShape2" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0 )
 shape = SubResource( 4 )
+
+[node name="ButtonNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "SfxBus"

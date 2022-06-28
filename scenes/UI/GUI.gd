@@ -5,8 +5,8 @@ var Stamina = 200
 # References
 onready var RoomNum = $RoomNumHolder/CenterContainer/RoomNum
 onready var FpsCounter = $MarginContainer/FpsCounter
-onready var HpBar = $HPandStam/HBoxContainer/HpBar
-onready var StamBar = $HPandStam/HBoxContainer2/StamBar
+onready var HpBar = $HPandStam/HpBar2
+onready var StamBar = $HPandStam/StamBar2
 
 func _ready():
 	StamBar.set_value(Stamina)

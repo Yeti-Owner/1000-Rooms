@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Gridmaps/Shop.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Gridmaps/HubGridmap.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/objects/button.tscn" type="PackedScene" id=13]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 5 )
@@ -30,6 +31,10 @@ transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 4, 0.01, 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5 )
 Title = "My test title"
 Text = "UIWHAFFFFOOUAWFHHUAWFHAWIUFHIAUWHFIUAW When the imposter is sus when the when the when the when"
+
+[node name="Button" parent="Fader" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 1.2, -2 )
+Function = "scene"
 
 [node name="console" parent="." instance=ExtResource( 10 )]
 

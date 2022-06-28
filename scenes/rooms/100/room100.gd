@@ -39,7 +39,6 @@ func _dialogue_finished():
 			Narrator.start_dialogue()
 			RoomStage += 1
 		3:
-			print("stage 3")
 			RoomStage += 1
 
 

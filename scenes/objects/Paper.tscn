@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/3D models/Paper/A4_Lined_Paper_OBJ.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/3D models/Paper/Lined_Paper_Base_Colour.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/3D models/Paper/Lined_Paper_Normal_OpenGL.png" type="Texture" id=6]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://interactable/InteractablePaper.gd" type="Script" id=8]
+[ext_resource path="res://assets/audio/misc/Paper.ogg" type="AudioStream" id=9]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -107,5 +108,9 @@ shape = SubResource( 5 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
 shape = SubResource( 2 )
+
+[node name="PaperNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "SfxBus"
 
 [connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]
