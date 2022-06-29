@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/objects/NonFunctionals/Vent.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=10]
@@ -38,3 +39,17 @@ data = {
 }
 
 [node name="Narrator" parent="." instance=ExtResource( 2 )]
+
+[node name="Objs" type="Spatial" parent="."]
+
+[node name="Vent" parent="Objs" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -6.4, 2.2, -0.05 )
+visible = false
+
+[node name="Vent2" parent="Objs" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -2.4, 2.2, -0.05 )
+visible = false
+
+[node name="Vent3" parent="Objs" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -13.4, 2.2, -0.05 )
+visible = false

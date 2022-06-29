@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://scenes/objects/signs/JumpScareSign8.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/objects/NonFunctionals/Bricks.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/objects/NonFunctionals/Planks.tscn" type="PackedScene" id=21]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 8 )
@@ -73,3 +75,25 @@ data = {
 }
 
 [node name="Narrator" parent="." instance=ExtResource( 5 )]
+
+[node name="Objs" type="Spatial" parent="."]
+
+[node name="Bricks" parent="Objs" instance=ExtResource( 20 )]
+transform = Transform( 0.483001, 0, -0.129266, 0, 0.5, 0, 0.129266, 0, 0.483001, 2.4277, -5.96046e-08, 6.80743 )
+visible = false
+
+[node name="Bricks2" parent="Objs" instance=ExtResource( 20 )]
+transform = Transform( 0.483001, 0, -0.129266, 0, 0.5, 0, 0.129266, 0, 0.483001, 17.3861, -5.96046e-08, 11.5683 )
+visible = false
+
+[node name="Planks" parent="Objs" instance=ExtResource( 21 )]
+transform = Transform( -0.0213781, 0, -0.0976882, 0, 0.1, 0, 0.0976882, 0, -0.0213781, 0, 0.0622828, 11.0999 )
+visible = false
+
+[node name="Planks2" parent="Objs" instance=ExtResource( 21 )]
+transform = Transform( -0.0213781, 0, -0.0976882, 0, 0.1, 0, 0.0976882, 0, -0.0213781, 9, 0.0622828, 11.0999 )
+visible = false
+
+[node name="Planks3" parent="Objs" instance=ExtResource( 21 )]
+transform = Transform( -0.0213781, 0, -0.0976882, 0, 0.1, 0, 0.0976882, 0, -0.0213781, 26.3336, 0.0622828, 6.91253 )
+visible = false

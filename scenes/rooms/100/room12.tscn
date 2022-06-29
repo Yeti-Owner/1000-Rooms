@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
@@ -14,6 +14,10 @@
 [ext_resource path="res://scenes/objects/signs/JumpScareSign6.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/objects/NonFunctionals/Bricks.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/objects/NonFunctionals/Grate.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/objects/NonFunctionals/Planks.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/objects/NonFunctionals/Crate.tscn" type="PackedScene" id=18]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 1 )
@@ -89,3 +93,30 @@ data = {
 }
 
 [node name="Narrator" parent="." instance=ExtResource( 2 )]
+
+[node name="Objs" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.08719 )
+
+[node name="Bricks" parent="Objs" instance=ExtResource( 15 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -5.96046e-08, 10.6056 )
+visible = false
+
+[node name="Bricks2" parent="Objs" instance=ExtResource( 15 )]
+transform = Transform( -0.105253, 0, -0.488796, 0, 0.5, 0, 0.488796, 0, -0.105253, 8.75297, -5.96046e-08, 15.5863 )
+visible = false
+
+[node name="Planks" parent="Objs" instance=ExtResource( 17 )]
+transform = Transform( 0.0989013, 0, -0.0147827, 0, 0.1, 0, 0.0147827, 0, 0.0989013, 2.72044, 0.0622827, 7.01528 )
+visible = false
+
+[node name="Planks2" parent="Objs" instance=ExtResource( 17 )]
+transform = Transform( -0.0243615, 0, -0.0969872, 0, 0.1, 0, 0.0969872, 0, -0.0243615, -4.71542, 0.0622827, 12.0867 )
+visible = false
+
+[node name="Crate" parent="Objs" instance=ExtResource( 18 )]
+transform = Transform( 0.0199869, 0, -0.000724502, 0, 0.02, 0, 0.000724502, 0, 0.0199869, 9.51854, -7.37607e-07, 10.6654 )
+visible = false
+
+[node name="Grate" parent="Objs" instance=ExtResource( 16 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7.98882, 0.948316, 17.3184 )
+visible = false

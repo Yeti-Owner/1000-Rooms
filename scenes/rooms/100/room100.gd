@@ -6,12 +6,15 @@ onready var FakeDoor = $Fader/FakeDoor/Door2/Door2/StaticBody
 onready var FairyCage = $Fader/GlassCage
 export(String) var _room 
 
+var RNG
 var RoomStage = 0
 var DoorStage = 0
 var FairyEnemy = preload("res://scenes/enemies/FairyEnemy.tscn")
 var Hatch = preload("res://scenes/objects/doors/Hatch.tscn")
 
 func _ready():
+	randomize()
+	_add_objs()
 	$Fader/ObjHolder/WallObj3/StaticBody/CollisionShape.disabled = true
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	FakeDoor.connect("DoorOpened", self, "_door_triggered")
@@ -23,6 +26,13 @@ func _ready():
 	fader._fade_in()
 	Narrator.messages = ["And here we are","a hub area is just up ahead","the hub is completely safe so feel free to explore as much as you desire"]
 	RoomStage += 1
+
+func _add_objs():
+	for _i in $Objs.get_children():
+		RNG = randi() % 10
+		if RNG == 0:
+			_i.visible = true
+			print(_i)
 
 func _dialogue_finished():
 	match RoomStage:

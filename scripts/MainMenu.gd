@@ -7,8 +7,13 @@ onready var ClickPlayer = get_node("SettingsMenu/ClickPlayer")
 onready var MusicPlayer = get_node("/root/StartMenuV2/MusicPlayer")
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	fader.connect("fade_finished", self, "on_fade_finished")
+	if Settingsholder.Intro == 0:
+		var _error = get_tree().change_scene("res://scenes/Room0.tscn")
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		fader.connect("fade_finished", self, "on_fade_finished")
+#	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+#	fader.connect("fade_finished", self, "on_fade_finished")
 
 func _on_StartBtn_pressed():
 	MusicPlayer._music_transition()

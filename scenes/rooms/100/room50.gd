@@ -1,7 +1,7 @@
 extends Spatial
 
 export(String) var _room 
-
+var RNG
 
 onready var fader = $Fader
 onready var Narrator = $Narrator
@@ -10,7 +10,8 @@ onready var player = get_node("/root/world/Fader/Player")
 
 
 func _ready():
-	print(SaveGame.game_data.CurrentRoom)
+	randomize()
+	_add_objs()
 	get_node("ObjHolder/WallObj3").queue_free()
 	get_node("ObjHolder/WallObj4").queue_free()
 	SaveGame._save()
@@ -30,6 +31,12 @@ func _ready():
 		get_node("ObjHolder/WallObj/StaticBody/CollisionShape").disabled = true
 		Narrator.messages = ["Run", "you need to run"]
 
+func _add_objs():
+	for _i in $Objs.get_children():
+		RNG = randi() % 10
+		if RNG == 0:
+			_i.visible = true
+			print(_i)
 
 
 func _on_Check1_area_entered(area1):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
@@ -15,6 +15,11 @@
 [ext_resource path="res://scenes/objects/signs/JumpScareSign7.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/objects/NonFunctionals/Vent.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/objects/NonFunctionals/Ladder.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/objects/NonFunctionals/Bricks.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/objects/NonFunctionals/Planks.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/objects/NonFunctionals/Grate.tscn" type="PackedScene" id=20]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 9 )
@@ -63,3 +68,41 @@ transform = Transform( 4.44492e-06, 3.88587e-13, 1.4, -1.22392e-07, 1.4, 0, 1.4,
 data = {
 "cells": PoolIntArray( 65528, 65527, 786432, 65529, 65527, 786432, 65530, 65527, 786432, 65531, 65527, 786432, 65532, 65527, 786432, 65533, 65527, 786432, 65534, 65527, 786432, 65535, 65527, 786432, 131064, 65527, 786432, 131065, 65527, 786432, 131066, 65527, 786432, 131067, 65527, 786432, 131068, 65527, 786432, 131069, 65527, 786432, 131070, 65527, 786432, 131071, 65527, 786432, 0, 65528, 0, 65527, 65528, 0, 65536, 65528, 0, 131063, 65528, 0, 196600, 65528, 786434, 196601, 65528, 786434, 196602, 65528, 786434, 196603, 65528, 786434, 196604, 65528, 786434, 196605, 65528, 786434, 196606, 65528, 786434, 196607, 65528, 786434, -8, 65528, 786433, -7, 65528, 786433, -6, 65528, 786433, -5, 65528, 786433, -4, 65528, 786433, -3, 65528, 786433, -2, 65528, 786433, -1, 65528, 786433, 0, 65529, 0, 65527, 65529, 0, 65536, 65529, 0, 131063, 65529, 0, 196600, 65529, 786434, 196601, 65529, 786434, 196602, 65529, 786434, 196603, 65529, 786434, 196604, 65529, 786434, 196605, 65529, 786434, 196606, 65529, 786434, 196607, 65529, 786434, -8, 65529, 786433, -7, 65529, 786433, -6, 65529, 786433, -5, 65529, 786433, -4, 65529, 786433, -3, 65529, 786433, -2, 65529, 786433, -1, 65529, 1, 65527, 65530, 0, 65530, 65530, 0, 65531, 65530, 786432, 65532, 65530, 786432, 65533, 65530, 786432, 65534, 65530, 786432, 65535, 65530, 786432, 131063, 65530, 0, 131066, 65530, 0, 131067, 65530, 786432, 131068, 65530, 786432, 131069, 65530, 786432, 131070, 65530, 786432, 131071, 65530, 786432, 196600, 65530, 786434, 196601, 65530, 786434, -8, 65530, 786433, -7, 65530, 786433, 65527, 65531, 0, 65530, 65531, 0, 131063, 65531, 0, 131066, 65531, 0, 196600, 65531, 786434, 196601, 65531, 786434, -8, 65531, 786433, -7, 65531, 786433, 65527, 65532, 0, 65530, 65532, 0, 131063, 65532, 0, 131066, 65532, 0, 196600, 65532, 786434, 196601, 65532, 786434, -8, 65532, 1, -7, 65532, 1, 65527, 65533, 0, 65530, 65533, 0, 131063, 65533, 0, 131066, 65533, 0, 196600, 65533, 786434, 196601, 65533, 786434, -8, 65533, 1, -7, 65533, 1, 65528, 65534, 0, 65529, 65534, 0, 131064, 65534, 0, 131065, 65534, 0 )
 }
+
+[node name="Objs" type="Spatial" parent="."]
+
+[node name="Vent" parent="Objs" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -6, 2.4, -12.01 )
+visible = false
+
+[node name="Vent2" parent="Objs" instance=ExtResource( 16 )]
+transform = Transform( -3.14316e-06, 0, 1, 0, 1, 0, -1, 0, -3.14316e-06, -15.99, 2.4, -8 )
+visible = false
+
+[node name="Vent3" parent="Objs" instance=ExtResource( 16 )]
+transform = Transform( 9.42946e-06, 0, -1, 0, 1, 0, 1, 0, 9.42946e-06, -12.01, 2.4, -8.01 )
+visible = false
+
+[node name="Ladder" parent="Objs" instance=ExtResource( 17 )]
+transform = Transform( 0.5, 0, 0, 0, 0.499154, 0.0290725, 0, -0.0290725, 0.499154, -10.4, 1.71089, -15.8 )
+visible = false
+
+[node name="Bricks" parent="Objs" instance=ExtResource( 18 )]
+transform = Transform( -0.184605, 0, -0.464673, 0, 0.5, 0, 0.464673, 0, -0.184605, -5, 0, -15.5 )
+visible = false
+
+[node name="Planks" parent="Objs" instance=ExtResource( 19 )]
+transform = Transform( 0.0727373, 0, -0.0686243, 0, 0.1, 0, 0.0686243, 0, 0.0727373, -14, 0.0622827, -13 )
+visible = false
+
+[node name="Planks2" parent="Objs" instance=ExtResource( 19 )]
+transform = Transform( -0.0173651, 0, -0.0984807, 0, 0.1, 0, 0.0984807, 0, -0.0173651, -5, 0.0622827, -13 )
+visible = false
+
+[node name="Grate" parent="Objs" instance=ExtResource( 20 )]
+transform = Transform( -3.14315e-06, -1, 0, 1, -3.14315e-06, 0, 0, 0, 1, -12.01, 0.6, -10 )
+visible = false
+
+[node name="Grate2" parent="Objs" instance=ExtResource( 20 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -12, 0.6, -15.97 )
+visible = false
