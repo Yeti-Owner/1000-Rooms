@@ -15,7 +15,10 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 1 )
 
-[node name="dialogue" type="Label" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="dialogue" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0

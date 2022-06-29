@@ -51,7 +51,12 @@ transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
 mesh = ExtResource( 1 )
 material/0 = SubResource( 1 )
 
-[node name="Popup" type="Popup" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Popup" type="Popup" parent="CanvasLayer"]
+visible = true
+light_mask = 31
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 400.0
@@ -59,7 +64,7 @@ margin_top = 50.0
 margin_right = -400.0
 margin_bottom = -50.0
 
-[node name="TextureRect" type="TextureRect" parent="Popup"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Popup"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 8
@@ -67,32 +72,32 @@ size_flags_vertical = 8
 texture = ExtResource( 2 )
 expand = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Popup/TextureRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Popup/TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
+margin_left = 20.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
 
-[node name="Title" type="Label" parent="Popup/TextureRect/VBoxContainer"]
-margin_right = 460.0
+[node name="Title" type="Label" parent="CanvasLayer/Popup/TextureRect/VBoxContainer"]
+margin_right = 450.0
 margin_bottom = 51.0
 custom_fonts/font = SubResource( 3 )
 text = "What the dog doin?"
 align = 1
 autowrap = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Popup/TextureRect/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Popup/TextureRect/VBoxContainer"]
 margin_top = 55.0
-margin_right = 460.0
+margin_right = 450.0
 margin_bottom = 75.0
 custom_constants/margin_top = 20
 
-[node name="Text" type="Label" parent="Popup/TextureRect/VBoxContainer"]
+[node name="Text" type="Label" parent="CanvasLayer/Popup/TextureRect/VBoxContainer"]
 margin_top = 79.0
-margin_right = 460.0
-margin_bottom = 274.0
+margin_right = 450.0
+margin_bottom = 296.0
 custom_fonts/font = SubResource( 4 )
 text = "Why he ourple? is it on purpose? please answer me!! 
 

@@ -2,7 +2,7 @@ extends Control
 var isPaused = false setget set_is_paused
 
 onready var VCont = $CenterContainer/VBoxContainer
-onready var ClickPlayer = $SettingsMenu/ClickPlayer
+onready var ClickPlayer = $CanvasLayer/SettingsMenu/ClickPlayer
 
 
 func _unhandled_input(event):
@@ -29,7 +29,7 @@ func _on_QuitBtn_pressed():
 
 func _on_OptionsBtn_pressed():
 	ClickPlayer._click_sound()
-	$SettingsMenu.popup_centered()
+	$CanvasLayer/SettingsMenu.popup_centered()
 
 
 func _on_StartMenuBtn_pressed():

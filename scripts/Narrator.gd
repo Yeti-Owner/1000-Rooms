@@ -22,14 +22,14 @@ func start_dialogue():
 
 func stop_dialogue():
 	emit_signal("DialogueFinished")
-	$dialogue.text = ""
+	$CanvasLayer/dialogue.text = ""
 
 func _on_next_char_timeout():
 	if (current_char < len(messages[current_message])):
 		var next_char = messages[current_message][current_char]
 		display += next_char
 		
-		$dialogue.text = display
+		$CanvasLayer/dialogue.text = display
 		current_char += 1
 	else:
 		$next_char.stop()
