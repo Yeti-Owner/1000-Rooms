@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=2]
@@ -13,10 +13,16 @@
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/doors/HatchClosed.tscn" type="PackedScene" id=12]
 
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 75.0326, 0, 52.9158, 0, 0, 0, 0, 0, 0, 72.7901, 0, 52.9158, 0, 0, 0, 0, 0, 0, 72.7901, 0, 54.9545, 0, 0, 0, 0, 0, 0, 74.6249, 0, 54.9545 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
 [node name="world" type="Spatial"]
 script = ExtResource( 10 )
 _room = "res://scenes/rooms/200/room15.tscn"
-MonsterLocation = Vector3( 74, 2, 54 )
+AllowChase = false
 
 [node name="Fader" parent="." instance=ExtResource( 4 )]
 
@@ -98,10 +104,10 @@ transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 11, 3.8
 Bulb_On = true
 Flashing = true
 
-[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 8 )]
-
 [node name="HatchClosed" parent="Fader" instance=ExtResource( 12 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -0.6 )
+
+[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 8 )]
 
 [node name="console" parent="." instance=ExtResource( 2 )]
 
@@ -111,3 +117,17 @@ data = {
 }
 
 [node name="Narrator" parent="." instance=ExtResource( 11 )]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="EnemyPath" type="Path" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="EnemyPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75.0326, 0, 52.9158 )
+rotation_mode = 0
+loop = false
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

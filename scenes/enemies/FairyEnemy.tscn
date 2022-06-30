@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://resources/FairyParticleMaterial.tres" type="Material" id=1]
 [ext_resource path="res://assets/textures/general/Fairy.png" type="Texture" id=2]
 [ext_resource path="res://scenes/enemies/FairyEnemy.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/scary/FairyBell.ogg" type="AudioStream" id=4]
 
 [sub_resource type="SpatialMaterial" id=2]
 flags_transparent = true
@@ -93,6 +94,17 @@ shape = SubResource( 7 )
 one_shot = true
 autostart = true
 
+[node name="FairyBell" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_db = 25.0
+unit_size = 4.0
+pitch_scale = 1.24
+bus = "SfxBus"
+
+[node name="BellTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="area_entered" from="FairyArea" to="." method="_on_FairyArea_area_entered"]
 [connection signal="area_entered" from="FairyVision" to="." method="_on_FairyVision_area_entered"]
 [connection signal="timeout" from="DirTimer" to="." method="_on_DirTimer_timeout"]
+[connection signal="timeout" from="BellTimer" to="." method="_on_BellTimer_timeout"]

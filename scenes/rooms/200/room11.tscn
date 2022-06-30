@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=2]
@@ -13,10 +13,15 @@
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/doors/HatchClosed.tscn" type="PackedScene" id=12]
 
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -7.22343, 0, 3.24718, 0, 0, 0, 0, 0, 0, -8.17404, 0, -1.66437, 0, 0, 0, 0, 0, 0, 14.324, 0, -6.10061, 0, 0, 0, 0, 0, 0, 0.856864, 0, -9.26935, 0, 0, 0, 0, 0, 0, -9.67919, 0, -14.4938, 0, 0, 0, 0, 0, 0, -18.314, 0, -18.7756, 0, 0, 0, 0, 0, 0, -29.4046, 0, -6.41748, 0, 0, 0, 0, 0, 0, -18.4725, 0, -7.52654, 0, 0, 0, 0, 0, 0, 3.23342, 0, -21.469, 0, 0, 0, 0, 0, 0, 15.0991, 0, -26.7334, 0, 0, 0, 0, 0, 0, 25.7315, 0, -31.4505, 0, 0, 0, 0, 0, 0, 20.6615, 0, -49.3539, 0, 0, 0, 0, 0, 0, -8.96623, 0, -52.5227, 0, 0, 0, 0, 0, 0, -28.6124, 0, -48.0864, 0, 0, 0, 0, 0, 0, -25.6021, 0, -32.2427, 0, 0, 0, 0, 0, 0, -16.49, 0, -37.4018, 0, 0, 0, 0, 0, 0, -4.05468, 0, -44.4424, 0, 0, 0, 0, 0, 0, 3.4744, 0, -39.2754, 0, 0, 0, 0, 0, 0, 12.1059, 0, -33.3518, 0, 0, 0, 0, 0, 0, 11.1553, 0, -46.8189, 0, 0, 0, 0, 0, 0, 25.2562, 0, -24.004, 0, 0, 0, 0, 0, 0, 27.1352, 0, -10.8506, 0, 0, 0, 0, 0, 0, 28.5834, 0, -0.713744, 0, 0, 0, 0, 0, 0, 5.84298, 0, -6.39884, 0, 0, 0, 0, 0, 0, -1.83656, 0, -8.31872, 0, 0, 0, 0, 0, 0, -7.41355, 0, -25.0497, 0, 0, 0, 0, 0, 0, -9.2831, 0, -30.6584, 0, 0, 0, 0, 0, 0, 14.7993, 0, -12.1212, 0, 0, 0, 0, 0, 0, 30.0093, 0, -29.074, 0, 0, 0, 0, 0, 0, 20.6615, 0, -5.14999, 0, 0, 0, 0, 0, 0, -31.1474, 0, -17.9834, 0, 0, 0, 0, 0, 0, -21.3243, 0, -4.04092, 0, 0, 0, 0, 0, 0, -18.1556, 0, -20.3599, 0, 0, 0, 0, 0, 0, 23.8302, 0, -18.4587, 0, 0, 0, 0, 0, 0, 3.07498, 0, -29.5493, 0, 0, 0, 0, 0, 0, -24.1762, 0, -27.1727, 0, 0, 0, 0, 0, 0, -32.2565, 0, -24.6377, 0, 0, 0, 0, 0, 0, -21.0075, 0, -43.4918 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
 [node name="world" type="Spatial"]
 script = ExtResource( 9 )
 _room = "res://scenes/rooms/200/room11.tscn"
-MonsterLocation = Vector3( -7, 1.3, 3 )
 
 [node name="Fader" parent="." instance=ExtResource( 2 )]
 
@@ -36,13 +41,13 @@ transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.86
 Bulb_On = true
 Flashing = true
 
-[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 8 )]
-
 [node name="wall" parent="Fader" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, 1 )
 
 [node name="HatchClosed" parent="Fader" instance=ExtResource( 12 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -0.6 )
+
+[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 8 )]
 
 [node name="GridMap2" parent="." instance=ExtResource( 4 )]
 data = {
@@ -52,3 +57,18 @@ data = {
 [node name="console" parent="." instance=ExtResource( 5 )]
 
 [node name="Narrator" parent="." instance=ExtResource( 11 )]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="EnemyPath" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="EnemyPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22343, 0, 3.24718 )
+rotation_mode = 0
+loop = false
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

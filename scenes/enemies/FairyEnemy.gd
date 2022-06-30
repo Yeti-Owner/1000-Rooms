@@ -5,8 +5,9 @@ onready var Player = get_node("/root/world/Fader/Player")
 
 enum {
 	IDLE,
-	WANDERING,
-	CHASING
+	BOUNCING,
+	CHASING,
+	MARCH
 }
 export(int) var state = 0
 
@@ -21,7 +22,24 @@ var Mz
 
 var v = 12
 var RandomDir = Vector3(0, 0, 1)
-var WanderSpeed = 9.5
+var BounceSpeed = 9.5
+
+var MarchSpeed = 0.1
+var Num = 1
+#var CurrentPos = 1
+#var Px
+#var Py
+#var Pz
+#var Num
+#var SetUpMarch = 1
+#var pos1
+#var pos2
+#var pos3
+#var pos4
+#var pos5
+#var pos6
+
+
 
 func _change_state(STATE):
 	state = STATE
@@ -33,19 +51,21 @@ func _process(_delta):
 	match state:
 		IDLE:
 			$AnimationPlayer.play("Idle")
-		WANDERING:
-			_wander()
+		BOUNCING:
+			_bounce()
 		CHASING:
 			_move_to_player()
+		MARCH:
+			_march()
 
 func _on_FairyVision_area_entered(area):
 	if area.name == "PlayerArea":
 		state = CHASING
 
-func _wander():
+func _bounce():
 	if is_on_floor() or is_on_ceiling() or is_on_wall():
 		RandomDir = RandomDir*-1
-	var _error = move_and_slide(RandomDir.normalized()*WanderSpeed, Vector3.UP)
+	var _error = move_and_slide(RandomDir.normalized()*BounceSpeed, Vector3.UP)
 
 func _move_to_player():
 	pLocation = Player.global_transform.origin # Player pos
@@ -59,8 +79,18 @@ func _move_to_player():
 		_dir = Vector3(Mx, My+0.5, Mz)
 		_vel = _dir.normalized()*speed
 		var _error = move_and_slide(_vel, Vector3.UP)
-#		global_transform.origin += Vector3(Mx, My, Mz).normalized() * speed
-#		self.global_transform.origin = Vector3(float(fLocation.x + (Mx*speed)), float(fLocation.y + (My*speed)), float(fLocation.z + (Mz*speed)))
+
+func _march():
+	if get_parent().unit_offset == 1:
+		Num = 0
+	elif get_parent().unit_offset == 0:
+		Num = 1
+	
+	if Num == 1:
+		get_parent().offset += MarchSpeed
+	elif Num == 0:
+		get_parent().offset -= MarchSpeed
+
 
 func _on_FairyArea_area_entered(area):
 	if area.name == "PlayerArea":
@@ -73,3 +103,9 @@ func _on_DirTimer_timeout():
 	if RandomDir == Vector3(0, 0, 0):
 		RandomDir = Vector3(0, 0, 1)
 	$DirTimer.start()
+
+
+func _on_BellTimer_timeout():
+	$FairyBell.pitch_scale = rand_range(0.9, 1.3)
+	$FairyBell.play()
+	$BellTimer.wait_time = rand_range(1.23, 4.1)

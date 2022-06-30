@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=2]
@@ -12,10 +12,16 @@
 [ext_resource path="res://scenes/objects/doors/HatchClosed.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/objects/doors/Hatch.tscn" type="PackedScene" id=11]
 
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 68.916, 0, 26.7884, 0, 0, 0, 0, 0, 0, 66.9749, 0, 26.9501, 0, 0, 0, 0, 0, 0, 66.8131, 0, 28.8912, 0, 0, 0, 0, 0, 0, 68.5924, 0, 28.7295 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
 [node name="world" type="Spatial"]
 script = ExtResource( 8 )
 _room = "res://scenes/rooms/200/room9.tscn"
-MonsterLocation = Vector3( 68, 3.3, 28 )
+AllowChase = false
 
 [node name="Fader" parent="." instance=ExtResource( 2 )]
 
@@ -45,13 +51,13 @@ Bulb_On = true
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, -11, 3.863, -25 )
 Bulb_On = true
 
-[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 7 )]
-
 [node name="HatchClosed" parent="Fader" instance=ExtResource( 10 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 11, 0, -0.6 )
 
 [node name="Hatch" parent="Fader" instance=ExtResource( 11 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -11, 0, -25.5 )
+
+[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 7 )]
 
 [node name="GridMap2" parent="." instance=ExtResource( 1 )]
 data = {
@@ -61,3 +67,16 @@ data = {
 [node name="console" parent="." instance=ExtResource( 5 )]
 
 [node name="Narrator" parent="." instance=ExtResource( 9 )]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="EnemyPath" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="EnemyPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.916, 0, 26.7884 )
+rotation_mode = 0
+loop = false

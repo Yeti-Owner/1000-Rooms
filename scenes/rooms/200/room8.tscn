@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=2]
@@ -14,10 +14,15 @@
 [ext_resource path="res://scenes/objects/doors/Hatch.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/objects/ResetBox.tscn" type="PackedScene" id=13]
 
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.955295, 0, 4.7829, 0, 0, 0, 0, 0, 0, -0.955295, 0, 3.24125, 0, 0, 0, 0, 0, 0, -1.01953, 0, 1.31419, 0, 0, 0, 0, 0, 0, 0.971768, 0, -1.96182, 0, 0, 0, 0, 0, 0, 3.73389, 0, -3.95311, 0, 0, 0, 0, 0, 0, 7.2026, 0, -3.82464, 0, 0, 0, 0, 0, 0, 11.5706, 0, -6.71524, 0, 0, 0, 0, 0, 0, 7.2026, 0, -9.22042, 0, 0, 0, 0, 0, 0, 1.9353, 0, -8.96348, 0, 0, 0, 0, 0, 0, -0.120238, 0, -7.42183, 0, 0, 0, 0, 0, 0, -3.71742, 0, -5.23782, 0, 0, 0, 0, 0, 0, -7.1219, 0, -4.27429, 0, 0, 0, 0, 0, 0, -8.59931, 0, -7.80724, 0, 0, 0, 0, 0, 0, -7.44307, 0, -10.9548, 0, 0, 0, 0, 0, 0, -5.45177, 0, -13.0745, 0, 0, 0, 0, 0, 0, -3.65318, 0, -13.9096, 0, 0, 0, 0, 0, 0, -1.91883, 0, -13.0103, 0, 0, 0, 0, 0, 0, 1.036, 0, -11.7256, 0, 0, 0, 0, 0, 0, 3.79812, 0, -11.5329, 0, 0, 0, 0, 0, 0, 6.56025, 0, -11.4687, 0, 0, 0, 0, 0, 0, 7.84495, 0, -13.0103, 0, 0, 0, 0, 0, 0, 7.2026, 0, -15.1943, 0, 0, 0, 0, 0, 0, 4.95436, 0, -16.4148, 0, 0, 0, 0, 0, 0, 1.87106, 0, -16.9287, 0, 0, 0, 0, 0, 0, -1.46918, 0, -17.6353, 0, 0, 0, 0, 0, 0, -2.88236, 0, -19.6908, 0, 0, 0, 0, 0, 0, -3.78166, 0, -21.8106, 0, 0, 0, 0, 0, 0, -2.81812, 0, -23.9946, 0, 0, 0, 0, 0, 0, -0.569884, 0, -25.6004, 0, 0, 0, 0, 0, 0, 2.38494, 0, -25.4077, 0, 0, 0, 0, 0, 0, 5.40401, 0, -24.38, 0, 0, 0, 0, 0, 0, 6.36754, 0, -21.4251, 0, 0, 0, 0, 0, 0, 6.81719, 0, -18.663, 0, 0, 0, 0, 0, 0, 7.90919, 0, -15.5155, 0, 0, 0, 0, 0, 0, 8.68002, 0, -13.203, 0, 0, 0, 0, 0, 0, 12.213, 0, -11.9183, 0, 0, 0, 0, 0, 0, 14.9751, 0, -12.5607, 0, 0, 0, 0, 0, 0, 16.6452, 0, -14.1023, 0, 0, 0, 0, 0, 0, 17.4803, 0, -16.6075, 0, 0, 0, 0, 0, 0, 17.416, 0, -19.0484, 0, 0, 0, 0, 0, 0, 16.4525, 0, -22.2602, 0, 0, 0, 0, 0, 0, 14.9109, 0, -23.9303, 0, 0, 0, 0, 0, 0, 11.956, 0, -23.6091, 0, 0, 0, 0, 0, 0, 9.70778, 0, -21.6179, 0, 0, 0, 0, 0, 0, 9.77202, 0, -19.1127, 0, 0, 0, 0, 0, 0, 11.3137, 0, -17.9564, 0, 0, 0, 0, 0, 0, 14.0758, 0, -17.6995, 0, 0, 0, 0, 0, 0, 16.0029, 0, -17.6995, 0, 0, 0, 0, 0, 0, 19.5358, 0, -17.6995, 0, 0, 0, 0, 0, 0, 21.4629, 0, -17.7637 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
 [node name="world" type="Spatial"]
 script = ExtResource( 9 )
 _room = "res://scenes/rooms/200/room8.tscn"
-MonsterLocation = Vector3( -1, 1.3, 5 )
 
 [node name="Fader" parent="." instance=ExtResource( 4 )]
 
@@ -38,8 +43,6 @@ Bulb_On = true
 [node name="wall" parent="Fader" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 3 )
 
-[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 7 )]
-
 [node name="HatchClosed" parent="Fader" instance=ExtResource( 11 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 1.4 )
 
@@ -49,6 +52,8 @@ transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 23.4, 0, -18 )
 [node name="ResetBox" parent="Fader" instance=ExtResource( 13 )]
 transform = Transform( 25, 0, 0, 0, 1, 0, 0, 0, 25, 10, -7, -12 )
 
+[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 7 )]
+
 [node name="console" parent="." instance=ExtResource( 1 )]
 
 [node name="GridMap2" parent="." instance=ExtResource( 2 )]
@@ -57,3 +62,18 @@ data = {
 }
 
 [node name="Narrator" parent="." instance=ExtResource( 10 )]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="EnemyPath" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="EnemyPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.955295, 0, 4.7829 )
+rotation_mode = 0
+loop = false
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

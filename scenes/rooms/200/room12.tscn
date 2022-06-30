@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=2]
@@ -15,10 +15,16 @@
 [ext_resource path="res://scenes/objects/doors/HatchClosed.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/objects/doors/Hatch.tscn" type="PackedScene" id=14]
 
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 35, 0, 27, 0, 0, 0, 0, 0, 0, 32.9406, 0, 27.0909, 0, 0, 0, 0, 0, 0, 33.1154, 0, 29.1009, 0, 0, 0, 0, 0, 0, 34.6884, 0, 29.0135 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
 [node name="world" type="Spatial"]
 script = ExtResource( 11 )
 _room = "res://scenes/rooms/200/room12.tscn"
-MonsterLocation = Vector3( 34, 3.3, 28 )
+AllowChase = false
 
 [node name="Fader" parent="." instance=ExtResource( 2 )]
 
@@ -100,13 +106,13 @@ Flashing = true
 [node name="Lightbulb3" parent="Fader" instance=ExtResource( 9 )]
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.863, -35 )
 
-[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 10 )]
-
 [node name="HatchClosed" parent="Fader" instance=ExtResource( 13 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -0.6 )
 
 [node name="Hatch" parent="Fader" instance=ExtResource( 14 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -45.5 )
+
+[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 10 )]
 
 [node name="GridMap2" parent="." instance=ExtResource( 4 )]
 data = {
@@ -116,3 +122,17 @@ data = {
 [node name="console" parent="." instance=ExtResource( 5 )]
 
 [node name="Narrator" parent="." instance=ExtResource( 12 )]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="EnemyPath" type="Path" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="EnemyPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 27 )
+rotation_mode = 0
+loop = false
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

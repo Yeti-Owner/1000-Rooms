@@ -12,6 +12,8 @@ func _get_next_room():
 	if (SaveGame.game_data.RoomNum == 49):
 		SaveGame.game_data.RoomNum += 1
 		var _error = get_tree().change_scene("res://scenes/rooms/100/room50.tscn")
+	if (SaveGame.game_data.RoomNum == 74):
+		var _error = get_tree().change_scene("res://scenes/rooms/100/room75.tscn")
 	elif SaveGame.game_data.RoomNum < 99:
 		RoomRNG = randi() % 15 + 1
 		GotoRoom = str("res://scenes/rooms/100/room" + str(RoomRNG) + ".tscn")
