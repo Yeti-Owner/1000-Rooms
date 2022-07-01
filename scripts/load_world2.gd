@@ -60,12 +60,16 @@ func _dialogue_finished():
 
 func _chasing():
 	if AllowChase:
-		RNG = randi() % 2
-		if (RNG == 0):
+		RNG = randi() % 8
+		if (RNG == 0) or SaveGame.isChased > 0:
 			Narrator.messages = ["HURRY"]
 			Narrator.start_dialogue()
 			$SpawnTimer.start()
 			ReRunSpawn = 0
+			if SaveGame.isChased == 0:
+				SaveGame.isChased = 3
+			else:
+				SaveGame.isChased -= 1
 
 
 func _on_SpawnTimer_timeout():

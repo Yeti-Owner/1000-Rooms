@@ -2,22 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/button_Base_Color_red.png-7decfbdc9f6cb368268d296738117a9c.s3tc.stex"
-path.etc2="res://.import/button_Base_Color_red.png-7decfbdc9f6cb368268d296738117a9c.etc2.stex"
+path="res://.import/button_Base_Color_red.png-7decfbdc9f6cb368268d296738117a9c.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/3D models/button/button_Base_Color_red.png"
-dest_files=[ "res://.import/button_Base_Color_red.png-7decfbdc9f6cb368268d296738117a9c.s3tc.stex", "res://.import/button_Base_Color_red.png-7decfbdc9f6cb368268d296738117a9c.etc2.stex" ]
+dest_files=[ "res://.import/button_Base_Color_red.png-7decfbdc9f6cb368268d296738117a9c.stex" ]
 
 [params]
 
-compress/mode=2
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.45
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

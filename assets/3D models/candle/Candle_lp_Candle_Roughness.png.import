@@ -2,22 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Candle_lp_Candle_Roughness.png-cfddcaf07f9581e6706d2d7b72caa0c4.s3tc.stex"
-path.etc2="res://.import/Candle_lp_Candle_Roughness.png-cfddcaf07f9581e6706d2d7b72caa0c4.etc2.stex"
+path="res://.import/Candle_lp_Candle_Roughness.png-cfddcaf07f9581e6706d2d7b72caa0c4.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/3D models/candle/Candle_lp_Candle_Roughness.png"
-dest_files=[ "res://.import/Candle_lp_Candle_Roughness.png-cfddcaf07f9581e6706d2d7b72caa0c4.s3tc.stex", "res://.import/Candle_lp_Candle_Roughness.png-cfddcaf07f9581e6706d2d7b72caa0c4.etc2.stex" ]
+dest_files=[ "res://.import/Candle_lp_Candle_Roughness.png-cfddcaf07f9581e6706d2d7b72caa0c4.stex" ]
 
 [params]
 
-compress/mode=2
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.45
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

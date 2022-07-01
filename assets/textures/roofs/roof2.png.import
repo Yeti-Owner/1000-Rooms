@@ -15,7 +15,7 @@ dest_files=[ "res://.import/roof2.png-4a5bd14976240e65555b8b37b7943fe4.stex" ]
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.7
+compress/lossy_quality=0.45
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

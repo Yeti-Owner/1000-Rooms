@@ -2,22 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Metal027_1K_Color.jpg-fcd4f7be414b43cbde1dd048a906c20c.s3tc.stex"
-path.etc2="res://.import/Metal027_1K_Color.jpg-fcd4f7be414b43cbde1dd048a906c20c.etc2.stex"
+path="res://.import/Metal027_1K_Color.jpg-fcd4f7be414b43cbde1dd048a906c20c.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/3D models/doors/door3/Metal027_1K_Color.jpg"
-dest_files=[ "res://.import/Metal027_1K_Color.jpg-fcd4f7be414b43cbde1dd048a906c20c.s3tc.stex", "res://.import/Metal027_1K_Color.jpg-fcd4f7be414b43cbde1dd048a906c20c.etc2.stex" ]
+dest_files=[ "res://.import/Metal027_1K_Color.jpg-fcd4f7be414b43cbde1dd048a906c20c.stex" ]
 
 [params]
 
-compress/mode=2
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.45
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
