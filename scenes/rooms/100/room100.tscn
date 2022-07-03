@@ -58,6 +58,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0
 
 [node name="SavePentagram" parent="Fader" instance=ExtResource( 10 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 4, 0.01, -22 )
+CurrentPos = Vector3( 4, 0.7, -22 )
 
 [node name="LightHolder" type="Spatial" parent="Fader"]
 

@@ -309,7 +309,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.90491
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.0239, 0, 0.0192257 )
 
 [node name="Door2Closed3" parent="CustomFader/Rooms" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32.3144, 0, 0.75948 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32.3144, 0, -0.00790328 )
 
 [node name="Door2Closed4" parent="CustomFader/Rooms" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32.3144, 0, 18.7439 )

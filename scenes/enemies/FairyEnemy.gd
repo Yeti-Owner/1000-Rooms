@@ -10,35 +10,21 @@ enum {
 	MARCH
 }
 export(int) var state = 0
+export(float) var MarchSpeed = 0.05
 
-var speed = 8
+var speed = 7
 var _dir
 var _vel
 var pLocation
 var fLocation
 var Mx
-var My
 var Mz
 
 var v = 12
 var RandomDir = Vector3(0, 0, 1)
 var BounceSpeed = 9.5
 
-var MarchSpeed = 0.1
 var Num = 1
-#var CurrentPos = 1
-#var Px
-#var Py
-#var Pz
-#var Num
-#var SetUpMarch = 1
-#var pos1
-#var pos2
-#var pos3
-#var pos4
-#var pos5
-#var pos6
-
 
 
 func _change_state(STATE):
@@ -74,9 +60,8 @@ func _move_to_player():
 		return
 	else:
 		Mx = sign(pLocation.x - fLocation.x)
-		My = sign(pLocation.y - fLocation.y)
 		Mz = sign(pLocation.z - fLocation.z)
-		_dir = Vector3(Mx, My+0.5, Mz)
+		_dir = Vector3(Mx, 0, Mz) 
 		_vel = _dir.normalized()*speed
 		var _error = move_and_slide(_vel, Vector3.UP)
 

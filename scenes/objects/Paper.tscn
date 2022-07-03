@@ -116,6 +116,7 @@ shape = SubResource( 2 )
 
 [node name="PaperNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = 15.0
 bus = "SfxBus"
 
 [connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]

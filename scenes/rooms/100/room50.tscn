@@ -61,6 +61,7 @@ transform = Transform( -0.0217889, 0, 0.249049, 0.030209, 0.248154, 0.00264295, 
 
 [node name="SavePentagram" parent="Fader" instance=ExtResource( 16 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 7.9, 4.01, -65.8 )
+CurrentPos = Vector3( 7.9, 5, -65.8 )
 
 [node name="Pivot" parent="Fader" instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.6, 4, -52.0112 )
@@ -406,6 +407,9 @@ visible = false
 [node name="Crate3" parent="Objs" instance=ExtResource( 24 )]
 transform = Transform( -0.0198956, 0, 0.00204126, 0, 0.02, 0, -0.00204126, 0, -0.0198956, 17.2047, 4, -61.259 )
 visible = false
+
+[node name="Position3D" type="Position3D" parent="."]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 7.9, 5, -65.8 )
 
 [connection signal="area_entered" from="AreaHolder/Check1" to="." method="_on_Check1_area_entered"]
 [connection signal="area_entered" from="AreaHolder/Check2" to="." method="_on_Check2_area_entered"]

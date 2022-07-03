@@ -36,6 +36,7 @@ shape = SubResource( 1 )
 
 [node name="Label3D" type="Label3D" parent="Sign"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 2.143, 0.131 )
+shaded = true
 text = "Working on Shop.
 come back later!"
 font = SubResource( 2 )

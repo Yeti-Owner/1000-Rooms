@@ -36,9 +36,9 @@ func _check_room():
 	elif _room == "res://scenes/rooms/200/room12.tscn" && (SaveGame.FirstTimeRoom212 == 2):
 		AllowChase = false
 		Narrator.messages = ["Again I'm very sorry","Most of the signs should be cleaned up now"]
-		get_node("root/world/Fader/Plaque2").queue_free()
-		get_node("root/world/Fader/Plaque4").queue_free()
-		get_node("root/world/Fader/Plaque6").queue_free()
+		get_node("Fader/Plaque2").queue_free()
+		get_node("Fader/Plaque4").queue_free()
+		get_node("Fader/Plaque6").queue_free()
 		SaveGame.FirstTimeRoom212 = 0
 	elif _room == "res://scenes/rooms/200/room13.tscn" && SaveGame.FirstTimeRoom213:
 		Narrator.messages = ["Oh","...","this room isn't very fun"]

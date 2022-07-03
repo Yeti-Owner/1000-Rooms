@@ -78,7 +78,7 @@ func _on_PlayerArea_area_entered(PlayerArea):
 	if PlayerArea.name == "EnemyArea":
 		PlayerAnim.play("hurt")
 		$CameraHolder/Camera/HurtPlayer.play()
-	elif PlayerArea.name == "KillBox":
+	elif PlayerArea.name == "KillBox" or PlayerArea.name == "KillBox2" or PlayerArea.name == "KillBox3" or PlayerArea.name == "KillBox4":
 		_die()
 	elif PlayerArea.name == "ResetBox":
 		var _error = get_tree().reload_current_scene()

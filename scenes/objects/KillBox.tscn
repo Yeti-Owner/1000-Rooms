@@ -4,5 +4,5 @@
 
 [node name="KillBox" type="Area"]
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="KillBox" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
