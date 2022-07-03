@@ -25,7 +25,7 @@ var game_data = {
 	"PlayerHP" : 100,
 	"JumpScareAmt" : 0,
 	"CurrentRoom" : "res://scenes/world.tscn",
-	"CurrentPos" : 1,
+	"CurrentPos" : Vector3(1,1,1),
 	"LastCheckPoint" : "res://scenes/world.tscn",
 	"LastSavedRoom" : 0
 }

@@ -62,9 +62,6 @@ margin_left = -139.0
 margin_bottom = 120.0
 custom_constants/margin_right = 70
 custom_constants/margin_top = 40
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FpsCounter" type="Label" parent="MarginContainer"]
 margin_top = 60.0

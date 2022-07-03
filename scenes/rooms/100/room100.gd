@@ -15,15 +15,11 @@ var Hatch = preload("res://scenes/objects/doors/Hatch.tscn")
 func _ready():
 	randomize()
 	_add_objs()
-	$Fader/ObjHolder/WallObj3/StaticBody/CollisionShape.disabled = true
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	FakeDoor.connect("DoorOpened", self, "_door_triggered")
 	FairyCage.connect("FairyReleased", self, "_release_fairy")
-	SaveGame.game_data.RoomNum = 100
-	SaveGame.game_data.LastCheckPoint = "res://scenes/rooms/100/room100.tscn"
-	SaveGame.game_data.CurrentRoom = _room
-	SaveGame._save()
 	fader._fade_in()
+	$Fader/ObjHolder/WallObj3/StaticBody/CollisionShape.disabled = true
 	Narrator.messages = ["And here we are","a hub area is just up ahead","the hub is completely safe so feel free to explore as much as you desire"]
 	RoomStage += 1
 
@@ -48,9 +44,6 @@ func _dialogue_finished():
 			Narrator.messages = ["uh"]
 			Narrator.start_dialogue()
 			RoomStage += 1
-		3:
-			RoomStage += 1
-
 
 func _on_Area_area_entered(area):
 	if area.name == "PlayerArea":
@@ -123,7 +116,6 @@ func _release_fairy():
 	
 	Narrator.messages = ["UH OH","IT'S LOOSE","FIND THE HATCH TO ESCAPE"]
 	Narrator.start_dialogue()
-
 
 func _on_Timer_timeout():
 	# instance in Fairy

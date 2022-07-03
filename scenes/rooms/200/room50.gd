@@ -9,11 +9,21 @@ var CorrectDoor
 var lost = 0
 
 func _ready():
-	$Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	randomize()
+	$Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	SaveGame.game_data.CurrentRoom = _room
 	fader._fade_in()
-	Narrator.messages = ["Welcome welcome to room 250!","To your left are 3 doors, only 1 leads onwards, the other 2 to certain death.","All doors are equally likely to be the correct door.","Go ahead and choose one."]
+	
+	if SaveGame.game_data.CurrentPos == Vector3(67, 0.8, 13):
+		Narrator.messages = ["You okay? you don't look too good."]
+		player.global_transform.origin = Vector3(67, 0.8, 13)
+		$Fader/Medkit.queue_free()
+		$Fader/Medkit2.queue_free()
+		$Fader/Medkit3.queue_free()
+		$Fader/DoorReward.queue_free()
+	else:
+		Narrator.messages = ["Welcome welcome to room 250!","To your left are 3 doors, only 1 leads onwards, the other 2 to certain death.","All doors are equally likely to be the correct door.","Go ahead and choose one."]
+
 
 func _first_door(door):
 	match door:

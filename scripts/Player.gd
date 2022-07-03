@@ -6,6 +6,7 @@ var gravity = -32.0
 var _dir = Vector3.ZERO
 var _vel = Vector3.ZERO
 var EnabledWalking = 1
+var sprinting = false
 
 # References
 onready var _camera := $CameraHolder
@@ -31,10 +32,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("sprint") && Stamina.get_value() > 0 && EnabledWalking :
 		walk_speed = 7.5
 		Stamina.set_value(Stamina.get_value() - 0.2)
-		$Timer.set_wait_time(0.3)
+		sprinting = true
 	elif EnabledWalking: # When _die() is triggered walking is disabled here, dunno a better way to do it but I'm sure there is
 		walk_speed = 6.0
-		$Timer.set_wait_time(0.5)
+		sprinting = false
 	input = input.normalized()
 	
 	if is_on_floor():
@@ -42,8 +43,6 @@ func _physics_process(delta: float) -> void:
 			Stamina.set_value(Stamina.get_value() - 10)
 		if Input.is_action_pressed("jump") && Stamina.get_value() > 10:
 			_vel.y = jump_speed
-	else: # footstep timer
-		$Timer.stop()
 	
 	_vel.y += gravity * delta
 	
@@ -57,10 +56,13 @@ func _physics_process(delta: float) -> void:
 	_vel = move_and_slide(Vector3(acc.x, _vel.y, acc.z), Vector3.UP)
 	
 	# If moving play head bob animation
-	if _dir != Vector3() && EnabledWalking:
+	if _dir != Vector3() && EnabledWalking && sprinting:
+		anim_player.playback_speed = 1.5
 		anim_player.play("Head Bob")
-		if $Timer.is_stopped():
-			$Timer.start()
+	elif _dir != Vector3() && EnabledWalking:
+		anim_player.play("Head Bob")
+		anim_player.playback_speed = 1
+	
 	
 	# Fix FOV
 	$CameraHolder/Camera.set_fov(Settingsholder.PlayerFOV)
@@ -68,19 +70,14 @@ func _physics_process(delta: float) -> void:
 	if (Health.value <= 0):
 		_die()
 
-func _on_Timer_timeout():
-	if EnabledWalking:
-		StepPlayer.pitch_scale = rand_range(0.85, 1.15)
-		StepPlayer.play()
-
 
 func _on_PlayerArea_area_entered(PlayerArea):
 	if PlayerArea.name == "EnemyArea":
 		PlayerAnim.play("hurt")
 		$CameraHolder/Camera/HurtPlayer.play()
-	elif PlayerArea.name == "KillBox" or PlayerArea.name == "KillBox2" or PlayerArea.name == "KillBox3" or PlayerArea.name == "KillBox4":
+	elif PlayerArea.is_in_group("KillBox"):
 		_die()
-	elif PlayerArea.name == "ResetBox":
+	elif PlayerArea.is_in_group("ResetBox"):
 		var _error = get_tree().reload_current_scene()
 		SaveGame.game_data.PlayerHP -= 20
 

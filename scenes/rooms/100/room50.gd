@@ -19,7 +19,7 @@ func _ready():
 	Monster.transform.origin = Vector3(0, 3, 9)
 	SaveGame.game_data.CurrentRoom = _room
 	# if completed room
-	if typeof(SaveGame.game_data.CurrentPos) == TYPE_VECTOR3:
+	if SaveGame.game_data.CurrentPos == Vector3(7.9, 5, -65.8):
 		SaveGame.game_data.RoomNum = 50
 		SaveGame.game_data.LastCheckPoint = "res://scenes/rooms/100/room50.tscn"
 		$AreaHolder/Check3.queue_free()

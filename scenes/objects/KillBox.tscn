@@ -2,7 +2,7 @@
 
 [sub_resource type="BoxShape" id=1]
 
-[node name="KillBox" type="Area"]
+[node name="KillBox" type="Area" groups=["KillBox"]]
 
 [node name="KillBox" type="CollisionShape" parent="."]
 shape = SubResource( 1 )

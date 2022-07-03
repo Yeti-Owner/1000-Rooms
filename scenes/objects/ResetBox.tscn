@@ -2,7 +2,7 @@
 
 [sub_resource type="BoxShape" id=1]
 
-[node name="ResetBox" type="Area"]
+[node name="ResetBox" type="Area" groups=["ResetBox"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
