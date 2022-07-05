@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/3D models/terrain/terrain.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/3D models/WoodShed/woodshed.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/UI/Blink.png" type="Texture" id=3]
 [ext_resource path="res://scenes/Room0.gd" type="Script" id=4]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://assets/DarkStorm4K.hdr" type="Texture" id=6]
 [ext_resource path="res://assets/textures/general/YellowEyes.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=6]
@@ -296,12 +295,17 @@ tracks/5/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="PanoramaSky" id=8]
-panorama = ExtResource( 6 )
+[sub_resource type="ProceduralSky" id=11]
+sky_top_color = Color( 0, 0.0588235, 0.372549, 1 )
+sky_horizon_color = Color( 0, 0, 0, 1 )
+sky_curve = 0.206765
+ground_bottom_color = Color( 0, 0, 0, 1 )
+ground_horizon_color = Color( 0, 0, 0, 1 )
+sun_energy = 0.08
 
 [sub_resource type="Environment" id=7]
 background_mode = 2
-background_sky = SubResource( 8 )
+background_sky = SubResource( 11 )
 background_energy = 0.4
 fog_enabled = true
 fog_color = Color( 0, 0, 0, 1 )
@@ -332,7 +336,8 @@ anchor_bottom = 1.0
 [node name="bTop" type="TextureRect" parent="CustomFader/BlinkControl"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_right = 1280.0
+margin_left = -640.0
+margin_right = 640.0
 margin_bottom = 550.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -345,9 +350,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_top = 170.0
-margin_right = 1280.0
-margin_bottom = 719.998
+margin_left = -640.0
+margin_top = -550.0
+margin_right = 640.0
+margin_bottom = -0.00195313
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource( 3 )
