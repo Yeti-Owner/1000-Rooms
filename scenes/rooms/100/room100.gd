@@ -4,6 +4,7 @@ onready var fader = $Fader
 onready var Narrator = $Narrator
 onready var FakeDoor = $Fader/FakeDoor/Door2/Door2/StaticBody
 onready var FairyCage = $Fader/GlassCage
+onready var player = get_node("/root/world/Fader/Player")
 export(String) var _room 
 
 var RNG
@@ -15,10 +16,13 @@ var Hatch = preload("res://scenes/objects/doors/Hatch.tscn")
 func _ready():
 	randomize()
 	_add_objs()
+	SaveGame.game_data.CurrentRoom = _room
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	FakeDoor.connect("DoorOpened", self, "_door_triggered")
 	FairyCage.connect("FairyReleased", self, "_release_fairy")
 	fader._fade_in()
+	if SaveGame.game_data.CurrentPos == Vector3(4, 0.7, -21.5):
+		player.transform.origin = Vector3(4, 0.7, -21.5)
 	$Fader/WallObj3.global_transform.origin = Vector3(0, 5, 0)
 	Narrator.messages = ["And here we are","a hub area is just up ahead","the hub is completely safe so feel free to explore as much as you desire"]
 	RoomStage += 1
@@ -28,7 +32,8 @@ func _add_objs():
 		RNG = randi() % 10
 		if RNG == 0:
 			_i.visible = true
-			print(_i)
+		else:
+			_i.queue_free()
 
 func _dialogue_finished():
 	match RoomStage:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://scenes/objects/NonFunctionals/Grate.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/objects/NonFunctionals/Poster1.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/objects/NonFunctionals/NightSkyPainting.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/objects/Medkit.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -98,5 +99,8 @@ transform = Transform( -3.14315e-06, 0, -1, 0, 1, 0, 1, 0, -3.14315e-06, 1.999, 
 
 [node name="NightSkyPainting" parent="Objs" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, 21.7, 1.6, -16.001 )
+
+[node name="Medkit" parent="Objs" instance=ExtResource( 19 )]
+transform = Transform( 0.196104, 0, -0.155059, 0, 0.25, 0, 0.155059, 0, 0.196104, 5, -2, -1.4 )
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

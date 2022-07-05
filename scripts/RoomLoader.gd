@@ -26,12 +26,18 @@ func _get_next_room():
 	elif (SaveGame.game_data.RoomNum == 99):
 		SaveGame.game_data.RoomNum += 1
 		var _error = get_tree().change_scene("res://scenes/rooms/100/room100.tscn")
+	elif (SaveGame.game_data.RoomNum == 100):
+		SaveGame.game_data.RoomNum += 1
+		var _error = get_tree().change_scene("res://scenes/rooms/200/IntroRoom.tscn")
 	elif (SaveGame.game_data.RoomNum == 149):
 		SaveGame.game_data.RoomNum += 1
 		var _error = get_tree().change_scene("res://scenes/rooms/200/room50.tscn")
 	elif (SaveGame.game_data.RoomNum == 174):
 		SaveGame.game_data.RoomNum += 1
 		var _error = get_tree().change_scene("res://scenes/rooms/200/room75.tscn")
+	elif (SaveGame.game_data.RoomNum == 175):
+		SaveGame.game_data.RoomNum += 1
+		var _error = get_tree().change_scene("res://scenes/rooms/200/room76.tscn")
 	elif (SaveGame.game_data.RoomNum >= 199):
 		var _error = get_tree().change_scene("res://scenes/EndScreen.tscn")
 	elif (SaveGame.game_data.RoomNum > 99):

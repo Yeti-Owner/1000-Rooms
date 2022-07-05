@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -19,6 +19,13 @@
 [ext_resource path="res://scenes/objects/Areas/TileStepOne.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/objects/Areas/ShopStep.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/objects/Areas/HubStep.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/enemies/FairyEnemy.tscn" type="PackedScene" id=20]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.96895, 0, -11.3262, 0, 0, 0, 0, 0, 0, -17.3775, 0, -11.4364, 0, 0, 0, 0, 0, 0, -17.4325, 0, -6.97557, 0, 0, 0, 0, 0, 0, -7.24431, 0, -6.81036, 0, 0, 0, 0, 0, 0, -7.18924, 0, -9.23351 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
 
 [node name="world" type="Spatial"]
 script = ExtResource( 5 )
@@ -99,3 +106,14 @@ __meta__ = {
 }
 
 [node name="Objs" type="Spatial" parent="."]
+
+[node name="EnemyPath" type="Path" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="EnemyPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96895, 0, -11.3262 )
+rotation_mode = 0
+loop = false
+
+[node name="FairyEnemy" parent="EnemyPath/PathFollow" instance=ExtResource( 20 )]
+state = 3

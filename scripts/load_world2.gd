@@ -6,6 +6,7 @@ onready var MonsterHandler = $EnemyPath/PathFollow
 export(String) var _room 
 export(bool) var AllowChase = true
 var FairyEnemy = preload("res://scenes/enemies/FairyEnemy.tscn")
+var ChaseList = ["HURRY!","IT'S HERE!","RUN!","HIDE!"]
 var RNG
 var ReRunSpawn = 1
 
@@ -40,7 +41,12 @@ func _check_room():
 		get_node("Fader/Plaque2").queue_free()
 		get_node("Fader/Plaque4").queue_free()
 		get_node("Fader/Plaque6").queue_free()
-		SaveGame.FirstTimeRoom212 = 0
+		SaveGame.FirstTimeRoom212 = 3
+	elif _room == "res://scenes/rooms/200/room12.tscn" && (SaveGame.FirstTimeRoom212 == 3):
+		AllowChase = false
+		get_node("Fader/Plaque2").queue_free()
+		get_node("Fader/Plaque4").queue_free()
+		get_node("Fader/Plaque6").queue_free()
 	elif _room == "res://scenes/rooms/200/room13.tscn" && SaveGame.FirstTimeRoom213:
 		Narrator.messages = ["Oh","...","this room isn't very fun"]
 		SaveGame.FirstTimeRoom213 = 0
@@ -67,8 +73,9 @@ func _add_objs():
 func _chasing():
 	if AllowChase:
 		RNG = randi() % 8
+		print(RNG)
 		if (RNG == 0) or SaveGame.isChased > 0:
-			Narrator.messages = ["HURRY"]
+			Narrator.messages = [ChaseList[randi() % 4]]
 			Narrator.start_dialogue()
 			$SpawnTimer.start()
 			ReRunSpawn = 0
