@@ -1,4 +1,5 @@
 extends KinematicBody
+
 var walk_speed = 6.0
 var jump_speed = 8.9
 var acceleration_speed = 6.5
@@ -7,6 +8,8 @@ var _dir = Vector3.ZERO
 var _vel = Vector3.ZERO
 var EnabledWalking = 1
 var sprinting = false
+var FootStepList = ["res://assets/audio/misc/footsteps/wood_floor1.ogg","res://assets/audio/misc/footsteps/tiles1.ogg","res://assets/audio/misc/footsteps/hub_floor.ogg","res://assets/audio/misc/footsteps/shop_floor.ogg"]
+var Area2 = ""
 
 # References
 onready var _camera := $CameraHolder
@@ -57,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	
 	# If moving play head bob animation
 	if _dir != Vector3() && EnabledWalking && sprinting:
-		anim_player.playback_speed = 1.5
+		anim_player.playback_speed = 1.25
 		anim_player.play("Head Bob")
 	elif _dir != Vector3() && EnabledWalking:
 		anim_player.play("Head Bob")
@@ -71,15 +74,24 @@ func _physics_process(delta: float) -> void:
 		_die()
 
 
-func _on_PlayerArea_area_entered(PlayerArea):
-	if PlayerArea.name == "EnemyArea":
+func _on_PlayerArea_area_entered(area):
+	Area2 = area.name.rstrip("0123456789")
+	if area.name == "EnemyArea":
 		PlayerAnim.play("hurt")
 		$CameraHolder/Camera/HurtPlayer.play()
-	elif PlayerArea.is_in_group("KillBox"):
+	elif area.is_in_group("KillBox"):
 		_die()
-	elif PlayerArea.is_in_group("ResetBox"):
+	elif area.is_in_group("ResetBox"):
 		var _error = get_tree().reload_current_scene()
-		SaveGame.game_data.PlayerHP -= 20
+		SaveGame.game_data.PlayerHP -= 5
+	elif Area2 == "WoodStepOne":
+		StepPlayer.stream = load(FootStepList[0])
+	elif Area2 == "TileStepOne":
+		StepPlayer.stream = load(FootStepList[1])
+	elif Area2 == "HubStep":
+		StepPlayer.stream = load(FootStepList[2])
+	elif Area2 == "ShopStep":
+		StepPlayer.stream = load(FootStepList[3])
 
 func _die():
 	EnabledWalking = 0

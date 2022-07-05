@@ -19,7 +19,7 @@ func _ready():
 	FakeDoor.connect("DoorOpened", self, "_door_triggered")
 	FairyCage.connect("FairyReleased", self, "_release_fairy")
 	fader._fade_in()
-	$Fader/ObjHolder/WallObj3/StaticBody/CollisionShape.disabled = true
+	$Fader/WallObj3.global_transform.origin = Vector3(0, 5, 0)
 	Narrator.messages = ["And here we are","a hub area is just up ahead","the hub is completely safe so feel free to explore as much as you desire"]
 	RoomStage += 1
 
@@ -33,13 +33,13 @@ func _add_objs():
 func _dialogue_finished():
 	match RoomStage:
 		1:
-			get_node("Fader/ObjHolder/WallObj").queue_free()
+			get_node("Fader/WallObj").queue_free()
 			$BricksBreaking.play()
 			Narrator.messages = ["But before you continue I need to share some info.","The next 100 rooms are much different from what you're used to.","They are much darker with different entrances","they are also much harder","...","I hope you're ready."]
 			Narrator.start_dialogue()
 			RoomStage += 1
 		2:
-			get_node("Fader/ObjHolder/WallObj2").queue_free()
+			get_node("Fader/WallObj2").queue_free()
 			$BricksBreaking2.play()
 			Narrator.messages = ["uh"]
 			Narrator.start_dialogue()
@@ -49,8 +49,8 @@ func _on_Area_area_entered(area):
 	if area.name == "PlayerArea":
 		Narrator.messages = ["I don't remember that","...","I wouldn't mess with it if I were you"]
 		Narrator.start_dialogue()
-		$Fader/ObjHolder/WallObj3.visible = true
-		$Fader/ObjHolder/WallObj3/StaticBody/CollisionShape.set_deferred("disabled",  false)
+		$Fader/WallObj3.visible = true
+		$Fader/WallObj3.global_transform.origin = Vector3(0, 0, 0)
 		$Fader/TriggerArea.queue_free()
 
 func _door_triggered():
@@ -111,7 +111,7 @@ func _release_fairy():
 	
 	# remove door and wall
 	$Fader/FakeDoor.queue_free()
-	get_node("Fader/ObjHolder/WallObj3").queue_free()
+	get_node("Fader/WallObj3").queue_free()
 	$BricksBreaking2.play()
 	
 	Narrator.messages = ["UH OH","IT'S LOOSE","FIND THE HATCH TO ESCAPE"]

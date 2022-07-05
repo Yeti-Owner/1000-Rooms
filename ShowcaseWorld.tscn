@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,12 @@
 [ext_resource path="res://scenes/Gridmaps/Shop.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Gridmaps/HubGridmap.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/objects/button.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/objects/NonFunctionals/Bones.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/objects/NonFunctionals/Lamp.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/objects/Areas/WoodStepOne.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/objects/Areas/TileStepOne.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/objects/Areas/ShopStep.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/objects/Areas/HubStep.tscn" type="PackedScene" id=19]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 5 )
@@ -38,6 +44,29 @@ wsp gamers
 [node name="Button" parent="Fader" instance=ExtResource( 13 )]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 1.2, -2 )
 Function = "scene"
+
+[node name="Bones" parent="Fader" instance=ExtResource( 14 )]
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.6, 0, 4.4 )
+
+[node name="Lamp" parent="Fader" instance=ExtResource( 15 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 0, 0 )
+
+[node name="StepHolder" type="Spatial" parent="Fader"]
+
+[node name="WoodStepOne" parent="Fader/StepHolder" instance=ExtResource( 16 )]
+transform = Transform( 6.039, 0, 0, 0, 0.3, 0, 0, 0, 5.92592, 0.4, 0.4, 0.4 )
+
+[node name="TileStepOne" parent="Fader/StepHolder" instance=ExtResource( 17 )]
+transform = Transform( 6.1, 0, 0, 0, 0.4356, 0, 0, 0, 5.8656, 0.1, 0.4, -12.4 )
+
+[node name="TileStepOne1" parent="Fader/StepHolder" instance=ExtResource( 17 )]
+transform = Transform( 6.76, 0, 0, 0, 0.5, 0, 0, 0, 2.26512, -11.7, 0.5, -13.7 )
+
+[node name="ShopStep" parent="Fader/StepHolder" instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 1.74, 0, 0, 0, 0.2, -16, 2, -16.7 )
+
+[node name="HubStep" parent="Fader/StepHolder" instance=ExtResource( 19 )]
+transform = Transform( 6.38, 0, 0, 0, 0.49, 0, 0, 0, 5.94, -12.7, 0.5, 2.98023e-08 )
 
 [node name="console" parent="." instance=ExtResource( 10 )]
 

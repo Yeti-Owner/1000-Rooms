@@ -468,11 +468,11 @@ custom_fonts/font = SubResource( 9 )
 text = "- Added 100 more rooms!
 - Added new monster
 - Added some basic storyline
-- Added 10+ new objects
+- Added 15+ new objects
 - Fixed some major bugs (including sign text being buggy)
 - Added 25+ new textures
-- Added 10+ new models
-- Added 3+ new sounds
+- Added 20+ new models
+- Added 5+ new sounds
 - Added short intro.
 - Added Procedural object generation
 - And a lot more that you'll have to see for yourself!"

@@ -14,6 +14,8 @@ func _ready():
 	_add_objs()
 	get_node("ObjHolder/WallObj3").queue_free()
 	get_node("ObjHolder/WallObj4").queue_free()
+	SaveGame.game_data.RoomNum = 50
+	SaveGame.game_data.LastCheckPoint = _room
 	SaveGame._save()
 	fader._fade_in()
 	Monster.transform.origin = Vector3(0, 3, 9)
@@ -36,7 +38,8 @@ func _add_objs():
 		RNG = randi() % 10
 		if RNG == 0:
 			_i.visible = true
-			print(_i)
+		else:
+			_i.queue_free()
 
 
 func _on_Check1_area_entered(area1):
@@ -118,12 +121,14 @@ func _on_Timer_timeout():
 
 func _on_KillBox1_area_entered(kill1):
 	if kill1.name == "PlayerArea":
-		player._die()
+		SaveGame.game_data.PlayerHP -= 5
+		get_tree().reload_current_scene()
 
 
 func _on_KillBox2_area_entered(kill2):
 	if kill2.name == "PlayerArea":
-		player._die()
+		SaveGame.game_data.PlayerHP -= 5
+		get_tree().reload_current_scene()
 
 
 func _on_Check11_area_entered(area):

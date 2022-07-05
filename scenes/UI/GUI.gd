@@ -10,6 +10,8 @@ onready var StamBar = $HPandStam/StamBar2
 
 func _ready():
 	StamBar.set_value(Stamina)
+	RoomNum.set_text("Room: " + str(SaveGame.game_data.RoomNum))
+	HpBar.set_value(SaveGame.game_data.PlayerHP)
 
 func _process(_delta):
 	# Show FPS if enabled

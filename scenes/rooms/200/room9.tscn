@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/doors/HatchClosed.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/objects/doors/Hatch.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/objects/NonFunctionals/Poster2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/objects/NonFunctionals/Poster3.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -80,3 +82,11 @@ curve = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.916, 0, 26.7884 )
 rotation_mode = 0
 loop = false
+
+[node name="Objs" type="Spatial" parent="."]
+
+[node name="Poster2" parent="Objs" instance=ExtResource( 12 )]
+transform = Transform( -3.14315e-06, 0, 1, 0, 1, 0, -1, 0, -3.14315e-06, 10.001, 1, -2.7 )
+
+[node name="Poster3" parent="Objs" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -25.999 )

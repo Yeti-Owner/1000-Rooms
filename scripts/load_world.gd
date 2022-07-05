@@ -23,7 +23,8 @@ func _check_room():
 
 func _add_objs():
 	for _i in Objs.get_children():
-		RNG = randi() % 10
+		RNG = randi() % 5
 		if RNG == 0:
 			_i.visible = true
-			print(_i)
+		else:
+			_i.queue_free()

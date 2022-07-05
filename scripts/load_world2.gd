@@ -15,6 +15,7 @@ func _ready():
 	SaveGame.game_data.CurrentRoom = _room
 	fader._fade_in()
 	_check_room()
+	_add_objs()
 
 func _check_room():
 	if _room == "res://scenes/rooms/200/room10.tscn" && SaveGame.FirstTimeRoom210:
@@ -55,8 +56,13 @@ func _dialogue_finished():
 	if ReRunSpawn == 1:
 		_chasing()
 
-#func _add_objs():
-#	pass
+func _add_objs():
+	for _i in $Objs.get_children():
+		RNG = randi() % 3
+		if RNG == 0:
+			_i.visible = true
+		else:
+			_i.queue_free()
 
 func _chasing():
 	if AllowChase:

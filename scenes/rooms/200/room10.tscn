@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://scripts/load_world2.gd" type="Script" id=11]
 [ext_resource path="res://scenes/objects/doors/HatchClosed.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/objects/doors/Hatch.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/objects/NonFunctionals/Poster1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/objects/NonFunctionals/CardboardBox.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/objects/NonFunctionals/ChainPainting.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/objects/NonFunctionals/Bones.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -73,7 +77,7 @@ data = {
 [node name="Narrator" parent="." instance=ExtResource( 10 )]
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 
 [node name="EnemyPath" type="Path" parent="."]
@@ -84,5 +88,19 @@ curve = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9924, 0, -1.024 )
 rotation_mode = 0
 loop = false
+
+[node name="Objs" type="Spatial" parent="."]
+
+[node name="Poster1" parent="Objs" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.999, 1.4, -9 )
+
+[node name="CardboardBox" parent="Objs" instance=ExtResource( 15 )]
+transform = Transform( 0.0196962, 0, 0.00347296, 0, 0.02, 0, -0.00347296, 0, 0.0196962, 0, 0, -28 )
+
+[node name="ChainPainting" parent="Objs" instance=ExtResource( 16 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.999, 1.7, -31 )
+
+[node name="Bones" parent="Objs" instance=ExtResource( 17 )]
+transform = Transform( 0.114907, 0, 0.0964181, 0, 0.15, 0, -0.0964181, 0, 0.114907, 0, 0.0464363, -7 )
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

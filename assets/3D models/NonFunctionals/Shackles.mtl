@@ -1,0 +1,13 @@
+# Blender MTL File: 'Shackles.blend'
+# Material Count: 1
+
+newmtl M_Chains_Inst.001
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.215861 0.215861 0.215861
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd T_Chains_Texturing_A.TGA
