@@ -43,5 +43,5 @@ func _rune_found():
 
 func _on_Area_area_entered(area):
 	if area.name == "PlayerArea":
-		Narrator.messages = ["Up ahead may may be the hardest part.","Do be careful please."]
+		Narrator.messages = ["Up ahead may be the hardest part.","Do be careful please."]
 		Narrator.start_dialogue()

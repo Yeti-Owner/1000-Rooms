@@ -1,8 +1,8 @@
 extends Interactable
 
-onready var AnimPlayer = get_parent().get_node("AnimationPlayer")
-onready var fader = get_parent().get_parent().get_parent().get_parent()
-onready var DoorSound = get_parent().get_node("DoorSound")
+onready var AnimPlayer = get_parent().get_node("Door2/Door2/AnimationPlayer")
+onready var fader = get_parent().get_parent()
+onready var DoorSound = get_parent().get_node("Door2/Door2/DoorSound")
 onready var Player = get_node("/root/world/Fader/Player")
 var InteractedWith = 0
 

@@ -1,15 +1,15 @@
 extends KinematicBody
 
-var walk_speed = 6.0
-var jump_speed = 8.9
-var acceleration_speed = 6.5
-var gravity = -32.0
+var walk_speed: float = 6.0
+var jump_speed: float = 8.9
+var acceleration_speed: float = 6.5
+var gravity: float = -32.0
 var _dir = Vector3.ZERO
 var _vel = Vector3.ZERO
 var EnabledWalking = 1
 var sprinting = false
 var FootStepList = ["res://assets/audio/misc/footsteps/wood_floor1.ogg","res://assets/audio/misc/footsteps/tiles1.ogg","res://assets/audio/misc/footsteps/hub_floor.ogg","res://assets/audio/misc/footsteps/shop_floor.ogg"]
-var Area2 = ""
+var Area2 := ""
 
 # References
 onready var _camera := $CameraHolder
@@ -19,7 +19,14 @@ onready var StepPlayer = $StepPlayer
 onready var Health = get_parent().get_node("GUI/HPandStam/HpBar2")
 onready var PlayerAnim = $PlayerAnims
 
-func _physics_process(delta: float) -> void:
+#func _ready():
+#	preload("res://assets/audio/misc/footsteps/wood_floor1.ogg")
+#	preload("res://assets/audio/misc/footsteps/tiles1.ogg")
+#	preload("res://assets/audio/misc/footsteps/hub_floor.ogg")
+#	preload("res://assets/audio/misc/footsteps/shop_floor.ogg")
+
+
+func _physics_process(delta: float):
 	var input = Vector2.ZERO
 	
 	if Input.is_action_pressed("up"):

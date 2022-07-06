@@ -10,7 +10,7 @@ enum {
 	MARCH
 }
 export(int) var state = 0
-export(float) var MarchSpeed = 0.08
+export(float) var MarchSpeed = 0.075
 
 var speed = 7
 var _dir
@@ -33,7 +33,7 @@ func _change_state(STATE):
 func _ready():
 	randomize()
 
-func _process(_delta):
+func _physics_process(_delta):
 	match state:
 		IDLE:
 			$AnimationPlayer.play("Idle")

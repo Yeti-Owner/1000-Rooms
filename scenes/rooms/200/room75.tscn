@@ -357,13 +357,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0 )
 curve = SubResource( 1 )
 
 [node name="PathFollow" type="PathFollow" parent="PathHolders/EnemyPath"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 40 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.99998, 1, 40 )
 offset = 12.9987
 rotation_mode = 0
 loop = false
 
 [node name="FairyEnemy" parent="PathHolders/EnemyPath/PathFollow" instance=ExtResource( 6 )]
 state = 3
+MarchSpeed = 0.06
 
 [node name="EnemyPath6" type="Path" parent="PathHolders"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0 )
@@ -376,34 +377,35 @@ loop = false
 
 [node name="FairyEnemy" parent="PathHolders/EnemyPath6/PathFollow" instance=ExtResource( 6 )]
 state = 3
-MarchSpeed = 0.08
+MarchSpeed = 0.05
 
 [node name="EnemyPath2" type="Path" parent="PathHolders"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -39, 0 )
 curve = SubResource( 2 )
 
 [node name="PathFollow" type="PathFollow" parent="PathHolders/EnemyPath2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500163, 0, 54 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500164, 0, 54 )
 offset = 6.49937
 rotation_mode = 0
 loop = false
 
 [node name="FairyEnemy" parent="PathHolders/EnemyPath2/PathFollow" instance=ExtResource( 6 )]
 state = 3
+MarchSpeed = 0.07
 
 [node name="EnemyPath7" type="Path" parent="PathHolders"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -39, 0 )
 curve = SubResource( 2 )
 
 [node name="PathFollow" type="PathFollow" parent="PathHolders/EnemyPath7"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 54 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99998, 0, 54 )
 offset = 12.9987
 rotation_mode = 0
 loop = false
 
 [node name="FairyEnemy" parent="PathHolders/EnemyPath7/PathFollow" instance=ExtResource( 6 )]
 state = 3
-MarchSpeed = 0.07
+MarchSpeed = 0.05
 
 [node name="EnemyPath3" type="Path" parent="PathHolders"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -39, 12 )

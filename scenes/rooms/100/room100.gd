@@ -2,7 +2,7 @@ extends Spatial
 
 onready var fader = $Fader
 onready var Narrator = $Narrator
-onready var FakeDoor = $Fader/FakeDoor/Door2/Door2/StaticBody
+onready var FakeDoor = $Fader/FakeDoor/StaticBody
 onready var FairyCage = $Fader/GlassCage
 onready var player = get_node("/root/world/Fader/Player")
 export(String) var _room 

@@ -1,13 +1,13 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/Gridmaps/Shop.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/3D models/doors/Door2.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/3D models/doors/door.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/textures/general/Wood076_1K_Color.jpg" type="Texture" id=8]
+[ext_resource path="res://assets/3D models/doors/DoorTex.png" type="Texture" id=8]
 [ext_resource path="res://interactable/InteractableDoor250.gd" type="Script" id=9]
 [ext_resource path="res://scenes/rooms/200/room50.gd" type="Script" id=10]
 [ext_resource path="res://scenes/Gridmaps/HubGridmap.tscn" type="PackedScene" id=11]
@@ -21,17 +21,11 @@
 [ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/objects/DoorReward.tscn" type="PackedScene" id=20]
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=7]
 albedo_texture = ExtResource( 8 )
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( 0.0299969, 2, 0.399922, 0.084189, 1.04346, -0.284182, 0.0299969, 2, -0.4, -0.0300133, 2, 0.399922, 0.0299969, 0, 0.399922, 0.084189, 1.04346, -0.35419, -0.0300133, 2, -0.4, 0.0837275, 1.04346, -0.364683, 0.0813871, 1.04346, -0.370399, 0.0299969, 0, -0.4, -0.084189, 1.04346, -0.284182, -0.0300133, 0, 0.399922, -0.0814036, 1.04346, -0.370399, -0.083744, 1.04346, -0.364683, -0.084189, 1.04346, -0.35419, -0.0300133, 0, -0.4 )
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_texture = ExtResource( 8 )
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_texture = ExtResource( 8 )
 
 [sub_resource type="CylinderMesh" id=5]
 top_radius = 0.01
@@ -55,7 +49,7 @@ layer = 0
 [node name="DoorA" type="MeshInstance" parent="Fader/ObjHolder"]
 transform = Transform( -3.14315e-06, 0, 1, 0, 1, 0, -1, 0, -3.14315e-06, 16, 0, -14 )
 mesh = ExtResource( 5 )
-material/0 = SubResource( 2 )
+material/0 = SubResource( 7 )
 
 [node name="StaticBody" type="StaticBody" parent="Fader/ObjHolder/DoorA"]
 collision_layer = 3
@@ -67,7 +61,7 @@ shape = SubResource( 1 )
 [node name="DoorB" type="MeshInstance" parent="Fader/ObjHolder"]
 transform = Transform( -3.14315e-06, 0, 1, 0, 1, 0, -1, 0, -3.14315e-06, 24, 0, -14 )
 mesh = ExtResource( 5 )
-material/0 = SubResource( 3 )
+material/0 = SubResource( 7 )
 
 [node name="StaticBody" type="StaticBody" parent="Fader/ObjHolder/DoorB"]
 collision_layer = 3
@@ -80,7 +74,7 @@ shape = SubResource( 1 )
 [node name="DoorC" type="MeshInstance" parent="Fader/ObjHolder"]
 transform = Transform( -3.14315e-06, 0, 1, 0, 1, 0, -1, 0, -3.14315e-06, 32, 0, -14 )
 mesh = ExtResource( 5 )
-material/0 = SubResource( 4 )
+material/0 = SubResource( 7 )
 
 [node name="StaticBody" type="StaticBody" parent="Fader/ObjHolder/DoorC"]
 collision_layer = 3

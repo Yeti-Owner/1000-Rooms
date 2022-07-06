@@ -4,11 +4,13 @@
 [ext_resource path="res://assets/3D models/NonFunctionals/CrateTex.png" type="Texture" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
+flags_vertex_lighting = true
+flags_do_not_receive_shadows = true
 albedo_color = Color( 0.756863, 0.756863, 0.756863, 1 )
 albedo_texture = ExtResource( 2 )
 
-[sub_resource type="ConvexPolygonShape" id=2]
-points = PoolVector3Array( -29.4745, 3.4e-05, -27.744, -29.9738, 0.704811, -28.4487, 28.1116, 3.4e-05, -27.744, -29.9738, 3.4e-05, -27.2448, 28.6108, 0.704811, -28.4487, -30.6785, 0.704811, -27.744, -29.9738, 59.2894, -28.4487, 29.3215, 0.704811, -27.744, 28.6108, 3.4e-05, -27.2448, -29.9738, 3.4e-05, 30.3414, 28.6108, 59.2894, -28.4487, -30.6785, 59.2894, -27.744, -30.6785, 0.704811, 30.8406, -29.4745, 60, -27.744, 29.3215, 59.2894, -27.744, 29.3215, 0.704811, 30.8406, 28.6108, 3.4e-05, 30.3414, -29.4745, 3.4e-05, 30.8406, 28.1116, 60, -27.744, -29.9738, 60, -27.2448, -30.6785, 59.2894, 30.8406, -29.9738, 0.704811, 31.5454, -29.9738, 59.2894, 31.5513, 28.6108, 60, -27.2448, 29.3215, 59.2894, 30.8406, 28.6108, 59.2894, 31.5513, 28.6108, 0.704811, 31.5454, 28.1116, 3.4e-05, 30.8406, -22.3974, 60, -19.6684, -29.9738, 59.9942, 30.3414, -22.3974, 51.713, 31.5513, -29.4745, 59.9942, 30.8406, 21.0345, 60, -19.6684, 28.6108, 59.9942, 30.3414, 21.0345, 51.713, 31.5513, 28.1116, 59.9942, 30.8406 )
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 30.2, 30.2, 30.2 )
 
 [node name="Crate" type="MeshInstance"]
 transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0 )
@@ -18,4 +20,5 @@ material/0 = SubResource( 1 )
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.638419, 29.8616, 1.50458 )
 shape = SubResource( 2 )
