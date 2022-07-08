@@ -7,8 +7,8 @@ func get_interaction_text():
 	return "Press E to read"
 
 func interact():
-	$CanvasLayer/Popup/TextureRect/VBoxContainer/Title.text = Title
-	$CanvasLayer/Popup/TextureRect/VBoxContainer/Text.text = Text
+	$CanvasLayer/Popup/MarginContainer/VBoxContainer/Title.text = Title
+	$CanvasLayer/Popup/MarginContainer/VBoxContainer/Text.text = Text
 	$CanvasLayer/Popup.popup()
 	$PaperNoise.pitch_scale = rand_range(0.80, 1.2)
 	$PaperNoise.play()

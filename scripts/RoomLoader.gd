@@ -7,6 +7,8 @@ var RoomRNG
 func _ready():
 	randomize()
 
+# There is 100% a better way to do this but I am too mentally handicapped
+# to figure it out
 func _get_next_room():
 	LastRoom = SaveGame.game_data.CurrentRoom
 	if (SaveGame.game_data.RoomNum == 49):

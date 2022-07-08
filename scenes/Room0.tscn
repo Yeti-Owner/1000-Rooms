@@ -301,6 +301,8 @@ sky_horizon_color = Color( 0, 0, 0, 1 )
 sky_curve = 0.206765
 ground_bottom_color = Color( 0, 0, 0, 1 )
 ground_horizon_color = Color( 0, 0, 0, 1 )
+sun_latitude = 168.33
+sun_longitude = -8.0
 sun_energy = 0.08
 
 [sub_resource type="Environment" id=7]
