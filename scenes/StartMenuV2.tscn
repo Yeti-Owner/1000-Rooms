@@ -446,7 +446,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_bottom = 57.0
 custom_fonts/font = SubResource( 8 )
-text = "Version 1.04"
+text = "Alpha 1.05"
 align = 1
 valign = 1
 
@@ -465,17 +465,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 58.0
 custom_fonts/font = SubResource( 9 )
-text = "- Added 100 more rooms!
-- Added new monster
-- Added some storyline
-- Added 15+ new objects
-- Fixed some major bugs (including sign text)
-- Added 25+ new textures
-- Added 20+ new models
-- Added 5+ new sounds
-- Added short intro.
-- Added Procedural object generation
-- And a lot more that you'll have to see for yourself!"
+text = "- Re-did all GUI's/overlays (better optimization, easier to add-to later)
+- New Vignette System
+- Added 2 new model
+"
 align = 1
 valign = 1
 

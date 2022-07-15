@@ -2,7 +2,6 @@ extends KinematicBody
 
 onready var Player = get_node("/root/world/Fader/Player")
 
-
 enum {
 	IDLE,
 	BOUNCING,

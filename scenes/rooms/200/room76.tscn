@@ -20,7 +20,6 @@ _room = "res://scenes/rooms/200/room76.tscn"
 [node name="Fader" parent="." instance=ExtResource( 3 )]
 
 [node name="GUI" parent="Fader" instance=ExtResource( 4 )]
-layer = 0
 
 [node name="Player" parent="Fader" instance=ExtResource( 8 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.8, -0.3 )

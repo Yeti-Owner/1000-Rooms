@@ -13,7 +13,6 @@ var Area2 := ""
 
 # References
 onready var _camera := $CameraHolder
-onready var anim_player = $CameraHolder/Camera/AnimationPlayer
 onready var Stamina = get_parent().get_node("GUI/HPandStam/StamBar2")
 onready var StepPlayer = $StepPlayer
 onready var Health = get_parent().get_node("GUI/HPandStam/HpBar2")
@@ -67,11 +66,11 @@ func _physics_process(delta: float):
 	
 	# If moving play head bob animation
 	if _dir != Vector3() && EnabledWalking && sprinting:
-		anim_player.playback_speed = 1.25
-		anim_player.play("Head Bob")
+		PlayerAnim.playback_speed = 1.25
+		PlayerAnim.play("Head Bob")
 	elif _dir != Vector3() && EnabledWalking:
-		anim_player.play("Head Bob")
-		anim_player.playback_speed = 1
+		PlayerAnim.play("Head Bob")
+		PlayerAnim.playback_speed = 1
 	
 	
 	# Fix FOV
@@ -99,6 +98,13 @@ func _on_PlayerArea_area_entered(area):
 		StepPlayer.stream = load(FootStepList[2])
 	elif Area2 == "ShopStep":
 		StepPlayer.stream = load(FootStepList[3])
+	elif Area2 == "AcidArea":
+		EnabledWalking = 0
+		jump_speed = 0
+		walk_speed = 0
+		PlayerAnim.play("acid_death", -2.0)
+		print("Acid")
+
 
 func _die():
 	EnabledWalking = 0

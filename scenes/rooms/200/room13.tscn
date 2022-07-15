@@ -30,11 +30,10 @@ AllowChase = false
 
 [node name="Fader" parent="." instance=ExtResource( 2 )]
 
+[node name="GUI" parent="Fader" instance=ExtResource( 3 )]
+
 [node name="Player" parent="Fader" instance=ExtResource( 1 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.7, -0.3 )
-
-[node name="GUI" parent="Fader" instance=ExtResource( 3 )]
-layer = 0
 
 [node name="Button" parent="Fader" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.4, -28 )

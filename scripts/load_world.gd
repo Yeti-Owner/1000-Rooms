@@ -4,7 +4,6 @@ onready var fader = $Fader
 onready var Narrator = $Narrator
 onready var Objs = $Objs
 export(String) var _room 
-#export(Vector3) var MonsterLocation
 var RNG
 
 func _ready():

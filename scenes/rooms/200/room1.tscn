@@ -32,7 +32,6 @@ mouse_filter = 1
 
 [node name="GUI" parent="Fader" instance=ExtResource( 5 )]
 pause_mode = 2
-layer = 0
 
 [node name="Player" parent="Fader" instance=ExtResource( 4 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.7, 1.6 )

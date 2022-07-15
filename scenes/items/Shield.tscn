@@ -1,0 +1,133 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/3D models/Shield/shield.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/3D models/Shield/ShieldTex.png" type="Texture" id=2]
+[ext_resource path="res://scenes/items/ShieldScript.gd" type="Script" id=3]
+
+[sub_resource type="SpatialMaterial" id=13]
+resource_name = "wire_115115115"
+params_cull_mode = 2
+albedo_texture = ExtResource( 2 )
+metallic = 0.35
+
+[sub_resource type="ConvexPolygonShape" id=14]
+points = PoolVector3Array( -21.9604, -0.784915, -13.3856, 27.0197, 0.962217, 17.2173, 9.27036, -1.25349, -32.8441, 5.68906, -4.83205, 29.3035, -27.4098, 3.66595, 17.2276, 11.5053, 5.00875, -1.99864, 5.68906, -4.83205, -34.6512, -13.9839, -3.48925, 25.2847, -19.3532, 0.982268, -20.3311, -9.51399, -4.38317, -32.4135, 27.6077, 3.66499, 17.2276, 25.3674, 2.7701, -6.91121, -6.38506, -1.70045, 29.7602, 12.3993, -3.93525, -30.1758, -24.7224, 2.77107, -7.805, 11.5053, 5.00875, 14.9898, 16.4222, -3.04133, 23.9342, -5.49108, -4.83205, 28.4162, -26.7504, 0.960842, 16.7292, -4.5971, -1.70045, -35.0949, 24.8735, 0.0883493, -7.28715, 6.58304, -1.70045, 29.7536, 18.2156, 0.534345, -23.0124, -26.9574, 3.66595, 4.25787, -5.04409, -4.83205, -35.0949, 27.6077, 3.66499, 5.60181, -12.2013, -3.93525, -30.1758, -16.2188, -3.04229, 23.9408, -11.7543, -0.805569, -30.6259, -24.5497, 0.0883493, -6.39001, 0.766781, -2.14741, -36.889, 11.5053, -3.93525, 27.0723, 18.3025, -2.0531, -20.9048, 27.0771, 0.964079, 4.98352, -26.7549, 0.960987, 6.68918, -19.365, -1.66133, -19.5305, -8.17841, -4.38317, 28.8533, 9.71735, -4.38413, -32.4135, 26.7084, 3.21803, 18.1214, 24.9204, 2.7701, -7.805, 16.4222, 0.0883493, -25.7003, 20.4451, 0.981304, -18.9871, -15.7772, 0.0883493, -25.6938, -25.6164, 2.77107, 18.5715, -11.3073, -3.93525, 27.0723, -9.07239, -1.25253, -32.8571, -16.6712, 0.0883493, -24.8065, 11.9523, -0.806532, -30.6063, 19.5565, 0.981304, -20.3311, 26.2614, 3.21803, -1.99864, 9.27036, -1.25349, 28.4097, 19.7832, -1.60462, -17.3088, -27.4098, 3.66595, 10.5209, 8.37638, -4.38413, 28.8598, 18.6513, -1.22152, -21.2371, 14.1873, -3.48925, 25.2847, -20.6941, 0.982268, -17.6432, -25.6164, 2.77107, -3.77317, -13.5423, -0.35861, 25.7283, -0.568804, -2.14741, -36.889, 4.79508, -1.70045, -35.0883, 2.06791, -3.85544, -35.7868, -4.95509, -4.30579, 29.1835, 15.5282, -0.357647, -27.0443 )
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -90, 90, 90 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "shield_down"
+length = 2.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.0356894, 0.0684834, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -84.353, 90, 90 ), Vector3( -90, 90, 90 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "shield_up"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.0356894, 0.0684834, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -90, 90, 90 ), Vector3( -84.353, 90, 90 ) ]
+}
+
+[node name="Shield" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Shield" type="MeshInstance" parent="."]
+transform = Transform( -0.01, 8.74228e-10, -4.37114e-10, -4.37114e-10, 1.91069e-17, 0.01, 8.74228e-10, 0.01, 1.91069e-17, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 13 )
+
+[node name="StaticBody" type="StaticBody" parent="Shield"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="Shield/StaticBody"]
+transform = Transform( -0.01, 8.74228e-10, 0, -1.66533e-16, -4.37114e-10, 0.01, 8.74228e-10, 0.01, 4.37114e-10, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Shield")
+anims/RESET = SubResource( 15 )
+anims/shield_down = SubResource( 17 )
+anims/shield_up = SubResource( 16 )
+
+[node name="shakeTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="cooldownTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="shakeTimer" to="." method="_on_shakeTimer_timeout"]
+[connection signal="timeout" from="cooldownTimer" to="." method="_on_cooldownTimer_timeout"]

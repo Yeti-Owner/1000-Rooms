@@ -42,7 +42,6 @@ _room = "res://scenes/rooms/200/room50.tscn"
 [node name="Fader" parent="." instance=ExtResource( 4 )]
 
 [node name="GUI" parent="Fader" instance=ExtResource( 6 )]
-layer = 0
 
 [node name="ObjHolder" type="Spatial" parent="Fader"]
 
