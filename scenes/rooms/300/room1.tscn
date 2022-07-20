@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Gridmaps/GridMap3.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/objects/Acid.tscn" type="PackedScene" id=2]
@@ -6,7 +6,26 @@
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/enemies/Spike.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=16]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 6, 2, -6, 0, 0, 0, 0, 0, 0, 6, 2, -26 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=3]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -1, 0, -21, 0, 0, 0, 0, 0, 0, -1, 0, -11, 0, 0, 0, 0, 0, 0, 1, 0, -11, 0, 0, 0, 0, 0, 0, 1, 0, -21, 0, 0, 0, 0, 0, 0, -1, 0, -21 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=2]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6, 2, -6, 0, 0, 0, 0, 0, 0, -6, 1, -26 ),
+"tilts": PoolRealArray( 0, 0 )
+}
 
 [node name="world" type="Spatial"]
 
@@ -33,3 +52,24 @@ __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 2, 0 )
 }
+
+[node name="SpikeHolder" type="Spatial" parent="."]
+
+[node name="Path1" type="Path" parent="SpikeHolder"]
+curve = SubResource( 1 )
+
+[node name="SpikeMover" parent="SpikeHolder/Path1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -8.92228 )
+offset = 2.92
+
+[node name="Path2" type="Path" parent="SpikeHolder"]
+curve = SubResource( 3 )
+
+[node name="SpikeMover" parent="SpikeHolder/Path2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -21 )
+
+[node name="Path3" type="Path" parent="SpikeHolder"]
+curve = SubResource( 2 )
+
+[node name="SpikeMover" parent="SpikeHolder/Path3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -6 )

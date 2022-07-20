@@ -18,7 +18,9 @@ onready var StepPlayer = $StepPlayer
 onready var Health = get_parent().get_node("GUI/HPandStam/HpBar2")
 onready var PlayerAnim = $PlayerAnims
 
-#func _ready():
+func _ready():
+	if SaveGame.game_data.PlayerHP > 100:
+		SaveGame.game_data.PlayerHP = 100
 #	preload("res://assets/audio/misc/footsteps/wood_floor1.ogg")
 #	preload("res://assets/audio/misc/footsteps/tiles1.ogg")
 #	preload("res://assets/audio/misc/footsteps/hub_floor.ogg")

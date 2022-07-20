@@ -11,6 +11,10 @@ var cooldown = false
 
 onready var anim_player = $AnimationPlayer
 
+func _ready():
+	if SaveGame.game_data.EnabledShield == 0:
+		self.queue_free()
+
 func _process(_delta):
 	if not cooldown:
 		match state:
