@@ -114,6 +114,15 @@ func _die():
 	jump_speed = 0
 	walk_speed = 0
 
+func _hurt(source):
+	match source:
+		"ghost":
+			pass
+		"fairy":
+			pass
+		"spike":
+			pass
+
 func _on_PlayerAnims_animation_finished(anim_name):
 	if anim_name == "die":
 		SaveGame.game_data.PlayerHP = 100

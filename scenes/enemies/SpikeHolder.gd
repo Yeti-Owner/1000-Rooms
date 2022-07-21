@@ -4,7 +4,9 @@ var Chase = true
 onready var path = get_parent()
 
 func _ready():
-	pass
+	randomize()
+	$Timer.wait_time = randi() % 5 + 1
+	$Timer.start()
 
 func _process(_delta):
 	if Chase == true:
@@ -13,3 +15,7 @@ func _process(_delta):
 		self.offset = closestOffset
 	else:
 		return
+
+
+func _on_Timer_timeout():
+	$SpikeHolder._triggered()

@@ -76,11 +76,13 @@ func _on_FovSlider_value_changed(CurrentFov):
 # Enable/Disable Bloom
 func _on_BloomCheckBtn_pressed():
 	Settingsholder.BloomSet = !Settingsholder.BloomSet
+	Settingsholder.emit_signal("bloom_changed")
 	ClickPlayer._click_sound()
 
 # Adjust Brightness
 func _on_BrightnessSlider_value_changed(CurrentBrightness):
 	Settingsholder.Brightness = CurrentBrightness
+	Settingsholder.emit_signal("brightness_changed")
 
 # Master Volume
 func _on_MasterVolSlider_value_changed(MasVol):

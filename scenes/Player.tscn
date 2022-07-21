@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/CameraHolder.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://assets/audio/misc/hurt.ogg" type="AudioStream" id=5]
 [ext_resource path="res://scenes/items/Shield.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/HeldSway.gd" type="Script" id=7]
+[ext_resource path="res://assets/3D models/flashlight/flashlight.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://assets/3D models/flashlight/torch_BaseColor.png" type="Texture" id=9]
+[ext_resource path="res://assets/3D models/flashlight/torch_Normal.png" type="Texture" id=10]
+[ext_resource path="res://assets/3D models/flashlight/torch_Roughness.png" type="Texture" id=11]
+[ext_resource path="res://assets/3D models/flashlight/torch_Metallic.png" type="Texture" id=12]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.45
@@ -34,6 +39,10 @@ shader_param/color = Color( 0, 0, 0, 1 )
 shader_param/multiplier = -0.683
 shader_param/softness = 3.0
 
+[sub_resource type="CapsuleShape" id=14]
+radius = 0.47
+height = 1.8
+
 [sub_resource type="Animation" id=9]
 resource_name = "Head Bob"
 length = 0.5
@@ -47,7 +56,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.2, 0 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0.2, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0.2, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("StepPlayer:playing")
@@ -222,6 +231,14 @@ tracks/0/keys = {
 "values": [ Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 0.121569 ), Color( 1, 0, 0, 0 ) ]
 }
 
+[sub_resource type="SpatialMaterial" id=13]
+albedo_texture = ExtResource( 9 )
+metallic_texture = ExtResource( 12 )
+roughness_texture = ExtResource( 11 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 10 )
+
 [node name="Player" type="KinematicBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 script = ExtResource( 2 )
@@ -248,10 +265,6 @@ cast_to = Vector3( 0, 0, -1.25 )
 collision_mask = 2
 script = ExtResource( 3 )
 
-[node name="SpotLight" type="SpotLight" parent="CameraHolder/Camera"]
-spot_range = 3.2878
-spot_angle = 48.2042
-
 [node name="CanvasLayer" type="CanvasLayer" parent="CameraHolder/Camera"]
 
 [node name="Vignette" type="ColorRect" parent="CameraHolder/Camera/CanvasLayer"]
@@ -277,13 +290,13 @@ sway_left = Vector3( 0, 0.1, 0 )
 sway_right = Vector3( 0, -0.1, 0 )
 
 [node name="Shield" parent="CameraHolder/Camera/HeldSway" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275, -0.32, -0.244 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275, -0.32, -0.274795 )
 
 [node name="PlayerArea" type="Area" parent="."]
 
 [node name="CollisionShape2" type="CollisionShape" parent="PlayerArea"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 14 )
 
 [node name="StepPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
@@ -296,6 +309,23 @@ anims/RESET = SubResource( 6 )
 anims/acid_death = SubResource( 12 )
 anims/die = SubResource( 5 )
 anims/hurt = SubResource( 8 )
+
+[node name="Light" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785, 0 )
+
+[node name="Flashlight" type="MeshInstance" parent="Light"]
+transform = Transform( -1.31134e-09, 0, -0.03, 0, 0.03, 0, 0.03, 0, -1.31134e-09, 0.300917, 0, -0.188161 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 13 )
+
+[node name="SpotLight" type="SpotLight" parent="Light/Flashlight"]
+transform = Transform( -2.91409e-06, 0, 66.6667, 0, 66.6667, 0, -66.6667, 0, -2.91409e-06, -11.0915, 0.0578976, 1.68843 )
+spot_range = 3.2878
+spot_angle = 48.2042
+
+[node name="LightTween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 [connection signal="animation_finished" from="PlayerAnims" to="." method="_on_PlayerAnims_animation_finished"]

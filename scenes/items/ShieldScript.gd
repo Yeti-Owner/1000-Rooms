@@ -10,10 +10,12 @@ var state = NEUTRAL
 var cooldown = false
 
 onready var anim_player = $AnimationPlayer
+onready var ShieldArea = $Shield/ShieldArea/CollisionShape
 
 func _ready():
-	if SaveGame.game_data.EnabledShield == 0:
-		self.queue_free()
+	ShieldArea.disabled = true
+#	if SaveGame.game_data.EnabledShield == 0:
+#		self.queue_free()
 
 func _process(_delta):
 	if not cooldown:
@@ -29,16 +31,16 @@ func _process(_delta):
 				$shakeTimer.stop()
 
 func _shield_up():
-	print("Shield up")
+	ShieldArea.disabled = true
 	anim_player.play("shield_up")
 
 func _shield():
-	print("Shielding")
+	ShieldArea.disabled = false
 	$shakeTimer.wait_time = 3
 	$shakeTimer.start()
 
 func _shield_down():
-	print("Shield down")
+	ShieldArea.disabled = true
 	anim_player.play("shield_down")
 
 func _on_AnimationPlayer_animation_finished(anim_name):

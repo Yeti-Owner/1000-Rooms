@@ -16,6 +16,12 @@ var MusicVolume = 50
 var SfxVolume = 50
 var Intro = 0
 
+# Signals
+# warning-ignore:unused_signal
+signal brightness_changed
+# warning-ignore:unused_signal
+signal bloom_changed
+
 # Check saved data
 func _ready():
 	# If save file doesnt exist put in default values
