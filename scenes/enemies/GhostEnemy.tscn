@@ -21,9 +21,9 @@ mesh = ExtResource( 2 )
 wait_time = 0.2
 autostart = true
 
-[node name="EnemyArea" type="Area" parent="."]
+[node name="GhostArea" type="Area" parent="."]
 
-[node name="CollisionShape2" type="CollisionShape" parent="EnemyArea"]
+[node name="CollisionShape2" type="CollisionShape" parent="GhostArea"]
 transform = Transform( -1.05, 0, -1.58546e-07, 0, 1.05, 0, 1.58546e-07, 0, -1.05, 0, 0, 0 )
 shape = SubResource( 2 )
 
@@ -48,7 +48,7 @@ one_shot = true
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="area_entered" from="EnemyArea" to="." method="_on_EnemyArea_area_entered"]
+[connection signal="area_entered" from="GhostArea" to="." method="_on_EnemyArea_area_entered"]
 [connection signal="timeout" from="stun_timer" to="." method="_on_stun_timer_timeout"]
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_AudioStreamPlayer3D_finished"]
 [connection signal="timeout" from="SoundTimer" to="." method="_on_SoundTimer_timeout"]

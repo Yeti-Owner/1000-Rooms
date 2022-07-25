@@ -1,0 +1,106 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/3D models/pipe/Pipe.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://interactable/InteractablePipe.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.290196, 0.290196, 0.290196, 1 )
+metallic = 0.44
+metallic_specular = 0.58
+roughness = 0.75
+
+[sub_resource type="ConvexPolygonShape" id=11]
+points = PoolVector3Array( -0.683345, 0.550307, 1.10267, -0.661169, 0.554463, 1.21133, 0.213446, 0.0164626, 1.10267, 0.100988, 1.08296, 0.0256312, 0.16144, 0.294245, 0.0261785, -0.206399, 1.31848, 1.21108, 0.683245, 0.806259, 1.10267, -0.404224, 0.779255, 0.0265505, -0.427042, 0.123232, 1.10267, 0.362867, 1.27628, 1.10267, 0.404537, 0.577184, 0.0257409, 0.536132, 0.286538, 1.23091, -0.2402, 0.33806, 0.032185, -0.555194, 1.10543, 1.10267, 0.340253, 0.918603, 0.0320438, -0.161777, 1.06272, 0.0257634, -0.185338, 0.0399117, 1.23012, 0.597766, 0.315362, 1.10267, -0.128067, -0.00507855, 1.10267, -0.127934, 1.36178, 1.10267, 0.554425, 1.04799, 1.22849, -0.384414, 0.516614, 0.025851, -0.497401, 1.11358, 1.23407, -0.683345, 0.806259, 1.10267, 0.555094, 1.10543, 1.10267, -0.555194, 0.251408, 1.10267, -0.362967, 1.27628, 1.10267, 0.426942, 0.123232, 1.10267, 0.683245, 0.550307, 1.10267, 0.127834, 1.36178, 1.10267, 0.34035, 0.438028, 0.0318719, 0.185213, 1.3167, 1.23016, -0.100947, 0.274682, 0.0272379, -0.408357, 0.596468, 1.24547, -0.340498, 0.918706, 0.0317878, 0.404492, 0.779378, 0.0258081, 0.660588, 0.616387, 1.23153, 0.185234, 0.0399227, 1.23011, -0.536235, 0.286535, 1.23091, 0.0638918, -0.00507855, 1.08135, 0.0815812, 0.269986, 1.24563, 0.0815379, 1.08663, 1.2453, 0.240269, 1.01875, 0.0317636, -0.277622, 0.0377361, 1.10267, -0.640539, 0.955709, 1.10267, 0.640439, 0.955709, 1.10267, -0.660695, 0.740184, 1.23153, -0.640539, 0.400858, 1.10267, 0.100972, 0.273674, 0.0257263, -0.240377, 1.01876, 0.0317422, 0.40834, 0.759865, 1.2456, -0.404194, 0.577326, 0.0265951, 0.45636, 1.15552, 1.23453, -0.0617313, 1.339, 1.23154, -0.100977, 1.08252, 0.0262976, 0.640439, 0.400858, 1.10267, 0.277388, 1.31896, 1.10267, -0.277488, 1.31896, 1.10267, 0.240282, 0.337802, 0.0317287, -0.340292, 0.438139, 0.032151, -0.427042, 1.2336, 1.10267, 0.426942, 1.2336, 1.10267, 0.555094, 0.251408, 1.10267, 0.362867, 0.0805507, 1.10267 )
+
+[sub_resource type="CylinderMesh" id=2]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.1
+
+[sub_resource type="SpatialMaterial" id=10]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 0.498039 )
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 0.333333 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 0.247059 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 0.2 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 0.164706 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 0.141176 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 0.121569 )
+
+[node name="Pipe" type="Spatial"]
+
+[node name="pipe" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+collision_layer = 3
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 11 )
+
+[node name="ShadowGradient" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -3.14315e-06, -1, 0, 1, -3.14315e-06, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ShadowGradient"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.694 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 10 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="ShadowGradient"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.694 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 9 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="ShadowGradient"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.694001 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 8 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="ShadowGradient"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -0.694001 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 7 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="ShadowGradient"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.694001 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 6 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="ShadowGradient"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.694002 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 5 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="ShadowGradient"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -0.694002 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 4 )
+
+[node name="MeshInstance8" type="MeshInstance" parent="ShadowGradient"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.694002 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )

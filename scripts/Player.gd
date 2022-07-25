@@ -17,6 +17,7 @@ onready var Stamina = get_parent().get_node("GUI/HPandStam/StamBar2")
 onready var StepPlayer = $StepPlayer
 onready var Health = get_parent().get_node("GUI/HPandStam/HpBar2")
 onready var PlayerAnim = $PlayerAnims
+onready var HurtAnims = $HurtPlayer
 
 func _ready():
 	if SaveGame.game_data.PlayerHP > 100:
@@ -84,9 +85,12 @@ func _physics_process(delta: float):
 
 func _on_PlayerArea_area_entered(area):
 	Area2 = area.name.rstrip("0123456789")
-	if area.name == "EnemyArea":
-		PlayerAnim.play("hurt")
-		$CameraHolder/Camera/HurtPlayer.play()
+	if area.name == "GhostArea":
+		_hurt("ghost")
+	elif area.name == "FairyArea":
+		_hurt("fairy")
+	elif area.name == "SpikeArea":
+		_hurt("spike")
 	elif area.is_in_group("KillBox"):
 		_die()
 	elif area.is_in_group("ResetBox"):
@@ -117,11 +121,15 @@ func _die():
 func _hurt(source):
 	match source:
 		"ghost":
-			pass
+			SaveGame.game_data.PlayerHP -= 15
+			HurtAnims.play("hurt")
+			$CameraHolder/Camera/HurtPlayer.play()
 		"fairy":
-			pass
+			HurtAnims.play("hurt")
+			SaveGame.game_data.PlayerHP -= 20
 		"spike":
-			pass
+			HurtAnims.play("hurt")
+			SaveGame.game_data.PlayerHP -= 10
 
 func _on_PlayerAnims_animation_finished(anim_name):
 	if anim_name == "die":

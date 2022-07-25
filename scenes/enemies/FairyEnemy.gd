@@ -77,8 +77,9 @@ func _march():
 
 
 func _on_FairyArea_area_entered(area):
-	if area.name == "PlayerArea":
-		SaveGame.game_data.PlayerHP -= 20
+	pass
+#	if area.name == "PlayerArea":
+#		SaveGame.game_data.PlayerHP -= 20
 
 
 func _on_DirTimer_timeout():

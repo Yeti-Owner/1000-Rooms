@@ -14,8 +14,8 @@ onready var ShieldArea = $Shield/ShieldArea/CollisionShape
 
 func _ready():
 	ShieldArea.disabled = true
-#	if SaveGame.game_data.EnabledShield == 0:
-#		self.queue_free()
+	if SaveGame.game_data.EnabledShield == 0:
+		self.queue_free()
 
 func _process(_delta):
 	if not cooldown:

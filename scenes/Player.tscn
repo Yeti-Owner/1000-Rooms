@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scripts/CameraHolder.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -231,6 +231,23 @@ tracks/0/keys = {
 "values": [ Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 0.121569 ), Color( 1, 0, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=15]
+resource_name = "hurt"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("CameraHolder/Camera/CanvasLayer/Hurt:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 0.121569 ), Color( 1, 0, 0, 0 ) ]
+}
+
 [sub_resource type="SpatialMaterial" id=13]
 albedo_texture = ExtResource( 9 )
 metallic_texture = ExtResource( 12 )
@@ -309,6 +326,9 @@ anims/RESET = SubResource( 6 )
 anims/acid_death = SubResource( 12 )
 anims/die = SubResource( 5 )
 anims/hurt = SubResource( 8 )
+
+[node name="HurtPlayer" type="AnimationPlayer" parent="."]
+anims/hurt = SubResource( 15 )
 
 [node name="Light" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785, 0 )
