@@ -18,6 +18,7 @@ var game_data = {
 	"LastCheckPoint" : "res://scenes/world.tscn",
 	"LastSavedRoom" : 0,
 	"EnabledShield" : 0,
+	"Reputation" : 0,
 	"FirstTimeRoom13" : 1,
 	"FirstTimeRoom210" : 1,
 	"FirstTimeRoom211" : 1,

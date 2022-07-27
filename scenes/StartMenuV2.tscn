@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/audio/MusicPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://scenes/UI/SettingsMenu.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=12]
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scripts/Achievements.gd" type="Script" id=14]
+[ext_resource path="res://scenes/AchievementRenderer.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -393,12 +395,12 @@ margin_bottom = 224.0
 custom_fonts/font = SubResource( 1 )
 text = "Options"
 
-[node name="ClearSaveBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
+[node name="AchievementsBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
 margin_top = 228.0
 margin_right = 376.0
 margin_bottom = 276.0
 custom_fonts/font = SubResource( 1 )
-text = "Clear Save"
+text = "Achievements"
 
 [node name="QuitBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
 margin_top = 280.0
@@ -418,12 +420,8 @@ margin_left = -251.0
 margin_top = -48.0
 custom_fonts/font = SubResource( 1 )
 text = "Version Notes"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VersionDialog" type="Popup" parent="Fader/Menu"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -465,12 +463,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 58.0
 custom_fonts/font = SubResource( 9 )
-text = "- Re-did all GUI's/overlays (better optimization, easier to add-to later)
+text = "- Re-did all UI's + GUI's (better optimization, easier to add-to later)
 - New Vignette System
-- Added 5 new models
+- Added 9 new models
 - Fixed memory issues with Narrator (he would repeat himself occasionally)
-- Added 3 new mechanics
-- Fixed Settings menu"
+- Added 13 new scripts
+- Fixed and improved Settings menu"
 align = 1
 valign = 1
 
@@ -481,6 +479,52 @@ margin_top = -48.0
 margin_right = 183.0
 custom_fonts/font = SubResource( 10 )
 text = "Feedback"
+
+[node name="Achievements" type="Popup" parent="Fader/Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 50.0
+margin_right = -100.0
+margin_bottom = -50.0
+script = ExtResource( 14 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Fader/Menu/Achievements"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Viewport" type="Viewport" parent="Fader/Menu/Achievements/ViewportContainer"]
+size = Vector2( 1080, 620 )
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="AchievementRenderer" parent="Fader/Menu/Achievements/ViewportContainer/Viewport" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
+
+[node name="CloseBtn" type="Button" parent="Fader/Menu/Achievements"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -33.0
+margin_bottom = 25.0
+text = "X"
+
+[node name="LeftBtn" type="Button" parent="Fader/Menu/Achievements"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -20.0
+margin_right = 40.0
+margin_bottom = 20.0
+text = "<"
+
+[node name="RightBtn" type="Button" parent="Fader/Menu/Achievements"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -20.0
+margin_bottom = 20.0
+text = ">"
 
 [node name="console" parent="." instance=ExtResource( 9 )]
 visible = false
@@ -493,8 +537,11 @@ visible = false
 [connection signal="timeout" from="CustomFader/Timer" to="CustomFader/StartMenuCamera" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/StartBtn" to="Fader/Menu" method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/OptionsBtn" to="Fader/Menu" method="_on_OptionsBtn_pressed"]
-[connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/ClearSaveBtn" to="Fader/Menu" method="_on_ClearSaveBtn_pressed"]
+[connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/AchievementsBtn" to="Fader/Menu" method="_on_AchievementsBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/QuitBtn" to="Fader/Menu" method="_on_QuitBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/VersionBtn" to="Fader/Menu" method="_on_VersionBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/VersionDialog/CloseBtn" to="Fader/Menu" method="_on_CloseBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/FeedbackBtn" to="Fader/Menu" method="_on_FeedbackBtn_pressed"]
+[connection signal="pressed" from="Fader/Menu/Achievements/CloseBtn" to="Fader/Menu/Achievements" method="_on_CloseBtn_pressed"]
+[connection signal="pressed" from="Fader/Menu/Achievements/LeftBtn" to="Fader/Menu/Achievements" method="_on_LeftBtn_pressed"]
+[connection signal="pressed" from="Fader/Menu/Achievements/RightBtn" to="Fader/Menu/Achievements" method="_on_RightBtn_pressed"]

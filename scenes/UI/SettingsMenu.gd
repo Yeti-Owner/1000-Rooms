@@ -1,5 +1,8 @@
 extends Popup
 
+# vars
+var dir = Directory.new()
+var save_data = "user://save_game.dat"
 
 # Cleaned up referencing
 onready var MaxFpsValue = $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue
@@ -104,3 +107,17 @@ func _on_SfxVolSlider_value_changed(SfVol):
 
 func _on_SettingsTabs_tab_changed(_tab):
 	ClickPlayer._click_sound()
+
+# Clear SaveGame
+func _on_ClearSaveBtn_pressed():
+	ClickPlayer._click_sound()
+	dir.remove(save_data)
+	Settingsholder.Intro = 0
+	Settingsholder._save()
+	get_tree().quit()
+
+func _on_DefaultBtn_pressed():
+	ClickPlayer._click_sound()
+	Settingsholder._default()
+	_ready()
+	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/DefaultBtn.pressed = false

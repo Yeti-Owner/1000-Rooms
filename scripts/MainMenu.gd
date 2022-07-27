@@ -1,7 +1,5 @@
 extends Control
 
-var dir = Directory.new()
-var save_data = "user://save_game.dat"
 onready var fader = get_parent()
 onready var ClickPlayer = get_node("SettingsMenu/ClickPlayer")
 onready var MusicPlayer = get_node("/root/StartMenuV2/MusicPlayer")
@@ -22,16 +20,13 @@ func _on_OptionsBtn_pressed():
 	ClickPlayer._click_sound()
 	$SettingsMenu.popup_centered()
 
-func _on_ClearSaveBtn_pressed():
-	ClickPlayer._click_sound()
-	dir.remove(save_data)
-	Settingsholder.Intro = 0
-	Settingsholder._save()
-	get_tree().quit()
+func _on_AchievementsBtn_pressed():
+	get_node("Achievements").popup_centered()
 
 func _on_QuitBtn_pressed():
 	ClickPlayer._click_sound()
 	Settingsholder._save()
+	AchievementsHolder._save()
 	get_tree().quit()
 
 func on_fade_finished():

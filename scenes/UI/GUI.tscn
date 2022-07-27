@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/UI/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=2]
@@ -24,6 +24,44 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=2]
 size = 45
 font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Achievement"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Achievement/AchievementPopup:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1.2, 2.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -239, 0 ), Vector2( 23, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 45 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Achievement/AchievementPopup:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -239, 676 ) ]
+}
 
 [node name="GUI" type="CanvasLayer"]
 layer = -1
@@ -88,9 +126,6 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="RoomNumHolder"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RoomNum" type="Label" parent="RoomNumHolder/CenterContainer"]
 margin_left = 22.0
@@ -129,3 +164,33 @@ texture_under = ExtResource( 8 )
 texture_over = ExtResource( 12 )
 texture_progress = ExtResource( 13 )
 texture_progress_offset = Vector2( 3, 0 )
+
+[node name="Achievement" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -45.0
+margin_right = 240.0
+custom_styles/panel = SubResource( 7 )
+
+[node name="AchievementPopup" type="ColorRect" parent="Achievement"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -359.0
+margin_top = 653.5
+margin_right = -120.0
+margin_bottom = 697.5
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="Achievement/AchievementPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+text = "Achievement Unlocked"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Achievement = SubResource( 5 )
+anims/RESET = SubResource( 6 )

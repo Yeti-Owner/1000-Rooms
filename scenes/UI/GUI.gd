@@ -9,6 +9,7 @@ onready var HpBar = $HPandStam/HpBar2
 onready var StamBar = $HPandStam/StamBar2
 
 func _ready():
+	AchievementsHolder.connect("NewAchievement", self, "_achievement")
 	StamBar.set_value(Stamina)
 	RoomNum.set_text("Room: " + str(SaveGame.game_data.RoomNum))
 	HpBar.set_value(SaveGame.game_data.PlayerHP)
@@ -38,3 +39,5 @@ func _physics_process(_delta) -> void:
 		Stamina = StamBar.get_value() + 0.5
 		StamBar.set_value(Stamina)
 
+func _achievement():
+	$AnimationPlayer.play("Achievement")

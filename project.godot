@@ -32,6 +32,7 @@ config/icon="res://assets/ExportData/title.png"
 Settingsholder="*res://scripts/settingsholder.gd"
 RoomLoader="*res://scripts/RoomLoader.gd"
 SaveGame="*res://scripts/save_game.gd"
+AchievementsHolder="*res://scripts/AchievementsHolder.gd"
 
 [display]
 

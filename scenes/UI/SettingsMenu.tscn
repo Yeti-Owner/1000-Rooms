@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/UI/SettingsMenu.gd" type="Script" id=2]
@@ -12,16 +12,12 @@ font_data = ExtResource( 1 )
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 26
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=3]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=6]
-size = 25
+[sub_resource type="DynamicFont" id=5]
+size = 26
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -197,19 +193,6 @@ size_flags_vertical = 1
 max_value = 8.0
 value = 3.0
 
-[node name="WarningLabel" type="Label" parent="SettingsTabs/Video"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -27.0
-custom_fonts/font = SubResource( 5 )
-text = "Some changes only take effect on restart or loading"
-align = 1
-valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Audio" type="Tabs" parent="SettingsTabs"]
 visible = false
 anchor_right = 1.0
@@ -227,9 +210,6 @@ custom_constants/margin_right = 25
 custom_constants/margin_top = 25
 custom_constants/margin_left = 25
 custom_constants/margin_bottom = 25
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AudioSettings" type="GridContainer" parent="SettingsTabs/Audio/MarginContainer"]
 margin_left = 25.0
@@ -291,28 +271,15 @@ size_flags_vertical = 1
 max_value = 60.0
 value = 50.0
 
-[node name="WarningLabel2" type="Label" parent="SettingsTabs/Audio"]
+[node name="WarningLabel" type="Label" parent="SettingsTabs/Audio"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -32.0
 custom_fonts/font = SubResource( 5 )
-text = "Some changes only take effect on restart or loading"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WarningLabel" type="Label" parent="SettingsTabs/Audio"]
-anchor_right = 1.0
-margin_bottom = 27.0
-custom_fonts/font = SubResource( 6 )
 text = "BE VERY CAREFUL ADJUSTING AUDIO, JUMPSCARES CAN GET LOUD"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+valign = 1
 
 [node name="Gameplay" type="Tabs" parent="SettingsTabs"]
 visible = false
@@ -331,9 +298,6 @@ custom_constants/margin_right = 25
 custom_constants/margin_top = 25
 custom_constants/margin_left = 25
 custom_constants/margin_bottom = 25
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="GameplaySettings" type="GridContainer" parent="SettingsTabs/Gameplay/MarginContainer"]
 margin_left = 25.0
@@ -344,7 +308,7 @@ custom_constants/vseparation = 13
 columns = 2
 
 [node name="FovLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-margin_right = 195.0
+margin_right = 179.0
 margin_bottom = 31.0
 custom_fonts/font = SubResource( 4 )
 text = "FOV"
@@ -374,19 +338,20 @@ value = 70.0
 
 [node name="MouseSensitivityLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
 margin_top = 44.0
-margin_right = 195.0
+margin_right = 179.0
 margin_bottom = 75.0
 custom_fonts/font = SubResource( 4 )
-text = "Mouse Sensitivity"
+text = "Sensitivity"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-margin_left = 199.0
+margin_left = 183.0
 margin_top = 44.0
 margin_right = 648.0
 margin_bottom = 75.0
 
 [node name="MouseSensitivityVal" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2"]
-margin_right = 45.0
+margin_left = 16.0
+margin_right = 61.0
 margin_bottom = 31.0
 size_flags_horizontal = 10
 custom_fonts/font = SubResource( 4 )
@@ -395,8 +360,8 @@ align = 2
 valign = 1
 
 [node name="MouseSensitivitySlider" type="HSlider" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2"]
-margin_left = 49.0
-margin_right = 449.0
+margin_left = 65.0
+margin_right = 465.0
 margin_bottom = 31.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
@@ -405,18 +370,33 @@ min_value = 5.0
 max_value = 50.0
 value = 18.0
 
-[node name="WarningLabel3" type="Label" parent="SettingsTabs/Gameplay"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -27.0
-custom_fonts/font = SubResource( 5 )
-text = "Some changes only take effect on restart or loading"
-align = 1
-valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ClearSaveLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_top = 88.0
+margin_right = 179.0
+margin_bottom = 119.0
+custom_fonts/font = SubResource( 4 )
+text = "Clear Save"
+
+[node name="ClearSaveBtn" type="CheckButton" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_left = 614.0
+margin_top = 88.0
+margin_right = 648.0
+margin_bottom = 119.0
+size_flags_horizontal = 10
+
+[node name="DefaultLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_top = 132.0
+margin_right = 179.0
+margin_bottom = 163.0
+custom_fonts/font = SubResource( 4 )
+text = "Default Settings"
+
+[node name="DefaultBtn" type="CheckButton" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_left = 614.0
+margin_top = 132.0
+margin_right = 648.0
+margin_bottom = 163.0
+size_flags_horizontal = 10
 
 [node name="ClickPlayer" parent="." instance=ExtResource( 4 )]
 
@@ -432,3 +412,5 @@ __meta__ = {
 [connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider" to="." method="_on_SfxVolSlider_value_changed"]
 [connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider" to="." method="_on_FovSlider_value_changed"]
 [connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider" to="." method="_on_MouseSensitivitySlider_value_changed"]
+[connection signal="pressed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/ClearSaveBtn" to="." method="_on_ClearSaveBtn_pressed"]
+[connection signal="pressed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/DefaultBtn" to="." method="_on_DefaultBtn_pressed"]

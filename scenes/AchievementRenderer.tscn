@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scripts/AchievementRenderer.gd" type="Script" id=1]
+[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/3D models/NewJersey/NewJersey.obj" type="ArrayMesh" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="PlaneMesh" id=5]
+size = Vector2( 80, 20 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.223529, 0.223529, 0.223529, 1 )
+
+[sub_resource type="QuadMesh" id=7]
+size = Vector2( 80, 20 )
+
+[sub_resource type="SpatialMaterial" id=10]
+
+[sub_resource type="CubeMesh" id=8]
+size = Vector3( 100, 100, 100 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CylinderMesh" id=2]
+
+[sub_resource type="QuadMesh" id=3]
+size = Vector2( 2, 2 )
+
+[sub_resource type="QuadMesh" id=11]
+
+[node name="AchievementRenderer" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4, 3, 4 )
+
+[node name="SpotLight" type="SpotLight" parent="Camera"]
+spot_range = 11.1997
+
+[node name="SpotLight2" type="SpotLight" parent="Camera"]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 2.86603, -2.9641 )
+spot_range = 11.4354
+
+[node name="AchievementText" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -73.0
+custom_fonts/font = SubResource( 4 )
+text = "Test Text"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Floor" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -4, 0 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="Wall" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 6, -9 )
+mesh = SubResource( 7 )
+
+[node name="NJ" type="MeshInstance" parent="."]
+transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0.05087 )
+mesh = ExtResource( 3 )
+material/0 = SubResource( 10 )
+
+[node name="hide" type="MeshInstance" parent="NJ"]
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="Beanie" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
+mesh = SubResource( 2 )
+
+[node name="hide" type="MeshInstance" parent="Beanie"]
+transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
+mesh = SubResource( 8 )
+skeleton = NodePath("../../NJ")
+material/0 = SubResource( 9 )
+
+[node name="NotoLotta" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
+mesh = SubResource( 3 )
+
+[node name="hide" type="MeshInstance" parent="NotoLotta"]
+transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
+mesh = SubResource( 8 )
+skeleton = NodePath("../../NJ")
+material/0 = SubResource( 9 )
+
+[node name="Asshole" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0 )
+mesh = SubResource( 11 )
+
+[node name="hide" type="MeshInstance" parent="Asshole"]
+transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
+mesh = SubResource( 8 )
+skeleton = NodePath("../../NJ")
+material/0 = SubResource( 9 )
+
+[node name="Wyoming" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0 )
+mesh = SubResource( 11 )
+
+[node name="hide" type="MeshInstance" parent="Wyoming"]
+transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
+mesh = SubResource( 8 )
+skeleton = NodePath("../../NJ")
+material/0 = SubResource( 9 )

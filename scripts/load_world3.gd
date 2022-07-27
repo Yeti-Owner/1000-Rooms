@@ -19,7 +19,7 @@ func _check_room():
 
 func _add_objs():
 	for _i2 in $Objs.get_children():
-		RNG2 = randi() % 4
+		RNG2 = randi() % 3
 		if RNG2 != 0:
 			_i2.queue_free()
 

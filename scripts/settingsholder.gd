@@ -47,3 +47,17 @@ func _save():
 	file.open(save_settings, File.WRITE)
 	file.store_buffer([ShowFps, MouseSensitivity, PlayerFOV, FrameRate, BloomSet, VsyncEnabled, Brightness, MasterVolume, MusicVolume, SfxVolume, Intro])
 	file.close()
+
+func _default():
+	ShowFps = 0
+	MouseSensitivity = 18
+	PlayerFOV = 70
+	FrameRate = 60
+	BloomSet = 0
+	VsyncEnabled = 0
+	Brightness = 3
+	MasterVolume = 25
+	MusicVolume = 50
+	SfxVolume = 50
+	Intro = 0
+	_save()

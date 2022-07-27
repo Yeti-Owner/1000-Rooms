@@ -12,4 +12,5 @@ func interact():
 	SaveGame.game_data.LastSavedRoom = SaveGame.game_data.RoomNum
 	SaveGame.game_data.CurrentPos = CurrentPos
 	SaveGame._save()
+	AchievementsHolder._save()
 	Saved = "Game has been saved"

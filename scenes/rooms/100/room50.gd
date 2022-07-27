@@ -134,5 +134,7 @@ func _on_KillBox2_area_entered(kill2):
 func _on_Check11_area_entered(area):
 	if area.name == "PlayerArea":
 		player.transform.origin = Vector3(51.09, 5.07, -112.6)
-		
+		AchievementsHolder.game_data.FormagDrung = 1
+		AchievementsHolder._save()
+		AchievementsHolder.emit_signal("NewAchievement")
 

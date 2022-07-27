@@ -97,11 +97,14 @@ func _door_triggered():
 		DoorStage += 1
 		Narrator.messages = ["Honestly","...","fuck you"]
 		Narrator.start_dialogue()
-	elif DoorStage == 45:
+	elif DoorStage == 43:
 		DoorStage += 1
 		Narrator.messages = ["Go through that Goddamned door one more time and I will kill you I swear to God"]
 		Narrator.start_dialogue()
-	elif DoorStage == 46:
+	elif DoorStage == 44:
+		AchievementsHolder.game_data.Asshole = 1
+		AchievementsHolder._save()
+		AchievementsHolder.emit_signal("NewAchievement")
 		SaveGame.game_data.PlayerHP = 0
 	else:
 		DoorStage += 1

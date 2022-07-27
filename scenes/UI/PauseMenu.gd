@@ -25,6 +25,7 @@ func _on_ResumeBtn_pressed():
 func _on_QuitBtn_pressed():
 	ClickPlayer._click_sound()
 	Settingsholder._save()
+	AchievementsHolder._save()
 	get_tree().quit()
 
 func _on_OptionsBtn_pressed():
