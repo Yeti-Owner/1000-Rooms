@@ -466,9 +466,9 @@ custom_fonts/font = SubResource( 9 )
 text = "- Re-did all UI's + GUI's (better optimization, easier to add-to later)
 - New Vignette System
 - Added 9 new models
-- Fixed memory issues with Narrator (he would repeat himself occasionally)
-- Added 13 new scripts
-- Fixed and improved Settings menu"
+- Fixed memory issues with Narrator
+- Fixed and improved Settings menu
+- New enemy"
 align = 1
 valign = 1
 
@@ -481,12 +481,15 @@ custom_fonts/font = SubResource( 10 )
 text = "Feedback"
 
 [node name="Achievements" type="Popup" parent="Fader/Menu"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 100.0
-margin_top = 50.0
-margin_right = -100.0
-margin_bottom = -50.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -310.0
+margin_right = 540.0
+margin_bottom = 310.0
+rect_min_size = Vector2( 1080, 620 )
 script = ExtResource( 14 )
 
 [node name="ViewportContainer" type="ViewportContainer" parent="Fader/Menu/Achievements"]

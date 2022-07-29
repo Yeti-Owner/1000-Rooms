@@ -16,6 +16,12 @@ func interact():
 	match Function:
 		"scene":
 			pass
+		"wyoming":
+			player.transform.origin = Arg3
+			if AchievementsHolder.game_data.Wyoming == 0:
+				AchievementsHolder.game_data.Wyoming = 1
+				AchievementsHolder._save()
+				AchievementsHolder.emit_signal("NewAchievement")
 		"pos":
 			player.transform.origin = Arg3
 		"die":

@@ -52,7 +52,7 @@ Flashing = true
 
 [node name="Button" parent="Fader" instance=ExtResource( 7 )]
 transform = Transform( -3.14315e-06, 1, 0, -1, -3.14315e-06, 0, 0, 0, 1, -2, 3.3, -0.3 )
-Function = "pos"
+Function = "wyoming"
 FuncText = "go to Wyoming"
 Arg3 = Vector3( -55, 2, -38 )
 

@@ -104,7 +104,6 @@ bus = "SfxBus"
 [node name="BellTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="area_entered" from="FairyArea" to="." method="_on_FairyArea_area_entered"]
 [connection signal="area_entered" from="FairyVision" to="." method="_on_FairyVision_area_entered"]
 [connection signal="timeout" from="DirTimer" to="." method="_on_DirTimer_timeout"]
 [connection signal="timeout" from="BellTimer" to="." method="_on_BellTimer_timeout"]

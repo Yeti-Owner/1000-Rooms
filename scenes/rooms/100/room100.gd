@@ -102,9 +102,10 @@ func _door_triggered():
 		Narrator.messages = ["Go through that Goddamned door one more time and I will kill you I swear to God"]
 		Narrator.start_dialogue()
 	elif DoorStage == 44:
-		AchievementsHolder.game_data.Asshole = 1
-		AchievementsHolder._save()
-		AchievementsHolder.emit_signal("NewAchievement")
+		if AchievementsHolder.game_data.Asshole == 0:
+			AchievementsHolder.game_data.Asshole = 1
+			AchievementsHolder._save()
+			AchievementsHolder.emit_signal("NewAchievement")
 		SaveGame.game_data.PlayerHP = 0
 	else:
 		DoorStage += 1
@@ -122,7 +123,7 @@ func _release_fairy():
 	get_node("Fader/WallObj3").queue_free()
 	$BricksBreaking2.play()
 	
-	Narrator.messages = ["UH OH","IT'S LOOSE","FIND THE HATCH TO ESCAPE"]
+	Narrator.messages = ["IT'S LOOSE","FIND THE HATCH TO ESCAPE"]
 	Narrator.start_dialogue()
 
 func _on_Timer_timeout():

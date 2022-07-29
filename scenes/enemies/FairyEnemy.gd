@@ -75,20 +75,12 @@ func _march():
 	elif Num == 0:
 		get_parent().offset -= MarchSpeed
 
-
-func _on_FairyArea_area_entered(area):
-	pass
-#	if area.name == "PlayerArea":
-#		SaveGame.game_data.PlayerHP -= 20
-
-
 func _on_DirTimer_timeout():
 	$DirTimer.wait_time = rand_range(2.0, 5.0)
 	RandomDir = Vector3(randi() % 2 - 1, randi() % 2 - 1, randi() % 2 - 1)
 	if RandomDir == Vector3(0, 0, 0):
 		RandomDir = Vector3(0, 0, 1)
 	$DirTimer.start()
-
 
 func _on_BellTimer_timeout():
 	$FairyBell.pitch_scale = rand_range(0.9, 1.3)

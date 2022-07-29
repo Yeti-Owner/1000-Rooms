@@ -12,7 +12,8 @@ var game_data = {
 	"Hito" : 0,
 	"Ufrz" : 0,
 	"Asshole" : 0,
-	"Wyoming" : 0
+	"Wyoming" : 0,
+	"Brawlhalla" : 0
 }
 
 signal NewAchievement
