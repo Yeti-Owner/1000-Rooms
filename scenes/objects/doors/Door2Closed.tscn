@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/3D models/doors/door.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/3D models/doors/DoorTex.png" type="Texture" id=2]
+[ext_resource path="res://interactable/InteractableLockedDoor.gd" type="Script" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -14,6 +15,8 @@ mesh = ExtResource( 1 )
 material/0 = SubResource( 1 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
+collision_layer = 3
+script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 2 )

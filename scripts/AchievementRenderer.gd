@@ -16,6 +16,8 @@ func _ready():
 	$NotoLotta/hide.visible = !AchievementsHolder.game_data.NotoLotta
 	$Asshole/hide.visible = !AchievementsHolder.game_data.Asshole
 	$Wyoming/hide.visible = !AchievementsHolder.game_data.Wyoming
+	$Shai/hide.visible = !AchievementsHolder.game_data.Shai
+
 
 func _process(_delta):
 	if CameraStage < 1:
@@ -75,9 +77,9 @@ func _process(_delta):
 		7:
 			# Shai Award
 			if AchievementsHolder.game_data.Shai == 0:
-				Text.text = "The Shai achievement, get it by placeholder."
+				Text.text = "The Shai achievement, get it by finding the Lin Fei poster."
 			else:
-				Text.text = "Placeholder."
+				Text.text = "Peak."
 			CurrentPos = Cam.global_transform.origin
 			Cam.global_transform.origin = lerp(CurrentPos, Vector3(24,3,4-20), LerpWeight)
 		8:

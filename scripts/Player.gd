@@ -8,7 +8,7 @@ var _dir = Vector3.ZERO
 var _vel = Vector3.ZERO
 var EnabledWalking = 1
 var sprinting = false
-var FootStepList = ["res://assets/audio/misc/footsteps/wood_floor1.ogg","res://assets/audio/misc/footsteps/tiles1.ogg","res://assets/audio/misc/footsteps/hub_floor.ogg","res://assets/audio/misc/footsteps/shop_floor.ogg"]
+var FootStepList = ["res://assets/audio/misc/footsteps/wood_floor1.wav","res://assets/audio/misc/footsteps/tiles1.wav","res://assets/audio/misc/footsteps/hub_floor.wav","res://assets/audio/misc/footsteps/shop_floor.wav"]
 var Area2 := ""
 
 # References
@@ -22,10 +22,6 @@ onready var HurtAnims = $HurtPlayer
 func _ready():
 	if SaveGame.game_data.PlayerHP > 100:
 		SaveGame.game_data.PlayerHP = 100
-#	preload("res://assets/audio/misc/footsteps/wood_floor1.ogg")
-#	preload("res://assets/audio/misc/footsteps/tiles1.ogg")
-#	preload("res://assets/audio/misc/footsteps/hub_floor.ogg")
-#	preload("res://assets/audio/misc/footsteps/shop_floor.ogg")
 
 
 func _physics_process(delta: float):

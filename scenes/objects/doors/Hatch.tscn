@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/3D models/hatch/Col.png" type="Texture" id=3]
 [ext_resource path="res://resources/HatchCollisionShape.tres" type="Shape" id=4]
 [ext_resource path="res://interactable/InteractableHatch.gd" type="Script" id=5]
-[ext_resource path="res://assets/audio/misc/doors/GrateOpen.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/misc/doors/GrateOpen.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 3 )

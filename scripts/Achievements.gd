@@ -2,12 +2,6 @@ extends Popup
 
 onready var Renderer = get_node("ViewportContainer/Viewport/AchievementRenderer")
 
-#func _ready():
-#	pass
-
-#func _process(delta):
-#	pass
-
 func _on_CloseBtn_pressed():
 	self.visible = false
 
