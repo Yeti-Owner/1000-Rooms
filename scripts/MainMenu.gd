@@ -23,6 +23,9 @@ func _on_OptionsBtn_pressed():
 func _on_AchievementsBtn_pressed():
 	get_node("Achievements").popup_centered()
 
+func _on_CreditsBtn_pressed():
+	var _error = get_tree().change_scene("res://scenes/Credits.tscn")
+
 func _on_QuitBtn_pressed():
 	ClickPlayer._click_sound()
 	Settingsholder._save()
@@ -34,7 +37,6 @@ func on_fade_finished():
 
 func _on_VersionBtn_pressed():
 	get_node("VersionDialog").popup_centered()
-
 
 func _on_CloseBtn_pressed():
 	get_node("VersionDialog").visible = false

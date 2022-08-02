@@ -356,15 +356,12 @@ script = ExtResource( 12 )
 [node name="CenterContainer" type="CenterContainer" parent="Fader/Menu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Fader/Menu/CenterContainer"]
 margin_left = 452.0
-margin_top = 196.0
+margin_top = 170.0
 margin_right = 828.0
-margin_bottom = 524.0
+margin_bottom = 550.0
 
 [node name="Title" type="Label" parent="Fader/Menu/CenterContainer/VBoxContainer"]
 margin_right = 376.0
@@ -402,10 +399,17 @@ margin_bottom = 276.0
 custom_fonts/font = SubResource( 1 )
 text = "Achievements"
 
-[node name="QuitBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
+[node name="CreditsBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
 margin_top = 280.0
 margin_right = 376.0
 margin_bottom = 328.0
+custom_fonts/font = SubResource( 1 )
+text = "Credits"
+
+[node name="QuitBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
+margin_top = 332.0
+margin_right = 376.0
+margin_bottom = 380.0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
@@ -541,6 +545,7 @@ visible = false
 [connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/StartBtn" to="Fader/Menu" method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/OptionsBtn" to="Fader/Menu" method="_on_OptionsBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/AchievementsBtn" to="Fader/Menu" method="_on_AchievementsBtn_pressed"]
+[connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/CreditsBtn" to="Fader/Menu" method="_on_CreditsBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/CenterContainer/VBoxContainer/QuitBtn" to="Fader/Menu" method="_on_QuitBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/VersionBtn" to="Fader/Menu" method="_on_VersionBtn_pressed"]
 [connection signal="pressed" from="Fader/Menu/VersionDialog/CloseBtn" to="Fader/Menu" method="_on_CloseBtn_pressed"]

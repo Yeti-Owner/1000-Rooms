@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/Credits.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 90
+font_data = ExtResource( 1 )
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.113725, 0.113725, 0.113725, 1 )
+
+[node name="CreditsText" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 572.0
+margin_bottom = 572.0
+custom_fonts/font = SubResource( 1 )
+text = "I'd like to thank the following people for making
+this game better.
+
+
+Kenney.nl for several small assets
+
+NotoLotta for all his help with animation
+
+Shai, Cole, Ufrz, Formag, Mauro, Hito and many more for
+play-testing and giving criticism
+
+Many Godot devs and helpers who helped me when I was 
+stuck."
+align = 1
+autowrap = true
+
+[node name="CloseBtn" type="Button" parent="CreditsText"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 225, 100 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Close"
+
+[connection signal="pressed" from="CreditsText/CloseBtn" to="." method="_on_CloseBtn_pressed"]
