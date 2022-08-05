@@ -39,7 +39,7 @@ script = ExtResource( 5 )
 [node name="GUI" parent="Fader" instance=ExtResource( 7 )]
 
 [node name="Player" parent="Fader" instance=ExtResource( 2 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0 )
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -13.6208, 1, 0 )
 
 [node name="SavePentagram" parent="Fader" instance=ExtResource( 4 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 4, 0.01, 4 )
@@ -88,6 +88,7 @@ shape = SubResource( 2 )
 [node name="GameConsole" parent="Fader" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1, 0 )
 GameRot = Basis( 0, 0, 1, 0, 1, 0, -1, 0, 0 )
+PlayerRotationDeg = Vector3( 0, 90, 0 )
 
 [node name="console" parent="." instance=ExtResource( 10 )]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/games/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/MinimalUI/monogram-extended.ttf" type="DynamicFontData" id=2]
@@ -18,6 +18,14 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
+draw_center = false
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+outline_size = 2
+font_data = ExtResource( 2 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -62,14 +70,15 @@ margin_right = 1240.0
 margin_bottom = 684.0
 rect_min_size = Vector2( 0, 340 )
 theme = ExtResource( 3 )
-custom_constants/separation = 20
+custom_constants/separation = 25
 alignment = 1
 
 [node name="GamesBtn" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 60.0
+margin_top = 52.0
 margin_right = 1240.0
-margin_bottom = 120.0
-rect_min_size = Vector2( 0, 60 )
+margin_bottom = 117.0
+rect_min_size = Vector2( 0, 65 )
+focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 3 )
@@ -77,10 +86,11 @@ custom_styles/normal = SubResource( 3 )
 text = "Games"
 
 [node name="OptionsBtn" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 140.0
+margin_top = 142.0
 margin_right = 1240.0
-margin_bottom = 200.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 0, 60 )
+focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 3 )
@@ -88,16 +98,96 @@ custom_styles/normal = SubResource( 3 )
 text = "Options"
 
 [node name="ExitBtn" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 220.0
+margin_top = 227.0
 margin_right = 1240.0
-margin_bottom = 280.0
+margin_bottom = 287.0
 rect_min_size = Vector2( 0, 60 )
+focus_mode = 1
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
 text = "Exit"
 
+[node name="MenuTween" type="Tween" parent="."]
+
+[node name="GamesList" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 852.0
+margin_top = 424.0
+margin_right = -20.0
+margin_bottom = -20.0
+
+[node name="FlappyGhost" type="Button" parent="GamesList"]
+margin_right = 408.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = "Flappy Ghost"
+
+[node name="AngryGhouls" type="Button" parent="GamesList"]
+margin_top = 37.0
+margin_right = 408.0
+margin_bottom = 70.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = "Angry Ghouls"
+
+[node name="FairyJump" type="Button" parent="GamesList"]
+margin_top = 74.0
+margin_right = 408.0
+margin_bottom = 107.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = "Fairy Jump"
+
+[node name="SuperShadeBros" type="Button" parent="GamesList"]
+margin_top = 111.0
+margin_right = 408.0
+margin_bottom = 144.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = "Super Shade Bros 2"
+
+[node name="Pinball" type="Button" parent="GamesList"]
+margin_top = 148.0
+margin_right = 408.0
+margin_bottom = 181.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = "Pinball"
+
+[node name="GamesHider" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 852.0
+margin_top = 424.0
+margin_right = -20.0
+margin_bottom = -20.0
+color = Color( 0.376471, 1, 0.662745, 1 )
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/GamesBtn" to="." method="_on_GamesBtn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/ExitBtn" to="." method="_on_ExitBtn_pressed"]
+[connection signal="tween_completed" from="MenuTween" to="." method="_on_MenuTween_tween_completed"]
+[connection signal="pressed" from="GamesList/FlappyGhost" to="." method="_on_FlappyGhost_pressed"]
+[connection signal="pressed" from="GamesList/AngryGhouls" to="." method="_on_AngryGhouls_pressed"]
+[connection signal="pressed" from="GamesList/FairyJump" to="." method="_on_FairyJump_pressed"]
+[connection signal="pressed" from="GamesList/SuperShadeBros" to="." method="_on_SuperShadeBros_pressed"]
+[connection signal="pressed" from="GamesList/Pinball" to="." method="_on_Pinball_pressed"]
