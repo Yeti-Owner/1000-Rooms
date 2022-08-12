@@ -10,6 +10,7 @@ func _ready():
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		fader.connect("fade_finished", self, "on_fade_finished")
+		SaveGame._update_presence()
 
 func _on_StartBtn_pressed():
 	MusicPlayer._music_transition()

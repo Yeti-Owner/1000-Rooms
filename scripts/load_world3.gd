@@ -13,6 +13,7 @@ func _ready():
 	_check_room()
 	_add_objs()
 	_enable_spikes()
+	SaveGame._update_presence()
 
 func _check_room():
 	pass

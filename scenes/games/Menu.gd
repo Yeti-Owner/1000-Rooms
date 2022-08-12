@@ -5,7 +5,6 @@ onready var tween = $MenuTween
 
 func _ready():
 	$MarginContainer.visible = false
-	_active()
 
 func _active():
 	yield(get_tree(), "idle_frame")

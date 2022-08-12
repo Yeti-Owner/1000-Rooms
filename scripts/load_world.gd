@@ -12,6 +12,7 @@ func _ready():
 	SaveGame.game_data.CurrentRoom = _room
 	fader._fade_in()
 	_check_room()
+	SaveGame._update_presence()
 
 func _check_room():
 	if _room == "res://scenes/world.tscn":
@@ -19,6 +20,14 @@ func _check_room():
 	elif _room == "res://scenes/rooms/100/room13.tscn" && SaveGame.game_data.FirstTimeRoom13:
 		Narrator.messages = ["This room is an interesting one", "I'll give you a hint though", "I'm not a fan of tedious puzzles.", "I'd rather just hide the solution in plain sight"]
 		SaveGame.game_data.FirstTimeRoom13 = 0
+	elif SaveGame.game_data.RoomNum == 18 and _room == "res://scenes/rooms/100/room1.tscn":
+		$Table1.visible == true
+	elif _room == "res://scenes/rooms/100/room1.tscn" and SaveGame.game_data.RoomNum != 18:
+		$Table1.queue_free()
+	elif SaveGame.game_data.RoomNum == 30 and _room == "res://scenes/rooms/100/room10.tscn":
+		$Table2.visible == true
+	elif _room == "res://scenes/rooms/100/room10.tscn" and SaveGame.game_data.RoomNum != 30:
+		$Table2.queue_free()
 
 func _add_objs():
 	for _i in Objs.get_children():

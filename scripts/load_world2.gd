@@ -18,6 +18,7 @@ func _ready():
 	fader._fade_in()
 	_check_room()
 	_add_objs()
+	SaveGame._update_presence()
 
 func _check_room():
 	if _room == "res://scenes/rooms/200/room10.tscn" && SaveGame.game_data.FirstTimeRoom210:

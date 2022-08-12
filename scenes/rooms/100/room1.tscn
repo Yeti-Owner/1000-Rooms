@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://scenes/objects/NonFunctionals/Bricks.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/objects/NonFunctionals/Planks.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/objects/NonFunctionals/Grate.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/objects/NonFunctionals/Table1.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/objects/Paper.tscn" type="PackedScene" id=22]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 9 )
@@ -73,36 +75,40 @@ data = {
 
 [node name="Vent" parent="Objs" instance=ExtResource( 16 )]
 transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -6, 2.4, -12.01 )
-visible = false
 
 [node name="Vent2" parent="Objs" instance=ExtResource( 16 )]
 transform = Transform( -3.14316e-06, 0, 1, 0, 1, 0, -1, 0, -3.14316e-06, -15.99, 2.4, -8 )
-visible = false
 
 [node name="Vent3" parent="Objs" instance=ExtResource( 16 )]
 transform = Transform( 9.42946e-06, 0, -1, 0, 1, 0, 1, 0, 9.42946e-06, -12.01, 2.4, -8.01 )
-visible = false
 
 [node name="Ladder" parent="Objs" instance=ExtResource( 17 )]
 transform = Transform( 0.5, 0, 0, 0, 0.499154, 0.0290725, 0, -0.0290725, 0.499154, -10.4, 1.71089, -15.8 )
-visible = false
 
 [node name="Bricks" parent="Objs" instance=ExtResource( 18 )]
 transform = Transform( -0.184605, 0, -0.464673, 0, 0.5, 0, 0.464673, 0, -0.184605, -5, 0, -15.5 )
-visible = false
 
 [node name="Planks" parent="Objs" instance=ExtResource( 19 )]
 transform = Transform( 0.0727373, 0, -0.0686243, 0, 0.1, 0, 0.0686243, 0, 0.0727373, -14, 0.0622827, -13 )
-visible = false
 
 [node name="Planks2" parent="Objs" instance=ExtResource( 19 )]
 transform = Transform( -0.0173651, 0, -0.0984807, 0, 0.1, 0, 0.0984807, 0, -0.0173651, -5, 0.0622827, -13 )
-visible = false
 
 [node name="Grate" parent="Objs" instance=ExtResource( 20 )]
 transform = Transform( -3.14315e-06, -1, 0, 1, -3.14315e-06, 0, 0, 0, 1, -12.01, 0.6, -10 )
-visible = false
 
 [node name="Grate2" parent="Objs" instance=ExtResource( 20 )]
 transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -12, 0.6, -15.97 )
-visible = false
+
+[node name="Table1" parent="Objs" instance=ExtResource( 21 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -15.1, 0, -15.2 )
+
+[node name="Table1" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -15.1, 0, -15.2 )
+
+[node name="Paper" parent="Table1" instance=ExtResource( 22 )]
+transform = Transform( -1.33158, 0, -3.77185, 0, 4, 0, 3.77185, 0, -1.33158, 0.400002, 3.6, 0.400002 )
+Text = "He's here still I can sense it. He might be silent but he's always watching I can feel it no matter where I go.
+
+I hate it I hate it I hate it I hate it 
+I want to leave I am constantly running for my life it's a nightmare.."

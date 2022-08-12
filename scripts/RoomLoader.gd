@@ -11,7 +11,13 @@ func _ready():
 # to figure it out
 func _get_next_room():
 	LastRoom = SaveGame.game_data.CurrentRoom
-	if (SaveGame.game_data.RoomNum == 49):
+	if (SaveGame.game_data.RoomNum == 17):
+		var _error = get_tree().change_scene("res://scenes/rooms/100/room1.tscn")
+		SaveGame.game_data.RoomNum += 1
+	elif (SaveGame.game_data.RoomNum == 29):
+		var _error = get_tree().change_scene("res://scenes/rooms/100/room10.tscn")
+		SaveGame.game_data.RoomNum += 1
+	elif (SaveGame.game_data.RoomNum == 49):
 		var _error = get_tree().change_scene("res://scenes/rooms/100/room50.tscn")
 		SaveGame.game_data.RoomNum += 1
 	elif (SaveGame.game_data.RoomNum == 74):
