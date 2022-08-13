@@ -16,6 +16,7 @@ var game_data = {
 	"Brawlhalla" : 0
 }
 
+# warning-ignore:unused_signal
 signal NewAchievement
 
 func _ready():

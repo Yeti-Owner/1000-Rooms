@@ -1,9 +1,11 @@
 extends Spatial
 
+export(bool) var EnemyAllowed = true
+
 onready var fader = $Fader
 onready var Narrator = $Narrator
 onready var Objs = $Objs
-export(String) var _room 
+onready var _room = self.filename
 var RNG
 
 func _ready():

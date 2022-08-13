@@ -34,6 +34,8 @@ func _on_console_text_entered(cmd):
 			SaveGame.game_data.JumpScareAmt = int(cmd[2])
 		elif cmd[1] == "rc": # Room Check
 			print(SaveGame.game_data.CurrentRoom)
+		elif cmd[1] == "skip50": # Skip room 50
+			get_node("/root/world/Fader/Player").transform.origin = Vector3(0,5.5,-60)
 	elif cmd[0] == "close":
 		self.set_visible(false)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

@@ -5,7 +5,7 @@ var RNG
 
 onready var fader = $Fader
 onready var Narrator = $Narrator
-onready var Monster = $Navigation/GhostEnemy
+onready var Monster = $NavMesh/GhostEnemy
 onready var player = get_node("/root/world/Fader/Player")
 
 
@@ -18,7 +18,7 @@ func _ready():
 	SaveGame.game_data.LastCheckPoint = _room
 	SaveGame._save()
 	fader._fade_in()
-	Monster.transform.origin = Vector3(0, 3, 9)
+	Monster.transform.origin = Vector3(0, 0, 9)
 	SaveGame.game_data.CurrentRoom = _room
 	# if completed room
 	if SaveGame.game_data.CurrentPos == Vector3(7.9, 5, -65.8):
@@ -45,13 +45,13 @@ func _add_objs():
 func _on_Check1_area_entered(area1):
 	if area1.name == "PlayerArea":
 		$AreaHolder/Check1.queue_free()
-		Monster.transform.origin = Vector3(-1.5, 2.3, -24.3)
+		Monster.transform.origin = Vector3(-1.5, 0.3, -24.3)
 
 
 func _on_Check2_area_entered(area2):
 	if area2.name == "PlayerArea":
 		$AreaHolder/Check2.queue_free()
-		Monster.transform.origin = Vector3(-14.6, 4.5, -29.4)
+		Monster.transform.origin = Vector3(-14.6, 2, -28)
 
 
 func _on_Check3_area_entered(area3):
@@ -68,19 +68,19 @@ func _on_Check4_area_entered(area4):
 		$ObjHolder/WallObj2.queue_free()
 		Narrator.messages = ["It's back"]
 		Narrator.start_dialogue()
-		Monster.transform.origin = Vector3(-29.2, -2.475, -38.136)
+		Monster.transform.origin = Vector3(-29.2, -4.475, -38.136)
 		Monster.speed = 10
 
 func _on_Check5_area_entered(area5):
 	if area5.name == "PlayerArea":
-		Monster.transform.origin = Vector3(0, 3, 4.6)
+		Monster.transform.origin = Vector3(0, 1, 4.6)
 		$AreaHolder/Check5.queue_free()
 		Narrator.messages = ["STOP", "STAND STILL","Maybe we lost him?"]
 		Narrator.start_dialogue()
 
 func _on_Check6_area_entered(area6):
 	if area6.name == "PlayerArea":
-		Monster.transform.origin = Vector3(-42.8, 9.825, -41.936)
+		Monster.transform.origin = Vector3(-42.8, 7.825, -41.936)
 		Monster.speed = 8
 		$AreaHolder/Check6.queue_free()
 
@@ -122,13 +122,13 @@ func _on_Timer_timeout():
 func _on_KillBox1_area_entered(kill1):
 	if kill1.name == "PlayerArea":
 		SaveGame.game_data.PlayerHP -= 5
-		get_tree().reload_current_scene()
+		var _error = get_tree().reload_current_scene()
 
 
 func _on_KillBox2_area_entered(kill2):
 	if kill2.name == "PlayerArea":
 		SaveGame.game_data.PlayerHP -= 5
-		get_tree().reload_current_scene()
+		var _error = get_tree().reload_current_scene()
 
 
 func _on_Check11_area_entered(area):

@@ -19,6 +19,7 @@ var game_data = {
 	"LastSavedRoom" : 0,
 	"EnabledShield" : 0,
 	"Reputation" : 0,
+	"Deaths" : 0,
 	"FirstTimeRoom13" : 1,
 	"FirstTimeRoom210" : 1,
 	"FirstTimeRoom211" : 1,
@@ -60,6 +61,6 @@ func _update_presence():
 	assets.set_small_image("blank")
 	assets.set_small_text("")
 
-	var result = yield(Discord.activity_manager.update_activity(activity), "result").result
-	if result != Discord.Result.Ok:
-		push_error(result)
+#	var result = yield(Discord.activity_manager.update_activity(activity), "result").result
+#	if result != Discord.Result.Ok:
+#		push_error(result)

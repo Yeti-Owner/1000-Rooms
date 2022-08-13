@@ -3,7 +3,7 @@ extends Spatial
 onready var fader = $Fader
 onready var Narrator = $Narrator
 onready var MonsterHandler = $EnemyPath/PathFollow
-export(String) var _room 
+onready var _room = self.filename
 export(bool) var AllowChase = true
 var FairyEnemy = preload("res://scenes/enemies/FairyEnemy.tscn")
 var ChaseList = ["HURRY!","IT'S HERE!","RUN!","HIDE!"]

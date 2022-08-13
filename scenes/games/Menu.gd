@@ -48,6 +48,6 @@ func _on_SuperShadeBros_pressed():
 func _on_Pinball_pressed():
 	pass
 
-func _on_MenuTween_tween_completed(Tobject, key):
+func _on_MenuTween_tween_completed(Tobject, _key):
 	if Tobject == $GamesHider:
 		$GamesHider.visible = Hidden

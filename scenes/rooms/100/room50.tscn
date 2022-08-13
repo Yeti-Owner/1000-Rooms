@@ -147,47 +147,16 @@ transform = Transform( 0.8, 0, 4.19629e-07, 0, 0.8, 0, -4.19629e-07, 0, 0.8, 38.
 
 [node name="Narrator" parent="." instance=ExtResource( 4 )]
 
-[node name="Navigation" type="Navigation" parent="."]
-
-[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+[node name="NavMesh" type="NavigationMeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83567, 0 )
 navmesh = SubResource( 1 )
 
-[node name="GhostEnemy" parent="Navigation" instance=ExtResource( 10 )]
-transform = Transform( 5.96046e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 5.96046e-08, -5.2452e-07, 3, 9 )
-collision_layer = 0
-collision_mask = 0
-speed = 7
+[node name="GhostEnemy" parent="NavMesh" instance=ExtResource( 10 )]
+transform = Transform( -0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -0.478299, 0.38702, 3.37198 )
 
-[node name="GhostEnemy2" parent="Navigation" instance=ExtResource( 10 )]
-transform = Transform( 5.96046e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 5.96046e-08, 40.4, 6, -102.8 )
-collision_layer = 0
-collision_mask = 0
-speed = 11
-
-[node name="GhostEnemy3" parent="Navigation" instance=ExtResource( 10 )]
-transform = Transform( 5.96046e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 5.96046e-08, 61, 6, -102.8 )
-collision_layer = 0
-collision_mask = 0
-speed = 11
-
-[node name="GhostEnemy4" parent="Navigation" instance=ExtResource( 10 )]
-transform = Transform( 5.96046e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 5.96046e-08, 40.4, 6, -123.1 )
-collision_layer = 0
-collision_mask = 0
-speed = 11
-
-[node name="GhostEnemy5" parent="Navigation" instance=ExtResource( 10 )]
-transform = Transform( 5.96046e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 5.96046e-08, 61, 6, -123.1 )
-collision_layer = 0
-collision_mask = 0
-speed = 11
-
-[node name="GhostEnemy6" parent="Navigation" instance=ExtResource( 10 )]
-transform = Transform( 5.96046e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 5.96046e-08, 40.4, 6, -111.9 )
-collision_layer = 0
-collision_mask = 0
-speed = 11
+[node name="GhostEnemy2" parent="NavMesh" instance=ExtResource( 10 )]
+transform = Transform( -0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 55.467, 3.6, -123.474 )
+speed = 25
 
 [node name="AreaHolder" type="Spatial" parent="."]
 

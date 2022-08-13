@@ -61,7 +61,7 @@ func interact():
 		Stage = 1
 
 
-func _on_PlayerCamera_tween_completed(object, key):
+func _on_PlayerCamera_tween_completed(_object, _key):
 	if Stage == 1:
 		_ingame()
 	elif Stage == 2:

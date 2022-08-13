@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
@@ -23,9 +23,15 @@
 [ext_resource path="res://scenes/objects/NonFunctionals/Table1.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/objects/Paper.tscn" type="PackedScene" id=22]
 
+[sub_resource type="NavigationMesh" id=1]
+vertices = PoolVector3Array( -15.2, 4.5, -17.2, -15.2, 4.5, -16.8, -8, 4.5, -16.8, -8, 4.5, -17.2, -0.799999, 4.5, -17.2, -8, 4.5, -17.2, -8, 4.5, -16.8, -0.799999, 4.5, -16.8, -17.2, 4.5, -15.2, -17.2, 4.5, -4.8, -16.8, 4.5, -4.8, -16.8, 4.5, -15.2, -12.2, 6.5, -12.6, -11, 6.5, -12.6, -11.2, 6.5, -15.2, -12.8, 6.5, -12, -12.2, 6.5, -12.6, -11.2, 6.5, -15.2, -15.2, 6.5, -15.2, -15.2, 6.5, -4.6, -12.6, 6.5, -4.8, -12.8, 6.5, -12, -15.2, 6.5, -15.2, -11, 6.5, -12.6, -0.799999, 6.5, -12.6, -0.6, 6.5, -15, -11.2, 6.5, -15.2, -12.2, 0.5, -12.8, -11, 0.5, -12.8, -11.2, 0.5, -15, -12.8, 0.5, -12.2, -12.2, 0.5, -12.8, -11.2, 0.5, -15, -15, 0.5, -15, -15, 0.5, -4.8, -12.8, 0.5, -4.8, -12.8, 0.5, -12.2, -15, 0.5, -15, -11, 0.5, -12.8, -0.799999, 0.5, -12.8, -0.799999, 0.5, -15, -11.2, 0.5, -15, -11, 4.5, -11, -11, 4.5, -4.8, -10.8, 4.5, -10.2, -11, 4.5, -11, -10.8, 4.5, -10.2, -10.2, 4.5, -10.8, -11, 4.5, -11, -10.2, 4.5, -10.8, -0.799999, 4.5, -10.8 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ), PoolIntArray( 7, 6, 4 ), PoolIntArray( 4, 6, 5 ), PoolIntArray( 11, 10, 8 ), PoolIntArray( 8, 10, 9 ), PoolIntArray( 14, 13, 12 ), PoolIntArray( 16, 15, 17 ), PoolIntArray( 17, 15, 18 ), PoolIntArray( 20, 19, 21 ), PoolIntArray( 21, 19, 22 ), PoolIntArray( 24, 23, 25 ), PoolIntArray( 25, 23, 26 ), PoolIntArray( 29, 28, 27 ), PoolIntArray( 31, 30, 32 ), PoolIntArray( 32, 30, 33 ), PoolIntArray( 35, 34, 36 ), PoolIntArray( 36, 34, 37 ), PoolIntArray( 39, 38, 40 ), PoolIntArray( 40, 38, 41 ), PoolIntArray( 44, 43, 42 ), PoolIntArray( 47, 46, 45 ), PoolIntArray( 48, 50, 49 ) ]
+cell_size = 0.2
+agent_radius = 0.7
+agent_max_climb = 1.0
+
 [node name="world" type="Spatial"]
 script = ExtResource( 9 )
-_room = "res://scenes/rooms/100/room1.tscn"
 
 [node name="Fader" parent="." instance=ExtResource( 1 )]
 
@@ -112,3 +118,6 @@ Text = "He's here still I can sense it. He might be silent but he's always watch
 
 I hate it I hate it I hate it I hate it 
 I want to leave I am constantly running for my life it's a nightmare.."
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
+navmesh = SubResource( 1 )

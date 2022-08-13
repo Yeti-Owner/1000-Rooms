@@ -113,6 +113,7 @@ func _die():
 	PlayerAnim.play("die")
 	jump_speed = 0
 	walk_speed = 0
+	SaveGame.game_data.Deaths += 1
 
 func _hurt(source):
 	match source:
