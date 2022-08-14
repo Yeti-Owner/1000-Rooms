@@ -21,7 +21,7 @@
 
 [node name="world" type="Spatial"]
 script = ExtResource( 1 )
-_room = "res://scenes/rooms/100/room12.tscn"
+EnemyAllowed = false
 
 [node name="Fader" parent="." instance=ExtResource( 6 )]
 
@@ -120,3 +120,7 @@ visible = false
 [node name="Grate" parent="Objs" instance=ExtResource( 16 )]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7.98882, 0.948316, 17.3184 )
 visible = false
+
+[node name="NavMesh" type="Spatial" parent="."]
+
+[node name="EnemySpawner" type="Spatial" parent="NavMesh"]

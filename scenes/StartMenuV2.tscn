@@ -359,9 +359,9 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Fader/Menu/CenterContainer"]
 margin_left = 452.0
-margin_top = 170.0
+margin_top = 196.0
 margin_right = 828.0
-margin_bottom = 550.0
+margin_bottom = 524.0
 
 [node name="Title" type="Label" parent="Fader/Menu/CenterContainer/VBoxContainer"]
 margin_right = 376.0
@@ -400,6 +400,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Achievements"
 
 [node name="CreditsBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
+visible = false
 margin_top = 280.0
 margin_right = 376.0
 margin_bottom = 328.0
@@ -407,9 +408,9 @@ custom_fonts/font = SubResource( 1 )
 text = "Credits"
 
 [node name="QuitBtn" type="Button" parent="Fader/Menu/CenterContainer/VBoxContainer"]
-margin_top = 332.0
+margin_top = 280.0
 margin_right = 376.0
-margin_bottom = 380.0
+margin_bottom = 328.0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
@@ -426,7 +427,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Version Notes"
 
 [node name="VersionDialog" type="Popup" parent="Fader/Menu"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

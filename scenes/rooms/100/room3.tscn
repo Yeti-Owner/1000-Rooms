@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
@@ -20,10 +20,18 @@
 [ext_resource path="res://scenes/objects/NonFunctionals/Bricks.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/objects/NonFunctionals/Ladder.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/objects/NonFunctionals/Crate.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/enemies/EnemySpawner.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/objects/NonFunctionals/Table2.tscn" type="PackedScene" id=22]
+
+[sub_resource type="NavigationMesh" id=1]
+vertices = PoolVector3Array( 0.8, 4.5, 8.8, 0.8, 4.5, 9.2, 7, 4.5, 9.2, 7, 4.5, 8.8, 13.2, 4.5, 8.8, 7, 4.5, 8.8, 7, 4.5, 9.2, 13.2, 4.5, 9.2, -1.2, 4.5, 10.8, -1.2, 4.5, 13.2, -0.8, 4.5, 13.2, -0.8, 4.5, 10.8, 10.2, 6.5, 13.4, 10.8, 6.5, 14.2, 13.2, 6.5, 14.2, 10.2, 6.5, 13.4, 13.2, 6.5, 14.2, 13.4, 6.5, 10.8, 7, 6.5, 10.8, 7, 6.5, 10.8, 0.8, 6.5, 10.8, 0.8, 6.5, 13.4, 10.2, 6.5, 13.4, 15, 4.5, 20, 15.2, 4.5, 29.2, 15.2, 4.5, 19.8, 15, 4.5, 10.8, 11, 0.5, 13.8, 11, 0.5, 15, 13.2, 0.5, 14.8, 10.4, 0.5, 13.2, 11, 0.5, 13.8, 13.2, 0.5, 14.8, 10.4, 0.5, 13.2, 13.2, 0.5, 14.8, 13.2, 0.5, 11, 7, 0.5, 11, 7, 0.5, 11, 1, 0.5, 11, 1, 0.5, 13.2, 10.4, 0.5, 13.2, 10.8, 6.5, 26, 13.2, 6.5, 26, 13.2, 6.5, 14.2, 10.8, 6.5, 14.2, 11, 0.5, 15, 11, 0.5, 25, 13.2, 0.5, 25.2, 13.2, 0.5, 14.8, 9.2, 4.5, 15, 0.8, 4.5, 15, 8.2, 4.5, 15.2, 9.2, 4.5, 15, 8.2, 4.5, 15.2, 8.8, 4.5, 15.8, 8.2, 4.5, 24.8, 0.8, 4.5, 24.8, 0.8, 4.5, 25.2, 9.2, 4.5, 25.2, 8.8, 4.5, 24.2, 9.2, 4.5, 25.2, 9.2, 4.5, 15, 8.8, 4.5, 15.8, 8.8, 4.5, 24.2, 8.2, 4.5, 24.8, 9.2, 4.5, 25.2, 13.2, 0.5, 25.2, 11, 0.5, 25, 11, 0.5, 26.2, 13.2, 0.5, 25.2, 11, 0.5, 26.2, 10.2, 0.5, 27, 13.2, 0.5, 29.2, 13.2, 0.5, 25.2, 10.2, 0.5, 27, 7, 0.5, 29.2, 1, 0.5, 27, 1, 0.5, 29.2, 7, 0.5, 29.2, 10.2, 0.5, 27, 13.2, 6.5, 26, 10.8, 6.5, 26, 10.2, 6.5, 26.8, 13.2, 6.5, 29.4, 13.2, 6.5, 26, 10.2, 6.5, 26.8, 7, 6.5, 29.4, 0.8, 6.5, 26.8, 0.8, 6.5, 29.4, 7, 6.5, 29.4, 10.2, 6.5, 26.8, -1.2, 4.5, 26.8, -1.2, 4.5, 29.2, -0.8, 4.5, 29.2, -0.8, 4.5, 26.8, 6.8, 4.5, 31.2, 13.2, 4.5, 31.2, 7, 4.5, 31, 0.8, 4.5, 31 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ), PoolIntArray( 7, 6, 4 ), PoolIntArray( 4, 6, 5 ), PoolIntArray( 11, 10, 8 ), PoolIntArray( 8, 10, 9 ), PoolIntArray( 14, 13, 12 ), PoolIntArray( 16, 15, 17 ), PoolIntArray( 17, 15, 18 ), PoolIntArray( 20, 19, 21 ), PoolIntArray( 21, 19, 22 ), PoolIntArray( 26, 25, 23 ), PoolIntArray( 23, 25, 24 ), PoolIntArray( 29, 28, 27 ), PoolIntArray( 32, 31, 30 ), PoolIntArray( 34, 33, 35 ), PoolIntArray( 35, 33, 36 ), PoolIntArray( 38, 37, 39 ), PoolIntArray( 39, 37, 40 ), PoolIntArray( 44, 43, 41 ), PoolIntArray( 41, 43, 42 ), PoolIntArray( 45, 48, 46 ), PoolIntArray( 46, 48, 47 ), PoolIntArray( 51, 50, 49 ), PoolIntArray( 54, 53, 52 ), PoolIntArray( 56, 55, 57 ), PoolIntArray( 57, 55, 58 ), PoolIntArray( 62, 61, 59 ), PoolIntArray( 59, 61, 60 ), PoolIntArray( 65, 64, 63 ), PoolIntArray( 68, 67, 66 ), PoolIntArray( 71, 70, 69 ), PoolIntArray( 73, 72, 74 ), PoolIntArray( 74, 72, 75 ), PoolIntArray( 77, 76, 78 ), PoolIntArray( 78, 76, 79 ), PoolIntArray( 82, 81, 80 ), PoolIntArray( 84, 83, 85 ), PoolIntArray( 85, 83, 86 ), PoolIntArray( 88, 87, 89 ), PoolIntArray( 89, 87, 90 ), PoolIntArray( 94, 93, 91 ), PoolIntArray( 91, 93, 92 ), PoolIntArray( 98, 97, 95 ), PoolIntArray( 95, 97, 96 ) ]
+cell_size = 0.2
+agent_radius = 0.7
+agent_max_climb = 1.0
 
 [node name="world" type="Spatial"]
 script = ExtResource( 9 )
-_room = "res://scenes/rooms/100/room3.tscn"
 
 [node name="Fader" parent="." instance=ExtResource( 1 )]
 
@@ -98,3 +106,15 @@ visible = false
 [node name="Crate" parent="Objs" instance=ExtResource( 20 )]
 transform = Transform( 0.0199239, 0, -0.00174312, 0, 0.02, 0, 0.00174312, 0, 0.0199239, 13.2, 0, 10.7 )
 visible = false
+
+[node name="Table2" parent="Objs" instance=ExtResource( 22 )]
+transform = Transform( -6.28631e-07, 0, -0.2, 0, 0.2, 0, 0.2, 0, -6.28631e-07, 13.6, 0, 23 )
+
+[node name="Table3" parent="Objs" instance=ExtResource( 22 )]
+transform = Transform( 0.149405, 0, -0.132959, 0, 0.2, 0, 0.132959, 0, 0.149405, 9.7, 0, 10.8 )
+
+[node name="NavMesh" type="NavigationMeshInstance" parent="."]
+navmesh = SubResource( 1 )
+
+[node name="EnemySpawner" parent="NavMesh" instance=ExtResource( 21 )]
+transform = Transform( -1.57158e-06, 0, 0.5, 0, 0.5, 0, -0.5, 0, -1.57158e-06, 0.1, 1, 27.9 )

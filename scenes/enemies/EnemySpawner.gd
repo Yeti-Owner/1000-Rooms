@@ -2,7 +2,7 @@ extends Spatial
 
 export(String, "Ghost", "Fairy", "Spike") var Enemy = "Ghost"
 var scene
-var Warning = 3
+var Warning = 2
 
 func _ready():
 	match Enemy:
@@ -14,24 +14,20 @@ func _ready():
 			$WarningPlayer.stream = load("res://assets/audio/scary/FairyBell.ogg")
 		"Spike":
 			scene = preload("res://scenes/enemies/Spike.tscn")
-	_summon()
+#	_summon()
 
 func _summon():
-	print("Summon")
 	yield(get_tree(), "idle_frame")
 	$WarningPlayer.play()
 	$SummonTimer.wait_time = Warning
 	$SummonTimer.start()
 
 func _on_SummonTimer_timeout():
-	print("timer over")
 	$AnimationPlayer.play(Enemy)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	print("Anim done")
 	match anim_name:
 		"Ghost":
 			var Ginstance = scene.instance()
 			get_parent().add_child(Ginstance)
 			Ginstance.global_transform.origin = $GhostPos.global_transform.origin
-			print($GhostPos.global_transform.origin)

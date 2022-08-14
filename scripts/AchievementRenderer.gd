@@ -17,7 +17,7 @@ func _ready():
 	$Asshole/hide.visible = !AchievementsHolder.game_data.Asshole
 	$Wyoming/hide.visible = !AchievementsHolder.game_data.Wyoming
 	$Shai/hide.visible = !AchievementsHolder.game_data.Shai
-
+	$Ufrz/hide.visible = !AchievementsHolder.game_data.Ufrz
 
 func _process(_delta):
 	if CameraStage < 1:
@@ -93,9 +93,9 @@ func _process(_delta):
 		9:
 			# Ufrz Award
 			if AchievementsHolder.game_data.Ufrz == 0:
-				Text.text = "The Ufrz achievement, get it by placeholder."
+				Text.text = "The Ufrz achievement, get it by finding XRA."
 			else:
-				Text.text = "Placeholder."
+				Text.text = "Xavier Renegade Angel says: What Doth Life?"
 			CurrentPos = Cam.global_transform.origin
 			Cam.global_transform.origin = lerp(CurrentPos, Vector3(32,3,4-20), LerpWeight)
 		10:

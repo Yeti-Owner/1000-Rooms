@@ -1,6 +1,6 @@
 extends KinematicBody
 
-export var speed = 5
+export var speed = 4
 
 var GhostFx = ["res://assets/audio/scary/ghost1.ogg", "res://assets/audio/scary/ghost2.ogg", "res://assets/audio/scary/ghost3.ogg"]
 var EnabledChasing = 1

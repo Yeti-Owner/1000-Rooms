@@ -130,6 +130,7 @@ custom_styles/normal = SubResource( 3 )
 text = "Flappy Ghost"
 
 [node name="AngryGhouls" type="Button" parent="GamesList"]
+visible = false
 margin_top = 37.0
 margin_right = 408.0
 margin_bottom = 70.0
@@ -141,9 +142,9 @@ custom_styles/normal = SubResource( 3 )
 text = "Angry Ghouls"
 
 [node name="FairyJump" type="Button" parent="GamesList"]
-margin_top = 74.0
+margin_top = 37.0
 margin_right = 408.0
-margin_bottom = 107.0
+margin_bottom = 70.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
@@ -152,9 +153,9 @@ custom_styles/normal = SubResource( 3 )
 text = "Fairy Jump"
 
 [node name="SuperShadeBros" type="Button" parent="GamesList"]
-margin_top = 111.0
+margin_top = 74.0
 margin_right = 408.0
-margin_bottom = 144.0
+margin_bottom = 107.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
@@ -163,9 +164,9 @@ custom_styles/normal = SubResource( 3 )
 text = "Super Shade Bros 2"
 
 [node name="Pinball" type="Button" parent="GamesList"]
-margin_top = 148.0
+margin_top = 111.0
 margin_right = 408.0
-margin_bottom = 181.0
+margin_bottom = 144.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
@@ -181,6 +182,12 @@ margin_top = 424.0
 margin_right = -20.0
 margin_bottom = -20.0
 color = Color( 0.376471, 1, 0.662745, 1 )
+
+[node name="Hider" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/GamesBtn" to="." method="_on_GamesBtn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]

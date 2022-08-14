@@ -22,3 +22,7 @@ material/0 = SubResource( 1 )
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.638419, 29.8616, 1.50458 )
 shape = SubResource( 2 )
+
+[node name="NavigationObstacle" type="NavigationObstacle" parent="."]
+estimate_radius = false
+radius = 10.0

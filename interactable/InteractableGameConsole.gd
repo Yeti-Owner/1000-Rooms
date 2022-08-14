@@ -74,6 +74,7 @@ func _on_PlayerCamera_tween_completed(_object, _key):
 		NewPlayer.rotation_degrees = PlayerRotationDeg
 		Screen.material_override.albedo_texture = null
 		Stage = 0
+#		Interacted = 0
 
 
 func _ingame():
@@ -84,7 +85,7 @@ func _ingame():
 func _exit_game():
 	# Set up Tweens for exiting.
 		$PlayerCamera.interpolate_property(NewCam, "global_transform:origin", GameLoc, CamLoc, 3, 0)
-		$PlayerCamera.interpolate_property(NewCam, "global_transform:basis", GameRot, CamRot, 3, 0)
+#		$PlayerCamera.interpolate_property(NewCam, "global_transform:basis", GameRot, CamRot, 3, 0)
 		$PlayerCamera.interpolate_property(NewCam, "fov", 70, CamFOV, 3, 0)
 		$PlayerCamera.start()
 		Stage = 2

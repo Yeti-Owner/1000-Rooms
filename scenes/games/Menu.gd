@@ -8,6 +8,7 @@ func _ready():
 
 func _active():
 	yield(get_tree(), "idle_frame")
+	$Hider.color.a = 0
 	$MarginContainer.visible = true
 	tween.interpolate_property($MarginContainer/VBoxContainer/CenterContainer, "rect_position", Vector2(0,-360), Vector2(0,0), 2, 9)
 	tween.interpolate_property($MarginContainer/VBoxContainer/VBoxContainer, "rect_position", Vector2(-1260,344), Vector2(0,344), 2.5, 2)
@@ -31,6 +32,8 @@ func _on_OptionsBtn_pressed():
 
 func _on_ExitBtn_pressed():
 	get_parent().get_parent().get_parent()._exit_game()
+	tween.interpolate_property($Hider, "color:a", 0, 1, 0.5, 0)
+	tween.start()
 
 # Games
 func _on_FlappyGhost_pressed():
@@ -43,7 +46,11 @@ func _on_FairyJump_pressed():
 	pass
 
 func _on_SuperShadeBros_pressed():
-	pass
+	var scene = preload("res://scenes/games/SuperShadeBros2/SuperShadeBros2.tscn")
+	yield(get_tree(), "idle_frame")
+	var Game = scene.instance()
+	get_parent().add_child(Game)
+	self.queue_free()
 
 func _on_Pinball_pressed():
 	pass
