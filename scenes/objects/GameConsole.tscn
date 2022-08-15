@@ -27,6 +27,7 @@ size = Vector2( 0.96, 0.54 )
 extents = Vector3( 0.483554, 0.27522, 0.00746833 )
 
 [node name="GameConsole" type="StaticBody"]
+pause_mode = 2
 collision_layer = 3
 script = ExtResource( 1 )
 

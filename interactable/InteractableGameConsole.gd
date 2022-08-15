@@ -1,12 +1,12 @@
 extends Interactable
 
 # References
-onready var Player = get_node("/root/world/Fader/Player")
-onready var PlayerCam = get_node("/root/world/Fader/Player/CameraHolder/Camera")
-onready var GUI = get_node("/root/world/Fader/GUI")
+var Player
+var PlayerCam
+var GUI
 onready var viewport = $ViewportManager/Viewport
 onready var Screen = $ViewportManager/Screen
-onready var Menu = $ViewportManager/Viewport/Menu
+var Menu
 
 # Constants for Instancing
 const PlayerScene = preload("res://scenes/Player.tscn")
@@ -22,7 +22,7 @@ var CamLoc
 var GameLoc
 var CamRot
 var CamFOV
-var NewCam = Camera.new()
+var NewCam #= Camera.new()
 var PlayerLoc
 
 func get_interaction_text():
@@ -31,6 +31,13 @@ func get_interaction_text():
 func interact():
 	if Interacted == 0:
 		Interacted = 1
+		
+		# Manage Vars
+		Player = get_node("/root/world/Fader/Player")
+		PlayerCam = get_node("/root/world/Fader/Player/CameraHolder/Camera")
+		GUI = get_node("/root/world/Fader/GUI")
+		NewCam = Camera.new()
+		Menu = $ViewportManager/Viewport/Menu
 		
 		# Add in New Cam
 		add_child(NewCam)
@@ -42,9 +49,7 @@ func interact():
 		GameLoc = $Position3D.global_transform.origin
 		CamRot = PlayerCam.global_transform.basis
 		CamFOV = Settingsholder.PlayerFOV
-#		print(CamRot.x)
-#		print(CamRot.y)
-#		print(CamRot.z)
+		
 		NewCam.global_transform.origin = CamLoc
 		NewCam.global_transform.basis = CamRot
 		NewCam.set_fov(CamFOV)
@@ -70,11 +75,13 @@ func _on_PlayerCamera_tween_completed(_object, _key):
 		var NewGUI = GUIScene.instance()
 		get_node("/root/world/Fader").add_child(NewGUI)
 		get_node("/root/world/Fader").add_child(NewPlayer)
+		NewCam.queue_free()
 		NewPlayer.global_transform.origin = PlayerLoc
 		NewPlayer.rotation_degrees = PlayerRotationDeg
 		Screen.material_override.albedo_texture = null
 		Stage = 0
-#		Interacted = 0
+		Interacted = 0
+		get_tree().paused = false
 
 
 func _ingame():

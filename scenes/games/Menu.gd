@@ -12,7 +12,6 @@ func _active():
 	$MarginContainer.visible = true
 	tween.interpolate_property($MarginContainer/VBoxContainer/CenterContainer, "rect_position", Vector2(0,-360), Vector2(0,0), 2, 9)
 	tween.interpolate_property($MarginContainer/VBoxContainer/VBoxContainer, "rect_position", Vector2(-1260,344), Vector2(0,344), 2.5, 2)
-	
 	tween.start()
 
 func _on_GamesBtn_pressed():
