@@ -48,7 +48,6 @@ func _summon_enemy():
 	yield(get_tree(), "idle_frame")
 	if EnemyAllowed:
 		var RNG2 = randi() % 5
-		print(RNG2)
 		if RNG2 == 0 or SaveGame.isChased > 0:
 			get_node("NavMesh/EnemySpawner")._summon()
 			if SaveGame.isChased == 0:

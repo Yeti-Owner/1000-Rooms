@@ -41,3 +41,5 @@ func _on_console_text_entered(cmd):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif cmd[0] == "stuck":
 		var _error = get_tree().reload_current_scene()
+	elif cmd[0] == "temp":
+		var _error = get_tree().change_scene("res://ShowcaseWorld.tscn")

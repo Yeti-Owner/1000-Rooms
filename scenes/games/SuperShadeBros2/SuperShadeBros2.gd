@@ -8,8 +8,8 @@ var Lives = 3
 #func _ready():
 #	pass 
 
-func _process(delta):
-	$CanvasLayer/Control/Coins.text = str("Score: " + str(Score) + " ")
+func _process(_delta):
+	$CanvasLayer/Control/Coins.text = str("Score: " + str(Score) + str(" "))
 	$CanvasLayer/Control/Lives.text = str(" Lives: " + str(Lives))
 
 func _physics_process(delta):

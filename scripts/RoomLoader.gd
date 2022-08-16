@@ -9,53 +9,53 @@ func _ready():
 
 # There is 100% a better way to do this but I am too mentally handicapped
 # to figure it out
+
 func _get_next_room():
 	LastRoom = SaveGame.game_data.CurrentRoom
-	if (SaveGame.game_data.RoomNum == 17):
-		var _error = get_tree().change_scene("res://scenes/rooms/100/room1.tscn")
-		SaveGame.game_data.RoomNum += 1
-	elif (SaveGame.game_data.RoomNum == 29):
-		var _error = get_tree().change_scene("res://scenes/rooms/100/room10.tscn")
-		SaveGame.game_data.RoomNum += 1
-	elif (SaveGame.game_data.RoomNum == 49):
-		var _error = get_tree().change_scene("res://scenes/rooms/100/room50.tscn")
-		SaveGame.game_data.RoomNum += 1
-	elif (SaveGame.game_data.RoomNum == 74):
-		SaveGame.game_data.RoomNum += 1
-		var _error = get_tree().change_scene("res://scenes/rooms/100/room75.tscn")
-	elif SaveGame.game_data.RoomNum < 99:
-		RoomRNG = randi() % 15 + 1
-		GotoRoom = str("res://scenes/rooms/100/room" + str(RoomRNG) + ".tscn")
-		if GotoRoom != LastRoom:
-			var _error = get_tree().change_scene(GotoRoom)
+	match SaveGame.game_data.RoomNum:
+		17:
+			var _error = get_tree().change_scene("res://scenes/rooms/100/room1.tscn")
 			SaveGame.game_data.RoomNum += 1
-		else: 
-			_get_next_room()
-	elif (SaveGame.game_data.RoomNum == 99):
-		SaveGame.game_data.RoomNum += 1
-		var _error = get_tree().change_scene("res://scenes/rooms/100/room100.tscn")
-	elif (SaveGame.game_data.RoomNum == 100):
-		SaveGame.game_data.RoomNum += 1
-		var _error = get_tree().change_scene("res://scenes/rooms/200/IntroRoom.tscn")
-	elif (SaveGame.game_data.RoomNum == 149):
-		SaveGame.game_data.RoomNum += 1
-		var _error = get_tree().change_scene("res://scenes/rooms/200/room50.tscn")
-	elif (SaveGame.game_data.RoomNum == 174):
-		SaveGame.game_data.RoomNum += 1
-		var _error = get_tree().change_scene("res://scenes/rooms/200/room75.tscn")
-	elif (SaveGame.game_data.RoomNum == 175):
-		SaveGame.game_data.RoomNum += 1
-		var _error = get_tree().change_scene("res://scenes/rooms/200/room76.tscn")
-	elif (SaveGame.game_data.RoomNum >= 199):
-		var _error = get_tree().change_scene("res://scenes/EndScreen.tscn")
-	elif (SaveGame.game_data.RoomNum > 99):
-		RoomRNG = randi() % 15 + 1
-		GotoRoom = str("res://scenes/rooms/200/room" + str(RoomRNG) + ".tscn")
-		if GotoRoom != LastRoom:
-			var _error = get_tree().change_scene(GotoRoom)
+		29:
+			var _error = get_tree().change_scene("res://scenes/rooms/100/room10.tscn")
 			SaveGame.game_data.RoomNum += 1
-		else: 
-			_get_next_room()
-	elif (SaveGame.game_data.RoomNum >= 199):
-		var _error = get_tree().change_scene("res://scenes/EndScreen.tscn")
-
+		49:
+			var _error = get_tree().change_scene("res://scenes/rooms/100/room50.tscn")
+			SaveGame.game_data.RoomNum += 1
+		74:
+			SaveGame.game_data.RoomNum += 1
+			var _error = get_tree().change_scene("res://scenes/rooms/100/room75.tscn")
+		99:
+			SaveGame.game_data.RoomNum += 1
+			var _error = get_tree().change_scene("res://scenes/rooms/100/room100.tscn")
+		100: 
+			SaveGame.game_data.RoomNum += 1
+			var _error = get_tree().change_scene("res://scenes/rooms/200/IntroRoom.tscn")
+		149:
+			SaveGame.game_data.RoomNum += 1
+			var _error = get_tree().change_scene("res://scenes/rooms/200/room50.tscn")
+		174:
+			SaveGame.game_data.RoomNum += 1
+			var _error = get_tree().change_scene("res://scenes/rooms/200/room75.tscn")
+		175:
+			SaveGame.game_data.RoomNum += 1
+			var _error = get_tree().change_scene("res://scenes/rooms/200/room76.tscn")
+		_:
+			if SaveGame.game_data.RoomNum < 99:
+				RoomRNG = randi() % 15 + 1
+				GotoRoom = str("res://scenes/rooms/100/room" + str(RoomRNG) + ".tscn")
+				if GotoRoom != LastRoom:
+					var _error = get_tree().change_scene(GotoRoom)
+					SaveGame.game_data.RoomNum += 1
+				else: 
+					_get_next_room()
+			elif (SaveGame.game_data.RoomNum >= 199):
+				var _error = get_tree().change_scene("res://scenes/EndScreen.tscn")
+			elif (SaveGame.game_data.RoomNum > 99):
+				RoomRNG = randi() % 15 + 1
+				GotoRoom = str("res://scenes/rooms/200/room" + str(RoomRNG) + ".tscn")
+				if GotoRoom != LastRoom:
+					var _error = get_tree().change_scene(GotoRoom)
+					SaveGame.game_data.RoomNum += 1
+				else: 
+					_get_next_room()

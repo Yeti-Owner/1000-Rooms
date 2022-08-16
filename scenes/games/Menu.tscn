@@ -120,6 +120,7 @@ margin_right = -20.0
 margin_bottom = -20.0
 
 [node name="FlappyGhost" type="Button" parent="GamesList"]
+visible = false
 margin_right = 408.0
 margin_bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -142,9 +143,9 @@ custom_styles/normal = SubResource( 3 )
 text = "Angry Ghouls"
 
 [node name="FairyJump" type="Button" parent="GamesList"]
-margin_top = 37.0
+visible = false
 margin_right = 408.0
-margin_bottom = 70.0
+margin_bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
@@ -153,9 +154,8 @@ custom_styles/normal = SubResource( 3 )
 text = "Fairy Jump"
 
 [node name="SuperShadeBros" type="Button" parent="GamesList"]
-margin_top = 74.0
 margin_right = 408.0
-margin_bottom = 107.0
+margin_bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
@@ -164,9 +164,10 @@ custom_styles/normal = SubResource( 3 )
 text = "Super Shade Bros 2"
 
 [node name="Pinball" type="Button" parent="GamesList"]
-margin_top = 111.0
+visible = false
+margin_top = 37.0
 margin_right = 408.0
-margin_bottom = 144.0
+margin_bottom = 70.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
