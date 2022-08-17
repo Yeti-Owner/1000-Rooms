@@ -30,7 +30,6 @@ var game_data = {
 	"FirstTimeParkour" : 1
 }
 
-# Check saved data
 func _ready():
 	_load()
 
@@ -43,6 +42,28 @@ func _load():
 	file.open(save_data, File.READ)
 	game_data = file.get_var()
 	file.close()
+	
+	_check_contents()
+
+func _check_contents():
+	game_data.get("RoomNum", 0)
+	game_data.get("PlayerHP", 100)
+	game_data.get("JumpScareAmt", 0)
+	game_data.get("CurrentRoom", "res://scenes/world.tscn")
+	game_data.get("CurrentPos", Vector3(1,1,1))
+	game_data.get("LastCheckPoint", "res://scenes/world.tscn")
+	game_data.get("LastSavedRoom", 0)
+	game_data.get("EnabledShield", 0)
+	game_data.get("Reputation", 0)
+	game_data.get("Deaths", 0)
+	game_data.get("FirstTimeRoom13", 1)
+	game_data.get("FirstTimeRoom210", 1)
+	game_data.get("FirstTimeRoom211", 1)
+	game_data.get("FirstTimeRoom212", 1)
+	game_data.get("FirstTimeRoom213", 1)
+	game_data.get("FirstTimeRoom214", 1)
+	game_data.get("FirstTimeRoom215", 1)
+	game_data.get("FirstTimeParkour", 1)
 
 func _save():
 	file.open(save_data, File.WRITE)
@@ -61,6 +82,3 @@ func _update_presence():
 	assets.set_small_image("blank")
 	assets.set_small_text("")
 
-#	var result = yield(Discord.activity_manager.update_activity(activity), "result").result
-#	if result != Discord.Result.Ok:
-#		push_error(result)

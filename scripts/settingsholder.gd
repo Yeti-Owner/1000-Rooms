@@ -21,6 +21,8 @@ var Intro = 0
 signal brightness_changed
 # warning-ignore:unused_signal
 signal bloom_changed
+# warning-ignore:unused_signal
+signal fps_changed
 
 # Check saved data
 func _ready():
