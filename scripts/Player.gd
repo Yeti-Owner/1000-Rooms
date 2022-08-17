@@ -49,7 +49,7 @@ func _physics_process(delta: float):
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump") && Stamina.get_value() > 10:
 			Stamina.set_value(Stamina.get_value() - 10)
-		if Input.is_action_just_pressed("jump") && Stamina.get_value() > 10:
+		if Input.is_action_pressed("jump") && Stamina.get_value() > 10:
 			_vel.y = jump_speed
 	
 	_vel.y += gravity * delta
@@ -81,30 +81,31 @@ func _physics_process(delta: float):
 
 func _on_PlayerArea_area_entered(area):
 	Area2 = area.name.rstrip("0123456789")
-	match Area2:
-		"GhostArea":
-			_hurt("ghost")
-		"FairyArea":
-			_hurt("fairy")
-		"SpikeArea":
-			_hurt("spike")
-		"WoodStepOne":
-			StepPlayer.stream = load(FootStepList[0])
-		"TileStepOne":
-			StepPlayer.stream = load(FootStepList[1])
-		"HubStep":
-			StepPlayer.stream = load(FootStepList[2])
-		"ShopStep":
-			StepPlayer.stream = load(FootStepList[3])
-		"AcidArea":
-			EnabledWalking = 0
-			jump_speed = 0
-			walk_speed = 0
-			PlayerAnim.play("acid_death", -2.0)
-			print("Acid")
-	if area.is_in_group("ResetBox"):
+	if area.name == "GhostArea":
+		_hurt("ghost")
+	elif area.name == "FairyArea":
+		_hurt("fairy")
+	elif area.name == "SpikeArea":
+		_hurt("spike")
+	elif area.is_in_group("KillBox"):
+		_die()
+	elif area.is_in_group("ResetBox"):
 		var _error = get_tree().reload_current_scene()
 		SaveGame.game_data.PlayerHP -= 5
+	elif Area2 == "WoodStepOne":
+		StepPlayer.stream = load(FootStepList[0])
+	elif Area2 == "TileStepOne":
+		StepPlayer.stream = load(FootStepList[1])
+	elif Area2 == "HubStep":
+		StepPlayer.stream = load(FootStepList[2])
+	elif Area2 == "ShopStep":
+		StepPlayer.stream = load(FootStepList[3])
+	elif Area2 == "AcidArea":
+		EnabledWalking = 0
+		jump_speed = 0
+		walk_speed = 0
+		PlayerAnim.play("acid_death", -2.0)
+		print("Acid")
 
 
 func _die():

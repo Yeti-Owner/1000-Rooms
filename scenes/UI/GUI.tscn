@@ -64,7 +64,6 @@ tracks/0/keys = {
 }
 
 [node name="GUI" type="CanvasLayer"]
-pause_mode = 2
 layer = -1
 script = ExtResource( 3 )
 
@@ -195,8 +194,3 @@ valign = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Achievement = SubResource( 5 )
 anims/RESET = SubResource( 6 )
-
-[node name="UpdateTimer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="UpdateTimer" to="." method="_on_UpdateTimer_timeout"]

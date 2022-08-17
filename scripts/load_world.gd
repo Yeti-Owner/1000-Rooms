@@ -17,7 +17,7 @@ func _ready():
 	SaveGame._update_presence()
 	_summon_enemy()
 
-func _check_room():	
+func _check_room():
 	if _room == "res://scenes/world.tscn":
 		Narrator.messages = ["Welcome to my dungeon", "it's a bit bigger on the inside","I wonder how far you'll make"]
 		EnemyAllowed = false
