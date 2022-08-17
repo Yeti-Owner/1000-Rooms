@@ -59,6 +59,7 @@ func _check_room():
 	elif _room == "res://scenes/rooms/200/room15.tscn" && SaveGame.game_data.FirstTimeRoom215:
 		Narrator.messages = ["Before you begin...","I'd like you to know I'm sorry"]
 		SaveGame.game_data.FirstTimeRoom215 = 0
+	
 
 func _dialogue_finished():
 	if ReRunSpawn == 1:
