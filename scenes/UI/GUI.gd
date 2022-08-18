@@ -14,21 +14,9 @@ func _ready():
 	StamBar.set_value(Stamina)
 	RoomNum.set_text("Room: " + str(SaveGame.game_data.RoomNum))
 	HpBar.set_value(SaveGame.game_data.PlayerHP)
-	Settingsholder.connect("fps_changed", self, "_on_UpdateTimer_timeout()")
+# warning-ignore:return_value_discarded
+	Settingsholder.connect("fps_changed", self, "_update_vals")
 
-#func _process(_delta) -> void:
-#	# Show FPS if enabled
-#	if Settingsholder.ShowFps:
-#		$MarginContainer.set_visible(true)
-#		FpsCounter.text = str("Fps: " + str(Performance.get_monitor(Performance.TIME_FPS)))
-#	else:
-#		$MarginContainer.set_visible(false)
-#
-#	# Update HP bar
-#	HpBar.set_value(SaveGame.game_data.PlayerHP)
-#
-#	# Room Num
-#	RoomNum.set_text("Room: " + str(SaveGame.game_data.RoomNum))
 
 func _physics_process(_delta) -> void:
 	# Regen Stamina Bar
@@ -42,8 +30,10 @@ func _physics_process(_delta) -> void:
 func _achievement():
 	$AnimationPlayer.play("Achievement")
 
-
 func _on_UpdateTimer_timeout():
+	_update_vals()
+
+func _update_vals():
 	# Show FPS if enabled
 	if Settingsholder.ShowFps:
 		$MarginContainer.set_visible(true)

@@ -19,10 +19,14 @@ onready var MasterVol = $SettingsTabs/Audio/MarginContainer/AudioSettings/Master
 onready var MusicVol = $SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolSlider
 onready var SfxVol = $SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider
 onready var ClickPlayer = $ClickPlayer
+onready var FullScreenOption = $SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn
 
 func _ready():
 	# Set FPS to correct value
 	Engine.set_target_fps(int(Settingsholder.FrameRate))
+	
+	# Set Windowd/Fullscreen
+	OS.set_window_fullscreen(Settingsholder.Fullscreen)
 	
 	# Set values and sliders to correct value
 	MaxFpsValue.set_text(str(Settingsholder.FrameRate))
@@ -38,6 +42,7 @@ func _ready():
 	MasterVol.set_value(Settingsholder.MasterVolume)
 	MusicVol.set_value(Settingsholder.MusicVolume)
 	SfxVol.set_value(Settingsholder.SfxVolume)
+	FullScreenOption.selected = Settingsholder.Fullscreen
 
 # Windowed/Fullscreen option
 func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
@@ -45,9 +50,15 @@ func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
 		0:
 			OS.set_window_fullscreen(false)
 			ClickPlayer._click_sound()
+			Settingsholder.Fullscreen = 0
+			yield(get_tree(), "idle_frame")
+			self.popup_centered()
 		1:
 			OS.set_window_fullscreen(true)
 			ClickPlayer._click_sound()
+			Settingsholder.Fullscreen = 1
+			yield(get_tree(), "idle_frame")
+			self.popup_centered()
 
 # Vsync
 func _on_VsyncCheckBtn_pressed():
@@ -65,6 +76,7 @@ func _on_MaxFpsSlider_value_changed(MaxFps):
 func _on_ShowFpsCheckBtn_pressed():
 	Settingsholder.ShowFps = !Settingsholder.ShowFps
 	ClickPlayer._click_sound()
+	Settingsholder.emit_signal("fps_changed")
 
 # Sensitivity
 func _on_MouseSensitivitySlider_value_changed(Sensitivity):

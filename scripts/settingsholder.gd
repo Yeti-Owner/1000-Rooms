@@ -15,6 +15,7 @@ var MasterVolume = 25
 var MusicVolume = 50
 var SfxVolume = 50
 var Intro = 0
+var Fullscreen = 0
 
 # Signals
 # warning-ignore:unused_signal
@@ -43,11 +44,12 @@ func _ready():
 	MusicVolume = file.get_8()
 	SfxVolume = file.get_8()
 	Intro = file.get_8()
+	Fullscreen = file.get_8()
 	file.close()
 
 func _save():
 	file.open(save_settings, File.WRITE)
-	file.store_buffer([ShowFps, MouseSensitivity, PlayerFOV, FrameRate, BloomSet, VsyncEnabled, Brightness, MasterVolume, MusicVolume, SfxVolume, Intro])
+	file.store_buffer([ShowFps, MouseSensitivity, PlayerFOV, FrameRate, BloomSet, VsyncEnabled, Brightness, MasterVolume, MusicVolume, SfxVolume, Intro, Fullscreen])
 	file.close()
 
 func _default():
@@ -62,4 +64,5 @@ func _default():
 	MusicVolume = 50
 	SfxVolume = 50
 	Intro = 0
+	Fullscreen = 0
 	_save()

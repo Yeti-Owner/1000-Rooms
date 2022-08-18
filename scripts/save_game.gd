@@ -46,24 +46,24 @@ func _load():
 	_check_contents()
 
 func _check_contents():
-	game_data.get("RoomNum", 0)
-	game_data.get("PlayerHP", 100)
-	game_data.get("JumpScareAmt", 0)
-	game_data.get("CurrentRoom", "res://scenes/world.tscn")
-	game_data.get("CurrentPos", Vector3(1,1,1))
-	game_data.get("LastCheckPoint", "res://scenes/world.tscn")
-	game_data.get("LastSavedRoom", 0)
-	game_data.get("EnabledShield", 0)
-	game_data.get("Reputation", 0)
-	game_data.get("Deaths", 0)
-	game_data.get("FirstTimeRoom13", 1)
-	game_data.get("FirstTimeRoom210", 1)
-	game_data.get("FirstTimeRoom211", 1)
-	game_data.get("FirstTimeRoom212", 1)
-	game_data.get("FirstTimeRoom213", 1)
-	game_data.get("FirstTimeRoom214", 1)
-	game_data.get("FirstTimeRoom215", 1)
-	game_data.get("FirstTimeParkour", 1)
+	game_data.RoomNum = game_data.get("RoomNum", 0)
+	game_data.PlayerHP = game_data.get("PlayerHP", 100)
+	game_data.JumpScareAmt = game_data.get("JumpScareAmt", 0)
+	game_data.CurrentRoom = game_data.get("CurrentRoom", "res://scenes/world.tscn")
+	game_data.CurrentPos = game_data.get("CurrentPos", Vector3(1,1,1))
+	game_data.LastCheckPoint = game_data.get("LastCheckPoint", "res://scenes/world.tscn")
+	game_data.LastSavedRoom = game_data.get("LastSavedRoom", 0)
+	game_data.EnabledShield = game_data.get("EnabledShield", 0)
+	game_data.Reputation = game_data.get("Reputation", 0)
+	game_data.Deaths = game_data.get("Deaths", 0)
+	game_data.FirstTimeRoom13 = game_data.get("FirstTimeRoom13", 1)
+	game_data.FirstTimeRoom210 = game_data.get("FirstTimeRoom210", 1)
+	game_data.FirstTimeRoom211 = game_data.get("FirstTimeRoom211", 1)
+	game_data.FirstTimeRoom212 = game_data.get("FirstTimeRoom212", 1)
+	game_data.FirstTimeRoom213 = game_data.get("FirstTimeRoom213", 1)
+	game_data.FirstTimeRoom214 = game_data.get("FirstTimeRoom214", 1)
+	game_data.FirstTimeRoom215 = game_data.get("FirstTimeRoom215", 1)
+	game_data.FirstTimeParkour = game_data.get("FirstTimeParkour", 1)
 
 func _save():
 	file.open(save_data, File.WRITE)
@@ -71,6 +71,7 @@ func _save():
 	file.close()
 
 func _update_presence():
+	print("updating presence")
 	var activity = Discord.Activity.new()
 	activity.set_type(Discord.ActivityType.Playing)
 	activity.set_state("In Room: " + str(SaveGame.game_data.RoomNum))
@@ -81,4 +82,7 @@ func _update_presence():
 	assets.set_large_text("1000-Rooms")
 	assets.set_small_image("blank")
 	assets.set_small_text("")
-
+	
+#	var result = yield(Discord.activity_manager.update_activity(activity), "result").result
+#	if result != Discord.Result.Ok:
+#		push_error(result)

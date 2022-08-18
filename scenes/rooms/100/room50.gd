@@ -17,6 +17,7 @@ func _ready():
 	SaveGame.game_data.RoomNum = 50
 	SaveGame.game_data.LastCheckPoint = _room
 	SaveGame._save()
+	SaveGame._update_presence()
 	fader._fade_in()
 	Monster.transform.origin = Vector3(0, 0, 9)
 	SaveGame.game_data.CurrentRoom = _room
