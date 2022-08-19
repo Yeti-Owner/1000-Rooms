@@ -475,7 +475,7 @@ Flashing = true
 
 [node name="DoorReward" parent="Fader" instance=ExtResource( 20 )]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 80.5, 5, -27.5 )
-RoomAmt = 10
+RoomAmt = 20
 
 [node name="Narrator" parent="." instance=ExtResource( 2 )]
 

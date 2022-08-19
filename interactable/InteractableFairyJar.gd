@@ -35,3 +35,4 @@ func _released():
 		ReleasedText = "..."
 		$Jar.visible = false
 		$CrackedMesh.visible = true
+		$Fairy.visible = false

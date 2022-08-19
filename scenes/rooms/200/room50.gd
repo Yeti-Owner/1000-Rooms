@@ -23,7 +23,7 @@ func _ready():
 		$Fader/Medkit3.queue_free()
 		$Fader/DoorReward.queue_free()
 	else:
-		Narrator.messages = ["Welcome welcome to room 250!","To your left are 3 doors, only 1 leads onwards, the other 2 to certain death.","All doors are equally likely to be the correct door.","Go ahead and choose one."]
+		Narrator.messages = ["Welcome welcome to room 150!","To your left are 3 doors, only 1 leads onwards, the other 2 to certain death.","All doors are equally likely to be the correct door.","Go ahead and choose one."]
 
 
 func _first_door(door):

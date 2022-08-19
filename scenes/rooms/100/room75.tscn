@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/textures/general/Cuttlefish.png" type="Texture" id=10]
 [ext_resource path="res://scenes/rooms/100/room75.gd" type="Script" id=11]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/objects/doors/FakeDoor2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/textures/general/AlienText1.png" type="Texture" id=15]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=17]
@@ -134,9 +134,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3471, 1.76259, -18.9986 )
 [node name="CollisionShape" type="CollisionShape" parent="Fader/AreaHolder/Rhino"]
 shape = SubResource( 12 )
 
-[node name="FakeDoor" parent="Fader" instance=ExtResource( 14 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.409622, 0, 0 )
-
 [node name="WorldEnvironment1" parent="Fader" instance=ExtResource( 5 )]
 
 [node name="SavePentagram" parent="Fader" instance=ExtResource( 18 )]
@@ -174,6 +171,9 @@ transform = Transform( 0.8, 0, 1.39876e-07, 0, 0.8, 0, -1.39876e-07, 0, 0.8, -2.
 
 [node name="Pivot" parent="Fader" instance=ExtResource( 16 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5, 0, 28.0256 )
+
+[node name="Door2Closed" parent="Fader" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.0218278 )
 
 [node name="GridMap" parent="." instance=ExtResource( 4 )]
 data = {

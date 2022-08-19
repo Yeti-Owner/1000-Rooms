@@ -122,7 +122,7 @@ func _hurt(source):
 			$CameraHolder/Camera/HurtPlayer.play()
 		"fairy":
 			HurtAnims.play("hurt")
-			SaveGame.game_data.PlayerHP -= 20
+			SaveGame.game_data.PlayerHP -= 8
 		"spike":
 			HurtAnims.play("hurt")
 			SaveGame.game_data.PlayerHP -= 10

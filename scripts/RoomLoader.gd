@@ -19,6 +19,9 @@ func _get_next_room():
 		29:
 			var _error = get_tree().change_scene("res://scenes/rooms/100/room10.tscn")
 			SaveGame.game_data.RoomNum += 1
+		48:
+			var _error = get_tree().change_scene("res://scenes/rooms/100/room12.tscn")
+			SaveGame.game_data.RoomNum += 1
 		49:
 			var _error = get_tree().change_scene("res://scenes/rooms/100/room50.tscn")
 			SaveGame.game_data.RoomNum += 1

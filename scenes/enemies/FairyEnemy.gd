@@ -11,7 +11,7 @@ enum {
 export(int) var state = 0
 export(float) var MarchSpeed = 0.075
 
-var speed = 7
+var speed = 6
 var _dir
 var _vel
 var pLocation
