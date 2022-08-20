@@ -9,13 +9,9 @@ extents = Vector3( 0.676946, 1.3894, 1.62482 )
 [node name="Medkit" type="MeshInstance"]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
 mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-material/2 = null
-material/3 = null
 
 [node name="StaticBody" type="StaticBody" parent="."]
-collision_layer = 3
+collision_layer = 7
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]

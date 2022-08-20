@@ -16,6 +16,7 @@ transform = Transform( 0.75, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = ExtResource( 1 )
 
 [node name="StaticBody" type="StaticBody" parent="plaque"]
+collision_layer = 5
 
 [node name="CollisionShape" type="CollisionShape" parent="plaque/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.657236, 0 )

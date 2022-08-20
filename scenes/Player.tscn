@@ -334,12 +334,33 @@ anims/hurt = SubResource( 15 )
 [node name="Light" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785, 0 )
 
-[node name="Flashlight" type="MeshInstance" parent="Light"]
-transform = Transform( -1.31134e-09, 0, -0.03, 0, 0.03, 0, 0.03, 0, -1.31134e-09, 0.300917, 0, -0.188161 )
+[node name="LightCast" type="RayCast" parent="Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.233801, -0.00901097, 0.166676 )
+enabled = true
+cast_to = Vector3( 0, 0, -1 )
+collision_mask = 4
+
+[node name="LightCast2" type="RayCast" parent="Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135377, -0.00901097, 0 )
+enabled = true
+cast_to = Vector3( 0.25, 0, 0 )
+collision_mask = 4
+
+[node name="LightCast3" type="RayCast" parent="Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135377, -0.00901097, -0.362116 )
+enabled = true
+cast_to = Vector3( 0.25, 0, 0 )
+collision_mask = 4
+
+[node name="Flashlight" type="Spatial" parent="Light"]
+
+[node name="LightMesh" type="MeshInstance" parent="Light/Flashlight"]
+transform = Transform( -1.31134e-09, 0, -0.03, 0, 0.03, 0, 0.03, 0, -1.31134e-09, 0.280837, -0.00901097, -0.188161 )
 mesh = ExtResource( 8 )
+skeleton = NodePath("../..")
 material/0 = SubResource( 13 )
 
-[node name="SpotLight" type="SpotLight" parent="Light/Flashlight"]
+[node name="SpotLight" type="SpotLight" parent="Light/Flashlight/LightMesh"]
 transform = Transform( -2.91409e-06, 0, 66.6667, 0, 66.6667, 0, -66.6667, 0, -2.91409e-06, -11.0915, 0.0578976, 1.68843 )
 spot_range = 3.2878
 spot_angle = 48.2042

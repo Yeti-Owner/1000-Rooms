@@ -13,10 +13,11 @@ material = SubResource( 2 )
 size = Vector2( 0.555, 0.9 )
 
 [sub_resource type="BoxShape" id=4]
-extents = Vector3( 0.509, 0.396563, 0.525 )
+extents = Vector3( 0.509, 0.396563, 0.56303 )
 
 [node name="JumpScareSign1" type="StaticBody"]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+collision_layer = 5
 script = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -32,7 +33,7 @@ mesh = SubResource( 3 )
 [node name="Area" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02055, 0.578 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02055, 0.654697 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

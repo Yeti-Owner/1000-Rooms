@@ -23,6 +23,7 @@ material = SubResource( 4 )
 
 [node name="WallTorch" type="StaticBody"]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
+collision_layer = 5
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 cast_shadow = 2

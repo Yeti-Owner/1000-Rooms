@@ -7,9 +7,9 @@ data = PoolVector3Array( -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -
 
 [node name="wall" type="MeshInstance"]
 mesh = ExtResource( 1 )
-material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="."]
+collision_layer = 5
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 5 )

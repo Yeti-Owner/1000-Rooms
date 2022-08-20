@@ -4,9 +4,7 @@
 
 [node name="GridMap2" type="GridMap"]
 mesh_library = ExtResource( 1 )
-data = {
-"cells": PoolIntArray(  )
-}
+collision_layer = 5
 __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 0, 0 )

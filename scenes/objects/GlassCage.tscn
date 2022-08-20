@@ -110,7 +110,7 @@ albedo_texture = ExtResource( 6 )
 material = SubResource( 14 )
 
 [node name="GlassCage" type="StaticBody"]
-collision_layer = 3
+collision_layer = 7
 script = ExtResource( 3 )
 
 [node name="Jar" type="MeshInstance" parent="."]
