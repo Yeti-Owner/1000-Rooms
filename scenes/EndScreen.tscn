@@ -28,7 +28,7 @@ color = Color( 0.113725, 0.113725, 0.113725, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 1 )
-text = "That's it for now, 200 rooms. I'd like to thank you from the bottom of my heart for playtesting my game. It's not that much now but it's a passion project and I'm proud. 
+text = "That's it for now, 200 rooms. I'd like to thank you from the bottom of my heart for playtesting my game. It's not that much now but it's a passion project and I'm pretty happy with it. 
 I'd really appreciate any and all feedback/criticism, click the button below to open a google form link.
 "
 align = 1

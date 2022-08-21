@@ -6,6 +6,7 @@ var PlayerCam
 var GUI
 onready var viewport = $ViewportManager/Viewport
 onready var Screen = $ViewportManager/Screen
+onready var Collision2 = $CollisionShape2
 var Menu
 
 # Constants for Instancing
@@ -14,15 +15,15 @@ const GUIScene = preload("res://scenes/UI/GUI.tscn")
 
 var Interacted = 0
 var Stage = 0
-export(Basis) var GameRot
-export(Vector3) var PlayerRotationDeg
+onready var GameRot = $Position3D.global_transform.basis
+onready var TestRotation = $RotationPos.global_transform.basis
 
 # PlayerVars
 var CamLoc
 var GameLoc
 var CamRot
 var CamFOV
-var NewCam #= Camera.new()
+var NewCam
 var PlayerLoc
 
 func get_interaction_text():
@@ -63,6 +64,7 @@ func interact():
 		$PlayerCamera.interpolate_property(NewCam, "global_transform:basis", CamRot, GameRot, 3, 0)
 		$PlayerCamera.interpolate_property(NewCam, "fov", CamFOV, 70, 3, 0)
 		$PlayerCamera.start()
+		Collision2.disabled = true
 		Stage = 1
 
 
@@ -77,8 +79,9 @@ func _on_PlayerCamera_tween_completed(_object, _key):
 		get_node("/root/world/Fader").add_child(NewPlayer)
 		NewCam.queue_free()
 		NewPlayer.global_transform.origin = PlayerLoc
-		NewPlayer.rotation_degrees = PlayerRotationDeg
+		NewPlayer.global_transform.basis = TestRotation
 		Screen.material_override.albedo_texture = null
+		Collision2.disabled = false
 		Stage = 0
 		Interacted = 0
 		get_tree().paused = false
@@ -92,7 +95,7 @@ func _ingame():
 func _exit_game():
 	# Set up Tweens for exiting.
 		$PlayerCamera.interpolate_property(NewCam, "global_transform:origin", GameLoc, CamLoc, 3, 0)
-#		$PlayerCamera.interpolate_property(NewCam, "global_transform:basis", GameRot, CamRot, 3, 0)
+		$PlayerCamera.interpolate_property(NewCam, "global_transform:basis", GameRot, TestRotation, 3, 0)
 		$PlayerCamera.interpolate_property(NewCam, "fov", 70, CamFOV, 3, 0)
 		$PlayerCamera.start()
 		Stage = 2

@@ -48,6 +48,7 @@ func _add_objs():
 
 func _summon_enemy():
 	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 	if EnemyAllowed:
 		var RNG2 = randi() % 5
 		if RNG2 == 0 or SaveGame.isChased > 0:

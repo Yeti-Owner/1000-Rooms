@@ -88,9 +88,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 20 )
 shape = SubResource( 2 )
 
 [node name="GameConsole" parent="Fader" instance=ExtResource( 21 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1, 0 )
-GameRot = Basis( 0, 0, 1, 0, 1, 0, -1, 0, 0 )
-PlayerRotationDeg = Vector3( 0, 90, 0 )
+transform = Transform( -1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, -16.9, 0.855, 0 )
 
 [node name="console" parent="." instance=ExtResource( 10 )]
 

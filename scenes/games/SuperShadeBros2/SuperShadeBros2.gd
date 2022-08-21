@@ -12,7 +12,7 @@ func _process(_delta):
 	$CanvasLayer/Control/Coins.text = str("Score: " + str(Score) + str(" "))
 	$CanvasLayer/Control/Lives.text = str(" Lives: " + str(Lives))
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		$CanvasLayer/Control/Popup.visible = true
 		get_tree().paused = true

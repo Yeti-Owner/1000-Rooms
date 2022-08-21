@@ -74,9 +74,9 @@ custom_constants/separation = 25
 alignment = 1
 
 [node name="GamesBtn" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 52.0
+margin_top = 95.0
 margin_right = 1240.0
-margin_bottom = 117.0
+margin_bottom = 160.0
 rect_min_size = Vector2( 0, 65 )
 focus_mode = 0
 custom_fonts/font = SubResource( 2 )
@@ -86,6 +86,7 @@ custom_styles/normal = SubResource( 3 )
 text = "Games"
 
 [node name="OptionsBtn" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+visible = false
 margin_top = 142.0
 margin_right = 1240.0
 margin_bottom = 202.0
@@ -98,9 +99,9 @@ custom_styles/normal = SubResource( 3 )
 text = "Options"
 
 [node name="ExitBtn" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 227.0
+margin_top = 185.0
 margin_right = 1240.0
-margin_bottom = 287.0
+margin_bottom = 245.0
 rect_min_size = Vector2( 0, 60 )
 focus_mode = 1
 custom_fonts/font = SubResource( 2 )
@@ -165,9 +166,9 @@ text = "Super Shade Bros 2"
 
 [node name="Pinball" type="Button" parent="GamesList"]
 visible = false
-margin_top = 37.0
+margin_top = 111.0
 margin_right = 408.0
-margin_bottom = 70.0
+margin_bottom = 144.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )

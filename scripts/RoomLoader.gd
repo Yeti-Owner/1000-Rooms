@@ -43,6 +43,8 @@ func _get_next_room():
 		175:
 			SaveGame.game_data.RoomNum += 1
 			var _error = get_tree().change_scene("res://scenes/rooms/200/room76.tscn")
+		199:
+			var _error = get_tree().change_scene("res://scenes/EndScreen.tscn")
 		_:
 			if SaveGame.game_data.RoomNum < 99:
 				RoomRNG = randi() % 15 + 1

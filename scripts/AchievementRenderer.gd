@@ -45,7 +45,7 @@ func _process(_delta):
 		3:
 			# NotoLotta Award
 			if AchievementsHolder.game_data.NotoLotta == 0:
-				Text.text = "The NotoLotta achievement, get it by placeholder."
+				Text.text = "Placeholder."
 			else:
 				Text.text = "Placeholder."
 			CurrentPos = Cam.global_transform.origin
@@ -63,13 +63,13 @@ func _process(_delta):
 			if AchievementsHolder.game_data.Wyoming == 0:
 				Text.text = "The Wyoming achievement, get it by visiting Wyoming."
 			else:
-				Text.text = "Wyoming doesn't exist."
+				Text.text = "The Wyoming achievement, Wyoming doesn't exist."
 			CurrentPos = Cam.global_transform.origin
 			Cam.global_transform.origin = lerp(CurrentPos, Vector3(16,3,4-20), LerpWeight)
 		6:
 			# Blackout Award
 			if AchievementsHolder.game_data.Blackout == 0:
-				Text.text = "The Blackout achievement, get it by placeholder."
+				Text.text = "Placeholder."
 			else:
 				Text.text = "Placeholder."
 			CurrentPos = Cam.global_transform.origin
@@ -79,13 +79,13 @@ func _process(_delta):
 			if AchievementsHolder.game_data.Shai == 0:
 				Text.text = "The Shai achievement, get it by finding the Lin Fei poster."
 			else:
-				Text.text = "Peak."
+				Text.text = "The Shai achievement, Peak."
 			CurrentPos = Cam.global_transform.origin
 			Cam.global_transform.origin = lerp(CurrentPos, Vector3(24,3,4-20), LerpWeight)
 		8:
 			# Hito Award
 			if AchievementsHolder.game_data.Hito == 0:
-				Text.text = "The Hito achievement, get it by placeholder."
+				Text.text = "Placeholder."
 			else:
 				Text.text = "Placeholder."
 			CurrentPos = Cam.global_transform.origin
@@ -95,13 +95,13 @@ func _process(_delta):
 			if AchievementsHolder.game_data.Ufrz == 0:
 				Text.text = "The Ufrz achievement, get it by finding XRA."
 			else:
-				Text.text = "Xavier Renegade Angel says: What Doth Life?"
+				Text.text = "The Ufrz achievement, Xavier Renegade Angel says: What Doth Life?"
 			CurrentPos = Cam.global_transform.origin
 			Cam.global_transform.origin = lerp(CurrentPos, Vector3(32,3,4-20), LerpWeight)
 		10:
 			# Brawlhalla Award
 			if AchievementsHolder.game_data.Brawlhalla == 0:
-				Text.text = "The Brawlhalla achievement, get it by placeholder."
+				Text.text = "Placeholder."
 			else:
 				Text.text = "Placeholder."
 			CurrentPos = Cam.global_transform.origin
