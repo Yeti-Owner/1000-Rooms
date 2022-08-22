@@ -8,6 +8,9 @@ func _ready():
 
 func _active():
 	yield(get_tree(), "idle_frame")
+	$GamesHider.color.a = 1
+	$GamesHider.visible = true
+	Hidden = 1
 	$Hider.color.a = 0
 	$MarginContainer.visible = true
 	tween.interpolate_property($MarginContainer/VBoxContainer/CenterContainer, "rect_position", Vector2(0,-360), Vector2(0,0), 2, 9)

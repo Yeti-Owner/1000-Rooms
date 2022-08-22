@@ -25,13 +25,11 @@ _data = {
 
 [node name="world" type="Spatial"]
 script = ExtResource( 10 )
-_room = "res://scenes/rooms/200/room1.tscn"
 
 [node name="Fader" parent="." instance=ExtResource( 2 )]
 mouse_filter = 1
 
 [node name="GUI" parent="Fader" instance=ExtResource( 5 )]
-pause_mode = 2
 
 [node name="Player" parent="Fader" instance=ExtResource( 4 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.7, 1.6 )

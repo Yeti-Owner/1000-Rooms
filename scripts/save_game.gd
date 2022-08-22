@@ -71,17 +71,18 @@ func _save():
 	file.close()
 
 func _update_presence():
-	print("updating presence")
-	var activity = Discord.Activity.new()
-	activity.set_type(Discord.ActivityType.Playing)
-	activity.set_state("In Room: " + str(SaveGame.game_data.RoomNum))
-	activity.set_details("Running for their life")
-
-	var assets = activity.get_assets()
-	assets.set_large_image("title")
-	assets.set_large_text("1000-Rooms")
-	assets.set_small_image("blank")
-	assets.set_small_text("")
+	pass
+#	print("updating presence")
+#	var activity = Discord.Activity.new()
+#	activity.set_type(Discord.ActivityType.Playing)
+#	activity.set_state("In Room: " + str(SaveGame.game_data.RoomNum))
+#	activity.set_details("Running for their life")
+#
+#	var assets = activity.get_assets()
+#	assets.set_large_image("title")
+#	assets.set_large_text("1000-Rooms")
+#	assets.set_small_image("blank")
+#	assets.set_small_text("")
 	
 #	var result = yield(Discord.activity_manager.update_activity(activity), "result").result
 #	if result != Discord.Result.Ok:

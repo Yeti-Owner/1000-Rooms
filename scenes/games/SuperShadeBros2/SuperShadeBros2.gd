@@ -3,10 +3,6 @@ extends Node2D
 var SpawnLoc = Vector2(2, -32)
 var Score = 0
 var Lives = 3
-#var isPaused
-
-#func _ready():
-#	pass 
 
 func _process(_delta):
 	$CanvasLayer/Control/Coins.text = str("Score: " + str(Score) + str(" "))

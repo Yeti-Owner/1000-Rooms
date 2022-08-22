@@ -17,6 +17,7 @@ var Interacted = 0
 var Stage = 0
 onready var GameRot = $Position3D.global_transform.basis
 onready var TestRotation = $RotationPos.global_transform.basis
+onready var world = get_node("/root/world")
 
 # PlayerVars
 var CamLoc
@@ -99,3 +100,11 @@ func _exit_game():
 		$PlayerCamera.interpolate_property(NewCam, "fov", 70, CamFOV, 3, 0)
 		$PlayerCamera.start()
 		Stage = 2
+
+func _on_DisableEnemy_timeout():
+	# Disable Enemy spawning if node exists
+	world.EnemyAllowed = false
+	if "EnemyAllowed" in world:
+		world.EnemyAllowed = false
+	elif "AllowChase" in world:
+		world.AllowChase = false

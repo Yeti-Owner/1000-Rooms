@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/objects/GameConsole.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=14]
 
 [node name="world" type="Spatial"]
@@ -53,6 +54,9 @@ visible = false
 [node name="Vent3" parent="Objs" instance=ExtResource( 7 )]
 transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -13.4, 2.2, -0.05 )
 visible = false
+
+[node name="GameConsole" parent="Objs" instance=ExtResource( 11 )]
+transform = Transform( -1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, -8.4, 0.85, -9 )
 
 [node name="NavMesh" type="Spatial" parent="."]
 

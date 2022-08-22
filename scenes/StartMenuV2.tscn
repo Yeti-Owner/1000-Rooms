@@ -443,13 +443,83 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Version" type="Label" parent="Fader/Menu/VersionDialog"]
+[node name="TabContainer" type="TabContainer" parent="Fader/Menu/VersionDialog"]
 anchor_right = 1.0
-margin_bottom = 57.0
+anchor_bottom = 1.0
+tab_align = 0
+
+[node name="Current" type="Tabs" parent="Fader/Menu/VersionDialog/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 26.0
+margin_right = -1.0
+margin_bottom = -1.0
+tab_align = 0
+
+[node name="Version" type="Label" parent="Fader/Menu/VersionDialog/TabContainer/Current"]
+anchor_right = 1.0
+margin_top = 10.0
+margin_bottom = 61.0
 custom_fonts/font = SubResource( 8 )
 text = "Alpha 1.05"
 align = 1
 valign = 1
+
+[node name="Info" type="Label" parent="Fader/Menu/VersionDialog/TabContainer/Current"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 65.0
+custom_fonts/font = SubResource( 9 )
+text = "
+- Re-did all UI's + GUI's
+- New Vignette System
+- Added 11 new models
+- Fixed Narrator issues
+- Fixed and improved Settings menu
+- Added more lore
+- Added Discord Rich Presence
+- Tons of performance optimizations
+- Added Flashlight
+- Added an Arcade machine
+- And much more!"
+align = 1
+
+[node name="Next" type="Tabs" parent="Fader/Menu/VersionDialog/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 26.0
+margin_right = -1.0
+margin_bottom = -1.0
+tab_align = 0
+
+[node name="Version" type="Label" parent="Fader/Menu/VersionDialog/TabContainer/Next"]
+anchor_right = 1.0
+margin_top = 10.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 8 )
+text = "Coming Soon(tm)"
+align = 1
+valign = 1
+
+[node name="Info" type="Label" parent="Fader/Menu/VersionDialog/TabContainer/Next"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 65.0
+custom_fonts/font = SubResource( 9 )
+text = "
+- Ambient Audio system
+- More games for the arcade + leaderboards
+- 100 more rooms(?)
+- 2 new monsters
+- More Lore
+- Built-in Speedrun timer
+- Death Screens
+- Shopkeeper(?)
+- A way to leave notes for future players"
+align = 1
 
 [node name="CloseBtn" type="Button" parent="Fader/Menu/VersionDialog"]
 anchor_left = 1.0
@@ -457,25 +527,6 @@ anchor_right = 1.0
 margin_left = -40.0
 margin_bottom = 25.0
 text = "X"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Info" type="Label" parent="Fader/Menu/VersionDialog"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 58.0
-custom_fonts/font = SubResource( 9 )
-text = "- Re-did all UI's + GUI's
-- New Vignette System
-- Added 11 new models
-- Fixed Narrator issues
-- Fixed and improved Settings menu
-- Added more lore
-- Added Discord Rich Presence
-- Tons of performance optimizations"
-align = 1
-valign = 1
 
 [node name="FeedbackBtn" type="Button" parent="Fader/Menu"]
 anchor_top = 1.0
