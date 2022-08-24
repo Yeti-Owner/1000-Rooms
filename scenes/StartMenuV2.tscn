@@ -424,7 +424,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Version Notes"
 
 [node name="VersionDialog" type="Popup" parent="Fader/Menu"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -438,7 +437,7 @@ rect_min_size = Vector2( 700, 400 )
 [node name="ColorRect" type="ColorRect" parent="Fader/Menu/VersionDialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
+color = Color( 0.113725, 0.113725, 0.113725, 0.501961 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -482,6 +481,7 @@ text = "
 - Tons of performance optimizations
 - Added Flashlight
 - Added an Arcade machine
+- Patched 4 game breaking bugs (oops)
 - And much more!"
 align = 1
 

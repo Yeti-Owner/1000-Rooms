@@ -103,7 +103,6 @@ func _exit_game():
 
 func _on_DisableEnemy_timeout():
 	# Disable Enemy spawning if node exists
-	world.EnemyAllowed = false
 	if "EnemyAllowed" in world:
 		world.EnemyAllowed = false
 	elif "AllowChase" in world:

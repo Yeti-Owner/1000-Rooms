@@ -369,5 +369,11 @@ spot_angle = 48.2042
 repeat = true
 playback/repeat = true
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 [connection signal="animation_finished" from="PlayerAnims" to="." method="_on_PlayerAnims_animation_finished"]
+[connection signal="timeout" from="Timer" to="CameraHolder" method="_on_Timer_timeout"]

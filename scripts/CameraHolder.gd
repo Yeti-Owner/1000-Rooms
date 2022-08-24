@@ -13,7 +13,6 @@ onready var LightMesh := get_parent().get_node("Light/Flashlight")
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	tween.start()
 
 func _input(event: InputEvent) -> void:
 	mouse_sensitivity = float(Settingsholder.MouseSensitivity)/100
@@ -36,3 +35,5 @@ func _physics_process(_delta) -> void:
 	else:
 		LightMesh.translation.x = lerp(LightMesh.translation.x, 0, 0.05)
 
+func _on_Timer_timeout():
+	tween.start()

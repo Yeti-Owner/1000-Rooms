@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://scenes/objects/Medkit.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/textures/NonFuncs/XRA.png" type="Texture" id=20]
 [ext_resource path="res://interactable/InteractableXRA.gd" type="Script" id=21]
+[ext_resource path="res://scenes/objects/NonFunctionals/Table3.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/objects/Paper.tscn" type="PackedScene" id=23]
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 20 )
@@ -128,5 +130,22 @@ transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, 21.7, 1
 
 [node name="Medkit" parent="Objs" instance=ExtResource( 19 )]
 transform = Transform( 0.196104, 0, -0.155059, 0, 0.25, 0, 0.155059, 0, 0.196104, 5, -2, -1.4 )
+
+[node name="Table3" parent="Objs" instance=ExtResource( 22 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.4, 0, -19.3 )
+
+[node name="Table3" parent="." instance=ExtResource( 22 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.4, 0, -19.3 )
+
+[node name="Paper" parent="Table3" instance=ExtResource( 23 )]
+transform = Transform( -3.31767, 0, -0.322729, 0, 3.33333, 0, 0.322729, 0, -3.31767, 0.415, 1.851, 0.333 )
+Title = "A farewell"
+Text = "I doubt I will live any longer so I leave this note in the hopes it saves someone else.
+my energy is spent and my life comes to an end, I will patiently await the inhabitants of this hell to finish me off.
+
+DO NOT TRUST HIM
+I do not know his name but I know his voice.
+He lures you deeper into the trap, he acts like he helps but he wants you to keep going and progress farther and farther
+I don't know why he does what he does but he has abandoned me and once you fail to show promise he will abandon you too"
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

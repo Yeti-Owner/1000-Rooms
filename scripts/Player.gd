@@ -23,7 +23,6 @@ func _ready():
 	if SaveGame.game_data.PlayerHP > 100:
 		SaveGame.game_data.PlayerHP = 100
 
-
 func _physics_process(delta: float):
 	var input = Vector2.ZERO
 	
@@ -102,9 +101,6 @@ func _on_PlayerArea_area_entered(area):
 			walk_speed = 0
 			PlayerAnim.play("acid_death", -2.0)
 			print("Acid")
-	if area.is_in_group("ResetBox"):
-		var _error = get_tree().reload_current_scene()
-		SaveGame.game_data.PlayerHP -= 5
 
 
 func _die():

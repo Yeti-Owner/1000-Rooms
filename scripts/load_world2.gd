@@ -43,7 +43,7 @@ func _check_room():
 		get_node("Fader/Plaque2").queue_free()
 		get_node("Fader/Plaque4").queue_free()
 		get_node("Fader/Plaque6").queue_free()
-		SaveGame.FirstTimeRoom212 = 3
+		SaveGame.FirstTimeRoom212 == 3
 	elif _room == "res://scenes/rooms/200/room12.tscn" && (SaveGame.game_data.FirstTimeRoom212 == 3):
 		AllowChase = false
 		get_node("Fader/Plaque2").queue_free()
@@ -59,7 +59,16 @@ func _check_room():
 	elif _room == "res://scenes/rooms/200/room15.tscn" && SaveGame.game_data.FirstTimeRoom215:
 		Narrator.messages = ["Before you begin...","I'd like you to know I'm sorry"]
 		SaveGame.game_data.FirstTimeRoom215 = 0
-	
+	elif SaveGame.game_data.RoomNum == 103:
+		AllowChase = false
+	elif _room == "res://scenes/rooms/200/room8.tscn" and SaveGame.game_data.RoomNum != 103:
+		$Table3.queue_free()
+		print("test1")
+	elif SaveGame.game_data.RoomNum == 104:
+		AllowChase = false
+	elif _room == "res://scenes/rooms/200/room14.tscn" and SaveGame.game_data.RoomNum != 104:
+		$Table2.queue_free()
+		print("test")
 
 func _dialogue_finished():
 	if ReRunSpawn == 1:
@@ -86,7 +95,6 @@ func _chasing():
 				SaveGame.isChased = 3
 			else:
 				SaveGame.isChased -= 1
-
 
 func _on_SpawnTimer_timeout():
 	$Fader/wall.queue_free()
