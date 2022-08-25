@@ -22,6 +22,8 @@ onready var HurtAnims = $HurtPlayer
 func _ready():
 	if SaveGame.game_data.PlayerHP > 100:
 		SaveGame.game_data.PlayerHP = 100
+# warning-ignore:return_value_discarded
+	connect(Settingsholder.fov_changed, self, "_update_fov")
 
 func _physics_process(delta: float):
 	var input = Vector2.ZERO
@@ -70,10 +72,6 @@ func _physics_process(delta: float):
 		PlayerAnim.play("Head Bob")
 		PlayerAnim.playback_speed = 1
 	
-	
-	# Fix FOV
-	$CameraHolder/Camera.set_fov(Settingsholder.PlayerFOV)
-	
 	if (Health.value <= 0):
 		_die()
 
@@ -102,7 +100,6 @@ func _on_PlayerArea_area_entered(area):
 			PlayerAnim.play("acid_death", -2.0)
 			print("Acid")
 
-
 func _die():
 	EnabledWalking = 0
 	PlayerAnim.play("die")
@@ -128,3 +125,6 @@ func _on_PlayerAnims_animation_finished(anim_name):
 		SaveGame.game_data.PlayerHP = 100
 		SaveGame.game_data.RoomNum = SaveGame.game_data.LastSavedRoom
 		var _error = get_tree().change_scene(SaveGame.game_data.LastCheckPoint)
+
+func _update_fov():
+	$CameraHolder/Camera.set_fov(Settingsholder.PlayerFOV)

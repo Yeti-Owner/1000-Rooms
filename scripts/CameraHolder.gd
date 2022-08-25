@@ -13,9 +13,10 @@ onready var LightMesh := get_parent().get_node("Light/Flashlight")
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+# warning-ignore:return_value_discarded
+	connect(Settingsholder.sens_changed, self, "_update_sens")
 
 func _input(event: InputEvent) -> void:
-	mouse_sensitivity = float(Settingsholder.MouseSensitivity)/100
 	if event is InputEventMouseMotion && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		_camera.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
 		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
@@ -37,3 +38,6 @@ func _physics_process(_delta) -> void:
 
 func _on_Timer_timeout():
 	tween.start()
+
+func _update_sens():
+	mouse_sensitivity = float(Settingsholder.MouseSensitivity)/100

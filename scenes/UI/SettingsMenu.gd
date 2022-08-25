@@ -82,11 +82,13 @@ func _on_ShowFpsCheckBtn_pressed():
 func _on_MouseSensitivitySlider_value_changed(Sensitivity):
 	MouseSensitivityVal.set_text(str(Sensitivity))
 	Settingsholder.MouseSensitivity = Sensitivity
+	Settingsholder.emit_signal("sens_changed")
 
 # Fov
 func _on_FovSlider_value_changed(CurrentFov):
 	Settingsholder.PlayerFOV = CurrentFov
 	FovVal.set_text(str(CurrentFov))
+	Settingsholder.emit_signal("fov_changed")
 
 # Enable/Disable Bloom
 func _on_BloomCheckBtn_pressed():

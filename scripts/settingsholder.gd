@@ -24,6 +24,10 @@ signal brightness_changed
 signal bloom_changed
 # warning-ignore:unused_signal
 signal fps_changed
+# warning-ignore:unused_signal
+signal fov_changed
+# warning-ignore:unused_signal
+signal sens_changed
 
 # Check saved data
 func _ready():
