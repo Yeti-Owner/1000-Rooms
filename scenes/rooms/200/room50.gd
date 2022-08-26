@@ -11,6 +11,7 @@ var lost = 0
 func _ready():
 	SaveGame.game_data.PlayerHP += 5
 	randomize()
+# warning-ignore:return_value_discarded
 	$Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	SaveGame.game_data.CurrentRoom = _room
 	fader._fade_in()
@@ -70,4 +71,4 @@ func _lose():
 
 func _dialogue_finished():
 	if lost == 1:
-		get_tree().reload_current_scene()
+		var _error = get_tree().reload_current_scene()

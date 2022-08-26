@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/CameraHolder.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -16,6 +16,9 @@
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.45
 height = 1.8
+
+[sub_resource type="CylinderShape" id=16]
+radius = 0.44
 
 [sub_resource type="CapsuleMesh" id=2]
 radius = 0.4
@@ -264,6 +267,10 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
 
+[node name="Foot" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, 0 )
+shape = SubResource( 16 )
+
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 visible = false
@@ -311,6 +318,7 @@ sway_right = Vector3( 0, -0.1, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275, -0.32, -0.274795 )
 
 [node name="PlayerArea" type="Area" parent="."]
+visible = false
 
 [node name="CollisionShape2" type="CollisionShape" parent="PlayerArea"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -373,6 +381,10 @@ playback/repeat = true
 wait_time = 0.05
 one_shot = true
 autostart = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 [connection signal="animation_finished" from="PlayerAnims" to="." method="_on_PlayerAnims_animation_finished"]

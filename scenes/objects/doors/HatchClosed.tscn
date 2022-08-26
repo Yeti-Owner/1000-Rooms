@@ -1,6 +1,5 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://resources/HatchCollisionShape.tres" type="Shape" id=1]
 [ext_resource path="res://interactable/InteractableLockedHatch.gd" type="Script" id=2]
 [ext_resource path="res://assets/3D models/hatch/NM.png" type="Texture" id=3]
 [ext_resource path="res://assets/3D models/hatch/Col.png" type="Texture" id=4]
@@ -12,6 +11,10 @@ normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 3 )
 
+[sub_resource type="CylinderShape" id=2]
+height = 0.102
+radius = 0.92
+
 [node name="HatchClosed" type="Spatial"]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0 )
 
@@ -22,9 +25,9 @@ material/0 = SubResource( 1 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.05, 0 )
-visible = false
 collision_layer = 3
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = ExtResource( 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118, -0.031, 0.097 )
+shape = SubResource( 2 )

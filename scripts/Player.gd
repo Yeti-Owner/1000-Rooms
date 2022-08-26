@@ -1,15 +1,23 @@
 extends KinematicBody
 
 var walk_speed: float = 6.0
+var sprint_speed: float = 7.5
 var jump_speed: float = 8.9
-var acceleration_speed: float = 6.5
+var acceleration_speed: float = 6.0
 var gravity: float = -32.0
 var _dir = Vector3.ZERO
 var _vel = Vector3.ZERO
-var EnabledWalking = 1
-var sprinting = false
+#var EnabledWalking = 1
+#var sprinting = false
 var FootStepList = ["res://assets/audio/misc/footsteps/wood_floor1.wav","res://assets/audio/misc/footsteps/tiles1.wav","res://assets/audio/misc/footsteps/hub_floor.wav","res://assets/audio/misc/footsteps/shop_floor.wav"]
-var Area2 := ""
+
+# States
+enum {
+	DEAD,
+	WALKING,
+	RUNNING
+}
+var state = WALKING
 
 # References
 onready var _camera := $CameraHolder
@@ -18,14 +26,42 @@ onready var StepPlayer = $StepPlayer
 onready var Health = get_parent().get_node("GUI/HPandStam/HpBar2")
 onready var PlayerAnim = $PlayerAnims
 onready var HurtAnims = $HurtPlayer
+onready var Coyote = $CoyoteTimer
 
 func _ready():
 	if SaveGame.game_data.PlayerHP > 100:
 		SaveGame.game_data.PlayerHP = 100
 # warning-ignore:return_value_discarded
-	connect(Settingsholder.fov_changed, self, "_update_fov")
+	Settingsholder.connect("fov_changed", self, "_update_fov")
 
 func _physics_process(delta: float):
+	# Set State
+	if Input.is_action_just_pressed("sprint"):
+		Stamina.set_value(Stamina.get_value() - 7.5)
+		state = RUNNING
+	if Input.is_action_pressed("sprint") && Stamina.get_value() > 0:
+		Stamina.set_value(Stamina.get_value() - 0.2)
+		state = RUNNING
+	if state != DEAD and not Input.is_action_pressed("sprint"):
+		state = WALKING
+	if (Health.value <= 0):
+		_die()
+	
+	# Use State
+	match state:
+		DEAD:
+			pass
+		WALKING:
+			_movement(delta, walk_speed, 1)
+		RUNNING:
+			_movement(delta, sprint_speed, 1.25)
+	
+	# Check HP
+	if (Health.value <= 0):
+		_die()
+
+
+func _movement(delta, UsedSpeed, bob_speed):
 	var input = Vector2.ZERO
 	
 	if Input.is_action_pressed("up"):
@@ -36,22 +72,16 @@ func _physics_process(delta: float):
 		input.x += 1
 	if Input.is_action_pressed("left"):
 		input.x -= 1
-	if Input.is_action_just_pressed("sprint"): # when you first sprint it takes more
-		Stamina.set_value(Stamina.get_value() - 7.5)
-	if Input.is_action_pressed("sprint") && Stamina.get_value() > 0 && EnabledWalking :
-		walk_speed = 7.5
-		Stamina.set_value(Stamina.get_value() - 0.2)
-		sprinting = true
-	elif EnabledWalking: # When _die() is triggered walking is disabled here, dunno a better way to do it but I'm sure there is
-		walk_speed = 6.0
-		sprinting = false
 	input = input.normalized()
 	
-	if is_on_floor():
+	
+	# Jumping
+	if _vel.y <= 0 && (is_on_floor() || !Coyote.is_stopped()):
 		if Input.is_action_just_pressed("jump") && Stamina.get_value() > 10:
+			Coyote.stop()
 			Stamina.set_value(Stamina.get_value() - 10)
-		if Input.is_action_just_pressed("jump") && Stamina.get_value() > 10:
 			_vel.y = jump_speed
+	
 	
 	_vel.y += gravity * delta
 	
@@ -61,23 +91,23 @@ func _physics_process(delta: float):
 	_dir += basis.x * input.x
 	_dir = _dir.normalized()
 	
-	var acc = _vel.linear_interpolate(_dir * walk_speed, acceleration_speed * delta)
+	
+	var acc = _vel.linear_interpolate(_dir * UsedSpeed, acceleration_speed * delta)
+	
+	var was_on_floor = is_on_floor()
+	
 	_vel = move_and_slide(Vector3(acc.x, _vel.y, acc.z), Vector3.UP)
 	
-	# If moving play head bob animation
-	if _dir != Vector3() && EnabledWalking && sprinting:
-		PlayerAnim.playback_speed = 1.25
-		PlayerAnim.play("Head Bob")
-	elif _dir != Vector3() && EnabledWalking:
-		PlayerAnim.play("Head Bob")
-		PlayerAnim.playback_speed = 1
+	if was_on_floor && !is_on_floor():
+		Coyote.start()
 	
-	if (Health.value <= 0):
-		_die()
-
+	# If moving play head bob animation
+	if _dir != Vector3():
+		PlayerAnim.playback_speed = bob_speed
+		PlayerAnim.play("Head Bob")
 
 func _on_PlayerArea_area_entered(area):
-	Area2 = area.name.rstrip("0123456789")
+	var Area2 = area.name.rstrip("0123456789")
 	match Area2:
 		"GhostArea":
 			_hurt("ghost")
@@ -94,17 +124,13 @@ func _on_PlayerArea_area_entered(area):
 		"ShopStep":
 			StepPlayer.stream = load(FootStepList[3])
 		"AcidArea":
-			EnabledWalking = 0
-			jump_speed = 0
-			walk_speed = 0
+			state = DEAD
 			PlayerAnim.play("acid_death", -2.0)
 			print("Acid")
 
 func _die():
-	EnabledWalking = 0
+	state = DEAD
 	PlayerAnim.play("die")
-	jump_speed = 0
-	walk_speed = 0
 	SaveGame.game_data.Deaths += 1
 
 func _hurt(source):

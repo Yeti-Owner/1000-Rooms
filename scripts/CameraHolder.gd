@@ -14,7 +14,7 @@ onready var LightMesh := get_parent().get_node("Light/Flashlight")
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 # warning-ignore:return_value_discarded
-	connect(Settingsholder.sens_changed, self, "_update_sens")
+	Settingsholder.connect("sens_changed", self, "_update_sens")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
