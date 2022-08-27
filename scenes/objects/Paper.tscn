@@ -44,7 +44,8 @@ radius = 1.9
 points = PoolVector3Array( 10.4979, 0.05, 14.85, 10.4979, -0.05, 14.85, 10.4979, 0.05, -14.85, -10.5, 0.05, 14.85, -10.5, -0.05, 14.85, 10.4979, -0.05, -14.85, -10.5, 0.05, -14.85, -10.5, -0.05, -14.85 )
 
 [node name="Paper" type="StaticBody"]
-collision_layer = 3
+collision_layer = 2
+collision_mask = 0
 script = ExtResource( 8 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]

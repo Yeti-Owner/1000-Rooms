@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenes/audio/MusicPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scripts/Achievements.gd" type="Script" id=14]
 [ext_resource path="res://scenes/AchievementRenderer.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/VersionChecker.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -583,6 +584,8 @@ margin_left = -40.0
 margin_top = -20.0
 margin_bottom = 20.0
 text = ">"
+
+[node name="VersionChecker" parent="Fader/Menu" instance=ExtResource( 16 )]
 
 [node name="console" parent="." instance=ExtResource( 9 )]
 visible = false
