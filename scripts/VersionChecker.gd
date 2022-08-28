@@ -65,6 +65,7 @@ func _compare_version(new_version):
 		Settingsholder.Fullscreen = 0
 		yield(get_tree(), "idle_frame")
 		yield(get_tree(), "idle_frame")
+		yield(get_tree(), "idle_frame")
 		var dir = Directory.new()
 		dir.remove(version_path)
 		OS.alert("You appear to be running an outdated version, you can install the latest version on itch: https://yetiowner.itch.io/1000-rooms this warning will only appear once per update.", "Outdated Version")

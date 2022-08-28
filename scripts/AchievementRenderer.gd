@@ -37,7 +37,7 @@ func _process(_delta):
 		2:
 			# Badenov Award
 			if AchievementsHolder.game_data.Badenov == 0:
-				Text.text = "The Cole Badenov achievement, get it by finding the hidden Beanie."
+				Text.text = "Placeholder." #"The Cole Badenov achievement, get it by finding the hidden Beanie."
 			else:
 				Text.text = "The Cole Badenov achievement, sick looking beanie tbh."
 			CurrentPos = Cam.global_transform.origin
@@ -77,7 +77,7 @@ func _process(_delta):
 		7:
 			# Shai Award
 			if AchievementsHolder.game_data.Shai == 0:
-				Text.text = "The Shai achievement, get it by finding the Lin Fei poster."
+				Text.text = "Placeholder." #"The Shai achievement, get it by finding the Lin Fei poster."
 			else:
 				Text.text = "The Shai achievement, Peak."
 			CurrentPos = Cam.global_transform.origin

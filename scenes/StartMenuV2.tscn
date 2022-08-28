@@ -510,8 +510,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 65.0
 custom_fonts/font = SubResource( 9 )
-text = "- Ambient Audio system
-- More games for the arcade + leaderboards
+text = "- More games for the arcade + leaderboards
 - 100 more rooms(?)
 - 2 new monsters
 - More Lore

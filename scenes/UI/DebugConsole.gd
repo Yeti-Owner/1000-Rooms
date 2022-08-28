@@ -19,7 +19,7 @@ func _unhandled_input(event):
 func _on_console_text_entered(cmd):
 	cmd = cmd.split(" ")
 	match cmd[0]:
-		"W":
+		"UI":
 			match cmd[1]:
 				"print":
 					print(cmd[2])
@@ -51,10 +51,7 @@ func _on_console_text_entered(cmd):
 					get_node("/root/world/Fader/Player").transform.origin = Vector3(81.7,5.8,-28)
 					self.set_visible(false)
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-				"Noto":
-					var _error = get_tree().change_scene("res://scenes/rooms/200/room50.tscn")
-				"Noto2":
-					get_node("/root/world/Fader/Player").transform.origin = Vector3(68.3,0.8,-11)
+
 		"close":
 			self.set_visible(false)
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
