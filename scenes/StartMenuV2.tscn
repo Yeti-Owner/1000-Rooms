@@ -462,7 +462,7 @@ anchor_right = 1.0
 margin_top = 10.0
 margin_bottom = 61.0
 custom_fonts/font = SubResource( 8 )
-text = "Alpha 1.05"
+text = "Alpha 1.06"
 align = 1
 valign = 1
 
@@ -471,19 +471,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 65.0
 custom_fonts/font = SubResource( 9 )
-text = "- Updated UI's
-- New Vignette System
-- Added 11 new models
-- Fixed Narrator issues
-- Fixed and improved Settings menu
-- More lore
-- Better Movement
-- Tons of performance optimizations
-- Added Flashlight
-- Added an Arcade machine
-- Patched 4 game breaking bugs (oops)
-- Added Achievements
-- And much more you'll have to see yourself!"
+text = "- S"
 align = 1
 
 [node name="Next" type="Tabs" parent="Fader/Menu/VersionDialog/TabContainer"]
@@ -510,14 +498,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 65.0
 custom_fonts/font = SubResource( 9 )
-text = "- More games for the arcade + leaderboards
-- 100 more rooms(?)
-- 2 new monsters
-- More Lore
-- Built-in Speedrun timer
-- Death Screens
-- Shopkeeper(?)
-- A way to leave notes for future players"
+text = "- S"
 align = 1
 
 [node name="CloseBtn" type="Button" parent="Fader/Menu/VersionDialog"]
