@@ -26,6 +26,6 @@ func _add_objs():
 
 func _enable_spikes():
 	for _i in $SpikeHolder.get_children():
-		RNG = randi() % int($SpikeHolder.get_child_count())
+		RNG = randi() % (int($SpikeHolder.get_child_count()) + 2)
 		if RNG != 0:
 			_i.queue_free()

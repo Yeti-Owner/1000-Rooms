@@ -54,7 +54,6 @@ script = ExtResource( 8 )
 [node name="Fader" parent="." instance=ExtResource( 4 )]
 
 [node name="GUI" parent="Fader" instance=ExtResource( 16 )]
-pause_mode = 2
 
 [node name="Player" parent="Fader" instance=ExtResource( 3 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.7, 0.6 )
