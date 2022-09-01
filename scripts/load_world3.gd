@@ -1,10 +1,13 @@
 extends Spatial
 
+export(NodePath) onready var Removable
+
 onready var fader = $Fader
 onready var Narrator = $Narrator
 onready var _room = self.filename
 var RNG
 var RNG2
+var RemovableList = ["Good job","Congrats","Well Done","I knew you could do it","You could've done it faster","Lets not waste any more time"]
 
 func _ready():
 	randomize()
@@ -29,3 +32,7 @@ func _enable_spikes():
 		RNG = randi() % (int($SpikeHolder.get_child_count()) + 2)
 		if RNG != 0:
 			_i.queue_free()
+
+func _lights_complete():
+	Removable.queue_free()
+	Narrator.messages = [RemovableList[randi() % RemovableList.size()]]
