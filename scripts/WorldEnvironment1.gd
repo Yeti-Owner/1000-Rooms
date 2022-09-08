@@ -8,6 +8,7 @@ func _ready():
 # warning-ignore:return_value_discarded
 	Settingsholder.connect("brightness_changed", self, "_brightness")
 
+
 func _bloom():
 	if (Settingsholder.BloomSet):
 		environment.set_glow_bloom(0.75)
