@@ -17,4 +17,5 @@ func get_interaction_text():
 	return "Press E to touch"
 
 func interact():
+	self.queue_free()
 	emit_signal("LightCollected")

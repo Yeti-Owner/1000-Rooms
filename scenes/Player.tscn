@@ -286,7 +286,7 @@ current = true
 
 [node name="InteractionRay" type="RayCast" parent="CameraHolder/Camera"]
 enabled = true
-cast_to = Vector3( 0, 0, -1.4 )
+cast_to = Vector3( 0, 0, -1.5 )
 collision_mask = 2
 script = ExtResource( 3 )
 

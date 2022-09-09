@@ -15,6 +15,5 @@ func _ready():
 
 func _light_collected():
 	Amount -= 1
-	print(str(Amount))
 	if Amount <= 0:
-		pass
+		get_parent()._lights_complete()

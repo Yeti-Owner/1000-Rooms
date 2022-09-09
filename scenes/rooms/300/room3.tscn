@@ -62,12 +62,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -31 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, -31 )
 
 [node name="LightHandler" parent="." instance=ExtResource( 11 )]
+Amount = 4
 
 [node name="Light" parent="LightHandler" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 1.5, -5.8 )
 
 [node name="Light2" parent="LightHandler" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 1.5, -9.8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9, 1.5, -9.8 )
 
 [node name="Light3" parent="LightHandler" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 1.5, -13.3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 3.9, -18.1 )
+
+[node name="Light4" parent="LightHandler" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9, 2.9, -16.5 )
+
+[node name="Light5" parent="LightHandler" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2.4, -29.8 )
+
+[node name="Light6" parent="LightHandler" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.3, -29.8 )

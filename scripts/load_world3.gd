@@ -34,5 +34,6 @@ func _enable_spikes():
 			_i.queue_free()
 
 func _lights_complete():
-	Removable.queue_free()
+	get_node(Removable).queue_free()
 	Narrator.messages = [RemovableList[randi() % RemovableList.size()]]
+	Narrator.start_dialogue()
