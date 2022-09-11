@@ -466,10 +466,20 @@ text = "Alpha 1.06"
 align = 1
 valign = 1
 
-[node name="Info" type="Label" parent="Fader/Menu/VersionDialog/TabContainer/Current"]
+[node name="InfoContainer" type="ScrollContainer" parent="Fader/Menu/VersionDialog/TabContainer/Current"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 65.0
+
+[node name="Control" type="Control" parent="Fader/Menu/VersionDialog/TabContainer/Current/InfoContainer"]
+margin_right = 698.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 698, 308 )
+
+[node name="Info" type="Label" parent="Fader/Menu/VersionDialog/TabContainer/Current/InfoContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -65.0
 custom_fonts/font = SubResource( 9 )
 text = "- Added 100 more Rooms"
 align = 1
@@ -493,10 +503,20 @@ text = "Coming Soon(tm)"
 align = 1
 valign = 1
 
-[node name="Info" type="Label" parent="Fader/Menu/VersionDialog/TabContainer/Next"]
+[node name="InfoContainer" type="ScrollContainer" parent="Fader/Menu/VersionDialog/TabContainer/Next"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 65.0
+
+[node name="Control" type="Control" parent="Fader/Menu/VersionDialog/TabContainer/Next/InfoContainer"]
+margin_right = 698.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 698, 308 )
+
+[node name="Info" type="Label" parent="Fader/Menu/VersionDialog/TabContainer/Next/InfoContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -65.0
 custom_fonts/font = SubResource( 9 )
 text = "- S"
 align = 1
