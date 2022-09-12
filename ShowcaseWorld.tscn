@@ -39,9 +39,6 @@ EnemyAllowed = false
 
 [node name="GUI" parent="Fader" instance=ExtResource( 7 )]
 
-[node name="Player" parent="Fader" instance=ExtResource( 2 )]
-transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -15.3208, 0.9, -7.59959e-07 )
-
 [node name="SavePentagram" parent="Fader" instance=ExtResource( 4 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 4, 0.01, 4 )
 
@@ -88,6 +85,9 @@ shape = SubResource( 2 )
 
 [node name="GameConsole" parent="Fader" instance=ExtResource( 21 )]
 transform = Transform( 0.4, 0, -4.44089e-14, 0, 0.4, 0, 4.44089e-14, 0, 0.4, -17.4, 0.855, 0 )
+
+[node name="Player" parent="Fader" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.9, 0 )
 
 [node name="console" parent="." instance=ExtResource( 10 )]
 
