@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/objects/doors/Pipe.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/doors/PipeClosed.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/enemies/Spike.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Gridmaps/GridMap3.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/objects/NonFunctionals/Barrel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/objects/NonFunctionals/Carpet.tscn" type="PackedScene" id=9]
@@ -14,18 +13,6 @@
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/WorldEnvironment3.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scripts/load_world3.gd" type="Script" id=16]
-
-[sub_resource type="Curve3D" id=1]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4, 1, -2, 0, 0, 0, 0, 0, 0, -4, 1, -10, 0, 0, 0, 0, 0, 0, -16, 1, -10, 0, 0, 0, 0, 0, 0, -18, 1, -16 ),
-"tilts": PoolRealArray( 0, 0, 0, 0 )
-}
-
-[sub_resource type="Curve3D" id=2]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 4, 2, -10, 0, 0, 0, 0, 0, 0, 3, 1, -15, 0, 0, 0, 0, 0, 0, 0, 2, -17, 0, 0, 0, 0, 0, 0, -10, 1, -18, 0, 0, 0, 0, 0, 0, -12, 2, -23 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
-}
 
 [node name="world" type="Spatial"]
 script = ExtResource( 16 )
@@ -55,20 +42,6 @@ __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, -1, 0 )
 }
-
-[node name="SpikeHolder" type="Spatial" parent="."]
-
-[node name="Path1" type="Path" parent="SpikeHolder"]
-curve = SubResource( 1 )
-
-[node name="SpikeMover" parent="SpikeHolder/Path1" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -2 )
-
-[node name="Path2" type="Path" parent="SpikeHolder"]
-curve = SubResource( 2 )
-
-[node name="SpikeMover" parent="SpikeHolder/Path2" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -10 )
 
 [node name="Objs" type="Spatial" parent="."]
 
