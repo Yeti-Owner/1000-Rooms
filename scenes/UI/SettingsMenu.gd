@@ -130,8 +130,16 @@ func _on_ClearSaveBtn_pressed():
 	Settingsholder._save()
 	get_tree().quit()
 
+# Set settings to defaults
 func _on_DefaultBtn_pressed():
 	ClickPlayer._click_sound()
 	Settingsholder._default()
 	_ready()
 	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/DefaultBtn.pressed = false
+
+
+# GAMEPLAY SETTINGS
+
+func _on_FXAACheck_pressed():
+	ClickPlayer._click_sound()
+	pass # Replace with function body.

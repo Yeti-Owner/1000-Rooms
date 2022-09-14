@@ -3,7 +3,6 @@ extends Node
 var file = File.new()
 var save_settings = "user://settings.dat"
 
-
 var ShowFps = 0
 var MouseSensitivity = 18
 var PlayerFOV = 70
@@ -16,6 +15,9 @@ var MusicVolume = 50
 var SfxVolume = 50
 var Intro = 0
 var Fullscreen = 0
+var FXAA
+var MSAA
+var ResolutionScale
 
 # Signals
 # warning-ignore:unused_signal
