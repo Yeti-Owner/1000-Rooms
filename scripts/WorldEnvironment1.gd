@@ -1,6 +1,6 @@
 extends WorldEnvironment
 
-var UsableBrightness = float(Settingsholder.Brightness)/10
+var UsableBrightness = float(Settingsholder.save_data.Brightness)/10
 
 func _ready():
 # warning-ignore:return_value_discarded
@@ -11,7 +11,7 @@ func _ready():
 	_bloom()
 
 func _bloom():
-	if (Settingsholder.BloomSet):
+	if (Settingsholder.save_data.BloomSet):
 		environment.set_glow_bloom(0.75)
 		environment.glow_bicubic_upscale = true
 		environment.glow_high_quality = true
@@ -21,5 +21,5 @@ func _bloom():
 		environment.glow_high_quality = false
 
 func _brightness():
-	UsableBrightness = float(Settingsholder.Brightness)/10
+	UsableBrightness = float(Settingsholder.save_data.Brightness)/10
 	environment.set_adjustment_brightness(UsableBrightness)

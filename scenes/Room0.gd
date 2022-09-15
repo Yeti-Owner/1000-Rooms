@@ -4,7 +4,7 @@ var Prompt = 0
 func _ready():
 	$CustomFader/PromptText.visible = false
 	$IntroAnim.play("Drag")
-	Settingsholder.Intro = 1
+	Settingsholder.save_data.Intro = 1
 
 func _on_IntroAnim_animation_finished(anim_name):
 	match anim_name:
