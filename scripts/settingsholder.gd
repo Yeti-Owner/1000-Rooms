@@ -20,7 +20,8 @@ var save_data = {
 	"FXAA" : 0,
 	"MSAA" : 0,
 	"ResolutionText" : "1080p",
-	"ResolutionScale" : 6
+	"ResolutionScale" : 6,
+	"QualityBloom" : 0
 }
 
 # Signals
@@ -34,6 +35,8 @@ signal fps_changed
 signal fov_changed
 # warning-ignore:unused_signal
 signal sens_changed
+# warning-ignore:unused_signal
+signal quality_bloom_changed
 
 # Check saved data
 func _ready():
@@ -70,6 +73,7 @@ func _default():
 	"FXAA" : 0,
 	"MSAA" : 0,
 	"ResolutionText" : "1080p",
-	"ResolutionScale" : 6
+	"ResolutionScale" : 6,
+	"QualityBloom" : 0
 	}
 	_save()

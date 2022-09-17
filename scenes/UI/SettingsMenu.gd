@@ -24,6 +24,7 @@ onready var FXAABtn = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/FX
 onready var MSAAOption = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA/MSAAOptions
 onready var ScaleText = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ScaleText
 onready var ScaleSlider = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ResolutionScale
+onready var QualBloomBtn = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom/QualBloomCheck
 
 func _ready():
 	# Set FPS to correct value
@@ -51,6 +52,7 @@ func _ready():
 	MSAAOption.selected = Settingsholder.save_data.MSAA
 	ScaleText.text = Settingsholder.save_data.ResolutionText
 	ScaleSlider.value = Settingsholder.save_data.ResolutionScale
+	QualBloomBtn.set_pressed_no_signal(Settingsholder.save_data.QualityBloom)
 	
 	_viewport_settings()
 
@@ -125,8 +127,13 @@ func _on_FovSlider_value_changed(CurrentFov):
 # Enable/Disable Bloom
 func _on_BloomCheckBtn_pressed():
 	Settingsholder.save_data.BloomSet = !Settingsholder.save_data.BloomSet
+	if !(Settingsholder.save_data.BloomSet):
+		Settingsholder.save_data.QualityBloom = 0
+		Settingsholder.emit_signal("quality_bloom_changed")
+		QualBloomBtn.set_pressed_no_signal(Settingsholder.save_data.QualityBloom)
 	Settingsholder.emit_signal("bloom_changed")
 	ClickPlayer._click_sound()
+	QualBloomBtn.set_pressed_no_signal(Settingsholder.save_data.QualityBloom)
 
 # Adjust Brightness
 func _on_BrightnessSlider_value_changed(CurrentBrightness):
@@ -202,3 +209,12 @@ func _on_ResolutionScale_value_changed(value):
 		Settingsholder.save_data.ResolutionText = "1440p"
 	ScaleText.text = Settingsholder.save_data.ResolutionText
 	_viewport_settings()
+
+func _on_QualBloomCheck_pressed():
+	Settingsholder.save_data.QualityBloom = !Settingsholder.save_data.QualityBloom
+	if (Settingsholder.save_data.QualityBloom):
+		Settingsholder.save_data.BloomSet = 1
+		BloomCheckBtn.set_pressed_no_signal(Settingsholder.save_data.BloomSet)
+	ClickPlayer._click_sound()
+	BloomCheckBtn.set_pressed_no_signal(Settingsholder.save_data.BloomSet)
+	Settingsholder.emit_signal("quality_bloom_changed")

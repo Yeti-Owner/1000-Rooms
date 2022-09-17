@@ -53,6 +53,7 @@ custom_fonts/font = SubResource( 1 )
 tab_align = 0
 
 [node name="Video" type="Tabs" parent="SettingsTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -394,7 +395,6 @@ margin_bottom = 163.0
 size_flags_horizontal = 10
 
 [node name="Graphics" type="Tabs" parent="SettingsTabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -497,6 +497,26 @@ size_flags_horizontal = 3
 max_value = 7.0
 value = 6.0
 
+[node name="QualityBloom" type="GridContainer" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings"]
+margin_top = 190.0
+margin_right = 648.0
+margin_bottom = 222.0
+custom_constants/vseparation = 13
+columns = 2
+
+[node name="Label" type="Label" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom"]
+margin_right = 222.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+text = "High Quality Bloom"
+
+[node name="QualBloomCheck" type="CheckButton" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom"]
+margin_left = 614.0
+margin_right = 648.0
+margin_bottom = 32.0
+size_flags_horizontal = 10
+custom_fonts/font = SubResource( 2 )
+
 [node name="ClickPlayer" parent="." instance=ExtResource( 4 )]
 
 [connection signal="tab_changed" from="SettingsTabs" to="." method="_on_SettingsTabs_tab_changed"]
@@ -516,3 +536,4 @@ value = 6.0
 [connection signal="pressed" from="SettingsTabs/Graphics/MarginContainer/GameplaySettings/FXAA/FXAACheck" to="." method="_on_FXAACheck_pressed"]
 [connection signal="item_selected" from="SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA/MSAAOptions" to="." method="_on_MSAAOptions_item_selected"]
 [connection signal="value_changed" from="SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ResolutionScale" to="." method="_on_ResolutionScale_value_changed"]
+[connection signal="pressed" from="SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom/QualBloomCheck" to="." method="_on_QualBloomCheck_pressed"]
