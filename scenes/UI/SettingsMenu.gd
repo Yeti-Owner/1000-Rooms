@@ -20,6 +20,10 @@ onready var MusicVol = $SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVo
 onready var SfxVol = $SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider
 onready var ClickPlayer = $ClickPlayer
 onready var FullScreenOption = $SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn
+onready var FXAABtn = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/FXAA/FXAACheck
+onready var MSAAOption = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA/MSAAOptions
+onready var ScaleText = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ScaleText
+onready var ScaleSlider = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ResolutionScale
 
 func _ready():
 	# Set FPS to correct value
@@ -43,6 +47,34 @@ func _ready():
 	MusicVol.set_value(Settingsholder.save_data.MusicVolume)
 	SfxVol.set_value(Settingsholder.save_data.SfxVolume)
 	FullScreenOption.selected = Settingsholder.save_data.Fullscreen
+	FXAABtn.pressed = Settingsholder.save_data.FXAA
+	MSAAOption.selected = Settingsholder.save_data.MSAA
+	ScaleText.text = Settingsholder.save_data.ResolutionText
+	ScaleSlider.value = Settingsholder.save_data.ResolutionScale
+	
+	_viewport_settings()
+
+func _viewport_settings():
+	get_viewport().fxaa = Settingsholder.save_data.FXAA
+	get_viewport().set_msaa(Settingsholder.save_data.MSAA)
+	
+#	print(Settingsholder.save_data.ResolutionScale)
+	if Settingsholder.save_data.ResolutionScale == 0:
+		get_viewport().set_size(Vector2(848,480))
+	elif Settingsholder.save_data.ResolutionScale == 1:
+		get_viewport().set_size(Vector2(960,540))
+	elif Settingsholder.save_data.ResolutionScale == 2:
+		get_viewport().set_size(Vector2(1024,576))
+	elif Settingsholder.save_data.ResolutionScale == 3:
+		get_viewport().set_size(Vector2(1280,720))
+	elif Settingsholder.save_data.ResolutionScale == 4:
+		get_viewport().set_size(Vector2(1366,768))
+	elif Settingsholder.save_data.ResolutionScale == 5:
+		get_viewport().set_size(Vector2(1600,900))
+	elif Settingsholder.save_data.ResolutionScale == 6:
+		get_viewport().set_size(Vector2(1920,1080))
+	elif Settingsholder.save_data.ResolutionScale == 7:
+		get_viewport().set_size(Vector2(2560,1440))
 
 # Windowed/Fullscreen option
 func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
@@ -142,4 +174,31 @@ func _on_DefaultBtn_pressed():
 
 func _on_FXAACheck_pressed():
 	ClickPlayer._click_sound()
-	pass # Replace with function body.
+	Settingsholder.save_data.FXAA = !Settingsholder.save_data.FXAA
+	_viewport_settings()
+
+func _on_MSAAOptions_item_selected(index):
+	ClickPlayer._click_sound()
+	Settingsholder.save_data.MSAA = index
+	_viewport_settings()
+
+func _on_ResolutionScale_value_changed(value):
+	Settingsholder.save_data.ResolutionScale = value
+	if value == 0:
+		Settingsholder.save_data.ResolutionText = "480p"
+	elif value == 1:
+		Settingsholder.save_data.ResolutionText = "540p"
+	elif value == 2:
+		Settingsholder.save_data.ResolutionText = "576p"
+	elif value == 3:
+		Settingsholder.save_data.ResolutionText = "720p"
+	elif value == 4:
+		Settingsholder.save_data.ResolutionText = "768p"
+	elif value == 5:
+		Settingsholder.save_data.ResolutionText = "900p"
+	elif value == 6:
+		Settingsholder.save_data.ResolutionText = "1080p"
+	elif value == 7:
+		Settingsholder.save_data.ResolutionText = "1440p"
+	ScaleText.text = Settingsholder.save_data.ResolutionText
+	_viewport_settings()

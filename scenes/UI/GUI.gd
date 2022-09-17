@@ -35,7 +35,7 @@ func _on_UpdateTimer_timeout():
 
 func _update_vals():
 	# Show FPS if enabled
-	if Settingsholder.ShowFps:
+	if Settingsholder.save_data.ShowFps:
 		$MarginContainer.set_visible(true)
 		FpsCounter.text = str("Fps: " + str(Performance.get_monitor(Performance.TIME_FPS)))
 	else:

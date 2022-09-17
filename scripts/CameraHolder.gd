@@ -1,6 +1,6 @@
 extends Spatial
 
-var mouse_sensitivity = float(Settingsholder.MouseSensitivity)/100
+var mouse_sensitivity = float(Settingsholder.save_data.MouseSensitivity)/100
 var light_speed := 15.0
 
 onready var _camera := $Camera
@@ -40,4 +40,4 @@ func _on_Timer_timeout():
 	tween.start()
 
 func _update_sens():
-	mouse_sensitivity = float(Settingsholder.MouseSensitivity)/100
+	mouse_sensitivity = float(Settingsholder.save_data.MouseSensitivity)/100

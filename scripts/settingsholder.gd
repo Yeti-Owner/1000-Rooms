@@ -19,7 +19,8 @@ var save_data = {
 	"Fullscreen" : 0,
 	"FXAA" : 0,
 	"MSAA" : 0,
-	"ResolutionScale" : 0
+	"ResolutionText" : "1080p",
+	"ResolutionScale" : 6
 }
 
 # Signals
@@ -54,20 +55,21 @@ func _load():
 
 func _default():
 	save_data = {
-		"ShowFps" : 0,
-		"MouseSensitivity" : 18,
-		"PlayerFOV" : 70,
-		"FrameRate" : 60,
-		"BloomSet" : 0,
-		"VsyncEnabled" : 0,
-		"Brightness" : 3,
-		"MasterVolume" : 25,
-		"MusicVolume" : 50,
-		"SfxVolume" : 50,
-		"Intro" : 0,
-		"Fullscreen" : 0,
-		"FXAA" : 0,
-		"MSAA" : 0,
-		"ResolutionScale" : 0
+	"ShowFps" : 0,
+	"MouseSensitivity" : 18,
+	"PlayerFOV" : 70,
+	"FrameRate" : 60,
+	"BloomSet" : 0,
+	"VsyncEnabled" : 0,
+	"Brightness" : 3,
+	"MasterVolume" : 25,
+	"MusicVolume" : 50,
+	"SfxVolume" : 50,
+	"Intro" : 0,
+	"Fullscreen" : 0,
+	"FXAA" : 0,
+	"MSAA" : 0,
+	"ResolutionText" : "1080p",
+	"ResolutionScale" : 6
 	}
 	_save()

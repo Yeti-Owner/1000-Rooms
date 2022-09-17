@@ -153,4 +153,4 @@ func _on_PlayerAnims_animation_finished(anim_name):
 		var _error = get_tree().change_scene(SaveGame.game_data.LastCheckPoint)
 
 func _update_fov():
-	$CameraHolder/Camera.set_fov(Settingsholder.PlayerFOV)
+	$CameraHolder/Camera.set_fov(Settingsholder.save_data.PlayerFOV)
