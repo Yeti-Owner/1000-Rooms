@@ -20,7 +20,7 @@ enum {
 var state = WALKING
 
 # References
-onready var _camera := $CameraHolder
+onready var _camera := get_node("%CameraHolder")
 onready var Stamina = get_parent().get_node("GUI/HPandStam/StamBar2")
 onready var StepPlayer = $StepPlayer
 onready var Health = get_parent().get_node("GUI/HPandStam/HpBar2")

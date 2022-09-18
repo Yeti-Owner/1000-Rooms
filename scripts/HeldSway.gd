@@ -20,3 +20,7 @@ func _process(delta):
 			rotation = rotation.linear_interpolate(sway_right, sway_lerp * delta)
 		else:
 			rotation = rotation.linear_interpolate(sway_normal, sway_lerp * delta)
+
+func _on_Timer_timeout():
+	if get_child_count() == 1:
+		self.queue_free()

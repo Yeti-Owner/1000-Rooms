@@ -485,7 +485,8 @@ text = "- Added 100 more Rooms!
 - Added 5+ new textures
 - Added 10+ new Models
 - Added 1 new enemies
-"
+- MASSIVELY overhauled Graphics
+- Updated Settings"
 align = 1
 
 [node name="Next" type="Tabs" parent="Fader/Menu/VersionDialog/TabContainer"]

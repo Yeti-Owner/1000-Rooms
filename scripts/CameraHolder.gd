@@ -4,12 +4,12 @@ var mouse_sensitivity = float(Settingsholder.save_data.MouseSensitivity)/100
 var light_speed := 15.0
 
 onready var _camera := $Camera
-onready var light := get_parent().get_node("Light")
-onready var tween := get_parent().get_node("LightTween")
-onready var LightCast := get_parent().get_node("Light/LightCast")
-onready var LightCast2 := get_parent().get_node("Light/LightCast2")
-onready var LightCast3 := get_parent().get_node("Light/LightCast3")
-onready var LightMesh := get_parent().get_node("Light/Flashlight")
+onready var light := get_node("%Light")
+onready var tween := get_node("%LightTween")
+onready var LightCast := get_node("%LightCast")
+onready var LightCast2 := get_node("%LightCast2")
+onready var LightCast3 := get_node("%LightCast3")
+onready var LightMesh := get_node("%Flashlight")
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
