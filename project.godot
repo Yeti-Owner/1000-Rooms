@@ -123,7 +123,7 @@ _global_script_class_icons={
 [application]
 
 config/name="1000-Rooms"
-run/main_scene="res://scenes/StartMenuV2.tscn"
+run/main_scene="res://scenes/FirstScene.tscn"
 boot_splash/image="res://assets/ExportData/NiceYetiPic.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
@@ -136,6 +136,7 @@ RoomLoader="*res://scripts/RoomLoader.gd"
 SaveGame="*res://scripts/save_game.gd"
 AchievementsHolder="*res://scripts/AchievementsHolder.gd"
 Discord="*res://addons/discord_game_sdk/discord.gd"
+SceneManager="*res://scenes/SceneManager.tscn"
 
 [display]
 

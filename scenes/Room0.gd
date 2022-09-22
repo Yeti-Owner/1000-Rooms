@@ -4,7 +4,6 @@ var Prompt = 0
 func _ready():
 	$CustomFader/PromptText.visible = false
 	$IntroAnim.play("Drag")
-	Settingsholder.save_data.Intro = 1
 
 func _on_IntroAnim_animation_finished(anim_name):
 	match anim_name:
@@ -16,7 +15,8 @@ func _on_IntroAnim_animation_finished(anim_name):
 			$CustomFader/PromptText.text = "Hurry! Press E to enter"
 			Prompt = 2
 		"Enter":
-			var _error = get_tree().change_scene("res://scenes/StartMenuV2.tscn")
+				Settingsholder.save_data.Intro = 1
+				SceneManager._change_scene("res://scenes/StartMenuV2.tscn")
 		"Blink":
 			$IntroAnim.play("Intro")
 
