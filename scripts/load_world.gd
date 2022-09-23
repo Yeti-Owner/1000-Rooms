@@ -2,7 +2,6 @@ extends Spatial
 
 export(bool) var EnemyAllowed = true
 
-onready var fader = $Fader
 onready var Narrator = $Narrator
 onready var Objs = $Objs
 onready var _room = self.filename
@@ -12,7 +11,6 @@ func _ready():
 	randomize()
 	_add_objs()
 	SaveGame.game_data.CurrentRoom = _room
-	fader._fade_in()
 	_check_room()
 	SaveGame._update_presence()
 	_summon_enemy()

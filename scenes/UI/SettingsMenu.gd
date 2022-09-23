@@ -57,26 +57,26 @@ func _ready():
 	_viewport_settings()
 
 func _viewport_settings():
-	get_viewport().fxaa = Settingsholder.save_data.FXAA
-	get_viewport().set_msaa(Settingsholder.save_data.MSAA)
+	get_node("/root/SceneManager/GameScene/GameViewport").fxaa = Settingsholder.save_data.FXAA
+	get_node("/root/SceneManager/GameScene/GameViewport").set_msaa(Settingsholder.save_data.MSAA)
 	
 #	print(Settingsholder.save_data.ResolutionScale)
 	if Settingsholder.save_data.ResolutionScale == 0:
-		get_viewport().set_size(Vector2(848,480))
+		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(848,480))
 	elif Settingsholder.save_data.ResolutionScale == 1:
-		get_viewport().set_size(Vector2(960,540))
+		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(960,540))
 	elif Settingsholder.save_data.ResolutionScale == 2:
-		get_viewport().set_size(Vector2(1024,576))
+		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1024,576))
 	elif Settingsholder.save_data.ResolutionScale == 3:
-		get_viewport().set_size(Vector2(1280,720))
+		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1280,720))
 	elif Settingsholder.save_data.ResolutionScale == 4:
-		get_viewport().set_size(Vector2(1366,768))
+		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1366,768))
 	elif Settingsholder.save_data.ResolutionScale == 5:
-		get_viewport().set_size(Vector2(1600,900))
+		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1600,900))
 	elif Settingsholder.save_data.ResolutionScale == 6:
-		get_viewport().set_size(Vector2(1920,1080))
+		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1920,1080))
 	elif Settingsholder.save_data.ResolutionScale == 7:
-		get_viewport().set_size(Vector2(2560,1440))
+		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(2560,1440))
 
 # Windowed/Fullscreen option
 func _on_DisplayOptionBtn_item_selected(FullScreenIndex):

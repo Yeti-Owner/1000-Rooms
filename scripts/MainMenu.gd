@@ -6,11 +6,14 @@ onready var MusicPlayer = get_parent().get_node("MusicPlayer")
 func _ready():
 	SaveGame._update_presence()
 	$VersionChecker._start()
+	SceneManager.HudMode = "none"
 
 func _on_StartBtn_pressed():
+	$Timer.start()
 	MusicPlayer._music_transition()
 	ClickPlayer._click_sound()
 	SceneManager._change_scene(SaveGame.game_data.CurrentRoom)
+#	SceneManager.HudMode = "ingame"
 
 func _on_OptionsBtn_pressed():
 	ClickPlayer._click_sound()
@@ -38,3 +41,6 @@ func _on_CloseBtn_pressed():
 
 func _on_FeedbackBtn_pressed():
 	var _error = OS.shell_open("https://forms.gle/FtncNqYqHXxhzjqg7")
+
+func _on_Timer_timeout():
+	SceneManager.HudMode = "ingame"

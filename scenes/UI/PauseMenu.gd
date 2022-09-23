@@ -37,4 +37,4 @@ func _on_StartMenuBtn_pressed():
 	ClickPlayer._click_sound()
 	self.isPaused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	var _error = get_tree().change_scene("res://scenes/StartMenuV2.tscn")
+	SceneManager._change_scene("res://scenes/StartMenuV2.tscn")

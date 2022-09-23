@@ -2,12 +2,12 @@ extends RayCast
 
 var current_collider
 
-onready var interaction_label = get_node("/root/world/Fader/GUI/InteractLabel")
-onready var interaction_hand = get_node("/root/world/Fader/GUI/hand/handpng")
+onready var interaction_label = get_node("/root/SceneManager/GameScene/HUD/GUI/InteractLabel")
+onready var interaction_hand = get_node("/root/SceneManager/GameScene/HUD/GUI/hand/handpng")
 
-func _ready():
-	interaction_hand.visible = false
-	set_interaction_text("")
+#func _ready():
+#	interaction_hand.visible = false
+#	set_interaction_text("")
 
 func _process(_delta):
 	var collider = get_collider()

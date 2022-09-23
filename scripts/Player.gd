@@ -19,11 +19,10 @@ enum {
 }
 var state = WALKING
 
-# References
 onready var _camera := get_node("%CameraHolder")
-onready var Stamina = get_parent().get_node("GUI/HPandStam/StamBar2")
+onready var Stamina = get_node("/root/SceneManager/GameScene/HUD/GUI/HPandStam/StamBar2")
 onready var StepPlayer = $StepPlayer
-onready var Health = get_parent().get_node("GUI/HPandStam/HpBar2")
+onready var Health = get_node("/root/SceneManager/GameScene/HUD/GUI/HPandStam/HpBar2")
 onready var PlayerAnim = $PlayerAnims
 onready var HurtAnims = $HurtPlayer
 onready var Coyote = $CoyoteTimer

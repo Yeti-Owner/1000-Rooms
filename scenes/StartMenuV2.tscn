@@ -589,8 +589,13 @@ text = ">"
 
 [node name="VersionChecker" parent="Menu" instance=ExtResource( 16 )]
 
+[node name="Timer" type="Timer" parent="Menu"]
+wait_time = 0.99
+one_shot = true
+
 [node name="console" parent="." instance=ExtResource( 9 )]
 visible = false
+margin_bottom = 21.0
 
 [node name="ScarePlayer" parent="." instance=ExtResource( 10 )]
 
@@ -609,3 +614,4 @@ visible = false
 [connection signal="pressed" from="Menu/Achievements/CloseBtn" to="Menu/Achievements" method="_on_CloseBtn_pressed"]
 [connection signal="pressed" from="Menu/Achievements/LeftBtn" to="Menu/Achievements" method="_on_LeftBtn_pressed"]
 [connection signal="pressed" from="Menu/Achievements/RightBtn" to="Menu/Achievements" method="_on_RightBtn_pressed"]
+[connection signal="timeout" from="Menu/Timer" to="Menu" method="_on_Timer_timeout"]

@@ -507,7 +507,7 @@ columns = 2
 margin_right = 222.0
 margin_bottom = 32.0
 custom_fonts/font = SubResource( 2 )
-text = "High Quality Bloom"
+text = "High Quality Lighting"
 
 [node name="QualBloomCheck" type="CheckButton" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom"]
 margin_left = 614.0

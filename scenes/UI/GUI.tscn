@@ -65,7 +65,7 @@ tracks/0/keys = {
 
 [node name="GUI" type="CanvasLayer"]
 pause_mode = 2
-layer = -1
+layer = 0
 script = ExtResource( 3 )
 
 [node name="hand" type="CenterContainer" parent="."]
@@ -73,6 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="handpng" type="TextureRect" parent="hand"]
+visible = false
 margin_left = 621.0
 margin_top = 334.0
 margin_right = 659.0
@@ -86,7 +87,6 @@ anchor_bottom = 0.5
 margin_top = 30.0
 margin_bottom = 62.0
 custom_fonts/font = SubResource( 3 )
-text = "Press E to Interact"
 align = 1
 valign = 1
 
@@ -178,10 +178,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -359.0
-margin_top = 653.5
-margin_right = -120.0
-margin_bottom = 697.5
+margin_left = -239.0
+margin_top = 676.0
+margin_bottom = 720.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="Achievement/AchievementPopup"]
