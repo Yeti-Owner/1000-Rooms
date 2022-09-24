@@ -6,7 +6,7 @@ onready var MusicPlayer = get_parent().get_node("MusicPlayer")
 func _ready():
 	SaveGame._update_presence()
 	$VersionChecker._start()
-	SceneManager.HudMode = "none"
+#	SceneManager.HudMode = "none"
 
 func _on_StartBtn_pressed():
 	$Timer.start()

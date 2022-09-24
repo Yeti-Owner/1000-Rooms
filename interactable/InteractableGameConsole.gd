@@ -17,7 +17,7 @@ var Interacted = 0
 var Stage = 0
 onready var GameRot = $Position3D.global_transform.basis
 onready var TestRotation = $RotationPos.global_transform.basis
-onready var world = get_node("/root/world")
+onready var world = get_node("/root/SceneManager/GameScene/GameViewport/world")
 
 # PlayerVars
 var CamLoc
@@ -35,9 +35,9 @@ func interact():
 		Interacted = 1
 		
 		# Manage Vars
-		Player = get_node("/root/world/Fader/Player")
-		PlayerCam = get_node("/root/world/Fader/Player/CameraHolder/Camera")
-		GUI = get_node("/root/world/Fader/GUI")
+		Player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
+		PlayerCam = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player/CameraHolder/Camera")
+		GUI = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/GUI")
 		NewCam = Camera.new()
 		Menu = $ViewportManager/Viewport/Menu
 		
@@ -76,8 +76,8 @@ func _on_PlayerCamera_tween_completed(_object, _key):
 		# Re-add GUI and Player
 		var NewPlayer = PlayerScene.instance()
 		var NewGUI = GUIScene.instance()
-		get_node("/root/world/Fader").add_child(NewGUI)
-		get_node("/root/world/Fader").add_child(NewPlayer)
+		get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems").add_child(NewGUI)
+		get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems").add_child(NewPlayer)
 		NewCam.queue_free()
 		NewPlayer.global_transform.origin = PlayerLoc
 		NewPlayer.global_transform.basis = TestRotation

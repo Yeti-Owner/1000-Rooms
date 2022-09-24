@@ -26,7 +26,7 @@ func _on_console_text_entered(cmd):
 					self.set_visible(false)
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				"goto":
-					var _error = get_tree().change_scene(str(cmd[2] + ".tscn"))
+					SceneManager._change_scene(str(cmd[2] + ".tscn"))
 				"room":
 					SaveGame.game_data.RoomNum = int(cmd[2])
 					self.set_visible(false)
@@ -42,13 +42,13 @@ func _on_console_text_entered(cmd):
 				"rc":
 					print(SaveGame.game_data.CurrentRoom)
 				"skip50":
-					get_node("/root/world/Fader/Player").transform.origin = Vector3(0,5.5,-60)
+					get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player").transform.origin = Vector3(0,5.5,-60)
 					self.set_visible(false)
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				"tmp":
-					var _error = get_tree().change_scene("res://ShowcaseWorld.tscn")
+					SceneManager._change_scene("res://ShowcaseWorld.tscn")
 				"skip150":
-					get_node("/root/world/Fader/Player").transform.origin = Vector3(81.7,5.8,-28)
+					get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player").transform.origin = Vector3(81.7,5.8,-28)
 					self.set_visible(false)
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 

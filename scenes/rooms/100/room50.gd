@@ -6,7 +6,7 @@ var RNG
 onready var fader = $Fader
 onready var Narrator = $Narrator
 onready var Monster = $NavMesh/GhostEnemy
-onready var player = get_node("/root/world/Fader/Player")
+onready var player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
 
 
 func _ready():
@@ -76,7 +76,7 @@ func _on_Check5_area_entered(area5):
 	if area5.name == "PlayerArea":
 		Monster.transform.origin = Vector3(0, 1, 4.6)
 		$AreaHolder/Check5.queue_free()
-		Narrator.messages = ["STOP", "STAND STILL","Maybe we lost him?"]
+		Narrator.messages = ["Maybe we lost him?"]
 		Narrator.start_dialogue()
 
 func _on_Check6_area_entered(area6):

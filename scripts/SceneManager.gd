@@ -9,7 +9,7 @@ onready var GameHud = $GameScene/HUD
 
 var SceneToLoad: String
 var CurrentScene
-var HudMode:String = "" setget _init_HUD
+var HudMode:String = "none" setget _init_HUD
 
 func _change_scene(scene):
 	Transitions.play("fade_out")
@@ -30,6 +30,8 @@ func _fade_in():
 	Transitions.play("fade_in")
 
 func _init_HUD(mode):
+	print("called")
+	print(mode)
 	match mode:
 		"none":
 			for child in GameHud.get_children():

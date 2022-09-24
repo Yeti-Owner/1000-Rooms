@@ -1,11 +1,9 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/rooms/100/room50.gd" type="Script" id=8]
 [ext_resource path="res://scenes/objects/Floors Walls Etc/FloorObj1.tscn" type="PackedScene" id=9]
@@ -41,106 +39,107 @@ extents = Vector3( 2.14542, 1.2, 5.10498 )
 script = ExtResource( 8 )
 _room = "res://scenes/rooms/100/room50.tscn"
 
-[node name="Fader" parent="." instance=ExtResource( 3 )]
+[node name="RoomItems" type="Spatial" parent="."]
 
-[node name="GUI" parent="Fader" instance=ExtResource( 6 )]
+[node name="ScarePlayer" parent="RoomItems" instance=ExtResource( 2 )]
 
-[node name="ScarePlayer" parent="Fader" instance=ExtResource( 2 )]
-
-[node name="Player" parent="Fader" instance=ExtResource( 7 )]
+[node name="Player" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.804409, 0.779566, 0 )
 
-[node name="Door2Closed" parent="Fader" instance=ExtResource( 13 )]
+[node name="Door2Closed" parent="RoomItems" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9846, 0, 0 )
+skeleton = NodePath("")
 
-[node name="Medkit" parent="Fader" instance=ExtResource( 15 )]
+[node name="Medkit" parent="RoomItems" instance=ExtResource( 15 )]
 transform = Transform( 0.249567, -0.0147133, 0, 0.0147133, 0.249567, 0, 0, 0, 0.25, -1.83277, 4.00561, -67.5285 )
+skeleton = NodePath("")
 
-[node name="Medkit2" parent="Fader" instance=ExtResource( 15 )]
+[node name="Medkit2" parent="RoomItems" instance=ExtResource( 15 )]
 transform = Transform( -0.0217889, 0, 0.249049, 0.030209, 0.248154, 0.00264295, -0.24721, 0.0303244, -0.0216281, -5.38221, 4.00561, -54.2183 )
+skeleton = NodePath("")
 
-[node name="SavePentagram" parent="Fader" instance=ExtResource( 16 )]
+[node name="SavePentagram" parent="RoomItems" instance=ExtResource( 16 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 7.9, 4.01, -65.8 )
 CurrentPos = Vector3( 7.9, 5, -65.8 )
 
-[node name="Pivot" parent="Fader" instance=ExtResource( 17 )]
+[node name="Pivot" parent="RoomItems" instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.6, 4, -52.0112 )
 
-[node name="plaque" parent="Fader" instance=ExtResource( 18 )]
+[node name="plaque" parent="RoomItems" instance=ExtResource( 18 )]
 transform = Transform( 0.75, 0, -1.50996e-07, 0, 1, 0, -1.13247e-07, 0, -1, 13.0157, 4.8, -70 )
 Text = "Hallway to New Jersey"
 
-[node name="WorldEnvironment1" parent="Fader" instance=ExtResource( 12 )]
+[node name="WorldEnvironment1" parent="RoomItems" instance=ExtResource( 12 )]
 
-[node name="TorchHolder" type="Spatial" parent="Fader"]
+[node name="TorchHolder" type="Spatial" parent="RoomItems"]
 
-[node name="WallTorch" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 1.99854, 1.86986, -13.1 )
 
-[node name="WallTorch2" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch2" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( 6.03983e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, 6.03983e-08, -1.95336, 1.86986, 2.6 )
 
-[node name="WallTorch3" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch3" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 1.99854, 1.86986, -27.7201 )
 
-[node name="WallTorch4" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch4" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, -20.0015, 5.76986, -27.7201 )
 
-[node name="WallTorch5" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch5" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, -20.0015, 5.76986, -42.593 )
 
-[node name="WallTorch6" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch6" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, -20.0015, 5.76986, -60.9201 )
 
-[node name="WallTorch7" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch7" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( 1.04907e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, 1.04907e-07, -4.10146, 5.76986, -65.3201 )
 
-[node name="WallTorch8" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch8" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( 1.04907e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, 1.04907e-07, -4.10146, 5.76986, -57.0201 )
 
-[node name="WallTorch9" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch9" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -1.74846e-07, 0, 0.8, 0, 0.8, 0, -0.8, 0, -1.74846e-07, -2.00146, 5.76986, -57.0201 )
 
-[node name="WallTorch10" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch10" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -1.74846e-07, 0, 0.8, 0, 0.8, 0, -0.8, 0, -1.74846e-07, -2.00146, 5.76986, -65.3201 )
 
-[node name="WallTorch11" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch11" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -12.2015, 5.76986, -68.0201 )
 
-[node name="WallTorch12" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch12" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, -12.2015, 5.76986, -54.0201 )
 
-[node name="WallTorch13" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch13" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( 2.44784e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, 2.44784e-07, 9.99854, 5.76986, -65.3201 )
 
-[node name="WallTorch14" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch14" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( 2.44784e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, 2.44784e-07, 9.99854, 5.76986, -57.0201 )
 
-[node name="WallTorch15" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch15" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( 2.44784e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, 2.44784e-07, 17.9985, 5.76986, -55.3201 )
 
-[node name="WallTorch23" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch23" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -3.21071e-07, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.21071e-07, 12.0244, 5.76986, -55.3201 )
 
-[node name="WallTorch24" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch24" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -3.21071e-07, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.21071e-07, 12.1864, 6.69113, -72.2677 )
 
-[node name="WallTorch17" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch17" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -3.14722e-07, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.14722e-07, -46.0015, 9.76986, -50.2201 )
 
-[node name="WallTorch18" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch18" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -0.8, 0, -3.49691e-07, 0, 0.8, 0, 3.49691e-07, 0, -0.8, -40.7015, 9.76986, -8.0201 )
 
-[node name="WallTorch19" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch19" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -0.8, 0, -3.49691e-07, 0, 0.8, 0, 3.49691e-07, 0, -0.8, 63.6985, 5.06986, -100.02 )
 
-[node name="WallTorch20" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch20" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -0.8, 0, -3.49691e-07, 0, 0.8, 0, 3.49691e-07, 0, -0.8, 38.7985, 5.06986, -100.02 )
 
-[node name="WallTorch21" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch21" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( 0.8, 0, 4.19629e-07, 0, 0.8, 0, -4.19629e-07, 0, 0.8, 63.6984, 5.06986, -125.92 )
 
-[node name="WallTorch22" parent="Fader/TorchHolder" instance=ExtResource( 14 )]
+[node name="WallTorch22" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( 0.8, 0, 4.19629e-07, 0, 0.8, 0, -4.19629e-07, 0, 0.8, 38.7984, 5.06986, -125.92 )
 
 [node name="console" parent="." instance=ExtResource( 1 )]

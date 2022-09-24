@@ -1,15 +1,13 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/objects/signs/JumpScareSign1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/signs/JumpScareSign6.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=13]
@@ -32,66 +30,68 @@ size = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 EnemyAllowed = false
 
-[node name="Fader" parent="." instance=ExtResource( 6 )]
+[node name="RoomItems" type="Spatial" parent="."]
 
-[node name="GUI" parent="Fader" instance=ExtResource( 10 )]
-
-[node name="Player" parent="Fader" instance=ExtResource( 14 )]
+[node name="Player" parent="RoomItems" instance=ExtResource( 14 )]
 transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -9.58464, 0.679, 17.0646 )
 
-[node name="ScarePlayer" parent="Fader" instance=ExtResource( 7 )]
+[node name="ScarePlayer" parent="RoomItems" instance=ExtResource( 7 )]
 
-[node name="Door2Closed" parent="Fader" instance=ExtResource( 4 )]
+[node name="Door2Closed" parent="RoomItems" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.98143, 0, 17.072 )
+skeleton = NodePath("")
 
-[node name="Door2Closed2" parent="Fader" instance=ExtResource( 4 )]
+[node name="Door2Closed2" parent="RoomItems" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.01857, 0, 8.01712 )
+skeleton = NodePath("")
 
-[node name="Door2Closed3" parent="Fader" instance=ExtResource( 4 )]
+[node name="Door2Closed3" parent="RoomItems" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.9918, 0, 25.9845 )
+skeleton = NodePath("")
 
-[node name="Door2Closed4" parent="Fader" instance=ExtResource( 4 )]
+[node name="Door2Closed4" parent="RoomItems" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.9918, 0, 8.02392 )
+skeleton = NodePath("")
 
-[node name="Pivot" parent="Fader" instance=ExtResource( 9 )]
+[node name="Pivot" parent="RoomItems" instance=ExtResource( 9 )]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.59885, 0, 25.9855 )
 
-[node name="WorldEnvironment1" parent="Fader" instance=ExtResource( 5 )]
+[node name="WorldEnvironment1" parent="RoomItems" instance=ExtResource( 5 )]
 
-[node name="WallTorch" parent="Fader" instance=ExtResource( 3 )]
+[node name="WallTorch" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 10.9397, 1.26974, 13.9465 )
 
-[node name="WallTorch5" parent="Fader" instance=ExtResource( 3 )]
+[node name="WallTorch5" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.06029, 1.26974, 13.9739 )
 
-[node name="WallTorch6" parent="Fader" instance=ExtResource( 3 )]
+[node name="WallTorch6" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 21.9397, 1.26974, 13.9789 )
 
-[node name="WallTorch7" parent="Fader" instance=ExtResource( 3 )]
+[node name="WallTorch7" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 19.9142, 1.26974, 10.9579 )
 
-[node name="WallTorch10" parent="Fader" instance=ExtResource( 3 )]
+[node name="WallTorch10" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 7.96196, 1.26974, 10.9579 )
 
-[node name="WallTorch8" parent="Fader" instance=ExtResource( 3 )]
+[node name="WallTorch8" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 19.9142, 1.26974, 22.9579 )
 
-[node name="WallTorch9" parent="Fader" instance=ExtResource( 3 )]
+[node name="WallTorch9" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 8.05262, 1.26974, 22.9579 )
 
-[node name="WallTorch2" parent="Fader" instance=ExtResource( 3 )]
+[node name="WallTorch2" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 10.9397, 1.26974, 20.0378 )
 
-[node name="WallTorch3" parent="Fader" instance=ExtResource( 3 )]
+[node name="WallTorch3" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, -1.06029, 1.26974, 20.0203 )
 
-[node name="WallTorch4" parent="Fader" instance=ExtResource( 3 )]
+[node name="WallTorch4" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 21.9397, 1.26974, 20.0214 )
 
-[node name="JumpScareSign1" parent="Fader" instance=ExtResource( 11 )]
+[node name="JumpScareSign1" parent="RoomItems" instance=ExtResource( 11 )]
 transform = Transform( 9.17939e-08, 2.1, -1.83588e-07, 2.1, -9.17939e-08, 1.83588e-07, 1.83588e-07, -1.83588e-07, -2.1, 1.99214, 1.37172, 24.9129 )
 
-[node name="JumpScareSign2" parent="Fader" instance=ExtResource( 12 )]
+[node name="JumpScareSign2" parent="RoomItems" instance=ExtResource( 12 )]
 transform = Transform( 1.90919, 1.48492, -1.83588e-07, 1.90919, -1.48492, 0, 1.66907e-07, 1.29816e-07, 2.1, 1.85962, 3.05365, 13.4094 )
 
 [node name="console" parent="." instance=ExtResource( 8 )]

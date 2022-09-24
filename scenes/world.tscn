@@ -19,36 +19,36 @@
 [node name="world" type="Spatial"]
 script = ExtResource( 10 )
 
-[node name="WorldItems" type="Spatial" parent="."]
+[node name="RoomItems" type="Spatial" parent="."]
 
-[node name="Door2" parent="WorldItems" instance=ExtResource( 4 )]
+[node name="Door2" parent="RoomItems" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9801, 0, 8.42204 )
 
-[node name="Player" parent="WorldItems" instance=ExtResource( 3 )]
+[node name="Player" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( 5.65767e-06, 0, -0.6, 0, 0.6, 0, 0.6, 0, 5.65767e-06, 0.484844, 0.824506, 7.9923 )
 
-[node name="WallTorch" parent="WorldItems" instance=ExtResource( 6 )]
+[node name="WallTorch" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 19.472, 1.12849, 5.95476 )
 
-[node name="WallTorch2" parent="WorldItems" instance=ExtResource( 6 )]
+[node name="WallTorch2" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 5.24641, 1.12849, 5.95476 )
 
-[node name="WorldEnvironment" parent="WorldItems" instance=ExtResource( 1 )]
+[node name="WorldEnvironment" parent="RoomItems" instance=ExtResource( 1 )]
 
-[node name="Door2Closed" parent="WorldItems" instance=ExtResource( 7 )]
+[node name="Door2Closed" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0169317, 0, 8.00841 )
 skeleton = NodePath("../..")
 
-[node name="JumpScareSign1" parent="WorldItems" instance=ExtResource( 11 )]
+[node name="JumpScareSign1" parent="RoomItems" instance=ExtResource( 11 )]
 transform = Transform( -4.40042e-06, 6.11547e-08, -1.4, 1.4, 1.31234e-05, -4.40042e-06, 1.31234e-05, -1.4, -6.11959e-08, 15.95, 1.37888, 10.2481 )
 
-[node name="JumpScareSign2" parent="WorldItems" instance=ExtResource( 12 )]
+[node name="JumpScareSign2" parent="RoomItems" instance=ExtResource( 12 )]
 transform = Transform( 4.40041e-06, 6.1182e-08, -1.4, 1.4, -4.44492e-06, 4.40041e-06, 4.44491e-06, 1.4, 6.11959e-08, 9.63144, 1.4, 5.73564 )
 
-[node name="JumpScareSign3" parent="WorldItems" instance=ExtResource( 13 )]
+[node name="JumpScareSign3" parent="RoomItems" instance=ExtResource( 13 )]
 transform = Transform( -6.11959e-08, -5.34992e-15, -1.4, -1.22392e-07, 1.4, 0, -1.4, -1.22392e-07, 6.11959e-08, 21.4, -0.1, 7.94625 )
 
-[node name="ScarePlayer" parent="WorldItems" instance=ExtResource( 14 )]
+[node name="ScarePlayer" parent="RoomItems" instance=ExtResource( 14 )]
 
 [node name="console" parent="." instance=ExtResource( 8 )]
 
