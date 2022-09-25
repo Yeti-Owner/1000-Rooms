@@ -1,17 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/WorldEnvironment1.gd" type="Script" id=1]
-
-[sub_resource type="Environment" id=1]
-ambient_light_energy = 0.5
-ambient_light_sky_contribution = 0.0
-fog_enabled = true
-fog_depth_begin = 1.0
-fog_depth_end = 45.0
-fog_transmit_enabled = true
-glow_enabled = true
-adjustment_enabled = true
+[ext_resource path="res://resources/WorldEnvironment.tres" type="Environment" id=2]
 
 [node name="WorldEnvironment1" type="WorldEnvironment"]
-environment = SubResource( 1 )
+environment = ExtResource( 2 )
 script = ExtResource( 1 )
