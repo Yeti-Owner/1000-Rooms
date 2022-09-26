@@ -42,13 +42,13 @@ size = Vector2( 3, 2 )
 [sub_resource type="SpatialMaterial" id=13]
 albedo_texture = ExtResource( 5 )
 
-[sub_resource type="QuadMesh" id=14]
-
 [sub_resource type="QuadMesh" id=15]
 size = Vector2( 1.4, 2.5 )
 
 [sub_resource type="SpatialMaterial" id=16]
 albedo_texture = ExtResource( 6 )
+
+[sub_resource type="QuadMesh" id=14]
 
 [sub_resource type="SpatialMaterial" id=18]
 albedo_texture = ExtResource( 7 )
@@ -141,18 +141,8 @@ mesh = SubResource( 8 )
 skeleton = NodePath("../../NJ")
 material/0 = SubResource( 9 )
 
-[node name="Blackout" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
-mesh = SubResource( 14 )
-
-[node name="hide" type="MeshInstance" parent="Blackout"]
-transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -1.19209e-07, 0 )
-mesh = SubResource( 8 )
-skeleton = NodePath("../../NJ")
-material/0 = SubResource( 9 )
-
 [node name="Shai" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
 mesh = SubResource( 15 )
 material/0 = SubResource( 16 )
 
@@ -163,7 +153,7 @@ skeleton = NodePath("../../NJ")
 material/0 = SubResource( 9 )
 
 [node name="Hito" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0 )
 mesh = SubResource( 14 )
 
 [node name="hide" type="MeshInstance" parent="Hito"]
@@ -173,7 +163,7 @@ skeleton = NodePath("../../NJ")
 material/0 = SubResource( 9 )
 
 [node name="Ufrz" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0 )
 mesh = SubResource( 17 )
 
 [node name="hide" type="MeshInstance" parent="Ufrz"]
@@ -183,7 +173,7 @@ skeleton = NodePath("../../NJ")
 material/0 = SubResource( 9 )
 
 [node name="Brawlhalla" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0 )
 mesh = SubResource( 14 )
 
 [node name="hide" type="MeshInstance" parent="Brawlhalla"]

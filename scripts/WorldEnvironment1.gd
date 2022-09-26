@@ -3,6 +3,7 @@ extends WorldEnvironment
 var UsableBrightness = float(Settingsholder.save_data.Brightness)/10
 
 func _ready():
+	SceneManager.GameScene.world.set_environment(self.environment)
 # warning-ignore:return_value_discarded
 	Settingsholder.connect("bloom_changed", self, "_bloom")
 # warning-ignore:return_value_discarded
@@ -22,7 +23,7 @@ func _bloom():
 		environment.glow_high_quality = false
 
 func _brightness():
-	UsableBrightness = float(Settingsholder.save_data.Brightness)/10
+	UsableBrightness = float(Settingsholder.save_data.Brightness)/8
 	environment.set_adjustment_brightness(UsableBrightness)
 
 func _quality_bloom():

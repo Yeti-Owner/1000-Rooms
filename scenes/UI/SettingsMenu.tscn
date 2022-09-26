@@ -275,123 +275,6 @@ text = "BE VERY CAREFUL ADJUSTING AUDIO, JUMPSCARES CAN GET LOUD"
 align = 1
 valign = 1
 
-[node name="Gameplay" type="Tabs" parent="SettingsTabs"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = 19.0
-margin_right = -1.0
-margin_bottom = -1.0
-tab_align = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Gameplay"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 25
-custom_constants/margin_top = 25
-custom_constants/margin_left = 25
-custom_constants/margin_bottom = 25
-
-[node name="GameplaySettings" type="GridContainer" parent="SettingsTabs/Gameplay/MarginContainer"]
-margin_left = 25.0
-margin_top = 25.0
-margin_right = 673.0
-margin_bottom = 355.0
-custom_constants/vseparation = 13
-columns = 2
-
-[node name="FovLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-margin_right = 179.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 4 )
-text = "FOV"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-margin_left = 218.0
-margin_right = 648.0
-margin_bottom = 31.0
-size_flags_horizontal = 10
-
-[node name="FovVal" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer"]
-margin_right = 26.0
-margin_bottom = 31.0
-size_flags_horizontal = 12
-custom_fonts/font = SubResource( 4 )
-text = "70"
-
-[node name="FovSlider" type="HSlider" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer"]
-margin_left = 30.0
-margin_right = 430.0
-margin_bottom = 31.0
-rect_min_size = Vector2( 400, 0 )
-size_flags_horizontal = 10
-size_flags_vertical = 1
-min_value = 70.0
-value = 70.0
-
-[node name="MouseSensitivityLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-margin_top = 44.0
-margin_right = 179.0
-margin_bottom = 75.0
-custom_fonts/font = SubResource( 4 )
-text = "Sensitivity"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-margin_left = 183.0
-margin_top = 44.0
-margin_right = 648.0
-margin_bottom = 75.0
-
-[node name="MouseSensitivityVal" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2"]
-margin_left = 16.0
-margin_right = 61.0
-margin_bottom = 31.0
-size_flags_horizontal = 10
-custom_fonts/font = SubResource( 4 )
-text = "0.18"
-align = 2
-valign = 1
-
-[node name="MouseSensitivitySlider" type="HSlider" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2"]
-margin_left = 65.0
-margin_right = 465.0
-margin_bottom = 31.0
-rect_min_size = Vector2( 400, 0 )
-size_flags_horizontal = 10
-size_flags_vertical = 1
-min_value = 5.0
-max_value = 50.0
-value = 18.0
-
-[node name="ClearSaveLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-margin_top = 88.0
-margin_right = 179.0
-margin_bottom = 119.0
-custom_fonts/font = SubResource( 4 )
-text = "Clear Save"
-
-[node name="ClearSaveBtn" type="CheckButton" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-margin_left = 614.0
-margin_top = 88.0
-margin_right = 648.0
-margin_bottom = 119.0
-size_flags_horizontal = 10
-
-[node name="DefaultLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-margin_top = 132.0
-margin_right = 179.0
-margin_bottom = 163.0
-custom_fonts/font = SubResource( 4 )
-text = "Default Settings"
-
-[node name="DefaultBtn" type="CheckButton" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-margin_left = 614.0
-margin_top = 132.0
-margin_right = 648.0
-margin_bottom = 163.0
-size_flags_horizontal = 10
-
 [node name="Graphics" type="Tabs" parent="SettingsTabs"]
 visible = false
 anchor_right = 1.0
@@ -516,6 +399,123 @@ margin_bottom = 32.0
 size_flags_horizontal = 10
 custom_fonts/font = SubResource( 2 )
 
+[node name="Gameplay" type="Tabs" parent="SettingsTabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 19.0
+margin_right = -1.0
+margin_bottom = -1.0
+tab_align = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Gameplay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+
+[node name="GameplaySettings" type="GridContainer" parent="SettingsTabs/Gameplay/MarginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 673.0
+margin_bottom = 355.0
+custom_constants/vseparation = 13
+columns = 2
+
+[node name="FovLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_right = 179.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 4 )
+text = "FOV"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_left = 218.0
+margin_right = 648.0
+margin_bottom = 31.0
+size_flags_horizontal = 10
+
+[node name="FovVal" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer"]
+margin_right = 26.0
+margin_bottom = 31.0
+size_flags_horizontal = 12
+custom_fonts/font = SubResource( 4 )
+text = "70"
+
+[node name="FovSlider" type="HSlider" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer"]
+margin_left = 30.0
+margin_right = 430.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 10
+size_flags_vertical = 1
+min_value = 70.0
+value = 70.0
+
+[node name="MouseSensitivityLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_top = 44.0
+margin_right = 179.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 4 )
+text = "Sensitivity"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_left = 183.0
+margin_top = 44.0
+margin_right = 648.0
+margin_bottom = 75.0
+
+[node name="MouseSensitivityVal" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2"]
+margin_left = 16.0
+margin_right = 61.0
+margin_bottom = 31.0
+size_flags_horizontal = 10
+custom_fonts/font = SubResource( 4 )
+text = "0.18"
+align = 2
+valign = 1
+
+[node name="MouseSensitivitySlider" type="HSlider" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2"]
+margin_left = 65.0
+margin_right = 465.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 10
+size_flags_vertical = 1
+min_value = 5.0
+max_value = 50.0
+value = 18.0
+
+[node name="ClearSaveLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_top = 88.0
+margin_right = 179.0
+margin_bottom = 119.0
+custom_fonts/font = SubResource( 4 )
+text = "Clear Save"
+
+[node name="ClearSaveBtn" type="CheckButton" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_left = 614.0
+margin_top = 88.0
+margin_right = 648.0
+margin_bottom = 119.0
+size_flags_horizontal = 10
+
+[node name="DefaultLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_top = 132.0
+margin_right = 179.0
+margin_bottom = 163.0
+custom_fonts/font = SubResource( 4 )
+text = "Default Settings"
+
+[node name="DefaultBtn" type="CheckButton" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
+margin_left = 614.0
+margin_top = 132.0
+margin_right = 648.0
+margin_bottom = 163.0
+size_flags_horizontal = 10
+
 [node name="ClickPlayer" parent="." instance=ExtResource( 4 )]
 
 [connection signal="tab_changed" from="SettingsTabs" to="." method="_on_SettingsTabs_tab_changed"]
@@ -528,11 +528,11 @@ custom_fonts/font = SubResource( 2 )
 [connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolSlider" to="." method="_on_MasterVolSlider_value_changed"]
 [connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolSlider" to="." method="_on_MusicVolSlider_value_changed"]
 [connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider" to="." method="_on_SfxVolSlider_value_changed"]
-[connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider" to="." method="_on_FovSlider_value_changed"]
-[connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider" to="." method="_on_MouseSensitivitySlider_value_changed"]
-[connection signal="pressed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/ClearSaveBtn" to="." method="_on_ClearSaveBtn_pressed"]
-[connection signal="pressed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/DefaultBtn" to="." method="_on_DefaultBtn_pressed"]
 [connection signal="pressed" from="SettingsTabs/Graphics/MarginContainer/GameplaySettings/FXAA/FXAACheck" to="." method="_on_FXAACheck_pressed"]
 [connection signal="item_selected" from="SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA/MSAAOptions" to="." method="_on_MSAAOptions_item_selected"]
 [connection signal="value_changed" from="SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ResolutionScale" to="." method="_on_ResolutionScale_value_changed"]
 [connection signal="pressed" from="SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom/QualBloomCheck" to="." method="_on_QualBloomCheck_pressed"]
+[connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider" to="." method="_on_FovSlider_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider" to="." method="_on_MouseSensitivitySlider_value_changed"]
+[connection signal="pressed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/ClearSaveBtn" to="." method="_on_ClearSaveBtn_pressed"]
+[connection signal="pressed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/DefaultBtn" to="." method="_on_DefaultBtn_pressed"]

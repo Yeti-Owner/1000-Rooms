@@ -7,7 +7,6 @@ var game_data = {
 	"FormagDrung" : 0,
 	"Badenov" : 0,
 	"NotoLotta" : 0,
-	"Blackout" : 0,
 	"Shai" : 0,
 	"Hito" : 0,
 	"Ufrz" : 0,
@@ -26,7 +25,6 @@ func _check_contents():
 	game_data.FormagDrung = game_data.get("FormagDrung", 0)
 	game_data.Badenov = game_data.get("Badenov", 0)
 	game_data.NotoLotta = game_data.get("NotoLotta", 0)
-	game_data.Blackout = game_data.get("Blackout", 0)
 	game_data.Shai = game_data.get("Shai", 0)
 	game_data.Hito = game_data.get("Hito", 0)
 	game_data.Ufrz = game_data.get("Ufrz", 0)

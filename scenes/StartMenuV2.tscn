@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenes/audio/MusicPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=2]
@@ -15,6 +15,16 @@
 [ext_resource path="res://scripts/Achievements.gd" type="Script" id=14]
 [ext_resource path="res://scenes/AchievementRenderer.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/VersionChecker.tscn" type="PackedScene" id=16]
+
+[sub_resource type="Environment" id=11]
+ambient_light_energy = 0.5
+ambient_light_sky_contribution = 0.0
+fog_enabled = true
+fog_depth_begin = 5.0
+fog_depth_end = 55.0
+fog_transmit_enabled = true
+glow_enabled = true
+adjustment_enabled = true
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -326,6 +336,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 53.1143
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 53.0731, 0, 29.9924 )
 
 [node name="WorldEnvironment1" parent="CustomFader" instance=ExtResource( 3 )]
+environment = SubResource( 11 )
 
 [node name="StartMenuCamera" type="Camera" parent="CustomFader"]
 transform = Transform( 0.90365, -0.0336019, 0.426953, 0, 0.996917, 0.0784591, -0.428273, -0.0708995, 0.900864, 1.95714, 2.086, 11.7 )

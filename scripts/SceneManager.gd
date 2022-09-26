@@ -30,8 +30,7 @@ func _fade_in():
 	Transitions.play("fade_in")
 
 func _init_HUD(mode):
-	print("called")
-	print(mode)
+	print("called: " + str(mode))
 	match mode:
 		"none":
 			for child in GameHud.get_children():
@@ -48,3 +47,4 @@ func _init_HUD(mode):
 			var _mainmenu = load("res://scenes/StartMenuWorld.tscn")
 			var m = _mainmenu.instance()
 			GameHud.add_child(m)
+

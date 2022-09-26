@@ -68,7 +68,7 @@ func _process(_delta):
 			Cam.global_transform.origin = lerp(CurrentPos, Vector3(16,3,4-20), LerpWeight)
 		6:
 			# Blackout Award
-			if AchievementsHolder.game_data.Blackout == 0:
+			if AchievementsHolder.game_data.Shai == 0:
 				Text.text = "Placeholder."
 			else:
 				Text.text = "Placeholder."
@@ -76,7 +76,7 @@ func _process(_delta):
 			Cam.global_transform.origin = lerp(CurrentPos, Vector3(20,3,4-20), LerpWeight)
 		7:
 			# Shai Award
-			if AchievementsHolder.game_data.Shai == 0:
+			if AchievementsHolder.game_data.Hito == 0:
 				Text.text = "Placeholder." #"The Shai achievement, get it by finding the Lin Fei poster."
 			else:
 				Text.text = "The Shai achievement, Peak."
@@ -84,25 +84,17 @@ func _process(_delta):
 			Cam.global_transform.origin = lerp(CurrentPos, Vector3(24,3,4-20), LerpWeight)
 		8:
 			# Hito Award
-			if AchievementsHolder.game_data.Hito == 0:
-				Text.text = "Placeholder."
-			else:
-				Text.text = "Placeholder."
-			CurrentPos = Cam.global_transform.origin
-			Cam.global_transform.origin = lerp(CurrentPos, Vector3(28,3,4-20), LerpWeight)
-		9:
-			# Ufrz Award
 			if AchievementsHolder.game_data.Ufrz == 0:
 				Text.text = "The Ufrz achievement, get it by finding XRA."
 			else:
 				Text.text = "The Ufrz achievement, Xavier Renegade Angel says: What Doth Life?"
 			CurrentPos = Cam.global_transform.origin
-			Cam.global_transform.origin = lerp(CurrentPos, Vector3(32,3,4-20), LerpWeight)
-		10:
+			Cam.global_transform.origin = lerp(CurrentPos, Vector3(28,3,4-20), LerpWeight)
+		9:
 			# Brawlhalla Award
 			if AchievementsHolder.game_data.Brawlhalla == 0:
 				Text.text = "Placeholder."
 			else:
 				Text.text = "Placeholder."
 			CurrentPos = Cam.global_transform.origin
-			Cam.global_transform.origin = lerp(CurrentPos, Vector3(36,3,4-20), LerpWeight)
+			Cam.global_transform.origin = lerp(CurrentPos, Vector3(32,3,4-20), LerpWeight)
