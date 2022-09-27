@@ -26,6 +26,9 @@ func _scene_load():
 	CurrentScene = s
 	_fade_in()
 
+func _reload_scene():
+	Transitions.play("fade_out")
+
 func _fade_in():
 	Transitions.play("fade_in")
 
@@ -44,7 +47,7 @@ func _init_HUD(mode):
 		"mainmenu":
 			for child in GameHud.get_children():
 				child.queue_free()
-			var _mainmenu = load("res://scenes/StartMenuWorld.tscn")
+			var _mainmenu = load("res://scenes/StartMenuV2.tscn")
 			var m = _mainmenu.instance()
 			GameHud.add_child(m)
 

@@ -15,8 +15,9 @@ func _on_IntroAnim_animation_finished(anim_name):
 			$CustomFader/PromptText.text = "Hurry! Press E to enter"
 			Prompt = 2
 		"Enter":
-				Settingsholder.save_data.Intro = 1
-				SceneManager._change_scene("res://scenes/StartMenuV2.tscn")
+				SaveGame.game_data.Intro = 1
+				SaveGame._save()
+				SceneManager._change_scene("res://scenes/StartMenuScene.tscn")
 		"Blink":
 			$IntroAnim.play("Intro")
 

@@ -13,7 +13,6 @@ func _on_StartBtn_pressed():
 	MusicPlayer._music_transition()
 	ClickPlayer._click_sound()
 	SceneManager._change_scene(SaveGame.game_data.CurrentRoom)
-#	SceneManager.HudMode = "ingame"
 
 func _on_OptionsBtn_pressed():
 	ClickPlayer._click_sound()

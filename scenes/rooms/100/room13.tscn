@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=5]
 [ext_resource path="res://scenes/objects/NonFunctionals/Vent.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
@@ -14,6 +14,7 @@
 [node name="world" type="Spatial"]
 script = ExtResource( 1 )
 EnemyAllowed = false
+EnvironmentUsed = ExtResource( 5 )
 
 [node name="RoomItems" type="Spatial" parent="."]
 
@@ -25,8 +26,6 @@ transform = Transform( -3.14315e-06, 0, -1, 0, 1, 0, 1, 0, -3.14315e-06, -8.9, 0
 
 [node name="WallTorch" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -0.8, 0, -5.02905e-06, 0, 0.8, 0, 5.02905e-06, 0, -0.8, -10, 1.1, -0.03 )
-
-[node name="WorldEnvironment1" parent="RoomItems" instance=ExtResource( 5 )]
 
 [node name="console" parent="." instance=ExtResource( 8 )]
 

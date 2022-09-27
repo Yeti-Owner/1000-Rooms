@@ -1,17 +1,19 @@
 extends Spatial
 
-onready var fader = $Fader
+export(Environment) var EnvironmentUsed
+
 onready var Narrator = $Narrator
 onready var Objs = $Objs
-onready var player = $Fader/Player
-export(String) var _room 
+onready var player = $RoomItems/Player
+onready var _room = self.filename
+
 var RNG
 var Ending
 var MovePos
 
 func _ready():
+	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
-	fader._fade_in()
 	SaveGame.game_data.CurrentRoom = _room
 	if SaveGame.game_data.CurrentPos == Vector3(7.731, 0.7, 45.853):
 		Narrator.messages = ["Hello again."]

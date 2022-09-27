@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=5]
 [ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=10]
@@ -28,6 +28,7 @@ agent_max_climb = 1.0
 
 [node name="world" type="Spatial"]
 script = ExtResource( 1 )
+EnvironmentUsed = ExtResource( 5 )
 
 [node name="RoomItems" type="Spatial" parent="."]
 
@@ -42,8 +43,6 @@ skeleton = NodePath("")
 
 [node name="Pivot" parent="RoomItems" instance=ExtResource( 11 )]
 transform = Transform( -3.14315e-06, 0, -1, 0, 1, 0, 1, 0, -3.14315e-06, 15.5, 0, 35.98 )
-
-[node name="WorldEnvironment1" parent="RoomItems" instance=ExtResource( 5 )]
 
 [node name="WallTorch" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -2.51452e-06, 0, 0.8, 0, 0.8, 0, -0.8, 0, -2.51452e-06, 20, 1.3, -0.8 )

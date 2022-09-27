@@ -56,4 +56,4 @@ func _on_console_text_entered(cmd):
 			self.set_visible(false)
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		"stuck":
-			var _error = get_tree().reload_current_scene()
+			SceneManager._reload_scene()

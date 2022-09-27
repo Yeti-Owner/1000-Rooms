@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=2]
 
+[ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=7]
@@ -30,10 +30,9 @@ agent_max_climb = 1.0
 
 [node name="world" type="Spatial"]
 script = ExtResource( 9 )
+EnvironmentUsed = ExtResource( 1 )
 
 [node name="RoomItems" type="Spatial" parent="."]
-
-[node name="WorldEnvironment1" parent="RoomItems" instance=ExtResource( 4 )]
 
 [node name="WallTorch" parent="RoomItems" instance=ExtResource( 5 )]
 transform = Transform( -3.14315e-06, 0, -1, 0, 1, 0, 1, 0, -3.14315e-06, 14, 1.2, 20.2 )

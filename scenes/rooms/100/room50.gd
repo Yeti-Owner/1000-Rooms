@@ -1,16 +1,17 @@
 extends Spatial
 
-export(String) var _room 
+export(Environment) var EnvironmentUsed
 var RNG
 
 onready var fader = $Fader
 onready var Narrator = $Narrator
 onready var Monster = $NavMesh/GhostEnemy
 onready var player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
-
+onready var _room = self.filename
 
 func _ready():
 	randomize()
+	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
 	_add_objs()
 	get_node("ObjHolder/WallObj3").queue_free()
 	get_node("ObjHolder/WallObj4").queue_free()

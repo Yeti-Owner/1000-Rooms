@@ -1,6 +1,7 @@
 extends Spatial
 
 export(bool) var EnemyAllowed = true
+export(Environment) var EnvironmentUsed
 
 onready var Narrator = $Narrator
 onready var Objs = $Objs
@@ -9,6 +10,7 @@ var RNG
 
 func _ready():
 	randomize()
+	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
 	_add_objs()
 	SaveGame.game_data.CurrentRoom = _room
 	_check_room()

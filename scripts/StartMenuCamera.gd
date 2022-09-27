@@ -12,6 +12,7 @@ onready var timer = get_parent().get_node("Timer")
 
 
 func _ready():
+	SceneManager.HudMode = "mainmenu"
 	randomize()
 	_change_cam()
 	timer.start()
