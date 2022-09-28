@@ -170,12 +170,18 @@ rect_min_size = Vector2( 698, 308 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 9 )
-text = "- Added 100 more Rooms!
-- Added 5+ new textures
+text = "- Added 8+ new textures
 - Added 10+ new Models
-- Added 1 new enemies
 - MASSIVELY overhauled Graphics
-- Updated Settings"
+- Added Resolution scaling
+- Updated Settings
+- Updated runtime settings
+- Optimized cache
+- Optimized Lighting (+ improved it)
+- Fixed transition issues (brief flickering when fading in/out)
+- Updated World Environments
+- Updated save data
+- Added proper Death Screens"
 align = 1
 
 [node name="Next" type="Tabs" parent="Menu/VersionDialog/TabContainer"]

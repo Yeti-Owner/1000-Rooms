@@ -1,11 +1,13 @@
 extends Spatial
 
+export(Environment) var EnvironmentUsed
+
 onready var fader = $Fader
 onready var Narrator = $Narrator
 onready var FakeDoor = $Fader/FakeDoor/StaticBody
 onready var FairyCage = $Fader/GlassCage
-onready var player = get_node("/root/world/Fader/Player")
-export(String) var _room 
+onready var player = get_node("RoomItems/Player")
+onready var _room = self.filename
 
 var RNG
 var RoomStage = 0
@@ -15,6 +17,7 @@ var Hatch = preload("res://scenes/objects/doors/Hatch.tscn")
 
 func _ready():
 	randomize()
+	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
 	_add_objs()
 	SaveGame.game_data.CurrentRoom = _room
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
@@ -59,7 +62,7 @@ func _on_Area_area_entered(area):
 		$Fader/TriggerArea.queue_free()
 
 func _door_triggered():
-	fader._fade_in()
+	SceneManager._fade_in()
 	
 	if DoorStage == 0:
 		DoorStage += 1
@@ -107,6 +110,7 @@ func _door_triggered():
 			AchievementsHolder._save()
 			AchievementsHolder.emit_signal("NewAchievement")
 		SaveGame.game_data.PlayerHP = 0
+		SaveGame.DeathReason = "Unknown"
 	else:
 		DoorStage += 1
 

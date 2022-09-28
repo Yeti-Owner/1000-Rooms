@@ -2,5 +2,6 @@ extends Area
 
 func _on_ResetBox_area_entered(area):
 	if area.name == "PlayerArea":
+		SaveGame.DeathReason = "fall"
 		SaveGame.game_data.PlayerHP -= 5
-		var _error = get_tree().reload_current_scene()
+		SceneManager._reload_scene()

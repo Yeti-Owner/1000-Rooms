@@ -7,8 +7,7 @@ var acceleration_speed: float = 6.0
 var gravity: float = -32.0
 var _dir = Vector3.ZERO
 var _vel = Vector3.ZERO
-#var EnabledWalking = 1
-#var sprinting = false
+var isDead = 0
 var FootStepList = ["res://assets/audio/misc/footsteps/wood_floor1.wav","res://assets/audio/misc/footsteps/tiles1.wav","res://assets/audio/misc/footsteps/hub_floor.wav","res://assets/audio/misc/footsteps/shop_floor.wav"]
 
 # States
@@ -128,9 +127,11 @@ func _on_PlayerArea_area_entered(area):
 			print("Acid")
 
 func _die():
+	if isDead == 0:
+		SaveGame.game_data.Deaths += 1
+		isDead = 1
 	state = DEAD
 	PlayerAnim.play("die")
-	SaveGame.game_data.Deaths += 1
 
 func _hurt(source):
 	match source:
@@ -138,9 +139,11 @@ func _hurt(source):
 			SaveGame.game_data.PlayerHP -= 15
 			HurtAnims.play("hurt")
 			$CameraHolder/Camera/HurtPlayer.play()
+			SaveGame.DeathReason = "ghost"
 		"fairy":
 			HurtAnims.play("hurt")
 			SaveGame.game_data.PlayerHP -= 8
+			SaveGame.DeathReason = "fairy"
 		"spike":
 			HurtAnims.play("hurt")
 			SaveGame.game_data.PlayerHP -= 10
@@ -149,7 +152,7 @@ func _on_PlayerAnims_animation_finished(anim_name):
 	if anim_name == "die":
 		SaveGame.game_data.PlayerHP = 100
 		SaveGame.game_data.RoomNum = SaveGame.game_data.LastSavedRoom
-		var _error = get_tree().change_scene(SaveGame.game_data.LastCheckPoint)
+		SceneManager._change_scene("res://scenes/DeathScreen.tscn")
 
 func _update_fov():
 	$CameraHolder/Camera.set_fov(Settingsholder.save_data.PlayerFOV)

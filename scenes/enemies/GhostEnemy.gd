@@ -8,7 +8,7 @@ var targetPos
 var direction
 
 onready var nav = get_node("NavigationAgent")
-onready var target = get_node("/root/world/Fader/Player")
+onready var target = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
 
 func _ready():
 	$SoundTimer.start()

@@ -10,7 +10,7 @@ var RNG
 
 func _ready():
 	randomize()
-	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
+	SceneManager.GameScene.world.environment = EnvironmentUsed
 	_add_objs()
 	SaveGame.game_data.CurrentRoom = _room
 	_check_room()

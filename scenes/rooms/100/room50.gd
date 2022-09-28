@@ -3,7 +3,6 @@ extends Spatial
 export(Environment) var EnvironmentUsed
 var RNG
 
-onready var fader = $Fader
 onready var Narrator = $Narrator
 onready var Monster = $NavMesh/GhostEnemy
 onready var player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
@@ -17,9 +16,9 @@ func _ready():
 	get_node("ObjHolder/WallObj4").queue_free()
 	SaveGame.game_data.RoomNum = 50
 	SaveGame.game_data.LastCheckPoint = _room
+	SaveGame.game_data.CurrentRoom = _room
 	SaveGame._save()
 	SaveGame._update_presence()
-	fader._fade_in()
 	Monster.transform.origin = Vector3(0, 0, 9)
 	SaveGame.game_data.CurrentRoom = _room
 	# if completed room
@@ -123,14 +122,16 @@ func _on_Timer_timeout():
 
 func _on_KillBox1_area_entered(kill1):
 	if kill1.name == "PlayerArea":
+		SaveGame.DeathReason = "fall"
 		SaveGame.game_data.PlayerHP -= 5
-		var _error = get_tree().reload_current_scene()
+		SceneManager._reload_scene()
 
 
 func _on_KillBox2_area_entered(kill2):
 	if kill2.name == "PlayerArea":
+		SaveGame.DeathReason = "fall"
 		SaveGame.game_data.PlayerHP -= 5
-		var _error = get_tree().reload_current_scene()
+		SceneManager._reload_scene()
 
 
 func _on_Check11_area_entered(area):

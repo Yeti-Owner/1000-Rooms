@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/SceneManager.gd" type="Script" id=1]
+[ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=2]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -63,6 +64,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="World" id=4]
+environment = ExtResource( 2 )
 
 [node name="SceneManager" type="Node"]
 script = ExtResource( 1 )

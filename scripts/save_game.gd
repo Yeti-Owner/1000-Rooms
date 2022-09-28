@@ -7,6 +7,7 @@ var save_data = "user://save_game.dat"
 var isChased = 0
 var ChasedBy = 0 # 0 = ghost, 1 = [PLACEHOLDER]
 var LastSavedRoomNum = 0
+var DeathReason
 
 # Saved Vars
 var game_data = {
