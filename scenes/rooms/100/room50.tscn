@@ -253,8 +253,23 @@ stream = ExtResource( 20 )
 
 [node name="ObjHolder" type="Spatial" parent="."]
 
-[node name="WallObj" parent="ObjHolder" instance=ExtResource( 11 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 0.5, -18, 6, -53.5 )
+[node name="WallObj" type="Spatial" parent="ObjHolder"]
+
+[node name="WallObj" parent="ObjHolder/WallObj" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 7, -53 )
+skeleton = NodePath("../..")
+
+[node name="WallObj2" parent="ObjHolder/WallObj" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 7, -53 )
+skeleton = NodePath("../..")
+
+[node name="WallObj3" parent="ObjHolder/WallObj" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 5, -53 )
+skeleton = NodePath("../..")
+
+[node name="WallObj4" parent="ObjHolder/WallObj" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 5, -53 )
+skeleton = NodePath("../..")
 
 [node name="WallObj2" parent="ObjHolder" instance=ExtResource( 11 )]
 transform = Transform( 0.3, 0, 0, 0, 2, 0, 0, 0, 2, -31.7, -2, -38 )

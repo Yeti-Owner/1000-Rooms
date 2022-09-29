@@ -30,8 +30,7 @@ func _ready():
 		player.transform.origin = Vector3(SaveGame.game_data.CurrentPos)
 		Narrator.messages = ["Welcome back"]
 	else: # if not
-		get_node("ObjHolder/WallObj").visible = false
-		get_node("ObjHolder/WallObj/StaticBody/CollisionShape").disabled = true
+		get_node("ObjHolder/WallObj").translation = Vector3(0, -4.1, 0)
 		Narrator.messages = ["Run", "you need to run"]
 
 func _add_objs():
@@ -58,8 +57,7 @@ func _on_Check2_area_entered(area2):
 func _on_Check3_area_entered(area3):
 	if area3.name == "PlayerArea":
 		$AreaHolder/Check3.queue_free()
-		get_node("ObjHolder/WallObj").visible = true
-		get_node("ObjHolder/WallObj/StaticBody/CollisionShape").set_deferred("disabled",  false)
+		get_node("ObjHolder/WallObj").translation = Vector3(0,0,0)
 		$Timer.start()
 
 func _on_Check4_area_entered(area4):
