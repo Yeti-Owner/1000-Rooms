@@ -37,20 +37,20 @@ func interact():
 		# Manage Vars
 		Player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
 		PlayerCam = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player/CameraHolder/Camera")
-		GUI = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/GUI")
+		GUI = get_node("/root/SceneManager/GameScene/HUD/GUI")
 		NewCam = Camera.new()
 		Menu = $ViewportManager/Viewport/Menu
 		
 		# Add in New Cam
 		add_child(NewCam)
-		NewCam.set_fov(Settingsholder.PlayerFOV)
+		NewCam.set_fov(Settingsholder.save_data.PlayerFOV)
 		
 		# Position/Rotate it correctly
 		PlayerLoc = Player.global_transform.origin
 		CamLoc = PlayerCam.global_transform.origin
 		GameLoc = $Position3D.global_transform.origin
 		CamRot = PlayerCam.global_transform.basis
-		CamFOV = Settingsholder.PlayerFOV
+		CamFOV = Settingsholder.save_data.PlayerFOV
 		
 		NewCam.global_transform.origin = CamLoc
 		NewCam.global_transform.basis = CamRot
