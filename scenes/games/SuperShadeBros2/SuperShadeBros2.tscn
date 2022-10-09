@@ -101,6 +101,45 @@ custom_styles/pressed = SubResource( 7 )
 custom_styles/normal = SubResource( 7 )
 text = " Quit? "
 
+[node name="Loss" type="Control" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Loss"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.152941, 0.152941, 0.152941, 0.780392 )
+
+[node name="LoseText" type="Label" parent="CanvasLayer/Control/Loss"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -130.0
+margin_top = -35.0
+margin_right = 130.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 260, 70 )
+custom_fonts/font = SubResource( 6 )
+text = "You Lose!"
+align = 1
+valign = 1
+
+[node name="Stats" type="Label" parent="CanvasLayer/Control/Loss"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -205.0
+custom_fonts/font = SubResource( 6 )
+text = "You died with a score of: X"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="RestartTimer" type="Timer" parent="CanvasLayer/Control/Loss"]
+wait_time = 5.0
+one_shot = true
+
 [node name="ShadeBro" type="KinematicBody2D" parent="."]
 position = Vector2( 2, -32 )
 scale = Vector2( 1.5, 1.5 )
@@ -184,4 +223,5 @@ position = Vector2( 4064, -256 )
 
 [connection signal="pressed" from="CanvasLayer/Control/Popup/VBoxContainer/ResumeBtn" to="." method="_on_ResumeBtn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Popup/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
+[connection signal="timeout" from="CanvasLayer/Control/Loss/RestartTimer" to="." method="_on_RestartTimer_timeout"]
 [connection signal="area_entered" from="ShadeBro/ShadeArea" to="ShadeBro" method="_on_ShadeArea_area_entered"]

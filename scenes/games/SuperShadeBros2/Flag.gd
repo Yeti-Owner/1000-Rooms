@@ -26,9 +26,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$Timer.start()
 
 func _on_Timer_timeout():
-	var scene = load("res://scenes/games/Menu.tscn")
-	yield(get_tree(), "idle_frame")
-	var Game = scene.instance()
-	get_parent().get_parent().get_parent().add_child(Game)
-	Game._active()
-	get_parent().get_parent().queue_free()
+	get_parent().get_parent().level += 1
+#	var scene = load("res://scenes/games/Menu.tscn")
+#	yield(get_tree(), "idle_frame")
+#	var Game = scene.instance()
+#	get_parent().get_parent().get_parent().add_child(Game)
+#	Game._active()
+#	get_parent().get_parent().queue_free()

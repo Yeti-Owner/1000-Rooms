@@ -102,3 +102,4 @@ size = Vector2( 1280, 720 )
 world = SubResource( 4 )
 handle_input_locally = false
 render_target_update_mode = 3
+physics_object_picking = true

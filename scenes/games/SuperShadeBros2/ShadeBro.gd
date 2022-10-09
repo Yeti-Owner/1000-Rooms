@@ -6,9 +6,6 @@ var grav : int = 550
 var vel = Vector2()
 var EnabledMovement = true
 
-func _ready():
-	pass
-
 func get_input(delta):
 	# Basic Movement/Input Manager
 	
@@ -30,8 +27,6 @@ func get_input(delta):
 func _physics_process(delta):
 	if EnabledMovement:
 		get_input(delta)
-
-
 
 func _on_ShadeArea_area_entered(area):
 	if area.is_in_group("Death"):

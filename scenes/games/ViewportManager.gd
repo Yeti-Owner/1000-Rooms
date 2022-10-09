@@ -10,10 +10,9 @@ onready var node_viewport = $Viewport
 onready var node_quad = $Screen
 onready var node_area = $Screen/Area
 
-func _ready():
-	node_area.connect("mouse_entered", self, "_mouse_entered_area")
 
-func _mouse_entered_area():
+func _on_Area_mouse_entered():
+	print("mouse") 
 	is_mouse_inside = true
 
 func _unhandled_input(event):
@@ -22,7 +21,7 @@ func _unhandled_input(event):
 		if event is mouse_event:
 			is_mouse_event = true
 			break
-
+	
 	if is_mouse_event and (is_mouse_inside or is_mouse_held):
 		handle_mouse(event)
 	elif not is_mouse_event:
