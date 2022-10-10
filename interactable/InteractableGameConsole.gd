@@ -37,7 +37,6 @@ func interact():
 		# Manage Vars
 		Player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
 		PlayerCam = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player/CameraHolder/Camera")
-		GUI = get_node("/root/SceneManager/GameScene/HUD/GUI")
 		NewCam = Camera.new()
 		Menu = $ViewportManager/Viewport/Menu
 		
@@ -56,9 +55,9 @@ func interact():
 		NewCam.global_transform.basis = CamRot
 		NewCam.set_fov(CamFOV)
 		
-		# Remove old Player + GUI
+		# Remove old Player + GUI 
 		Player.queue_free()
-		GUI.queue_free()
+		SceneManager.HudMode = "none"
 		
 		# Move/Rotate new Cam
 		$PlayerCamera.interpolate_property(NewCam, "global_transform:origin", CamLoc, GameLoc, 3, 0)
@@ -67,6 +66,10 @@ func interact():
 		$PlayerCamera.start()
 		Collision2.disabled = true
 		Stage = 1
+		
+		# Fix Mouse Settings in SceneManager
+		get_node("/root/SceneManager/GameScene").mouse_filter = 2
+
 
 
 func _on_PlayerCamera_tween_completed(_object, _key):
@@ -74,9 +77,8 @@ func _on_PlayerCamera_tween_completed(_object, _key):
 		_ingame()
 	elif Stage == 2:
 		# Re-add GUI and Player
+		SceneManager.HudMode = "ingame"
 		var NewPlayer = PlayerScene.instance()
-		var NewGUI = GUIScene.instance()
-		get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems").add_child(NewGUI)
 		get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems").add_child(NewPlayer)
 		NewCam.queue_free()
 		NewPlayer.global_transform.origin = PlayerLoc
@@ -84,8 +86,9 @@ func _on_PlayerCamera_tween_completed(_object, _key):
 		Screen.material_override.albedo_texture = null
 		Collision2.disabled = false
 		Stage = 0
-		Interacted = 0
+		Interacted = 0 
 		get_tree().paused = false
+		get_node("/root/SceneManager/GameScene").mouse_filter = 0
 
 
 func _ingame():

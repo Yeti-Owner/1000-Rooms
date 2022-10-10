@@ -22,6 +22,8 @@ func _ready():
 	Settingsholder.connect("quality_bloom_changed", self, "_quality_bloom")
 	
 	_bloom()
+	
+	GameViewportContainer.mouse_filter = 0
 
 func _change_scene(scene):
 	Transitions.play("fade_out")
@@ -66,8 +68,6 @@ func _init_HUD(mode):
 
 
 # WorldEnvironment Shenanigans
-
-
 func _bloom():
 	if (Settingsholder.save_data.BloomSet):
 		environment.set_glow_bloom(0.75)
@@ -90,4 +90,3 @@ func _quality_bloom():
 	else:
 		environment.glow_bicubic_upscale = false
 		environment.glow_high_quality = false
-

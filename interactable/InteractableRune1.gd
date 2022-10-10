@@ -1,5 +1,5 @@
 extends Interactable
-onready var room = get_node("/root/world")
+onready var room = get_parent().get_parent()
 var InteractedWith = 0
 
 func get_interaction_text():

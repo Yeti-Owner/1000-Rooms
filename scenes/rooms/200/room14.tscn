@@ -1,14 +1,12 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/objects/Floors Walls Etc/FakeFloor2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/objects/ResetBox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/objects/Lightbulb.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/WorldEnvironment2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/load_world2.gd" type="Script" id=10]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/doors/HatchClosed.tscn" type="PackedScene" id=12]
@@ -31,102 +29,117 @@ _data = {
 [node name="world" type="Spatial"]
 script = ExtResource( 10 )
 AllowChase = false
+EnvironmentUsed = ExtResource( 1 )
 
-[node name="Fader" parent="." instance=ExtResource( 1 )]
+[node name="RoomItems" type="Spatial" parent="."]
 
-[node name="GUI" parent="Fader" instance=ExtResource( 5 )]
-
-[node name="Player" parent="Fader" instance=ExtResource( 4 )]
+[node name="Player" parent="RoomItems" instance=ExtResource( 4 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.7, -0.3 )
 
-[node name="FakeFloor" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, -7 )
+skeleton = NodePath("")
 
-[node name="FakeFloor2" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor2" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, -9 )
+skeleton = NodePath("")
 
-[node name="FakeFloor3" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor3" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, -11 )
+skeleton = NodePath("")
 
-[node name="FakeFloor4" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor4" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, -17 )
+skeleton = NodePath("")
 
-[node name="FakeFloor5" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor5" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, -19 )
+skeleton = NodePath("")
 
-[node name="FakeFloor6" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor6" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, -21 )
+skeleton = NodePath("")
 
-[node name="FakeFloor7" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor7" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1, -27 )
+skeleton = NodePath("")
 
-[node name="FakeFloor8" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor8" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1, -29 )
+skeleton = NodePath("")
 
-[node name="FakeFloor9" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor9" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1, -31 )
+skeleton = NodePath("")
 
-[node name="FakeFloor10" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor10" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -3, -7 )
+skeleton = NodePath("")
 
-[node name="FakeFloor11" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor11" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -3, -9 )
+skeleton = NodePath("")
 
-[node name="FakeFloor12" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor12" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -3, -11 )
+skeleton = NodePath("")
 
-[node name="FakeFloor13" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor13" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -3, -17 )
+skeleton = NodePath("")
 
-[node name="FakeFloor14" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor14" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -3, -19 )
+skeleton = NodePath("")
 
-[node name="FakeFloor15" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor15" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -3, -21 )
+skeleton = NodePath("")
 
-[node name="FakeFloor16" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor16" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3, -27 )
+skeleton = NodePath("")
 
-[node name="FakeFloor17" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor17" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3, -29 )
+skeleton = NodePath("")
 
-[node name="FakeFloor18" parent="Fader" instance=ExtResource( 6 )]
+[node name="FakeFloor18" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3, -31 )
+skeleton = NodePath("")
 
-[node name="ResetBox" parent="Fader" instance=ExtResource( 7 )]
+[node name="ResetBox" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 20, 0, -5, -17 )
 
-[node name="Lightbulb" parent="Fader" instance=ExtResource( 8 )]
+[node name="Lightbulb" parent="RoomItems" instance=ExtResource( 8 )]
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.863, -1 )
 Bulb_On = true
 
-[node name="Lightbulb2" parent="Fader" instance=ExtResource( 8 )]
+[node name="Lightbulb2" parent="RoomItems" instance=ExtResource( 8 )]
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.863, -9 )
 Bulb_On = true
 
-[node name="Lightbulb3" parent="Fader" instance=ExtResource( 8 )]
+[node name="Lightbulb3" parent="RoomItems" instance=ExtResource( 8 )]
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.863, -14 )
 Bulb_On = true
 
-[node name="Lightbulb4" parent="Fader" instance=ExtResource( 8 )]
+[node name="Lightbulb4" parent="RoomItems" instance=ExtResource( 8 )]
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.863, -19 )
 Bulb_On = true
 
-[node name="Lightbulb5" parent="Fader" instance=ExtResource( 8 )]
+[node name="Lightbulb5" parent="RoomItems" instance=ExtResource( 8 )]
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.863, -29 )
 Bulb_On = true
 
-[node name="Lightbulb6" parent="Fader" instance=ExtResource( 8 )]
+[node name="Lightbulb6" parent="RoomItems" instance=ExtResource( 8 )]
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.863, -35 )
 Bulb_On = true
 
-[node name="HatchClosed" parent="Fader" instance=ExtResource( 12 )]
+[node name="HatchClosed" parent="RoomItems" instance=ExtResource( 12 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -0.5 )
 
-[node name="Hatch" parent="Fader" instance=ExtResource( 13 )]
+[node name="Hatch" parent="RoomItems" instance=ExtResource( 13 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -35.5 )
-
-[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 9 )]
 
 [node name="console" parent="." instance=ExtResource( 3 )]
 

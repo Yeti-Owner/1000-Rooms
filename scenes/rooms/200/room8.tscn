@@ -1,12 +1,10 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/objects/Lightbulb.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=4]
+[ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=4]
 [ext_resource path="res://scenes/objects/Floors Walls Etc/WallObj2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/WorldEnvironment2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/load_world2.gd" type="Script" id=9]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=10]
@@ -43,46 +41,44 @@ _data = {
 [node name="world" type="Spatial"]
 script = ExtResource( 9 )
 AllowChase = false
+EnvironmentUsed = ExtResource( 4 )
 
-[node name="Fader" parent="." instance=ExtResource( 4 )]
+[node name="RoomItems" type="Spatial" parent="."]
 
-[node name="GUI" parent="Fader" instance=ExtResource( 6 )]
-
-[node name="Player" parent="Fader" instance=ExtResource( 8 )]
+[node name="Player" parent="RoomItems" instance=ExtResource( 8 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.7, 1.5 )
 
-[node name="Lightbulb" parent="Fader" instance=ExtResource( 3 )]
+[node name="Lightbulb" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.863, -18 )
 Bulb_On = true
 
-[node name="Lightbulb2" parent="Fader" instance=ExtResource( 3 )]
+[node name="Lightbulb2" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 21, 3.863, -18 )
 Bulb_On = true
 
-[node name="wall" parent="Fader" instance=ExtResource( 5 )]
+[node name="wall" parent="RoomItems" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 3 )
+skeleton = NodePath("")
 
-[node name="HatchClosed" parent="Fader" instance=ExtResource( 11 )]
+[node name="HatchClosed" parent="RoomItems" instance=ExtResource( 11 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 1.4 )
 
-[node name="Hatch" parent="Fader" instance=ExtResource( 12 )]
+[node name="Hatch" parent="RoomItems" instance=ExtResource( 12 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 23.4, 0, -18 )
 
-[node name="ResetBox" parent="Fader" instance=ExtResource( 13 )]
+[node name="ResetBox" parent="RoomItems" instance=ExtResource( 13 )]
 transform = Transform( 25, 0, 0, 0, 1, 0, 0, 0, 25, 10, -7, -12 )
 
-[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 7 )]
-
-[node name="XRA" type="StaticBody" parent="Fader"]
+[node name="XRA" type="StaticBody" parent="RoomItems"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.001, -1, 4 )
 collision_layer = 2
 script = ExtResource( 21 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Fader/XRA"]
+[node name="MeshInstance" type="MeshInstance" parent="RoomItems/XRA"]
 transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, 0, 0, 0 )
 mesh = SubResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Fader/XRA"]
+[node name="CollisionShape" type="CollisionShape" parent="RoomItems/XRA"]
 shape = SubResource( 4 )
 
 [node name="console" parent="." instance=ExtResource( 1 )]

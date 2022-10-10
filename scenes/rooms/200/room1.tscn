@@ -1,13 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=2]
 [ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/UI/GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/objects/Lightbulb.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/WorldEnvironment2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/objects/Floors Walls Etc/WallObj2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/load_world2.gd" type="Script" id=10]
 [ext_resource path="res://scenes/objects/doors/Hatch.tscn" type="PackedScene" id=11]
@@ -25,37 +23,34 @@ _data = {
 
 [node name="world" type="Spatial"]
 script = ExtResource( 10 )
+EnvironmentUsed = ExtResource( 2 )
 
-[node name="Fader" parent="." instance=ExtResource( 2 )]
-mouse_filter = 1
+[node name="RoomItems" type="Spatial" parent="."]
 
-[node name="GUI" parent="Fader" instance=ExtResource( 5 )]
-
-[node name="Player" parent="Fader" instance=ExtResource( 4 )]
+[node name="Player" parent="RoomItems" instance=ExtResource( 4 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.7, 1.6 )
 
-[node name="Lightbulb" parent="Fader" instance=ExtResource( 7 )]
+[node name="Lightbulb" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( -1, 6.28631e-06, 0, -6.28631e-06, -1, 0, 0, 0, 1, -0.946095, 3.93911, -4.3304 )
 Bulb_On = true
 
-[node name="Lightbulb2" parent="Fader" instance=ExtResource( 7 )]
+[node name="Lightbulb2" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( -1, 6.28631e-06, 0, -6.28631e-06, -1, 0, 0, 0, 1, -0.946095, 3.93911, -15.3304 )
 Bulb_On = true
 
-[node name="Lightbulb3" parent="Fader" instance=ExtResource( 7 )]
+[node name="Lightbulb3" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( -1, 6.28631e-06, 0, -6.28631e-06, -1, 0, 0, 0, 1, -0.946095, 3.93911, -28.3304 )
 Bulb_On = true
 Flashing = true
 
-[node name="wall" parent="Fader" instance=ExtResource( 9 )]
+[node name="wall" parent="RoomItems" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
+skeleton = NodePath("")
 
-[node name="WorldEnvironment2" parent="Fader" instance=ExtResource( 8 )]
-
-[node name="Hatch" parent="Fader" instance=ExtResource( 11 )]
+[node name="Hatch" parent="RoomItems" instance=ExtResource( 11 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 0, -31 )
 
-[node name="HatchClosed" parent="Fader" instance=ExtResource( 12 )]
+[node name="HatchClosed" parent="RoomItems" instance=ExtResource( 12 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 0, 1.5 )
 
 [node name="Narrator" parent="." instance=ExtResource( 6 )]
