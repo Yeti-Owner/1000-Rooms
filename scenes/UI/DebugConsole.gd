@@ -1,6 +1,7 @@
 extends Control
 
 var isActive = 0
+var MouseMode
 
 func _ready():
 	self.set_visible(false)
@@ -9,11 +10,12 @@ func _unhandled_input(event):
 	if event.is_action_pressed("console"):
 		isActive = !isActive
 		if isActive:
+			MouseMode = Input.get_mouse_mode()
 			self.set_visible(true)
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			self.set_visible(false)
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Input.set_mouse_mode(MouseMode)
 
 
 func _on_console_text_entered(cmd):
@@ -56,6 +58,6 @@ func _on_console_text_entered(cmd):
 		
 		"close":
 			self.set_visible(false)
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Input.set_mouse_mode(MouseMode)
 		"stuck":
 			SceneManager._reload_scene()

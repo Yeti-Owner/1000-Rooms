@@ -6,7 +6,6 @@ onready var MusicPlayer = get_parent().get_node("MusicPlayer")
 func _ready():
 	SaveGame._update_presence()
 	$VersionChecker._start()
-#	SceneManager.HudMode = "none"
 
 func _on_StartBtn_pressed():
 	$Timer.start()
@@ -19,7 +18,8 @@ func _on_OptionsBtn_pressed():
 	$SettingsMenu.popup_centered()
 
 func _on_AchievementsBtn_pressed():
-	get_node("Achievements").popup_centered()
+	SceneManager._change_scene("res://scenes/AchievementRenderer.tscn", "achievement")
+	SceneManager._init_HUD("achievement")
 
 func _on_CreditsBtn_pressed():
 	pass

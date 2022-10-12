@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=2]
+[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -16,6 +17,48 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Transitions/TextureRect:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "achievement_out"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Transitions/TextureRect:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 1081 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_scene_load"
+} ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -82,8 +125,16 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Transitions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 2560.0
+margin_bottom = 1440.0
+mouse_filter = 2
+
 [node name="TransitionManager" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
+anims/achievement_out = SubResource( 5 )
 anims/fade_in = SubResource( 1 )
 anims/fade_out = SubResource( 3 )
 
@@ -91,6 +142,17 @@ anims/fade_out = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 stretch = true
+
+[node name="Additional" type="Control" parent="GameScene"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="DebugConsole" type="CanvasLayer" parent="GameScene/Additional"]
+layer = 2
+
+[node name="console" parent="GameScene/Additional/DebugConsole" instance=ExtResource( 3 )]
+visible = false
 
 [node name="HUD" type="Control" parent="GameScene"]
 anchor_right = 1.0

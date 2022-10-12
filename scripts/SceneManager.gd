@@ -7,11 +7,13 @@ onready var GameScene = $GameScene/GameViewport
 onready var GameViewportContainer = $GameScene
 onready var GameHud = $GameScene/HUD
 onready var environment = $GameScene/GameViewport.world.environment
+onready var TextureHolder = $CanvasLayer/Transitions/TextureRect
 
 var SceneToLoad: String
 var CurrentScene
 var HudMode:String = "none" setget _init_HUD
 var UsableBrightness = float(Settingsholder.save_data.Brightness)/8
+var NextTransition
 
 func _ready():
 # warning-ignore:return_value_discarded
@@ -25,9 +27,21 @@ func _ready():
 	
 	GameViewportContainer.mouse_filter = 0
 
-func _change_scene(scene):
-	Transitions.play("fade_out")
-	SceneToLoad = scene
+func _change_scene(scene:String, type := "normal"):
+	match type:
+		"normal":
+			NextTransition = "fade_in"
+			Transitions.play("fade_out")
+			SceneToLoad = scene
+		"achievement":
+			NextTransition = null
+			var img = get_viewport().get_texture().get_data()
+			img.flip_y()
+			var screenshot = ImageTexture.new()
+			screenshot.create_from_image(img)
+			TextureHolder.texture = screenshot
+			SceneToLoad = scene
+			Transitions.play("achievement_out")
 
 func _scene_load():
 	if CurrentScene != null:
@@ -45,10 +59,11 @@ func _reload_scene():
 	Transitions.play("fade_out")
 
 func _fade_in():
-	Transitions.play("fade_in")
+	if NextTransition != null:
+		Transitions.play(NextTransition)
 
 func _init_HUD(mode):
-	print("called: " + str(mode))
+#	print("called: " + str(mode))
 	match mode:
 		"none":
 			for child in GameHud.get_children():
@@ -65,7 +80,12 @@ func _init_HUD(mode):
 			var _mainmenu = load("res://scenes/StartMenuV2.tscn")
 			var m = _mainmenu.instance()
 			GameHud.add_child(m)
-
+		"achievement":
+			for child in GameHud.get_children():
+				child.queue_free()
+			var _a = load("res://scenes/AchievementHolder.tscn")
+			var a = _a.instance()
+			GameHud.add_child(a)
 
 # WorldEnvironment Shenanigans
 func _bloom():
