@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=5]
 [ext_resource path="res://scenes/objects/NonFunctionals/Vent.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/objects/GameConsole.tscn" type="PackedScene" id=11]
@@ -26,8 +25,6 @@ transform = Transform( -3.14315e-06, 0, -1, 0, 1, 0, 1, 0, -3.14315e-06, -8.9, 0
 
 [node name="WallTorch" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( -0.8, 0, -5.02905e-06, 0, 0.8, 0, 5.02905e-06, 0, -0.8, -10, 1.1, -0.03 )
-
-[node name="console" parent="." instance=ExtResource( 8 )]
 
 [node name="GridMap" parent="." instance=ExtResource( 4 )]
 data = {

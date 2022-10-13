@@ -7,8 +7,8 @@ export(int) var Arg2 = 0
 export(Vector3) var Arg3
 export(String) var Arg4 = ""
 
-onready var player = get_node("/root/world/Fader/Player")
-onready var Narrator = get_node("/root/world/Narrator")
+onready var player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
+onready var Narrator = get_node("/root/SceneManager/GameScene/GameViewport/world/Narrator")
 var Interacted = true
 
 func get_interaction_text():

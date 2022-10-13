@@ -12,7 +12,6 @@ func interact():
 	$CanvasLayer/Popup.popup()
 	$PaperNoise.pitch_scale = rand_range(0.80, 1.2)
 	$PaperNoise.play()
-	
 
 func _on_Area_area_exited(area):
 	if area.name == "PlayerArea":

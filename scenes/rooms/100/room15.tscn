@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=5]
 [ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/signs/JumpScareSign3.tscn" type="PackedScene" id=12]
@@ -67,8 +66,6 @@ transform = Transform( 5.65768e-06, -1.4, -1.22392e-07, -1.8, -4.40041e-06, -8.8
 
 [node name="JumpScareSign3" parent="RoomItems" instance=ExtResource( 14 )]
 transform = Transform( 2.1, 1.83588e-07, -1.32012e-05, -1.83588e-07, 2.1, 0, -1.32012e-05, -1.15409e-12, -2.1, 16, -0.9, 35.3 )
-
-[node name="console" parent="." instance=ExtResource( 8 )]
 
 [node name="GridMap" parent="." instance=ExtResource( 15 )]
 data = {

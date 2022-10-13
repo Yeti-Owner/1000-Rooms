@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=1]
-[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/objects/Barrier.tscn" type="PackedScene" id=6]
@@ -103,8 +102,6 @@ Flashing = true
 
 [node name="HatchClosed" parent="RoomItems" instance=ExtResource( 12 )]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -0.6 )
-
-[node name="console" parent="." instance=ExtResource( 2 )]
 
 [node name="GridMap2" parent="." instance=ExtResource( 3 )]
 data = {

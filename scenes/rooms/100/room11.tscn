@@ -1,7 +1,6 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=1]
-[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=3]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=5]
@@ -94,8 +93,6 @@ transform = Transform( -1.59598e-14, -2.11394e-07, -2.8, 2.8, -2.11394e-07, -4.2
 
 [node name="JumpScareSign4" parent="RoomItems" instance=ExtResource( 15 )]
 transform = Transform( 1.4, 1.48619e-07, -2.11394e-07, 1.22392e-07, -1.7, 3.4446e-20, 2.11394e-07, 2.24409e-14, 1.4, 5.21899, 4.01235, 4.72499 )
-
-[node name="console" parent="." instance=ExtResource( 2 )]
 
 [node name="GridMap" parent="." instance=ExtResource( 16 )]
 data = {

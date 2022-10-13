@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/objects/Lightbulb.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/objects/Floors Walls Etc/WallObj2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/load_world2.gd" type="Script" id=8]
-[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/objects/doors/HatchClosed.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/doors/Hatch.tscn" type="PackedScene" id=12]
@@ -66,8 +65,6 @@ __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 2, 0 )
 }
-
-[node name="console" parent="." instance=ExtResource( 9 )]
 
 [node name="Narrator" parent="." instance=ExtResource( 10 )]
 

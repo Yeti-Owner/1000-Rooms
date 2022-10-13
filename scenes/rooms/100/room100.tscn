@@ -1,11 +1,10 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/objects/button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/UI/DebugConsole.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/rooms/100/room100.gd" type="Script" id=7]
 [ext_resource path="res://scenes/objects/Floors Walls Etc/WallObj.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=9]
@@ -288,8 +287,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -24.4 )
 
 [node name="BricksBreaking2" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -40.4 )
-
-[node name="console" parent="." instance=ExtResource( 6 )]
 
 [node name="Narrator" parent="." instance=ExtResource( 4 )]
 
