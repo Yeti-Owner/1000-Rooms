@@ -27,6 +27,8 @@ onready var HurtAnims = $HurtPlayer
 onready var Coyote = $CoyoteTimer
 
 func _ready():
+	self.scale = Vector3(0.6, 0.6, 0.6)
+	
 	if SaveGame.game_data.PlayerHP > 100:
 		SaveGame.game_data.PlayerHP = 100
 # warning-ignore:return_value_discarded

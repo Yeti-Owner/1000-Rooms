@@ -4,6 +4,7 @@
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=4]
 
 [node name="world" type="Spatial"]
+pause_mode = 1
 
 [node name="RoomItems" type="Spatial" parent="."]
 

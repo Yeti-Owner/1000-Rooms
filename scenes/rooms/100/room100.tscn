@@ -31,6 +31,7 @@
 extents = Vector3( 4, 1, 1 )
 
 [node name="world" type="Spatial"]
+pause_mode = 1
 script = ExtResource( 7 )
 EnvironmentUsed = ExtResource( 1 )
 

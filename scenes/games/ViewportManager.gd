@@ -12,7 +12,6 @@ onready var node_area = $Screen/Area
 
 
 func _on_Area_mouse_entered():
-	print("mouse") 
 	is_mouse_inside = true
 
 func _unhandled_input(event):

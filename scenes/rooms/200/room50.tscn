@@ -33,6 +33,7 @@ height = 2.5
 albedo_color = Color( 0, 0, 0, 1 )
 
 [node name="world" type="Spatial"]
+pause_mode = 1
 script = ExtResource( 10 )
 EnvironmentUsed = ExtResource( 4 )
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=1]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=2]
@@ -10,10 +10,6 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 30
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=10]
-size = 32
 font_data = ExtResource( 2 )
 
 [node name="AchievementHolder" type="CanvasLayer"]
@@ -52,17 +48,6 @@ margin_left = -59.0
 margin_bottom = 53.0
 custom_fonts/font = SubResource( 9 )
 text = " X "
-
-[node name="AchievementText" type="Label" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -73.0
-custom_fonts/font = SubResource( 10 )
-text = "Test Text"
-align = 1
-valign = 1
-autowrap = true
 
 [connection signal="pressed" from="Control/Left" to="." method="_on_Left_pressed"]
 [connection signal="pressed" from="Control/Right" to="." method="_on_Right_pressed"]

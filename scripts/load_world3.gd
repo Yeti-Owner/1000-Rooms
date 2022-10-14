@@ -1,8 +1,8 @@
 extends Spatial
 
 export(NodePath) onready var Removable
+export(Environment) var EnvironmentUsed
 
-onready var fader = $Fader
 onready var Narrator = $Narrator
 onready var _room = self.filename
 var RNG
@@ -11,15 +11,15 @@ var RemovableList = ["Good job","Congrats","Well Done","I knew you could do it",
 
 func _ready():
 	randomize()
+	SceneManager.GameScene.world.environment = EnvironmentUsed
 	SaveGame.game_data.CurrentRoom = _room
-	fader._fade_in()
 	_check_room()
 	_add_objs()
 #	_enable_spikes()
 	SaveGame._update_presence()
 
 func _check_room():
-	pass
+	pass 
 
 func _add_objs():
 	for _i2 in $Objs.get_children():

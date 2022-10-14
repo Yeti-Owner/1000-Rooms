@@ -83,6 +83,7 @@ func _on_PlayerCamera_tween_completed(_object, _key):
 		NewCam.queue_free()
 		NewPlayer.global_transform.origin = PlayerLoc
 		NewPlayer.global_transform.basis = TestRotation
+		NewPlayer.scale = Vector3(0.6, 0.6, 0.6)
 		Screen.material_override.albedo_texture = null
 		Collision2.disabled = false
 		Stage = 0

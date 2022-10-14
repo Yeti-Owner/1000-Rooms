@@ -35,6 +35,7 @@ agent_max_climb = 1.0
 extents = Vector3( 2.14542, 1.2, 5.10498 )
 
 [node name="world" type="Spatial"]
+pause_mode = 1
 script = ExtResource( 8 )
 EnvironmentUsed = ExtResource( 3 )
 

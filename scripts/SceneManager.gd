@@ -71,9 +71,10 @@ func _init_HUD(mode):
 		"ingame":
 			for child in GameHud.get_children():
 				child.queue_free()
-			var _GUI = load("res://scenes/UI/GUI.tscn")
-			var g = _GUI.instance()
-			GameHud.add_child(g)
+			var _GUI = load("res://scenes/UI/GUI.tscn").instance()
+#			var g = _GUI.instance()
+#			GameHud.add_child(g)
+			GameHud.add_child(_GUI)
 		"mainmenu":
 			for child in GameHud.get_children():
 				child.queue_free()

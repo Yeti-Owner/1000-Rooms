@@ -18,6 +18,7 @@ _data = {
 }
 
 [node name="world" type="Spatial"]
+pause_mode = 1
 script = ExtResource( 8 )
 AllowChase = false
 EnvironmentUsed = ExtResource( 2 )

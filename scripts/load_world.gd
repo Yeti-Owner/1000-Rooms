@@ -7,7 +7,7 @@ onready var Narrator = $Narrator
 onready var Objs = $Objs
 onready var _room = self.filename
 var RNG
-
+ 
 func _ready():
 	randomize()
 	SceneManager.GameScene.world.environment = EnvironmentUsed
