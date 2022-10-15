@@ -10,6 +10,7 @@ func get_interaction_text():
 func interact():
 	HatchSound.play()
 	AnimPlayer.play("open")
+	SaveGame.emit_signal("EnemyPassive")
 	if InteractedWith == 0:
 		RoomLoader._get_next_room()
 	InteractedWith = 1

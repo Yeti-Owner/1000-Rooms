@@ -13,6 +13,8 @@ onready var target = get_node("/root/SceneManager/GameScene/GameViewport/world/R
 func _ready():
 	$SoundTimer.start()
 	randomize()
+# warning-ignore:return_value_discarded
+	SaveGame.connect("EnemyPassive", self, "_passive")
 	nav.set_target_location(target.transform.origin)
 	targetPos = nav.get_next_location()
 
@@ -49,3 +51,6 @@ func _on_AudioStreamPlayer3D_finished():
 	var SoundTime = randi() % 3 + 1
 	$SoundTimer.set_wait_time(SoundTime)
 	$SoundTimer.start()
+
+func _passive():
+	EnabledChasing = 0

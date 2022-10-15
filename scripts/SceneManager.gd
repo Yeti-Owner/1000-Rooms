@@ -15,6 +15,8 @@ var HudMode:String = "none" setget _init_HUD
 var UsableBrightness = float(Settingsholder.save_data.Brightness)/8
 var NextTransition
 
+signal FakeFadeDone
+
 func _ready():
 # warning-ignore:return_value_discarded
 	Settingsholder.connect("bloom_changed", self, "_bloom")
@@ -111,3 +113,11 @@ func _quality_bloom():
 	else:
 		environment.glow_bicubic_upscale = false
 		environment.glow_high_quality = false
+
+func _fake_fade():
+	Transitions.play("fake_out")
+
+func _on_TransitionManager_animation_finished(anim_name):
+	if anim_name == "fake_out":
+		Transitions.play("fade_in")
+		emit_signal("FakeFadeDone")

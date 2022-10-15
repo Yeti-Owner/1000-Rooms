@@ -9,6 +9,9 @@ var ChasedBy = 0 # 0 = ghost, 1 = [PLACEHOLDER]
 var LastSavedRoomNum = 0
 var DeathReason
 
+# warning-ignore:unused_signal
+signal EnemyPassive
+
 # Saved Vars
 var game_data = {
 	"RoomNum" : 0,

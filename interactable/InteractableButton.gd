@@ -35,15 +35,15 @@ func interact():
 			"delete":
 				get_node(Arg1).queue_free()
 			"delete2":
-				get_node(Arg1).queue_free()
+				get_node(Arg1).queue_free() 
 				get_node(Arg4).queue_free()
 			"summon_monster":
 				var FairyEnemy = preload("res://scenes/enemies/FairyEnemy.tscn")
-				get_node("/root/world/Fader/wall").queue_free()
+				get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/wall").queue_free() # /root/SceneManager/GameScene/GameViewport/world/RoomItems/
 				var FairyEnemy2 = FairyEnemy.instance()
 				FairyEnemy2.transform.origin = Arg3
-				get_node("/root/world/").add_child(FairyEnemy2)
-				get_node("/root/world/FairyEnemy")._change_state(2)
+				get_node("/root/SceneManager/GameScene/GameViewport/world/").add_child(FairyEnemy2)
+				get_node("/root/SceneManager/GameScene/GameViewport/world/FairyEnemy")._change_state(2)
 				Narrator.messages = [str(Arg1), ""]
 				Narrator.start_dialogue()
 			"health_set":

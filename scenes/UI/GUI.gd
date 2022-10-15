@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var Stamina = 200
+var isPaused = false
 
 # References
 onready var RoomNum = $RoomNumHolder/CenterContainer/RoomNum
@@ -20,7 +21,7 @@ func _ready():
 
 func _physics_process(_delta) -> void:
 	# Regen Stamina Bar
-	if !Input.is_action_pressed("sprint") && StamBar.get_value() < 200:
+	if !Input.is_action_pressed("sprint") && StamBar.get_value() < 200 && !isPaused:
 		Stamina = StamBar.get_value() + 0.5
 		StamBar.set_value(Stamina)
 	

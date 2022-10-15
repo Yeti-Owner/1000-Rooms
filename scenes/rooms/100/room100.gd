@@ -2,10 +2,9 @@ extends Spatial
 
 export(Environment) var EnvironmentUsed
 
-onready var fader = $Fader
 onready var Narrator = $Narrator
-onready var FakeDoor = $Fader/FakeDoor/StaticBody
-onready var FairyCage = $Fader/GlassCage
+onready var FakeDoor = $RoomItems/FakeDoor/StaticBody
+onready var FairyCage = $RoomItems/GlassCage
 onready var player = get_node("RoomItems/Player")
 onready var _room = self.filename
 
@@ -23,10 +22,9 @@ func _ready():
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	FakeDoor.connect("DoorOpened", self, "_door_triggered")
 	FairyCage.connect("FairyReleased", self, "_release_fairy")
-	fader._fade_in()
 	if SaveGame.game_data.CurrentPos == Vector3(4, 0.7, -21.5):
 		player.transform.origin = Vector3(4, 0.7, -21.5)
-	$Fader/WallObj3.global_transform.origin = Vector3(0, 5, 0)
+	$RoomItems/WallObj3.global_transform.origin = Vector3(0, 5, 0)
 	Narrator.messages = ["And here we are","a hub area is just up ahead","the hub is completely safe so feel free to explore as much as you desire"]
 	RoomStage += 1
 
@@ -41,13 +39,13 @@ func _add_objs():
 func _dialogue_finished():
 	match RoomStage:
 		1:
-			get_node("Fader/WallObj").queue_free()
+			get_node("RoomItems/WallObj").queue_free()
 			$BricksBreaking.play()
 			Narrator.messages = ["But before you continue I need to share some info.","The next 100 rooms are much different from what you're used to.","They are much darker with different entrances","they are also much harder","...","I hope you're ready."]
 			Narrator.start_dialogue()
 			RoomStage += 1
 		2:
-			get_node("Fader/WallObj2").queue_free()
+			get_node("RoomItems/WallObj2").queue_free()
 			$BricksBreaking2.play()
 			Narrator.messages = ["uh"]
 			Narrator.start_dialogue()
@@ -57,9 +55,9 @@ func _on_Area_area_entered(area):
 	if area.name == "PlayerArea":
 		Narrator.messages = ["I don't remember that","...","I wouldn't mess with it if I were you"]
 		Narrator.start_dialogue()
-		$Fader/WallObj3.visible = true
-		$Fader/WallObj3.global_transform.origin = Vector3(0, 0, 0)
-		$Fader/TriggerArea.queue_free()
+		$RoomItems/WallObj3.visible = true
+		$RoomItems/WallObj3.global_transform.origin = Vector3(0, 0, 0)
+		$RoomItems/TriggerArea.queue_free()
 
 func _door_triggered():
 	SceneManager._fade_in()
@@ -120,11 +118,11 @@ func _release_fairy():
 	# Instance in Hatch
 	var Hatch2 = Hatch.instance()
 	Hatch2.transform.origin = Vector3(0, 0, -32.3)
-	get_node("Fader").add_child(Hatch2)
+	get_node("RoomItems").add_child(Hatch2)
 	
 	# remove door and wall
-	$Fader/FakeDoor.queue_free()
-	get_node("Fader/WallObj3").queue_free()
+	$RoomItems/FakeDoor.queue_free()
+	get_node("RoomItems/WallObj3").queue_free()
 	$BricksBreaking2.play()
 	
 	Narrator.messages = ["IT'S LOOSE","FIND THE HATCH TO ESCAPE"]

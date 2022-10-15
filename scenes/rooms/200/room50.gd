@@ -1,7 +1,7 @@
 extends Spatial
 
 onready var Narrator = $Narrator
-onready var player = $Fader/Player
+onready var player = $RoomItems/Player
 onready var _room = self.filename
 export(Environment) var EnvironmentUsed 
 var DoorStage = 1

@@ -1,6 +1,6 @@
 extends KinematicBody
 
-onready var Player = get_node("/root/world/Fader/Player")
+onready var Player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
 
 enum {
 	IDLE,
@@ -31,6 +31,8 @@ func _change_state(STATE):
 
 func _ready():
 	randomize()
+# warning-ignore:return_value_discarded
+	SaveGame.connect("EnemyPassive", self, "_passive")
 
 func _physics_process(_delta):
 	match state:
@@ -86,3 +88,6 @@ func _on_BellTimer_timeout():
 	$FairyBell.pitch_scale = rand_range(0.9, 1.3)
 	$FairyBell.play()
 	$BellTimer.wait_time = rand_range(1.23, 4.1)
+
+func _passive():
+	state = IDLE

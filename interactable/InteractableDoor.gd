@@ -11,6 +11,7 @@ func interact():
 	AnimPlayer.play("opening")
 	DoorSound.pitch_scale = rand_range(0.85, 1.15)
 	DoorSound.play()
+	SaveGame.emit_signal("EnemyPassive")
 	if InteractedWith == 0:
 		RoomLoader._get_next_room()
 	InteractedWith = 1

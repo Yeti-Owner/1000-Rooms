@@ -37,6 +37,8 @@ func _on_console_text_entered(cmd):
 					SaveGame.game_data.PlayerHP = int(cmd[2])
 					self.set_visible(false)
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+				"hp?":
+					print(SaveGame.game_data.PlayerHP)
 				"scare?":
 					print(SaveGame.game_data.JumpScareAmt)
 				"scare": 

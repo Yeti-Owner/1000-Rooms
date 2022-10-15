@@ -25,7 +25,7 @@ func _ready():
 func _on_Moth_area_entered(area):
 	if area.name == "PlayerArea":
 		Ending = "Moth"
-		$Fader/AreaHolder.queue_free()
+		$RoomItems/AreaHolder.queue_free()
 		Narrator.messages = ["Good job","Moths are mostly nocturnal hunters.","Additionally, they fear fire since it kills them and draws them in.","Moths are powerless to resist and know it will only lead to their demise."]
 		Narrator.start_dialogue()
 		MovePos = player.global_transform.origin
@@ -36,21 +36,21 @@ func _on_Moth_area_entered(area):
 func _on_Tree_area_entered(area):
 	if area.name == "PlayerArea":
 		Ending = "Tree"
-		$Fader/AreaHolder.queue_free()
+		$RoomItems/AreaHolder.queue_free()
 		Narrator.messages = ["Really? a fuckin tree!?","Are you stupid?","How is a tree SWIFT huh!?"]
 		Narrator.start_dialogue()
 
 func _on_CuttleFish_area_entered(area):
 	if area.name == "PlayerArea":
 		Ending = "CuttleFish"
-		$Fader/AreaHolder.queue_free()
+		$RoomItems/AreaHolder.queue_free()
 		Narrator.messages = ["Really?","Cuttlefish?!","I don't even know what to say here.","Of all the choices to make you chose Cuttlefish?","How is a FISH afraid of fire?","...","I hate it here"]
 		Narrator.start_dialogue()
 
 func _on_Rhino_area_entered(area):
 	if area.name == "PlayerArea":
 		Ending = "Rhino"
-		$Fader/AreaHolder.queue_free()
+		$RoomItems/AreaHolder.queue_free()
 		Narrator.messages = ["Rhino?","Have you ever watched national geographic?","Rhinos hate fire, they stomp it out whenever they see it.","They're not exactly afraid of something that barely touches them."]
 		Narrator.start_dialogue()
 
@@ -60,10 +60,10 @@ func _dialogue_finished():
 			pass
 		"Tree":
 			SaveGame.game_data.PlayerHP = 1
-			var _error = get_tree().reload_current_scene()
+			SceneManager._reload_scene()
 		"CuttleFish":
 			SaveGame.game_data.PlayerHP = 1
-			var _error = get_tree().reload_current_scene()
+			SceneManager._reload_scene()
 		"Rhino":
 			SaveGame.game_data.PlayerHP = 1
-			var _error = get_tree().reload_current_scene()
+			SceneManager._reload_scene()

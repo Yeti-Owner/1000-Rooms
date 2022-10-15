@@ -16,7 +16,7 @@ func _ready():
 	randomize()
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	SaveGame.game_data.CurrentRoom = _room
-	SaveGame.game_data.PlayerHP += 5
+	SaveGame.game_data.PlayerHP = min(SaveGame.game_data.PlayerHP + 5, 100)
 	_check_room()
 	_add_objs()
 	SaveGame._update_presence()
@@ -96,7 +96,7 @@ func _chasing():
 				SaveGame.isChased -= 1
 
 func _on_SpawnTimer_timeout():
-	$Fader/wall.queue_free()
+	$RoomItems/wall.queue_free()
 	var FairyEnemy2 = FairyEnemy.instance()
 	MonsterHandler.add_child(FairyEnemy2)
 	get_node("EnemyPath/PathFollow/FairyEnemy")._change_state(3)

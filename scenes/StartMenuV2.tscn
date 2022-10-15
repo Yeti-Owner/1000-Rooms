@@ -133,7 +133,6 @@ anchor_bottom = 1.0
 tab_align = 0
 
 [node name="Current" type="Tabs" parent="Menu/VersionDialog/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -159,8 +158,8 @@ scroll_horizontal_enabled = false
 
 [node name="Control" type="Control" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer"]
 margin_right = 698.0
-margin_bottom = 319.0
-rect_min_size = Vector2( 698, 319 )
+margin_bottom = 342.0
+rect_min_size = Vector2( 698, 342 )
 
 [node name="Info" type="Label" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer/Control"]
 anchor_right = 1.0
@@ -179,10 +178,12 @@ text = "- Added 8+ new textures
 - Added more transitions
 - Updated World Environments
 - Updated save data
-- Added proper Death Screens"
+- Added proper Death Screens
+- Adjusted difficulty"
 align = 1
 
 [node name="Next" type="Tabs" parent="Menu/VersionDialog/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
