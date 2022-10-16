@@ -51,8 +51,10 @@ func _lose():
 
 func _next_level(NewLevel):
 	# set lives to 3 at least
-	if Lives < 3:
-		Lives = 3
+	if Lives < 3: Lives = 3
+	
+	if NewLevel == 3:
+		_quit()
 	
 	# Remove old level
 	get_node("TileMap" + str(level)).queue_free()

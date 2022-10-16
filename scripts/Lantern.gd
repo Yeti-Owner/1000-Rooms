@@ -7,7 +7,7 @@ var rate
 
 func _ready():
 	randomize()
-	timer.wait_time = randi() % 4 + 1
+	timer.wait_time = randi() % 5 + 2
 	timer.start()
 	var r1 := rand_range(0.0007, 0.005)
 	var r2 := rand_range(0.0007, 0.005)
