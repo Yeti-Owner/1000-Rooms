@@ -12,8 +12,8 @@ func _player_hit():
 	
 	match hits:
 		4:
-			Player.global_transform.z += 30
+			Player.global_transform.origin.z += 30
 		8:
-			Player.global_transform.z += 30
+			Player.global_transform.origin.z += 30
 		12:
-			Player.global_transform.z += 30
+			Player.global_transform.origin.z += 30

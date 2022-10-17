@@ -11,7 +11,7 @@ func _ready():
 	timer.start()
 	var r1 := rand_range(0.0007, 0.005)
 	var r2 := rand_range(0.0007, 0.005)
-	rate = max(r1, r2)
+	rate = min(r1, r2)
 
 func _physics_process(_delta):
 	if Triggered:
@@ -19,4 +19,3 @@ func _physics_process(_delta):
 
 func _on_StartTimer_timeout():
 	Triggered = true
-	print(rate)

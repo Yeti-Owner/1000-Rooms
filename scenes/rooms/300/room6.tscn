@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scripts/load_world3.gd" type="Script" id=1]
+[ext_resource path="res://resources/WorldEnvironment3.tres" type="Environment" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/objects/doors/Pipe.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/objects/Acid.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/objects/Barrier.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/objects/doors/PipeClosed.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/objects/Lantern.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Gridmaps/GridMap3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/objects/NonFunctionals/Barrel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/objects/NonFunctionals/CardboardBox.tscn" type="PackedScene" id=13]
+
+[node name="world" type="Spatial"]
+pause_mode = 1
+script = ExtResource( 1 )
+EnvironmentUsed = ExtResource( 2 )
+
+[node name="RoomItems" type="Spatial" parent="."]
+
+[node name="Player" parent="RoomItems" instance=ExtResource( 3 )]
+transform = Transform( -1.57158e-06, 0, 0.5, 0, 0.5, 0, -0.5, 0, -1.57158e-06, -2, 5.972, 2 )
+
+[node name="PipeClosed" parent="RoomItems" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, -1, 0, -3.14315e-06, 1.37392e-13, -1, 1, -4.37114e-08, -3.14315e-06, -1.3, 8, 2 )
+
+[node name="Acid" parent="RoomItems" instance=ExtResource( 5 )]
+transform = Transform( -1.25726e-05, 1.79217e-07, -0.2, 4, -1.79217e-07, -6.28631e-07, -1.74846e-07, -4.1, -8.74228e-09, 0.4, 0, -12 )
+
+[node name="Narrator" parent="." instance=ExtResource( 10 )]
+
+[node name="Objs" type="Spatial" parent="."]
+
+[node name="GridMap3" parent="." instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
+data = {
+"cells": PoolIntArray( 4, 0, 0, 65534, 0, 0, 65540, 0, 0, 131070, 0, 0, 131072, 0, 1, 131073, 0, 1, 131074, 0, 1, 131075, 0, 1, 196607, 0, 1, -65536, 0, 1, -65535, 0, 1, -65534, 0, 1, -65533, 0, 1, -1, 0, 1, 4, 1, 0, 65534, 1, 0, 65540, 1, 0, 131070, 1, 0, 131072, 1, 1, 131073, 1, 1, 131074, 1, 1, 131075, 1, 1, 196607, 1, 1, -65536, 1, 1, -65535, 1, 1, -65534, 1, 1, -65533, 1, 1, -1, 1, 1, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 65535, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 131071, 2, 0, 0, 65521, 0, 65532, 65521, 0, 65533, 65521, 0, 65534, 65521, 0, 65535, 65521, 0, 65536, 65521, 0, 131068, 65521, 0, 131069, 65521, 0, 131070, 65521, 0, 131071, 65521, 0, 1, 65522, 0, 65531, 65522, 0, 65537, 65522, 0, 131067, 65522, 0, 131072, 65522, 1, 196604, 65522, 1, 196605, 65522, 1, 196606, 65522, 1, 196607, 65522, 1, -65536, 65522, 1, -4, 65522, 1, -3, 65522, 1, -2, 65522, 1, -1, 65522, 1, 1, 65523, 0, 65531, 65523, 0, 65537, 65523, 0, 131067, 65523, 0, 131072, 65523, 1, 196604, 65523, 1, 196605, 65523, 1, 196606, 65523, 1, 196607, 65523, 1, -65536, 65523, 1, -4, 65523, 1, -3, 65523, 1, -2, 65523, 1, -1, 65523, 1, 1, 65524, 0, 65532, 65524, 0, 65533, 65524, 0, 65534, 65524, 0, 65537, 65524, 0, 131068, 65524, 0, 131069, 65524, 0, 131070, 65524, 0, 131072, 65524, 1, 196607, 65524, 1, -65536, 65524, 1, -1, 65524, 1, 1, 65525, 0, 2, 65525, 0, 65533, 65525, 0, 65534, 65525, 0, 65537, 65525, 0, 65538, 65525, 0, 131069, 65525, 0, 131070, 65525, 0, 131072, 65525, 1, 196607, 65525, 1, -65536, 65525, 1, -1, 65525, 1, 3, 65526, 0, 65532, 65526, 0, 65539, 65526, 0, 131068, 65526, 0, 131072, 65526, 1, 131073, 65526, 1, 131074, 65526, 1, 196605, 65526, 1, 196606, 65526, 1, 196607, 65526, 1, -65536, 65526, 1, -65535, 65526, 1, -65534, 65526, 1, -3, 65526, 1, -2, 65526, 1, -1, 65526, 1, 3, 65527, 0, 65532, 65527, 0, 65539, 65527, 0, 131068, 65527, 0, 131072, 65527, 1, 131073, 65527, 1, 131074, 65527, 1, 196605, 65527, 1, 196606, 65527, 1, 196607, 65527, 1, -65536, 65527, 1, -65535, 65527, 1, -65534, 65527, 1, -3, 65527, 1, -2, 65527, 1, -1, 65527, 1, 3, 65528, 0, 65532, 65528, 0, 65539, 65528, 0, 131068, 65528, 0, 131072, 65528, 1, 131073, 65528, 1, 131074, 65528, 1, 196605, 65528, 1, 196606, 65528, 1, 196607, 65528, 1, -131072, 65528, 1, -65537, 65528, 1, -65535, 65528, 1, -65534, 65528, 1, -3, 65528, 1, -2, 65528, 1, 3, 65529, 0, 65532, 65529, 0, 65539, 65529, 0, 131068, 65529, 0, 131072, 65529, 1, 131073, 65529, 1, 131074, 65529, 1, 196605, 65529, 1, 196606, 65529, 1, 196607, 65529, 1, -131072, 65529, 1, -65537, 65529, 1, -65535, 65529, 1, -65534, 65529, 1, -3, 65529, 1, -2, 65529, 1, 3, 65530, 0, 65532, 65530, 0, 65539, 65530, 0, 131068, 65530, 0, 131072, 65530, 1, 131073, 65530, 1, 131074, 65530, 1, 196605, 65530, 1, 196606, 65530, 1, 196607, 65530, 1, -131072, 65530, 1, -65537, 65530, 1, -65535, 65530, 1, -65534, 65530, 1, -3, 65530, 1, -2, 65530, 1, 3, 65531, 0, 65532, 65531, 0, 65539, 65531, 0, 131068, 65531, 0, 131072, 65531, 1, 131073, 65531, 1, 131074, 65531, 1, 196605, 65531, 1, 196606, 65531, 1, 196607, 65531, 1, -131072, 65531, 1, -65537, 65531, 1, -65535, 65531, 1, -65534, 65531, 1, -3, 65531, 1, -2, 65531, 1, 3, 65532, 0, 65532, 65532, 0, 65539, 65532, 0, 131068, 65532, 0, 131072, 65532, 1, 131073, 65532, 1, 131074, 65532, 1, 196605, 65532, 1, 196606, 65532, 1, 196607, 65532, 1, -65536, 65532, 1, -65535, 65532, 1, -65534, 65532, 1, -3, 65532, 1, -2, 65532, 1, -1, 65532, 1, 3, 65533, 0, 65532, 65533, 0, 65539, 65533, 0, 131068, 65533, 0, 131072, 65533, 1, 131073, 65533, 1, 131074, 65533, 1, 196605, 65533, 1, 196606, 65533, 1, 196607, 65533, 1, -65536, 65533, 1, -65535, 65533, 1, -65534, 65533, 1, -3, 65533, 1, -2, 65533, 1, -1, 65533, 1, 1, 65534, 0, 2, 65534, 0, 65533, 65534, 0, 65534, 65534, 0, 65537, 65534, 0, 65538, 65534, 0, 131069, 65534, 0, 131070, 65534, 0, 131072, 65534, 1, 196607, 65534, 1, -65536, 65534, 1, -1, 65534, 1, 1, 65535, 0, 2, 65535, 0, 3, 65535, 0, 65534, 65535, 0, 65537, 65535, 0, 65538, 65535, 0, 65539, 65535, 0, 131070, 65535, 0, 131072, 65535, 1, 196607, 65535, 1, -65536, 65535, 1, -1, 65535, 1 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 2, 0 )
+}
+
+[node name="CardboardBox" parent="GridMap3" instance=ExtResource( 13 )]
+transform = Transform( 0.0197598, 1.04997e-11, -0.00309038, 1.04997e-11, 0.02, 1.35085e-10, 0.00309038, -1.35085e-10, 0.0197598, -5.236, 0, -17.4 )
+
+[node name="Barrier" parent="GridMap3/CardboardBox" instance=ExtResource( 6 )]
+transform = Transform( -1.58454e-06, 20.8402, 3.28353, -36.25, -9.10953e-07, -1.43528e-07, 0, -3.25935, 20.9948, 0, 0, 0 )
+
+[node name="Barrel" parent="GridMap3" instance=ExtResource( 12 )]
+transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -4.2, 1.83588e-07, -18.6 )
+
+[node name="Barrier" parent="GridMap3/Barrel" instance=ExtResource( 6 )]
+transform = Transform( 27.542, -8.2018e-05, 0, 7.95984e-07, 50, 0, 0, 0, 26.789, 0.962967, 30, -2.771 )
+
+[node name="Lantern" parent="GridMap3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.31134e-07, -19.5 )
+
+[node name="Barrier" parent="GridMap3/Lantern" instance=ExtResource( 6 )]
+transform = Transform( 0.1125, 1.69382e-08, 0, 1.69382e-08, 0.5, 0, 0, 0, 0.135, 0.016, 0, 0 )
+
+[node name="Lantern2" parent="GridMap3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 1.22392e-07, -6.3 )
+
+[node name="Lantern3" parent="GridMap3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1, -1.35505e-07, -12.8 )
+
+[node name="Lantern4" parent="GridMap3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 2.49155e-07, -12.8 )
+
+[node name="Lantern5" parent="GridMap3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, -4.80825e-08, -25.8 )
+
+[node name="Lantern6" parent="GridMap3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -4.37115e-09, 3.2 )
+
+[node name="Lantern8" parent="GridMap3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -2.84124e-07, 0.700001 )
+
+[node name="Lantern7" parent="GridMap3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.0598e-07, -24.6 )
+
+[node name="Pipe" parent="GridMap3" instance=ExtResource( 4 )]
+transform = Transform( -3.14315e-06, 4.37115e-08, 1, 4.37115e-08, 1, -4.37114e-08, -1, 4.37114e-08, -3.14315e-06, -8.1, 0.8, -25.9 )
