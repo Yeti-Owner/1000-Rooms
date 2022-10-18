@@ -19,26 +19,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.113725, 0.113725, 0.113725, 1 )
 
-[node name="HBoxContainer" type="VBoxContainer" parent="."]
+[node name="DeathTexture" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+expand = true
+stretch_mode = 6
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
-margin_right = 1280.0
-margin_bottom = 341.0
-size_flags_horizontal = 15
-size_flags_vertical = 3
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer"]
-margin_left = 640.0
-margin_top = 170.0
-margin_right = 640.0
-margin_bottom = 170.0
-
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="DeathLabel" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_top = 345.0
-margin_right = 1280.0
-margin_bottom = 720.0
 rect_min_size = Vector2( 0, 375 )
 custom_fonts/font = SubResource( 1 )
 text = "Another body left behind to be consumed by the dungeon.

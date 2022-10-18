@@ -7,10 +7,10 @@ var rate
 
 func _ready():
 	randomize()
-	timer.wait_time = randi() % 5 + 2
+	timer.wait_time = randi() % 10 + 5
 	timer.start()
-	var r1 := rand_range(0.0007, 0.005)
-	var r2 := rand_range(0.0007, 0.005)
+	var r1 := rand_range(0.00025, 0.003)
+	var r2 := rand_range(0.00025, 0.003)
 	rate = min(r1, r2)
 
 func _physics_process(_delta):

@@ -1,7 +1,8 @@
 extends Control
 
-onready var DeathText = $HBoxContainer/Label
+onready var DeathText = $DeathLabel
 onready var DeathReason = SaveGame.DeathReason
+onready var DeathPic = $DeathTexture
 
 var text: String
 
@@ -41,6 +42,10 @@ func _get_msg():
 func _set_msg():
 	text = "{message}\n\n{stats}\n\n{tip}\n\n{bye}".format({"message" : message, "stats" : stats, "tip" : tip, "bye" : bye})
 	DeathText.text = text
+	
+	# Set Picture
+	var PicUsed = str("res://assets/textures/scary/" + str(randi() % 9 + 1) + ".png")
+	DeathPic.texture = load(PicUsed)
 
 func _on_Timer_timeout():
 	SceneManager.HudMode = "ingame"

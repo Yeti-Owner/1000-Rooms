@@ -68,6 +68,10 @@ func _check_room():
 		AllowChase = false
 	elif _room == "res://scenes/rooms/200/room14.tscn" and SaveGame.game_data.RoomNum != 104:
 		$Table2.queue_free()
+	elif _room == "res://scenes/rooms/200/room13.tscn" and SaveGame.game_data.RoomNum == 122:
+		$Table1.visible = true
+	elif _room == "res://scenes/rooms/200/room13.tscn" and SaveGame.game_data.RoomNum != 122:
+		$Table1.queue_free()
 
 func _dialogue_finished():
 	if ReRunSpawn == 1:

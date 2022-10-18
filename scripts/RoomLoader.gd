@@ -25,6 +25,9 @@ func _get_next_room():
 		49:
 			SceneManager._change_scene("res://scenes/rooms/100/room50.tscn")
 			SaveGame.game_data.RoomNum += 1
+		57:
+			SceneManager._change_scene("res://scenes/rooms/100/room14.tscn")
+			SaveGame.game_data.RoomNum += 1
 		74:
 			SaveGame.game_data.RoomNum += 1
 			SceneManager._change_scene("res://scenes/rooms/100/room75.tscn")
@@ -40,6 +43,9 @@ func _get_next_room():
 		103:
 			SaveGame.game_data.RoomNum += 1
 			SceneManager._change_scene("res://scenes/rooms/200/room14.tscn")
+		123:
+			SaveGame.game_data.RoomNum += 1
+			SceneManager._change_scene("res://scenes/rooms/200/room13.tscn")
 		149:
 			SaveGame.game_data.RoomNum += 1
 			SceneManager._change_scene("res://scenes/rooms/200/room50.tscn")

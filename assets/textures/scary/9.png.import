@@ -2,20 +2,22 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/9.png-f5148ced23d4eed674a113f80654bc86.stex"
+path.s3tc="res://.import/9.png-f5148ced23d4eed674a113f80654bc86.s3tc.stex"
+path.etc2="res://.import/9.png-f5148ced23d4eed674a113f80654bc86.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/scary/9.png"
-dest_files=[ "res://.import/9.png-f5148ced23d4eed674a113f80654bc86.stex" ]
+dest_files=[ "res://.import/9.png-f5148ced23d4eed674a113f80654bc86.s3tc.stex", "res://.import/9.png-f5148ced23d4eed674a113f80654bc86.etc2.stex" ]
 
 [params]
 
-compress/mode=1
-compress/lossy_quality=0.45
+compress/mode=2
+compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

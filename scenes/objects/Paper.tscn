@@ -54,7 +54,7 @@ mesh = ExtResource( 1 )
 material/0 = SubResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
+layer = 3
 
 [node name="Popup" type="Popup" parent="CanvasLayer"]
 visible = true

@@ -37,6 +37,11 @@ func _check_room():
 		$Table2.queue_free()
 	elif SaveGame.game_data.RoomNum == 49:
 		$HandPrints.visible = true
+	elif _room == "res://scenes/rooms/100/room14.tscn" and SaveGame.game_data.RoomNum == 56:
+		$Table3.visible = true
+		EnemyAllowed = false
+	elif _room == "res://scenes/rooms/100/room14.tscn" and SaveGame.game_data.RoomNum != 56:
+		$Table3.queue_free()
 
 func _add_objs():
 	for _i in Objs.get_children():
