@@ -46,6 +46,7 @@ Text = "Lorem Ipsum
 
 wsp gamers
 "
+TextColor = Color( 0.87451, 0, 0, 1 )
 
 [node name="Button" parent="RoomItems" instance=ExtResource( 13 )]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 1.2, -2 )

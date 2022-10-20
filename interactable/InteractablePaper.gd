@@ -2,6 +2,11 @@ extends Interactable
 
 export(String) var Title = ""
 export(String, MULTILINE) var Text = ""
+export(Color) var TextColor
+
+func _ready():
+	$CanvasLayer/Popup/MarginContainer/VBoxContainer/Title.add_color_override("font_color", TextColor)
+	$CanvasLayer/Popup/MarginContainer/VBoxContainer/Text.add_color_override("font_color", TextColor)
 
 func get_interaction_text():
 	return "Press E to read"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/3D models/Paper/A4_Lined_Paper_OBJ.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/3D models/Paper/Lined_Paper_Base_Colour.png" type="Texture" id=2]
@@ -6,10 +6,11 @@
 [ext_resource path="res://assets/3D models/Paper/Lined_Paper_Metallic.png" type="Texture" id=4]
 [ext_resource path="res://assets/3D models/Paper/Lined_Paper_Roughness.png" type="Texture" id=5]
 [ext_resource path="res://assets/3D models/Paper/Lined_Paper_Normal_OpenGL.png" type="Texture" id=6]
-[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://resources/PaperTextFont.tres" type="DynamicFont" id=7]
 [ext_resource path="res://interactable/InteractablePaper.gd" type="Script" id=8]
 [ext_resource path="res://assets/audio/misc/Paper.ogg" type="AudioStream" id=9]
 [ext_resource path="res://assets/3D models/Paper/PaperTex.png" type="Texture" id=10]
+[ext_resource path="res://resources/PaperTitleFont.tres" type="DynamicFont" id=11]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -23,18 +24,6 @@ ao_light_affect = 0.0
 ao_texture = ExtResource( 3 )
 ao_on_uv2 = false
 ao_texture_channel = 0
-
-[sub_resource type="DynamicFont" id=6]
-size = 50
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 7 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 18
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 7 )
 
 [sub_resource type="CylinderShape" id=5]
 height = 1.0
@@ -83,7 +72,8 @@ margin_bottom = 620.0
 [node name="Title" type="Label" parent="CanvasLayer/Popup/MarginContainer/VBoxContainer"]
 margin_right = 480.0
 margin_bottom = 51.0
-custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 11 )
 text = "Title"
 align = 1
 
@@ -97,7 +87,8 @@ custom_constants/margin_top = 30
 margin_top = 89.0
 margin_right = 480.0
 margin_bottom = 108.0
-custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 7 )
 text = "Lorem Ipsum"
 align = 1
 autowrap = true
