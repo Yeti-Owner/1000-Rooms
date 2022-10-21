@@ -1,0 +1,287 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://resources/WorldEnvironment3.tres" type="Environment" id=1]
+[ext_resource path="res://scripts/load_world3.gd" type="Script" id=2]
+[ext_resource path="res://scenes/objects/Acid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/objects/Lantern.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Gridmaps/GridMap3.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/objects/doors/PipeClosed.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/objects/doors/Pipe.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/objects/ResetBox.tscn" type="PackedScene" id=10]
+
+[node name="world" type="Spatial"]
+pause_mode = 1
+script = ExtResource( 2 )
+EnvironmentUsed = ExtResource( 1 )
+
+[node name="RoomItems" type="Spatial" parent="."]
+
+[node name="Player" parent="RoomItems" instance=ExtResource( 8 )]
+transform = Transform( -0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0.7, -1.2 )
+
+[node name="PipeClosed" parent="RoomItems" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4.2 )
+
+[node name="Pipe" parent="RoomItems" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, 0, 0.5, 28.2 )
+
+[node name="Lantern" parent="RoomItems" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+
+[node name="Lantern2" parent="RoomItems" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0, 26 )
+
+[node name="Lantern3" parent="RoomItems" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 13 )
+
+[node name="Lantern4" parent="RoomItems" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 13 )
+
+[node name="Lantern5" parent="RoomItems" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 13 )
+
+[node name="Narrator" parent="." instance=ExtResource( 4 )]
+
+[node name="Objs" type="Spatial" parent="."]
+
+[node name="Lantern" parent="Objs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 5.4 )
+
+[node name="Lantern2" parent="Objs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4, 0, 7.7 )
+
+[node name="Lantern3" parent="Objs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7, 0, 8.4 )
+
+[node name="Lantern4" parent="Objs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0, 18.4 )
+
+[node name="Lantern5" parent="Objs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4, 0, 18.7 )
+
+[node name="Lantern6" parent="Objs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6, 0, 20.6 )
+
+[node name="Lantern7" parent="Objs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.8, 0, 20.2 )
+
+[node name="GridMap3" parent="." instance=ExtResource( 6 )]
+data = {
+"cells": PoolIntArray( 1, 0, 0, 65534, 0, 0, 65537, 0, 0, 131070, 0, 0, 131072, 0, 1, 196607, 0, 1, -65536, 0, 1, -1, 0, 1, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131072, 1, 1, 196607, 1, 1, -65536, 1, 1, -1, 1, 1, 5, 2, 0, 65530, 2, 0, 65541, 2, 0, 131066, 2, 0, 131072, 2, 1, 131073, 2, 1, 131074, 2, 1, 131075, 2, 1, 131076, 2, 1, 196603, 2, 1, 196604, 2, 1, 196605, 2, 1, 196606, 2, 1, 196607, 2, 1, -65536, 2, 1, -65535, 2, 1, -65534, 2, 1, -65533, 2, 1, -65532, 2, 1, -5, 2, 1, -4, 2, 1, -3, 2, 1, -2, 2, 1, -1, 2, 1, 5, 3, 0, 65530, 3, 0, 65541, 3, 0, 131066, 3, 0, 131072, 3, 1, 131073, 3, 1, 131074, 3, 1, 131075, 3, 1, 131076, 3, 1, 196603, 3, 1, 196604, 3, 1, 196605, 3, 1, 196606, 3, 1, 196607, 3, 1, -65536, 3, 1, -65535, 3, 1, -65534, 3, 1, -65533, 3, 1, -65532, 3, 1, -5, 3, 1, -4, 3, 1, -3, 3, 1, -2, 3, 1, -1, 3, 1, 5, 4, 0, 65530, 4, 0, 65541, 4, 0, 131066, 4, 0, 131072, 4, 1, 131073, 4, 1, 131074, 4, 1, 131075, 4, 1, 131076, 4, 1, 196603, 4, 1, 196604, 4, 1, 196605, 4, 1, 196606, 4, 1, 196607, 4, 1, -131072, 4, 1, -131070, 4, 1, -131068, 4, 1, -65540, 4, 1, -65538, 4, 1, -65535, 4, 1, -65533, 4, 1, -65531, 4, 0, -5, 4, 1, -3, 4, 1, -1, 4, 1, 5, 5, 0, 65530, 5, 0, 65541, 5, 0, 131066, 5, 0, 131072, 5, 1, 131073, 5, 1, 131074, 5, 1, 131075, 5, 1, 131076, 5, 1, 196603, 5, 1, 196604, 5, 1, 196605, 5, 1, 196606, 5, 1, 196607, 5, 1, -131071, 5, 1, -131069, 5, 1, -65541, 5, 1, -65539, 5, 1, -65537, 5, 1, -65536, 5, 1, -65534, 5, 1, -65532, 5, 1, -6, 5, 0, -4, 5, 1, -2, 5, 1, 5, 6, 0, 65530, 6, 0, 65541, 6, 0, 131066, 6, 0, 131072, 6, 1, 131073, 6, 1, 131074, 6, 1, 131075, 6, 1, 131076, 6, 1, 196603, 6, 1, 196604, 6, 1, 196605, 6, 1, 196606, 6, 1, 196607, 6, 1, -131072, 6, 1, -131070, 6, 1, -131068, 6, 1, -65540, 6, 1, -65538, 6, 1, -65535, 6, 1, -65533, 6, 1, -65531, 6, 0, -5, 6, 1, -3, 6, 1, -1, 6, 1, 5, 7, 0, 65530, 7, 0, 65541, 7, 0, 131066, 7, 0, 131072, 7, 1, 131073, 7, 1, 131074, 7, 1, 131075, 7, 1, 131076, 7, 1, 196603, 7, 1, 196604, 7, 1, 196605, 7, 1, 196606, 7, 1, 196607, 7, 1, -131071, 7, 1, -131069, 7, 1, -65541, 7, 1, -65539, 7, 1, -65537, 7, 1, -65536, 7, 1, -65534, 7, 1, -65532, 7, 1, -6, 7, 0, -4, 7, 1, -2, 7, 1, 5, 8, 0, 65530, 8, 0, 65541, 8, 0, 131066, 8, 0, 131072, 8, 1, 131073, 8, 1, 131074, 8, 1, 131075, 8, 1, 131076, 8, 1, 196603, 8, 1, 196604, 8, 1, 196605, 8, 1, 196606, 8, 1, 196607, 8, 1, -131072, 8, 1, -131070, 8, 1, -131068, 8, 1, -65540, 8, 1, -65538, 8, 1, -65535, 8, 1, -65533, 8, 1, -65531, 8, 0, -5, 8, 1, -3, 8, 1, -1, 8, 1, 5, 9, 0, 65530, 9, 0, 65541, 9, 0, 131066, 9, 0, 131072, 9, 1, 131073, 9, 1, 131074, 9, 1, 131075, 9, 1, 131076, 9, 1, 196603, 9, 1, 196604, 9, 1, 196605, 9, 1, 196606, 9, 1, 196607, 9, 1, -131071, 9, 1, -131069, 9, 1, -65541, 9, 1, -65539, 9, 1, -65537, 9, 1, -65536, 9, 1, -65534, 9, 1, -65532, 9, 1, -6, 9, 0, -4, 9, 1, -2, 9, 1, 5, 10, 0, 65530, 10, 0, 65541, 10, 0, 131066, 10, 0, 131072, 10, 1, 131073, 10, 1, 131074, 10, 1, 131075, 10, 1, 131076, 10, 1, 196603, 10, 1, 196604, 10, 1, 196605, 10, 1, 196606, 10, 1, 196607, 10, 1, -65536, 10, 1, -65535, 10, 1, -65534, 10, 1, -65533, 10, 1, -65532, 10, 1, -5, 10, 1, -4, 10, 1, -3, 10, 1, -2, 10, 1, -1, 10, 1, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 65530, 11, 0, 65531, 11, 0, 65532, 11, 0, 65533, 11, 0, 65534, 11, 0, 65537, 11, 0, 65538, 11, 0, 65539, 11, 0, 65540, 11, 0, 131066, 11, 0, 131067, 11, 0, 131068, 11, 0, 131069, 11, 0, 131070, 11, 0, 131072, 11, 1, 196607, 11, 1, -65536, 11, 1, -1, 11, 1, 1, 12, 0, 65534, 12, 0, 65537, 12, 0, 131070, 12, 0, 131072, 12, 1, 196607, 12, 1, -65536, 12, 1, -1, 12, 1, 1, 13, 0, 65534, 13, 0, 65537, 13, 0, 131070, 13, 0, 131072, 13, 1, 196607, 13, 1, -65536, 13, 1, -1, 13, 1, 0, 14, 0, 65535, 14, 0, 65536, 14, 0, 131071, 14, 0, 0, 65533, 0, 65535, 65533, 0, 65536, 65533, 0, 131071, 65533, 0, 1, 65534, 0, 65534, 65534, 0, 65537, 65534, 0, 131070, 65534, 0, 131072, 65534, 1, 196607, 65534, 1, -65536, 65534, 1, -1, 65534, 1, 1, 65535, 0, 65534, 65535, 0, 65537, 65535, 0, 131070, 65535, 0, 131072, 65535, 1, 196607, 65535, 1, -65536, 65535, 1, -1, 65535, 1 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 2, 0 )
+}
+
+[node name="Acid" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 1, -0.4, 9 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid2" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 5, -0.4, 9 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid3" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 9, -0.4, 9 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid4" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -3, -0.4, 9 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid5" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -7, -0.4, 9 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid6" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 1, -0.4, 13 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid7" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 5, -0.4, 13 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid8" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 9, -0.4, 13 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid9" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -3, -0.4, 13 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid10" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -7, -0.4, 13 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid11" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 1, -0.4, 17 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid12" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 5, -0.4, 17 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid13" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 9, -0.4, 17 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid14" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -3, -0.4, 17 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid15" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -7, -0.4, 17 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid16" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -9, -0.4, 11 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid17" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -5, -0.4, 11 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid18" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -1, -0.4, 11 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid19" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 3, -0.4, 11 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid20" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 7, -0.4, 11 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid21" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -9, -0.4, 15 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid30" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -9, -0.4, 19 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid22" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -5, -0.4, 15 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid23" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -1, -0.4, 15 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid24" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 3, -0.4, 15 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid25" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 7, -0.4, 15 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid26" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -5, -0.4, 19 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid27" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, -1, -0.4, 19 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid28" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 3, -0.4, 19 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="Acid29" parent="GridMap3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 7, -0.4, 19 )
+skeleton = NodePath("../../RoomItems")
+
+[node name="ResetBox" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.1, 9 )
+
+[node name="ResetBox4" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1.1, 9 )
+
+[node name="ResetBox5" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -1.1, 9 )
+
+[node name="ResetBox2" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.1, 9 )
+
+[node name="ResetBox3" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1.1, 9 )
+
+[node name="ResetBox6" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.1, 13 )
+
+[node name="ResetBox7" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1.1, 13 )
+
+[node name="ResetBox8" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -1.1, 13 )
+
+[node name="ResetBox9" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.1, 13 )
+
+[node name="ResetBox10" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1.1, 13 )
+
+[node name="ResetBox11" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1.1, 11 )
+
+[node name="ResetBox12" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.1, 11 )
+
+[node name="ResetBox13" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -1.1, 11 )
+
+[node name="ResetBox14" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1.1, 11 )
+
+[node name="ResetBox15" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -1.1, 11 )
+
+[node name="ResetBox16" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1.1, 15 )
+
+[node name="ResetBox17" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.1, 15 )
+
+[node name="ResetBox18" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -1.1, 15 )
+
+[node name="ResetBox19" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1.1, 15 )
+
+[node name="ResetBox20" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -1.1, 15 )
+
+[node name="ResetBox21" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1.1, 19 )
+
+[node name="ResetBox22" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.1, 19 )
+
+[node name="ResetBox23" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -1.1, 19 )
+
+[node name="ResetBox24" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1.1, 19 )
+
+[node name="ResetBox25" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -1.1, 19 )
+
+[node name="ResetBox26" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.1, 17 )
+
+[node name="ResetBox27" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1.1, 17 )
+
+[node name="ResetBox28" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -1.1, 17 )
+
+[node name="ResetBox29" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.1, 17 )
+
+[node name="ResetBox30" parent="GridMap3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1.1, 17 )

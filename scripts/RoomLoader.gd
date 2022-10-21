@@ -66,8 +66,16 @@ func _get_next_room():
 					SaveGame.game_data.RoomNum += 1
 				else: 
 					_get_next_room()
-			elif (SaveGame.game_data.RoomNum >= 199):
+			elif (SaveGame.game_data.RoomNum >= 299):
 				SceneManager._change_scene("res://scenes/EndScreen.tscn")
+			elif (SaveGame.game_data.RoomNum > 199):
+				RoomRNG = randi() % 15 + 1
+				GotoRoom = str("res://scenes/rooms/300/room" + str(RoomRNG) + ".tscn")
+				if GotoRoom != LastRoom:
+					SceneManager._change_scene(GotoRoom)
+					SaveGame.game_data.RoomNum += 1
+				else: 
+					_get_next_room()
 			elif (SaveGame.game_data.RoomNum > 99):
 				RoomRNG = randi() % 15 + 1
 				GotoRoom = str("res://scenes/rooms/200/room" + str(RoomRNG) + ".tscn")

@@ -54,6 +54,21 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, 12 )
 [node name="Lantern2" parent="Objs" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, 20.7 )
 
+[node name="Lantern7" parent="Objs" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3, 0, 12.6 )
+
+[node name="Lantern8" parent="Objs" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1, 0, 25.6 )
+
+[node name="Lantern9" parent="Objs" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4, 0, 24.4 )
+
+[node name="Lantern10" parent="Objs" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1, 0, 13.7 )
+
+[node name="Lantern11" parent="Objs" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3, 0, 18 )
+
 [node name="Lantern3" parent="Objs" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, -8, 17.7 )
 

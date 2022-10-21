@@ -30,6 +30,9 @@ transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, 0, 0.8,
 [node name="Lantern" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1.1 )
 
+[node name="Lantern2" parent="RoomItems" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -1.7 )
+
 [node name="Narrator" parent="." instance=ExtResource( 8 )]
 
 [node name="Objs" type="Spatial" parent="."]

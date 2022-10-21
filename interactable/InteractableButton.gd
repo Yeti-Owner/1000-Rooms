@@ -29,7 +29,7 @@ func interact():
 			"pos":
 				player.transform.origin = Arg3
 			"die":
-				var _error = get_tree().reload_current_scene()
+				SceneManager._reload_scene()
 			"continue":
 				RoomLoader._get_next_room()
 			"delete":

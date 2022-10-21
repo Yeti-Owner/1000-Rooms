@@ -36,6 +36,12 @@ transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -5, 1.2, -2 )
 [node name="WallTorch3" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( -0.8, 0, -5.02905e-06, 0, 0.8, 0, 5.02905e-06, 0, -0.8, -5, 1.2, 18 )
 
+[node name="WallTorch4" parent="RoomItems" instance=ExtResource( 7 )]
+transform = Transform( 7.54357e-06, 0, -0.8, 0, 0.8, 0, 0.8, 0, 7.54357e-06, 1.9, 1.2, 8.3 )
+
+[node name="WallTorch5" parent="RoomItems" instance=ExtResource( 7 )]
+transform = Transform( -0.0232704, 0, 0.799661, 0, 0.8, 0, -0.799661, 0, -0.0232704, -12, 1.2, 8.3 )
+
 [node name="Narrator" parent="." instance=ExtResource( 4 )]
 
 [node name="Objs" type="Spatial" parent="."]

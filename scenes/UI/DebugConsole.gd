@@ -29,6 +29,8 @@ func _on_console_text_entered(cmd):
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				"goto":
 					SceneManager._change_scene(str(cmd[2]))
+					self.set_visible(false)
+					Input.set_mouse_mode(MouseMode)
 				"room":
 					SaveGame.game_data.RoomNum = int(cmd[2])
 					self.set_visible(false)
