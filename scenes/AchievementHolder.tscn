@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=1]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/Achievements.gd" type="Script" id=3]
+[ext_resource path="res://scenes/UI/AchievementPopupManager.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=8]
 size = 50
@@ -48,6 +49,8 @@ margin_left = -59.0
 margin_bottom = 53.0
 custom_fonts/font = SubResource( 9 )
 text = " X "
+
+[node name="AchievementPopupManager" parent="." instance=ExtResource( 4 )]
 
 [connection signal="pressed" from="Control/Left" to="." method="_on_Left_pressed"]
 [connection signal="pressed" from="Control/Right" to="." method="_on_Right_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/load_world3.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/objects/NonFunctionals/Planks.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/NonFunctionals/Bricks.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/objects/GameConsole.tscn" type="PackedScene" id=11]
 
 [node name="world" type="Spatial"]
 pause_mode = 1
@@ -54,6 +55,9 @@ transform = Transform( -0.0144935, 0, -0.0989441, 0, 0.1, 0, 0.0989441, 0, -0.01
 
 [node name="Bricks" parent="Objs" instance=ExtResource( 10 )]
 transform = Transform( 0.464674, 0, 0.184603, 0, 0.5, 0, -0.184603, 0, 0.464674, 1.5, 0, 15.2 )
+
+[node name="GameConsole" parent="Objs" instance=ExtResource( 11 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -11.4, 0.85, 17.5 )
 
 [node name="GridMap" parent="." instance=ExtResource( 3 )]
 data = {

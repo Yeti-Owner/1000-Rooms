@@ -10,8 +10,6 @@ onready var HpBar = $HPandStam/HpBar2
 onready var StamBar = $HPandStam/StamBar2
 
 func _ready():
-# warning-ignore:return_value_discarded
-	AchievementsHolder.connect("NewAchievement", self, "_achievement")
 	StamBar.set_value(Stamina)
 	RoomNum.set_text("Room: " + str(SaveGame.game_data.RoomNum))
 	HpBar.set_value(SaveGame.game_data.PlayerHP)
@@ -27,9 +25,6 @@ func _physics_process(_delta) -> void:
 	
 	# Update HP bar
 	HpBar.set_value(SaveGame.game_data.PlayerHP)
-
-func _achievement():
-	$AnimationPlayer.play("Achievement")
 
 func _on_UpdateTimer_timeout():
 	_update_vals()

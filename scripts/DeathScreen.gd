@@ -32,9 +32,12 @@ func _get_msg():
 		"fairy":
 			var tips3 = ["The fairy will wonder around on a set path looking for you, memorize it's path to avoid it.","The fairy is usually pretty hard to juke out, it's faster than you UNLESS you sprint.","You want to keep your health above 0 usually."]
 			tip = tips3[randi() % tips3.size()]
-		_:
-			var tips4 = ["You got killed by unknown? I'm reading the script and it just says error?","How did you manage to die? it just says null here???","You are a special kind of player being able to die to something called: unknown, like genuinely how did you die?"]
+		"narrator":
+			var tips4 = ["The NARRATOR killed you? really?","Of all the things to die to... the Narrator?","What did you do to die to the Narrator?","Next time try listening to the Narrator."]
 			tip = tips4[randi() % tips4.size()]
+		_:
+			var tips5 = ["You got killed by unknown? I'm reading the script and it just says error?","How did you manage to die? Genuinely I'm not sure and I'm supposed to be omniscient."]
+			tip = tips5[randi() % tips5.size()]
 	
 	bye = byeList[randi() % byeList.size()]
 	_set_msg()

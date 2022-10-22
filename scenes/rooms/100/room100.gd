@@ -108,7 +108,7 @@ func _door_triggered():
 			AchievementsHolder._save()
 			AchievementsHolder.emit_signal("NewAchievement")
 		SaveGame.game_data.PlayerHP = 0
-		SaveGame.DeathReason = "Unknown"
+		SaveGame.DeathReason = "narrator"
 	else:
 		DoorStage += 1
 

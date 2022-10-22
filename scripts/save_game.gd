@@ -32,7 +32,14 @@ var game_data = {
 	"FirstTimeRoom213" : 1,
 	"FirstTimeRoom214" : 1,
 	"FirstTimeRoom215" : 1,
-	"FirstTimeParkour" : 1
+	"FirstTimeParkour" : 1,
+	"FirstTimeAcid" : 1,
+	"FirstTimeLights" : 1,
+	"FirstTimeRoom305" : 1,
+	"FirstTimeRoom306" : 1,
+	"FirstTimeRoom309" : 1,
+	"FirstTimeConfusing300" : 1,
+	"FirstTimeConfusing312" : 1
 }
 
 func _ready():
@@ -70,6 +77,13 @@ func _check_contents():
 	game_data.FirstTimeRoom214 = game_data.get("FirstTimeRoom214", 1)
 	game_data.FirstTimeRoom215 = game_data.get("FirstTimeRoom215", 1)
 	game_data.FirstTimeParkour = game_data.get("FirstTimeParkour", 1)
+	game_data.FirstTimeAcid = game_data.get("FirstTimeAcid", 1)
+	game_data.FirstTimeLights = game_data.get("FirstTimeLights", 1)
+	game_data.FirstTimeRoom305 = game_data.get("FirstTimeRoom305", 1)
+	game_data.FirstTimeRoom306 = game_data.get("FirstTimeRoom306", 1)
+	game_data.FirstTimeRoom309 = game_data.get("FirstTimeRoom309", 1)
+	game_data.FirstTimeConfusing300 = game_data.get("FirstTimeConfusing300", 1)
+	game_data.FirstTimeConfusing312 = game_data.get("FirstTimeConfusing312", 1)
 
 func _save():
 	file.open(save_data, File.WRITE)

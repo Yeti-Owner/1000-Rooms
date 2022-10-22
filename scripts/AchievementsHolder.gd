@@ -8,11 +8,12 @@ var game_data = {
 	"Badenov" : 0,
 	"NotoLotta" : 0,
 	"Shai" : 0,
-	"Hito" : 0,
 	"Ufrz" : 0,
 	"Asshole" : 0,
 	"Wyoming" : 0,
-	"Brawlhalla" : 0
+	"Brawlhalla" : 0,
+	"Hell" : 0,
+	"IQTest" : 0
 }
 
 # warning-ignore:unused_signal
@@ -26,11 +27,12 @@ func _check_contents():
 	game_data.Badenov = game_data.get("Badenov", 0)
 	game_data.NotoLotta = game_data.get("NotoLotta", 0)
 	game_data.Shai = game_data.get("Shai", 0)
-	game_data.Hito = game_data.get("Hito", 0)
 	game_data.Ufrz = game_data.get("Ufrz", 0)
 	game_data.Asshole = game_data.get("Asshole", 0)
 	game_data.Wyoming = game_data.get("Wyoming", 0)
 	game_data.Brawlhalla = game_data.get("Brawlhalla", 0)
+	game_data.Hell = game_data.get("Hell", 0)
+	game_data.IQTest = game_data.get("IQTest", 0)
 
 func _save():
 	file.open(save_data, File.WRITE)

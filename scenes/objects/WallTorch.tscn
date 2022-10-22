@@ -10,7 +10,7 @@ extents = Vector3( 0.203, 0.568878, 0.181 )
 [sub_resource type="CapsuleShape" id=6]
 radius = 0.191451
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=7]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
@@ -22,7 +22,7 @@ particles_anim_loop = true
 albedo_texture = ExtResource( 3 )
 
 [sub_resource type="QuadMesh" id=3]
-material = SubResource( 4 )
+material = SubResource( 7 )
 
 [node name="WallTorch" type="StaticBody"]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )

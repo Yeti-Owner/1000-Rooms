@@ -65,3 +65,11 @@ func _on_console_text_entered(cmd):
 			Input.set_mouse_mode(MouseMode)
 		"stuck":
 			SceneManager._reload_scene()
+		"blasters":
+			if cmd[1] == "are" and cmd[2] == "ass":
+				AchievementsHolder.game_data.NotoLotta = 1
+				AchievementsHolder._save()
+				AchievementsHolder.emit_signal("NewAchievement")
+		"ww":
+			AchievementsHolder.game_data.NotoLotta = 0
+			AchievementsHolder._save()

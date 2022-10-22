@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scripts/AchievementRenderer.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=2]
@@ -7,16 +7,22 @@
 [ext_resource path="res://assets/textures/NonFuncs/wyoming.jpg" type="Texture" id=5]
 [ext_resource path="res://assets/textures/NonFuncs/LinFei.png" type="Texture" id=6]
 [ext_resource path="res://assets/textures/NonFuncs/XRA.png" type="Texture" id=7]
-[ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/3D models/NonFunctionals/Beanie.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://resources/WallTorch.tres" type="Material" id=9]
+[ext_resource path="res://assets/3D models/torch/Smoke30Frames_0.png" type="Texture" id=10]
+[ext_resource path="res://assets/3D models/NonFunctionals/brain.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://assets/3D models/NonFunctionals/brain_Albedo.png" type="Texture" id=12]
+[ext_resource path="res://assets/textures/NonFuncs/ACDC_Logo.png" type="Texture" id=13]
+[ext_resource path="res://assets/textures/NonFuncs/Vraxx.png" type="Texture" id=14]
 
 [sub_resource type="PlaneMesh" id=5]
-size = Vector2( 80, 20 )
+size = Vector2( 100, 20 )
 
 [sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.223529, 0.223529, 0.223529, 1 )
 
 [sub_resource type="QuadMesh" id=7]
-size = Vector2( 80, 20 )
+size = Vector2( 100, 20 )
 
 [sub_resource type="SpatialMaterial" id=10]
 
@@ -26,10 +32,20 @@ size = Vector3( 100, 100, 100 )
 [sub_resource type="SpatialMaterial" id=9]
 albedo_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="CylinderMesh" id=2]
+[sub_resource type="SpatialMaterial" id=22]
+albedo_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[sub_resource type="QuadMesh" id=23]
+
+[sub_resource type="SpatialMaterial" id=24]
+flags_transparent = true
+albedo_texture = ExtResource( 13 )
 
 [sub_resource type="QuadMesh" id=3]
 size = Vector2( 2, 2 )
+
+[sub_resource type="SpatialMaterial" id=25]
+albedo_texture = ExtResource( 14 )
 
 [sub_resource type="SpatialMaterial" id=12]
 
@@ -45,14 +61,31 @@ size = Vector2( 1.4, 2.5 )
 [sub_resource type="SpatialMaterial" id=16]
 albedo_texture = ExtResource( 6 )
 
-[sub_resource type="QuadMesh" id=14]
-
 [sub_resource type="SpatialMaterial" id=18]
 albedo_texture = ExtResource( 7 )
 
 [sub_resource type="QuadMesh" id=17]
 material = SubResource( 18 )
 size = Vector2( 2.5, 1 )
+
+[sub_resource type="QuadMesh" id=14]
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="QuadMesh" id=20]
+material = SubResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=21]
+albedo_texture = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=19]
 size = 32
@@ -63,12 +96,12 @@ font_data = ExtResource( 2 )
 [node name="Renderer" type="Spatial" parent="."]
 
 [node name="Floor" type="MeshInstance" parent="Renderer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -4, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1357, -4, 0.701188 )
 mesh = SubResource( 5 )
 material/0 = SubResource( 6 )
 
 [node name="Wall" type="MeshInstance" parent="Renderer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 6, -9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1357, 6, -8.29881 )
 mesh = SubResource( 7 )
 
 [node name="NJ" type="MeshInstance" parent="Renderer"]
@@ -81,18 +114,26 @@ mesh = SubResource( 8 )
 material/0 = SubResource( 9 )
 
 [node name="Beanie" type="MeshInstance" parent="Renderer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
-mesh = SubResource( 2 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4, -0.65666, 0 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 22 )
 
 [node name="hide" type="MeshInstance" parent="Renderer/Beanie"]
-transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 6.5666, 0 )
 mesh = SubResource( 8 )
 skeleton = NodePath("../../NJ")
 material/0 = SubResource( 9 )
 
+[node name="ACDC Logo" type="MeshInstance" parent="Renderer/Beanie"]
+transform = Transform( 10, 0, 0, 0, 5.566, 3.73409, 0, -2.24045, 9.27667, -0.540733, 7.86448, 9.32593 )
+mesh = SubResource( 23 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 24 )
+
 [node name="NotoLotta" type="MeshInstance" parent="Renderer"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
 mesh = SubResource( 3 )
+material/0 = SubResource( 25 )
 
 [node name="hide" type="MeshInstance" parent="Renderer/NotoLotta"]
 transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
@@ -133,18 +174,8 @@ mesh = SubResource( 8 )
 skeleton = NodePath("../../NJ")
 material/0 = SubResource( 9 )
 
-[node name="Hito" type="MeshInstance" parent="Renderer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0 )
-mesh = SubResource( 14 )
-
-[node name="hide" type="MeshInstance" parent="Renderer/Hito"]
-transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -1.19209e-07, 0 )
-mesh = SubResource( 8 )
-skeleton = NodePath("../../NJ")
-material/0 = SubResource( 9 )
-
 [node name="Ufrz" type="MeshInstance" parent="Renderer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0 )
 mesh = SubResource( 17 )
 
 [node name="hide" type="MeshInstance" parent="Renderer/Ufrz"]
@@ -154,11 +185,38 @@ skeleton = NodePath("../../NJ")
 material/0 = SubResource( 9 )
 
 [node name="Brawlhalla" type="MeshInstance" parent="Renderer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0 )
 mesh = SubResource( 14 )
 
 [node name="hide" type="MeshInstance" parent="Renderer/Brawlhalla"]
 transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -1.19209e-07, 0 )
+mesh = SubResource( 8 )
+skeleton = NodePath("../../NJ")
+material/0 = SubResource( 9 )
+
+[node name="Hell" type="Particles" parent="Renderer"]
+transform = Transform( 0.49, 0, 0, 0, 0.49, 0, 0, 0, 0.49, 32, -1.06352, 0 )
+amount = 200
+lifetime = 0.5
+randomness = 1.0
+local_coords = false
+draw_order = 2
+process_material = ExtResource( 9 )
+draw_pass_1 = SubResource( 20 )
+
+[node name="hide" type="MeshInstance" parent="Renderer/Hell"]
+transform = Transform( 0.0510204, 0, 0, 0, 0.0510204, 0, 0, 0, 0.0510204, 0, 2.17046, 0 )
+mesh = SubResource( 8 )
+skeleton = NodePath("../../NJ")
+material/0 = SubResource( 9 )
+
+[node name="IQTest" type="MeshInstance" parent="Renderer"]
+transform = Transform( 0.0230259, -0.000655576, 0.0097148, -0.00118075, 0.0245712, 0.00445671, -0.00966504, -0.00456362, 0.0226, 36, 0, 0 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 21 )
+
+[node name="hide" type="MeshInstance" parent="Renderer/IQTest"]
+transform = Transform( 0.921037, -0.0472299, -0.386602, -0.0262231, 0.982848, -0.182545, 0.388592, 0.178268, 0.904001, 0, 0.000221252, 6.10352e-05 )
 mesh = SubResource( 8 )
 skeleton = NodePath("../../NJ")
 material/0 = SubResource( 9 )
@@ -173,8 +231,6 @@ text = "Test Text"
 align = 1
 valign = 1
 autowrap = true
-
-[node name="WorldEnvironment1" parent="." instance=ExtResource( 8 )]
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 16, 3, 4 )
