@@ -1,6 +1,6 @@
 extends Spatial
 
-onready var EnemySpawner := get_parent().get_node("NavMesh/EnemySpawner")
+onready var EnemySpawner := get_parent().get_node("NavMesh2/EnemySpawner")
 onready var Player := get_parent().get_node("RoomItems/Player")
 
 func _on_Sensor_PlayerDetected():

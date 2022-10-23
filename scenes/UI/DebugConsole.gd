@@ -59,6 +59,11 @@ func _on_console_text_entered(cmd):
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				"deaths":
 					print(SaveGame.game_data.Deaths)
+				"test30":
+					SaveGame.game_data.RoomNum = 201
+					SceneManager._change_scene("res://scenes/rooms/300/room1.tscn")
+					self.set_visible(false)
+					Input.set_mouse_mode(MouseMode)
 		
 		"close":
 			self.set_visible(false)
@@ -70,6 +75,3 @@ func _on_console_text_entered(cmd):
 				AchievementsHolder.game_data.NotoLotta = 1
 				AchievementsHolder._save()
 				AchievementsHolder.emit_signal("NewAchievement")
-		"ww":
-			AchievementsHolder.game_data.NotoLotta = 0
-			AchievementsHolder._save()

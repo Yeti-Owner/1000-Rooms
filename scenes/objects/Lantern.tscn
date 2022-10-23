@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/3D models/lantern/lantern.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/3D models/lantern/Lamp_diff.png" type="Texture" id=2]
@@ -18,6 +18,10 @@ albedo_color = Color( 1, 1, 1, 0.27451 )
 [sub_resource type="CapsuleShape" id=3]
 radius = 0.13
 height = 0.5
+
+[sub_resource type="SphereShape" id=4]
+resource_local_to_scene = true
+radius = 4.25
 
 [node name="Lantern" type="Spatial"]
 script = ExtResource( 4 )
@@ -41,5 +45,13 @@ omni_range = 4.5
 
 [node name="StartTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="LightArea" type="Area" parent="." groups=["Light"]]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="LightArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
+shape = SubResource( 4 )
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]

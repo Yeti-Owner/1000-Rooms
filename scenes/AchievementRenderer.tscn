@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scripts/AchievementRenderer.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/3D models/NonFunctionals/brain_Albedo.png" type="Texture" id=12]
 [ext_resource path="res://assets/textures/NonFuncs/ACDC_Logo.png" type="Texture" id=13]
 [ext_resource path="res://assets/textures/NonFuncs/Vraxx.png" type="Texture" id=14]
+[ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=15]
 
 [sub_resource type="PlaneMesh" id=5]
 size = Vector2( 100, 20 )
@@ -243,3 +244,5 @@ spot_range = 11.1997
 [node name="SpotLight2" type="SpotLight" parent="Camera"]
 transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 2.86603, -2.9641 )
 spot_range = 11.4354
+
+[node name="WorldEnvironment1" parent="." instance=ExtResource( 15 )]

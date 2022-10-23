@@ -24,20 +24,23 @@ func _get_msg():
 	
 	match DeathReason:
 		"ghost":
-			var tips1 = ["The Ghost is not able to reach all areas so take your time when you're safe.","The Ghost is usually slow so you may be able to juke him out.","Touching him deals damage, try to avoid that."]
-			tip = tips1[randi() % tips1.size()]
+			var tips = ["The Ghost is not able to reach all areas so take your time when you're safe.","The Ghost is usually slow so you may be able to juke him out.","Touching him deals damage, try to avoid that."]
+			tip = tips[randi() % tips.size()]
 		"fall":
-			var tips2 = ["Falling is bad, try not to.","If you really struggle with parkour maybe git gud?","When you fall you take damage, it's usually preferable to avoid that."]
-			tip = tips2[randi() % tips2.size()]
+			var tips = ["Falling is bad, try not to.","If you really struggle with parkour maybe git gud?","When you fall you take damage, it's usually preferable to avoid that."]
+			tip = tips[randi() % tips.size()]
 		"fairy":
-			var tips3 = ["The fairy will wonder around on a set path looking for you, memorize it's path to avoid it.","The fairy is usually pretty hard to juke out, it's faster than you UNLESS you sprint.","You want to keep your health above 0 usually."]
-			tip = tips3[randi() % tips3.size()]
+			var tips = ["The fairy will wonder around on a set path looking for you, memorize it's path to avoid it.","The fairy is usually pretty hard to juke out, it's faster than you UNLESS you sprint.","You want to keep your health above 0 usually."]
+			tip = tips[randi() % tips.size()]
 		"narrator":
-			var tips4 = ["The NARRATOR killed you? really?","Of all the things to die to... the Narrator?","What did you do to die to the Narrator?","Next time try listening to the Narrator."]
-			tip = tips4[randi() % tips4.size()]
+			var tips = ["The NARRATOR killed you? really?","Of all the things to die to... the Narrator?","What did you do to die to the Narrator?","Next time try listening to the Narrator."]
+			tip = tips[randi() % tips.size()]
+		"statue":
+			var tips = ["It fears the light, do your best to stay close to lanterns.","Lanterns don't last forever, use them for protection while they last.","Your flashlight is your most reliable protection.","Try avoiding death next time."]
+			tip = tips[randi() % tips.size()]
 		_:
-			var tips5 = ["You got killed by unknown? I'm reading the script and it just says error?","How did you manage to die? Genuinely I'm not sure and I'm supposed to be omniscient."]
-			tip = tips5[randi() % tips5.size()]
+			var tips = ["You got killed by unknown? I'm reading the script and it just says error?","How did you manage to die? Genuinely I'm not sure and I'm supposed to be omniscient.","I'd love to give you a tip to avoid death but there's just an error message here.","Death Reason: NULL. How did you die?"]
+			tip = tips[randi() % tips.size()]
 	
 	bye = byeList[randi() % byeList.size()]
 	_set_msg()

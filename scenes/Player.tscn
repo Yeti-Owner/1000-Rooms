@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scripts/CameraHolder.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -16,9 +16,6 @@
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.45
 height = 1.8
-
-[sub_resource type="CylinderShape" id=16]
-radius = 0.44
 
 [sub_resource type="CapsuleMesh" id=2]
 radius = 0.4
@@ -241,6 +238,42 @@ normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 10 )
 
+[sub_resource type="CylinderShape" id=20]
+height = 0.785537
+radius = 1.83466
+
+[sub_resource type="CylinderShape" id=21]
+height = 0.217494
+radius = 1.45963
+
+[sub_resource type="CylinderShape" id=22]
+height = 0.234267
+radius = 1.20446
+
+[sub_resource type="CylinderShape" id=23]
+height = 0.217494
+radius = 0.980213
+
+[sub_resource type="CylinderShape" id=24]
+height = 0.283668
+radius = 0.674779
+
+[sub_resource type="CylinderShape" id=25]
+height = 0.217494
+radius = 0.481881
+
+[sub_resource type="CylinderShape" id=26]
+height = 0.217494
+radius = 0.269854
+
+[sub_resource type="CylinderShape" id=27]
+height = 0.249482
+radius = 0.136289
+
+[sub_resource type="CylinderShape" id=28]
+height = 0.430518
+radius = 0.0599021
+
 [sub_resource type="Shader" id=10]
 code = "shader_type canvas_item;
 
@@ -269,10 +302,6 @@ script = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
-
-[node name="Foot" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.248433, 0 )
-shape = SubResource( 16 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -352,6 +381,47 @@ material/0 = SubResource( 13 )
 transform = Transform( -2.91409e-06, 0, 66.6667, 0, 66.6667, 0, -66.6667, 0, -2.91409e-06, -11.0915, 0.0578976, 1.68843 )
 spot_range = 3.2878
 spot_angle = 48.2042
+
+[node name="LightArea" type="Area" parent="Light/Flashlight/LightMesh/SpotLight" groups=["Light"]]
+visible = false
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, 0, 8.9407e-08, -1.93354 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, 0, 8.9407e-08, -1.44363 )
+shape = SubResource( 21 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, 0, 8.9407e-08, -1.22872 )
+shape = SubResource( 22 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, 0, 8.9407e-08, -1.01081 )
+shape = SubResource( 23 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, 0, 8.9407e-08, -0.788245 )
+shape = SubResource( 24 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, 0, 8.9407e-08, -0.546034 )
+shape = SubResource( 25 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, 0, 8.9407e-08, -0.341123 )
+shape = SubResource( 26 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, 0, 8.9407e-08, -0.117783 )
+shape = SubResource( 27 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, 0, 8.9407e-08, 0.114336 )
+shape = SubResource( 28 )
 
 [node name="LightTween" type="Tween" parent="."]
 unique_name_in_owner = true

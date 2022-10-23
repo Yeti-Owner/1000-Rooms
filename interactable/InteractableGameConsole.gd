@@ -111,3 +111,5 @@ func _on_DisableEnemy_timeout():
 		world.EnemyAllowed = false
 	elif "AllowChase" in world:
 		world.AllowChase = false
+	elif "AllowEnemy" in world:
+		world.AllowEnemy = false

@@ -165,8 +165,6 @@ func _on_SettingsTabs_tab_changed(_tab):
 func _on_ClearSaveBtn_pressed():
 	ClickPlayer._click_sound()
 	dir.remove(save_data)
-	Settingsholder.save_data.Intro = 0
-	Settingsholder._save()
 	get_tree().quit()
 
 # Set settings to defaults
