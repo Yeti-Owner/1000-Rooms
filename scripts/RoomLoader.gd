@@ -56,7 +56,9 @@ func _get_next_room():
 			SaveGame.game_data.RoomNum += 1
 			SceneManager._change_scene("res://scenes/rooms/200/room76.tscn")
 		199:
-			SceneManager._change_scene("res://scenes/EndScreen.tscn")
+			SceneManager._change_scene("res://scenes/rooms/200/room200.tscn")
+		249:
+			SceneManager._change_scene("res://scenes/rooms/300/room50.tscn")
 		_:
 			if SaveGame.game_data.RoomNum < 99:
 				RoomRNG = randi() % 15 + 1

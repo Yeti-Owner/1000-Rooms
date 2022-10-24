@@ -147,13 +147,13 @@ tab_align = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 14.0
-margin_bottom = -4.0
+margin_bottom = 1.0
 scroll_horizontal_enabled = false
 
 [node name="Control" type="Control" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer"]
 margin_right = 698.0
-margin_bottom = 434.0
-rect_min_size = Vector2( 698, 434 )
+margin_bottom = 503.0
+rect_min_size = Vector2( 698, 503 )
 
 [node name="Info" type="Label" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer/Control"]
 anchor_right = 1.0
@@ -170,7 +170,7 @@ text = "
 - Updated Settings
 - Updated how Settings data is stored
 - Updated runtime settings
-- Optimized cache
+- Added 2 new Enemies
 - Optimized Lighting (+ improved it)
 - Fixed transition issues (brief flickering when fading in/out)
 - Added more transitions
@@ -178,7 +178,9 @@ text = "
 - Updated save data
 - Added proper Death Screens
 - Adjusted difficulty
-- Added 5 new achievements (from 4 to 9)"
+- Added 5 new achievements (from 4 to 9)
+- More Story/Lore
+- And much more you'll have to play to see!"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]
@@ -233,7 +235,7 @@ custom_fonts/font = SubResource( 9 )
 text = "- New enemies
 - More games for the Arcade
 - Leaderboards for the Arcade
-- Built-in speedrun timer
+- Built-in speedrun timer(?)
 - More Story/Lore
 - Revamped Puzzles"
 align = 1
