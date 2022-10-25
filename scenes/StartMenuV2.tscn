@@ -107,10 +107,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -251.0
-margin_top = -48.0
+margin_left = -193.0
+margin_top = -59.0
 custom_fonts/font = SubResource( 1 )
-text = "Version Notes"
+text = "Changelog"
 
 [node name="VersionDialog" type="Popup" parent="Menu"]
 visible = true
@@ -234,10 +234,11 @@ margin_bottom = 1.0
 custom_fonts/font = SubResource( 9 )
 text = "- New enemies
 - More games for the Arcade
-- Leaderboards for the Arcade
+- Leaderboards for the Arcade(?)
 - Built-in speedrun timer(?)
 - More Story/Lore
-- Revamped Puzzles"
+- Revamped Puzzles
+- Controls menu in Settings"
 align = 1
 
 [node name="CloseBtn" type="Button" parent="Menu/VersionDialog"]

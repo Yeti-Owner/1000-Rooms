@@ -1,6 +1,4 @@
 extends Spatial
-# This room will be a time trial with orbs
-# I think it's a solid idea but will need some work
 
 export(Environment) var EnvironmentUsed
 
