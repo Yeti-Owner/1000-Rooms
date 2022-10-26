@@ -21,7 +21,7 @@ func _unhandled_input(event):
 func _on_console_text_entered(cmd):
 	cmd = cmd.split(" ")
 	match cmd[0]:
-		"GH":
+		"s":
 			match cmd[1]:
 				"print":
 					print(cmd[2])
@@ -62,6 +62,10 @@ func _on_console_text_entered(cmd):
 				"test30":
 					SaveGame.game_data.RoomNum = 201
 					SceneManager._change_scene("res://scenes/rooms/300/room1.tscn")
+					self.set_visible(false)
+					Input.set_mouse_mode(MouseMode)
+				"75":
+					SceneManager._change_scene("res://scenes/rooms/300/room75.tscn")
 					self.set_visible(false)
 					Input.set_mouse_mode(MouseMode)
 		

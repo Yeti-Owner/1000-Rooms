@@ -13,8 +13,12 @@ func _ready():
 	SaveGame._update_presence()
 	if SaveGame.game_data.CurrentPos == Vector3(-1.9,1,-54):
 		Player.global_transform.origin = Vector3(-1.9,1,-54)
+		Narrator.messages = ["Nice seeing you again."]
 	else:
-		pass
+		Narrator.messages = ["You better find the exit before they find you."]
+# warning-ignore:return_value_discarded
+		$RoomItems/FakePipe/StaticBody.connect("PipeEntered", self, "_on_FakePipe_PipeEntered")
 
 func _on_FakePipe_PipeEntered():
 	Player.global_transform.origin = Vector3(-2,0.9,-42)
+	Player.scale = Vector3(0.6,0.6,0.6)

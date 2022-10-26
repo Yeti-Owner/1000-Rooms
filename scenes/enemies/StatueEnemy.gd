@@ -1,7 +1,9 @@
 extends KinematicBody
 
-onready var Player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
-onready var nav = $NavigationAgent
+onready var Player := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
+onready var nav := $NavigationAgent
+onready var EyeL := $EyeL
+onready var EyeR := $EyeR
 
 enum STATE {
 	IDLE,
@@ -29,11 +31,14 @@ func _physics_process(_delta):
 			look_at(Player.get_translation(), Vector3.UP)
 		STATE.CHASING:
 			look_at(Player.get_translation(), Vector3.UP)
+			EyeL.look_at(Player.get_translation(), Vector3.UP)
+			EyeR.look_at(Player.get_translation(), Vector3.UP)
 			if $Timer.is_stopped():
 				$Timer.start()
 			move_to_target()
 		STATE.STUNNED:
-			pass
+			EyeL.look_at(Player.get_translation(), Vector3.UP)
+			EyeR.look_at(Player.get_translation(), Vector3.UP)
 		STATE.SOLID:
 			pass
 

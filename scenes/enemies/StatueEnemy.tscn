@@ -1,23 +1,24 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/enemies/StatueEnemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/3D models/Statue/Wood054_1K_Color.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/3D models/Statue/Statue3.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/3D models/Statue/Wood054_1K_Roughness.jpg" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.45
+radius = 0.282
+height = 1.457
 
-[sub_resource type="CapsuleMesh" id=2]
-radius = 0.45
+[sub_resource type="SpatialMaterial" id=9]
+albedo_texture = ExtResource( 2 )
+roughness_texture = ExtResource( 4 )
 
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.737255, 0, 0, 1 )
+[sub_resource type="SphereMesh" id=6]
 
-[sub_resource type="CylinderMesh" id=4]
-top_radius = 0.2
-bottom_radius = 0.2
-height = 0.4
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="CapsuleShape" id=5]
-radius = 0.48
+[sub_resource type="SpatialMaterial" id=8]
 
 [node name="StatueEnemy" type="KinematicBody"]
 collision_layer = 2
@@ -25,25 +26,41 @@ collision_mask = 2
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.045, 0 )
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
+[node name="Mesh" type="MeshInstance" parent="."]
+transform = Transform( -0.45, 0, -6.79481e-08, 0, 0.45, 0, 6.79481e-08, 0, -0.45, 0, -0.691781, 0 )
+mesh = ExtResource( 3 )
+material/0 = SubResource( 9 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 1.91069e-15, 4.37114e-08, -1.49325, 1, -4.37114e-08, 0, -4.37114e-08, -1, -6.52721e-08, 0, 0.425, -0.307567 )
-mesh = SubResource( 4 )
+[node name="EyeL" type="MeshInstance" parent="."]
+transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0.049368, 0.928776, -0.0749528 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="Pupil" type="MeshInstance" parent="EyeL"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0493681, -0.114849, -0.850698 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 8 )
+
+[node name="EyeR" type="MeshInstance" parent="."]
+transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.050632, 0.928776, -0.0749528 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="Pupil" type="MeshInstance" parent="EyeR"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0493681, -0.114849, -0.850698 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 8 )
 
 [node name="StatueArea" type="Area" parent="."]
 collision_layer = 9
 collision_mask = 9
 
 [node name="CollisionShape" type="CollisionShape" parent="StatueArea"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 5 )
+transform = Transform( 1.02, 0, 0, 0, -4.45856e-08, 1.02, 0, -1.02, -4.45856e-08, 0, 0.045, 0 )
+shape = SubResource( 1 )
 
 [node name="NavigationAgent" type="NavigationAgent" parent="."]
 
