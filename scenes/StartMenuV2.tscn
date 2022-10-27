@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/audio/MusicPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/UI/AchievementPopupManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/theme/SpookyCreeky.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=5]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=10]
@@ -9,9 +10,9 @@
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=12]
 [ext_resource path="res://scenes/VersionChecker.tscn" type="PackedScene" id=16]
 
-[sub_resource type="DynamicFont" id=2]
-size = 85
-font_data = ExtResource( 6 )
+[sub_resource type="DynamicFont" id=11]
+size = 105
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -43,44 +44,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/CenterContainer"]
-margin_left = 452.0
-margin_top = 196.0
-margin_right = 828.0
-margin_bottom = 524.0
+margin_left = 424.0
+margin_top = 181.0
+margin_right = 856.0
+margin_bottom = 538.0
 
 [node name="Title" type="Label" parent="Menu/CenterContainer/VBoxContainer"]
-margin_right = 376.0
-margin_bottom = 86.0
-custom_fonts/font = SubResource( 2 )
+margin_right = 432.0
+margin_bottom = 135.0
+custom_fonts/font = SubResource( 11 )
 text = "1000-Rooms"
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/CenterContainer/VBoxContainer"]
-margin_top = 90.0
-margin_right = 376.0
-margin_bottom = 120.0
-custom_constants/margin_top = 30
+margin_top = 139.0
+margin_right = 432.0
+margin_bottom = 149.0
+custom_constants/margin_top = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StartBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-margin_top = 124.0
-margin_right = 376.0
-margin_bottom = 172.0
+margin_top = 153.0
+margin_right = 432.0
+margin_bottom = 201.0
 custom_fonts/font = SubResource( 1 )
 text = "Start"
 
 [node name="OptionsBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-margin_top = 176.0
-margin_right = 376.0
-margin_bottom = 224.0
+margin_top = 205.0
+margin_right = 432.0
+margin_bottom = 253.0
 custom_fonts/font = SubResource( 1 )
 text = "Options"
 
 [node name="AchievementsBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-margin_top = 228.0
-margin_right = 376.0
-margin_bottom = 276.0
+margin_top = 257.0
+margin_right = 432.0
+margin_bottom = 305.0
 custom_fonts/font = SubResource( 1 )
 text = "Achievements"
 
@@ -93,9 +94,9 @@ custom_fonts/font = SubResource( 1 )
 text = "Credits"
 
 [node name="QuitBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-margin_top = 280.0
-margin_right = 376.0
-margin_bottom = 328.0
+margin_top = 309.0
+margin_right = 432.0
+margin_bottom = 357.0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
@@ -113,7 +114,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Changelog"
 
 [node name="VersionDialog" type="Popup" parent="Menu"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -152,8 +152,8 @@ scroll_horizontal_enabled = false
 
 [node name="Control" type="Control" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer"]
 margin_right = 698.0
-margin_bottom = 503.0
-rect_min_size = Vector2( 698, 503 )
+margin_bottom = 526.0
+rect_min_size = Vector2( 698, 526 )
 
 [node name="Info" type="Label" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer/Control"]
 anchor_right = 1.0
@@ -180,6 +180,7 @@ text = "
 - Adjusted difficulty
 - Added 5 new achievements (from 4 to 9)
 - More Story/Lore
+- Optimized Room loading/RNG
 - And much more you'll have to play to see!"
 align = 1
 

@@ -59,21 +59,18 @@ func _on_console_text_entered(cmd):
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				"deaths":
 					print(SaveGame.game_data.Deaths)
-				"test30":
-					SaveGame.game_data.RoomNum = 201
-					SceneManager._change_scene("res://scenes/rooms/300/room1.tscn")
-					self.set_visible(false)
-					Input.set_mouse_mode(MouseMode)
-				"75":
-					SceneManager._change_scene("res://scenes/rooms/300/room75.tscn")
-					self.set_visible(false)
-					Input.set_mouse_mode(MouseMode)
-		
+		"test30":
+			SaveGame.game_data.RoomNum = 200
+			SceneManager._change_scene("res://scenes/rooms/200/room200.tscn")
+			self.set_visible(false)
+			Input.set_mouse_mode(MouseMode)
+		"f":
+			print(SaveGame.game_data.StepUsed)
 		"close":
 			self.set_visible(false)
 			Input.set_mouse_mode(MouseMode)
 		"stuck":
-			SceneManager._reload_scene()
+			SceneManager._change_scene("res://scenes/StartMenuV2.tscn")
 		"blasters":
 			if cmd[1] == "are" and cmd[2] == "ass":
 				AchievementsHolder.game_data.NotoLotta = 1

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/3D models/torch/torchWall.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://resources/WallTorch.tres" type="Material" id=2]
 [ext_resource path="res://assets/3D models/torch/Smoke30Frames_0.png" type="Texture" id=3]
+[ext_resource path="res://assets/audio/misc/crackling flames.wav" type="AudioStream" id=4]
 
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.203, 0.568878, 0.181 )
@@ -56,3 +57,9 @@ draw_pass_1 = SubResource( 3 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.912822, 1.30367 )
 omni_range = 8.5
 omni_attenuation = 2.5
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_db = 15.0
+autoplay = true
+bus = "SfxBus"

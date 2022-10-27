@@ -15,6 +15,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 # warning-ignore:return_value_discarded
 	Settingsholder.connect("sens_changed", self, "_update_sens")
+	$Camera.fov = Settingsholder.save_data.PlayerFOV
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

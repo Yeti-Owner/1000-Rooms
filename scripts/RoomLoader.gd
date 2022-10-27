@@ -11,6 +11,16 @@ func _ready():
 # to figure it out
 
 func _get_next_room():
+	if SaveGame.game_data.RoomNum <= 100:
+		_100_rooms()
+	elif SaveGame.game_data.RoomNum <= 199:
+		_200_rooms()
+	elif SaveGame.game_data.RoomNum <= 299:
+		_300_rooms()
+	elif SaveGame.game_data.RoomNum > 299:
+		SceneManager._change_scene("res://scenes/EndScreen.tscn")
+
+func _100_rooms():
 	LastRoom = SaveGame.game_data.CurrentRoom
 	match SaveGame.game_data.RoomNum:
 		17:
@@ -37,6 +47,18 @@ func _get_next_room():
 		100: 
 			SaveGame.game_data.RoomNum += 1
 			SceneManager._change_scene("res://scenes/rooms/200/IntroRoom.tscn")
+		_:
+			RoomRNG = randi() % 15 + 1
+			GotoRoom = str("res://scenes/rooms/100/room" + str(RoomRNG) + ".tscn")
+			if GotoRoom != LastRoom:
+				SceneManager._change_scene(GotoRoom)
+				SaveGame.game_data.RoomNum += 1
+			else: 
+				_100_rooms()
+
+func _200_rooms():
+	LastRoom = SaveGame.game_data.CurrentRoom
+	match SaveGame.game_data.RoomNum:
 		102:
 			SaveGame.game_data.RoomNum += 1
 			SceneManager._change_scene("res://scenes/rooms/200/room8.tscn")
@@ -56,35 +78,31 @@ func _get_next_room():
 			SaveGame.game_data.RoomNum += 1
 			SceneManager._change_scene("res://scenes/rooms/200/room76.tscn")
 		199:
+			SaveGame.game_data.RoomNum += 1
 			SceneManager._change_scene("res://scenes/rooms/200/room200.tscn")
+		_:
+			RoomRNG = randi() % 15 + 1
+			GotoRoom = str("res://scenes/rooms/200/room" + str(RoomRNG) + ".tscn")
+			if GotoRoom != LastRoom:
+				SceneManager._change_scene(GotoRoom)
+				SaveGame.game_data.RoomNum += 1
+			else: 
+				_200_rooms()
+
+func _300_rooms():
+	LastRoom = SaveGame.game_data.CurrentRoom
+	match SaveGame.game_data.RoomNum:
 		249:
+			SaveGame.game_data.RoomNum += 1
 			SceneManager._change_scene("res://scenes/rooms/300/room50.tscn")
 		274:
+			SaveGame.game_data.RoomNum += 1
 			SceneManager._change_scene("res://scenes/rooms/300/room75.tscn")
 		_:
-			if SaveGame.game_data.RoomNum < 99:
-				RoomRNG = randi() % 15 + 1
-				GotoRoom = str("res://scenes/rooms/100/room" + str(RoomRNG) + ".tscn")
-				if GotoRoom != LastRoom:
-					SceneManager._change_scene(GotoRoom)
-					SaveGame.game_data.RoomNum += 1
-				else: 
-					_get_next_room()
-			elif (SaveGame.game_data.RoomNum >= 299):
-				SceneManager._change_scene("res://scenes/EndScreen.tscn")
-			elif (SaveGame.game_data.RoomNum > 199):
-				RoomRNG = randi() % 15 + 1
-				GotoRoom = str("res://scenes/rooms/300/room" + str(RoomRNG) + ".tscn")
-				if GotoRoom != LastRoom:
-					SceneManager._change_scene(GotoRoom)
-					SaveGame.game_data.RoomNum += 1
-				else: 
-					_get_next_room()
-			elif (SaveGame.game_data.RoomNum > 99):
-				RoomRNG = randi() % 15 + 1
-				GotoRoom = str("res://scenes/rooms/200/room" + str(RoomRNG) + ".tscn")
-				if GotoRoom != LastRoom:
-					SceneManager._change_scene(GotoRoom)
-					SaveGame.game_data.RoomNum += 1
-				else: 
-					_get_next_room()
+			RoomRNG = randi() % 15 + 1
+			GotoRoom = str("res://scenes/rooms/300/room" + str(RoomRNG) + ".tscn")
+			if GotoRoom != LastRoom:
+				SceneManager._change_scene(GotoRoom)
+				SaveGame.game_data.RoomNum += 1
+			else:
+				_300_rooms()

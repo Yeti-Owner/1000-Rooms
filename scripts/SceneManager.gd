@@ -89,6 +89,14 @@ func _init_HUD(mode):
 			var _a = load("res://scenes/AchievementHolder.tscn")
 			var a = _a.instance()
 			GameHud.add_child(a)
+		"endscreen":
+			for scene in GameScene.get_children():
+				scene.queue_free()
+			for child in GameHud.get_children():
+				child.queue_free()
+			var _e = load("res://scenes/EndScreen.tscn")
+			var e = _e.instance()
+			GameHud.add_child(e)
 
 # WorldEnvironment Shenanigans
 func _bloom():

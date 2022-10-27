@@ -8,7 +8,7 @@ var gravity: float = -32.0
 var _dir = Vector3.ZERO
 var _vel = Vector3.ZERO
 var isDead = 0
-var FootStepList = ["res://assets/audio/misc/footsteps/wood_floor1.wav","res://assets/audio/misc/footsteps/tiles1.wav","res://assets/audio/misc/footsteps/hub_floor.wav","res://assets/audio/misc/footsteps/shop_floor.wav"]
+var FootStepList = ["res://assets/audio/misc/footsteps/wood_floor1.wav","res://assets/audio/misc/footsteps/tiles1.wav","res://assets/audio/misc/footsteps/hub_floor.wav","res://assets/audio/misc/footsteps/shop_floor.wav","res://assets/audio/misc/footsteps/MetalStep.wav"]
 
 # States
 enum {
@@ -29,6 +29,8 @@ onready var Coyote = $CoyoteTimer
 func _ready():
 	self.scale = Vector3(0.6, 0.6, 0.6)
 	
+	StepPlayer.stream = load(FootStepList[SaveGame.game_data.StepUsed])
+	
 	if SaveGame.game_data.PlayerHP > 100:
 		SaveGame.game_data.PlayerHP = 100
 # warning-ignore:return_value_discarded
@@ -42,8 +44,10 @@ func _physics_process(delta: float):
 	if Input.is_action_pressed("sprint") && Stamina.get_value() > 0:
 		Stamina.set_value(Stamina.get_value() - 0.2)
 		state = RUNNING
-	if state != DEAD and not Input.is_action_pressed("sprint"):
+	if state != DEAD and (!Input.is_action_pressed("sprint") or Stamina.get_value() <= 1):
 		state = WALKING
+		if Stamina.get_value() <= 2:
+			$BreathingPlayer.play()
 	if (Health.value <= 0):
 		_die()
 	
@@ -115,14 +119,23 @@ func _on_PlayerArea_area_entered(area):
 			_hurt("fairy")
 		"SpikeArea":
 			_hurt("spike")
+		"StatueArea":
+			_hurt("statue")
 		"WoodStepOne":
 			StepPlayer.stream = load(FootStepList[0])
+			SaveGame.game_data.StepUsed = 0
 		"TileStepOne":
 			StepPlayer.stream = load(FootStepList[1])
+			SaveGame.game_data.StepUsed = 1
 		"HubStep":
 			StepPlayer.stream = load(FootStepList[2])
+			SaveGame.game_data.StepUsed = 2
 		"ShopStep":
 			StepPlayer.stream = load(FootStepList[3])
+			SaveGame.game_data.StepUsed = 3
+		"MetalStep":
+			StepPlayer.stream = load(FootStepList[4])
+			SaveGame.game_data.StepUsed = 4
 		"AcidArea":
 			state = DEAD
 			PlayerAnim.play("acid_death", -2.0)
@@ -149,12 +162,15 @@ func _hurt(source):
 		"spike":
 			HurtAnims.play("hurt")
 			SaveGame.game_data.PlayerHP -= 10
+		"statue":
+			HurtAnims.play("hurt")
+			SaveGame.DeathReason = "statue"
 
 func _on_PlayerAnims_animation_finished(anim_name):
 	if anim_name == "die":
 		SaveGame.game_data.PlayerHP = 100
 		SaveGame.game_data.RoomNum = SaveGame.game_data.LastSavedRoom
-		SceneManager._change_scene("res://scenes/DeathScreen.tscn")
+		SceneManager._init_HUD("endscreen")
 
 func _update_fov():
 	$CameraHolder/Camera.set_fov(Settingsholder.save_data.PlayerFOV)

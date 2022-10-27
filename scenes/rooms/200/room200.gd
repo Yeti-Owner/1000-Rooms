@@ -1,8 +1,6 @@
 extends Spatial
 
-export(Environment) var Environment2
 export(Environment) var Environment1
-export(Environment) var Environment3
 
 onready var Narrator := $Narrator
 onready var _room := self.filename
@@ -11,7 +9,7 @@ var stage = 0
 
 func _ready():
 	randomize()
-	SceneManager.GameScene.world.environment = Environment2
+	SceneManager.GameScene.world.environment = Environment1
 # warning-ignore:return_value_discarded
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	SaveGame.game_data.CurrentRoom = _room
@@ -49,11 +47,10 @@ func _on_DialoguePause_timeout():
 
 func _on_Sensor2_PlayerDetected():
 	$GridMap2/Walls.global_transform.origin.y = 0
-	SceneManager.GameScene.world.environment = Environment1
 	
 
 func _on_Sensor3_PlayerDetected():
 	$HubGridmap/Walls.global_transform.origin.y = 0
 	DialoguePause.wait_time = 1
 	DialoguePause.start()
-	SceneManager.GameScene.world.environment = Environment3
+

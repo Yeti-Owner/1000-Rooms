@@ -17,6 +17,7 @@ func _ready():
 	_check_room()
 	_add_objs()
 #	_enable_spikes() 
+	SaveGame.game_data.PlayerHP = min(SaveGame.game_data.PlayerHP + 5, 100)
 	SaveGame._update_presence()
 
 func _check_room():

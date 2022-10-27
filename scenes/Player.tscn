@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scripts/CameraHolder.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/3D models/flashlight/torch_Normal.png" type="Texture" id=10]
 [ext_resource path="res://assets/3D models/flashlight/torch_Roughness.png" type="Texture" id=11]
 [ext_resource path="res://assets/3D models/flashlight/torch_Metallic.png" type="Texture" id=12]
+[ext_resource path="res://assets/audio/misc/heaving-breathing.wav" type="AudioStream" id=13]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.45
@@ -47,10 +48,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -488,6 +489,11 @@ autostart = true
 [node name="Occluder" type="Occluder" parent="CameraHolder/Camera"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.161751 )
 shape = SubResource( 17 )
+
+[node name="BreathingPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = 10.0
+bus = "SfxBus"
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 [connection signal="animation_finished" from="PlayerAnims" to="." method="_on_PlayerAnims_animation_finished"]

@@ -145,8 +145,8 @@ color = Color( 0, 0, 0, 0 )
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Transitions"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 17920.0
-margin_bottom = 10080.0
+margin_right = 21760.0
+margin_bottom = 12240.0
 mouse_filter = 2
 
 [node name="TransitionManager" type="AnimationPlayer" parent="."]
@@ -187,6 +187,7 @@ size = Vector2( 1280, 720 )
 world = SubResource( 4 )
 handle_input_locally = false
 render_target_update_mode = 3
+audio_listener_enable_3d = true
 physics_object_picking = true
 
 [connection signal="animation_finished" from="TransitionManager" to="." method="_on_TransitionManager_animation_finished"]

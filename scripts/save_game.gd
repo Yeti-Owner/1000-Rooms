@@ -25,6 +25,7 @@ var game_data = {
 	"Reputation" : 0,
 	"Deaths" : 0,
 	"Intro" : 0,
+	"StepUsed" : 0,
 	"FirstTimeRoom13" : 1,
 	"FirstTimeRoom210" : 1,
 	"FirstTimeRoom211" : 1,
@@ -69,6 +70,7 @@ func _check_contents():
 	game_data.Reputation = game_data.get("Reputation", 0)
 	game_data.Deaths = game_data.get("Deaths", 0)
 	game_data.Intro = game_data.get("Intro", 0)
+	game_data.StepUsed = game_data.get("StepUsed", 0)
 	game_data.FirstTimeRoom13 = game_data.get("FirstTimeRoom13", 1)
 	game_data.FirstTimeRoom210 = game_data.get("FirstTimeRoom210", 1)
 	game_data.FirstTimeRoom211 = game_data.get("FirstTimeRoom211", 1)

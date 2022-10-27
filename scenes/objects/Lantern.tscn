@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/3D models/lantern/lantern.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/3D models/lantern/Lamp_diff.png" type="Texture" id=2]
 [ext_resource path="res://assets/3D models/lantern/Lamp_norm.png" type="Texture" id=3]
 [ext_resource path="res://scripts/Lantern.gd" type="Script" id=4]
+[ext_resource path="res://assets/audio/misc/GasLantern.wav" type="AudioStream" id=5]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 2 )
@@ -53,5 +54,12 @@ collision_mask = 8
 [node name="CollisionShape" type="CollisionShape" parent="LightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
 shape = SubResource( 4 )
+
+[node name="LanternSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 5 )
+unit_db = 5.0
+unit_size = 0.3
+autoplay = true
+bus = "SfxBus"
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
