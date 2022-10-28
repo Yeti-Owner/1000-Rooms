@@ -229,7 +229,7 @@ wait_time = 30.0
 one_shot = true
 
 [node name="LightHandler" parent="." instance=ExtResource( 10 )]
-Amount = 12
+Amount = 10
 
 [node name="Light" parent="LightHandler" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 1.4, 11.9 )

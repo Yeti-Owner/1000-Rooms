@@ -21,7 +21,7 @@ func _unhandled_input(event):
 func _on_console_text_entered(cmd):
 	cmd = cmd.split(" ")
 	match cmd[0]:
-		"s":
+		"b":
 			match cmd[1]:
 				"print":
 					print(cmd[2])
@@ -59,13 +59,6 @@ func _on_console_text_entered(cmd):
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				"deaths":
 					print(SaveGame.game_data.Deaths)
-		"test30":
-			SaveGame.game_data.RoomNum = 200
-			SceneManager._change_scene("res://scenes/rooms/200/room200.tscn")
-			self.set_visible(false)
-			Input.set_mouse_mode(MouseMode)
-		"f":
-			print(SaveGame.game_data.StepUsed)
 		"close":
 			self.set_visible(false)
 			Input.set_mouse_mode(MouseMode)

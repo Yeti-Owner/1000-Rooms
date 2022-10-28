@@ -53,7 +53,8 @@ func _on_Timer_timeout():
 			SecondTimer.start()
 
 func _on_DeathTimer_timeout():
-	Player._die()
+	SaveGame.game_data.PlayerHP = 1
+	SceneManager._reload_scene()
 
 func _lights_complete():
 	$DeathTimer.stop()

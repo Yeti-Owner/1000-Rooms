@@ -60,7 +60,7 @@ func _viewport_settings():
 	get_node("/root/SceneManager/GameScene/GameViewport").fxaa = Settingsholder.save_data.FXAA
 	get_node("/root/SceneManager/GameScene/GameViewport").set_msaa(Settingsholder.save_data.MSAA)
 	
-#	print(Settingsholder.save_data.ResolutionScale)
+#	You can see I really just gave up here tbh
 	if Settingsholder.save_data.ResolutionScale == 0:
 		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(848,480))
 	elif Settingsholder.save_data.ResolutionScale == 1:

@@ -90,9 +90,11 @@ func _on_PlayerCamera_tween_completed(_object, _key):
 		Interacted = 0 
 		get_tree().paused = false
 		get_node("/root/SceneManager/GameScene").mouse_filter = 0
+		_fix_viewport()
 
 
 func _ingame():
+	get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1920,1080))
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Screen.material_override.albedo_texture = viewport.get_texture()
 	Menu._active()
@@ -113,3 +115,23 @@ func _on_DisableEnemy_timeout():
 		world.AllowChase = false
 	elif "AllowEnemy" in world:
 		world.AllowEnemy = false
+
+func _fix_viewport():
+	# There MUST be a better way to do this but I'm inbred or something idk
+	match Settingsholder.save_data.ResolutionScale:
+		0:
+			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(848,480))
+		1:
+			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(960,540))
+		2:
+			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1024,576))
+		3:
+			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1280,720))
+		4:
+			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1366,768))
+		5:
+			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1600,900))
+		6:
+			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1920,1080))
+		7:
+			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(2560,1440))
