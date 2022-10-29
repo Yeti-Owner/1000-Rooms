@@ -14,6 +14,7 @@ var CurrentScene
 var HudMode:String = "none" setget _init_HUD
 var UsableBrightness = float(Settingsholder.save_data.Brightness)/8
 var NextTransition
+var CurrentMode
 
 signal FakeFadeDone
 
@@ -65,7 +66,7 @@ func _fade_in():
 		Transitions.play(NextTransition)
 
 func _init_HUD(mode):
-#	print("called: " + str(mode))
+	CurrentMode = mode
 	match mode:
 		"none":
 			for child in GameHud.get_children():
@@ -74,29 +75,31 @@ func _init_HUD(mode):
 			for child in GameHud.get_children():
 				child.queue_free()
 			var _GUI = load("res://scenes/UI/GUI.tscn").instance()
-#			var g = _GUI.instance()
-#			GameHud.add_child(g)
 			GameHud.add_child(_GUI)
 		"mainmenu":
 			for child in GameHud.get_children():
 				child.queue_free()
-			var _mainmenu = load("res://scenes/StartMenuV2.tscn")
-			var m = _mainmenu.instance()
-			GameHud.add_child(m)
+			var _mainmenu = load("res://scenes/StartMenuV2.tscn").instance()
+			GameHud.add_child(_mainmenu)
 		"achievement":
 			for child in GameHud.get_children():
 				child.queue_free()
-			var _a = load("res://scenes/AchievementHolder.tscn")
-			var a = _a.instance()
-			GameHud.add_child(a)
+			var _a = load("res://scenes/AchievementHolder.tscn").instance()
+			GameHud.add_child(_a)
+		"deathscreen":
+			for scene in GameScene.get_children():
+				scene.queue_free()
+			for child in GameHud.get_children():
+				child.queue_free()
+			var _death = load("res://scenes/DeathScreen.tscn").instance()
+			GameHud.add_child(_death)
 		"endscreen":
 			for scene in GameScene.get_children():
 				scene.queue_free()
 			for child in GameHud.get_children():
 				child.queue_free()
-			var _e = load("res://scenes/EndScreen.tscn")
-			var e = _e.instance()
-			GameHud.add_child(e)
+			var _end = load("res://scenes/EndScreen.tscn").instance()
+			GameHud.add_child(_end)
 
 # WorldEnvironment Shenanigans
 func _bloom():

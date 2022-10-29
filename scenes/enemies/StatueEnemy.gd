@@ -17,6 +17,7 @@ export(int, 3, 14, 1.0) var speed = 8
 var state
 var targetPos
 var direction
+var IsStunned = false
 
 func _ready():
 	state = NewState
@@ -56,15 +57,16 @@ func _on_Timer_timeout():
 	targetPos = nav.get_next_location()
 
 func _on_HitTimer_timeout():
+	IsStunned = false
 	state = STATE.CHASING
 
+func _stun():
+	print("_stun() called")
+	IsStunned = true
+	state = STATE.IDLE
+	$HitTimer.start()
+
 func _on_StatueArea_area_entered(area):
-	if area.name == "PlayerArea":
-		if $HitTimer.is_stopped():
-			SaveGame.DeathReason = "statue"
-			state = STATE.IDLE
-			SaveGame.game_data.PlayerHP -= 31
-			$HitTimer.start()
 	if area.is_in_group("Light"):
 		state = STATE.STUNNED
 

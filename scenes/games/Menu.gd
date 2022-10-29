@@ -41,7 +41,7 @@ func _on_ExitBtn_pressed():
 func _on_FlappyGhost_pressed():
 	print("testy")
 
-func _on_AngryGhouls_pressed():
+func _on_GhostRun_pressed():
 	pass
 
 func _on_FairyJump_pressed():
@@ -60,3 +60,5 @@ func _on_Pinball_pressed():
 func _on_MenuTween_tween_completed(Tobject, _key):
 	if Tobject == $GamesHider:
 		$GamesHider.visible = Hidden
+
+

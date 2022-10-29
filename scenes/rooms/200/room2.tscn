@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=1]
+[ext_resource path="res://scenes/objects/NonFunctionals/SiBPoster.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/Lightbulb.tscn" type="PackedScene" id=5]
@@ -107,5 +108,8 @@ transform = Transform( 0.24736, 0.036233, 0, -0.036233, 0.24736, 0, 0, 0, 0.25, 
 
 [node name="GameConsole" parent="Objs" instance=ExtResource( 19 )]
 transform = Transform( -0.4, 0, -2.51452e-06, 0, 0.4, 0, 2.51452e-06, 0, -0.4, 31.5, 0.85, -22.4 )
+
+[node name="SiBPoster" parent="Objs" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -7.999 )
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

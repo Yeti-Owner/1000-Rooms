@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=1]
+[ext_resource path="res://scenes/objects/NonFunctionals/SiBPoster.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=6]
@@ -106,6 +107,9 @@ transform = Transform( 0.0189848, 0, -0.00629091, 0, 0.02, 0, 0.00629091, 0, 0.0
 
 [node name="GameConsole" parent="Objs" instance=ExtResource( 21 )]
 transform = Transform( -1.25726e-06, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.25726e-06, 8.5, 0.85, 12.5 )
+
+[node name="SiBPoster" parent="Objs" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7, 1.1, 12.006 )
 
 [node name="NavMesh" type="NavigationMeshInstance" parent="."]
 navmesh = SubResource( 1 )

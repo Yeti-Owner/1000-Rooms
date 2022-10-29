@@ -28,7 +28,9 @@ stretch_mode = 6
 [node name="DeathLabel" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 345.0
+margin_left = 15.0
+margin_top = 188.0
+margin_right = -15.0
 rect_min_size = Vector2( 0, 375 )
 custom_fonts/font = SubResource( 1 )
 text = "Another body left behind to be consumed by the dungeon.

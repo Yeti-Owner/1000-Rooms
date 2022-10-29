@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=1]
+[ext_resource path="res://scenes/objects/NonFunctionals/SiBPoster.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=6]
@@ -92,6 +93,9 @@ visible = false
 [node name="Vent4" parent="Objs" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 6.19888e-06, 0, 1, 0, -6.19888e-06, 0, 1, 2, 0.9, -25.95 )
 visible = false
+
+[node name="SiBPoster" parent="Objs" instance=ExtResource( 2 )]
+transform = Transform( -1, 6.28631e-06, 0, -6.28631e-06, -1, 0, 0, 0, 1, -0.7, 1, -25.999 )
 
 [node name="Table2" parent="." instance=ExtResource( 18 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.7, 0, -20.4 )

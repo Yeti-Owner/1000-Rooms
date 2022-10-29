@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/objects/NonFunctionals/SiBPoster.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=7]
@@ -109,6 +110,9 @@ transform = Transform( -6.28631e-07, 0, -0.2, 0, 0.2, 0, 0.2, 0, -6.28631e-07, 1
 
 [node name="Table3" parent="Objs" instance=ExtResource( 22 )]
 transform = Transform( 0.149405, 0, -0.132959, 0, 0.2, 0, 0.132959, 0, 0.149405, 9.7, 0, 10.8 )
+
+[node name="SiBPoster" parent="Objs" instance=ExtResource( 3 )]
+transform = Transform( -3.14315e-06, 0, -1, 0, 1, 0, 1, 0, -3.14315e-06, 13.993, 1.4, 23 )
 
 [node name="NavMesh" type="NavigationMeshInstance" parent="."]
 navmesh = SubResource( 1 )

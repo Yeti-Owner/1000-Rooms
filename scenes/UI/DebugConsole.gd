@@ -62,8 +62,13 @@ func _on_console_text_entered(cmd):
 		"close":
 			self.set_visible(false)
 			Input.set_mouse_mode(MouseMode)
+		"menu":
+			SceneManager._change_scene("res://scenes/StartMenuScene.tscn")
+			self.set_visible(false)
 		"stuck":
-			SceneManager._change_scene("res://scenes/StartMenuV2.tscn")
+			SceneManager._reload_scene()
+			self.set_visible(false)
+			Input.set_mouse_mode(MouseMode)
 		"blasters":
 			if cmd[1] == "are" and cmd[2] == "ass":
 				AchievementsHolder.game_data.NotoLotta = 1

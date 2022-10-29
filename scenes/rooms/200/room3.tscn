@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/objects/NonFunctionals/SiBPoster.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/Lightbulb.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/objects/button.tscn" type="PackedScene" id=7]
@@ -131,5 +132,8 @@ transform = Transform( -0.086037, 0, -0.122872, 0, 0.15, 0, 0.122872, 0, -0.0860
 
 [node name="Lamp" parent="Objs" instance=ExtResource( 17 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -7.7, 0, -4 )
+
+[node name="SiBPoster" parent="Objs" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -3, 1.6, -22.001 )
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

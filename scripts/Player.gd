@@ -48,8 +48,6 @@ func _physics_process(delta: float):
 		state = WALKING
 		if Stamina.get_value() <= 2:
 			$BreathingPlayer.play()
-	if (Health.value <= 0):
-		_die()
 	
 	# Use State
 	match state:
@@ -61,8 +59,9 @@ func _physics_process(delta: float):
 			_movement(delta, sprint_speed, 1.25)
 	
 	# Check HP
-	if (Health.value <= 0):
-		_die()
+	if SceneManager.CurrentMode == "ingame":
+		if (Health.value <= 0) and (isDead == 0):
+			_die()
 
 
 func _movement(delta, UsedSpeed, bob_speed):
@@ -120,7 +119,9 @@ func _on_PlayerArea_area_entered(area):
 		"SpikeArea":
 			_hurt("spike")
 		"StatueArea":
-			_hurt("statue")
+			if area.get_parent().IsStunned == false:
+				_hurt("statue")
+				area.get_parent()._stun()
 		"WoodStepOne":
 			StepPlayer.stream = load(FootStepList[0])
 			SaveGame.game_data.StepUsed = 0
@@ -142,9 +143,8 @@ func _on_PlayerArea_area_entered(area):
 			print("Acid")
 
 func _die():
-	if isDead == 0:
-		SaveGame.game_data.Deaths += 1
-		isDead = 1
+	SaveGame.game_data.Deaths += 1
+	isDead = 1
 	state = DEAD
 	PlayerAnim.play("die")
 
@@ -165,12 +165,13 @@ func _hurt(source):
 		"statue":
 			HurtAnims.play("hurt")
 			SaveGame.DeathReason = "statue"
+			SaveGame.game_data.PlayerHP -= 24
 
 func _on_PlayerAnims_animation_finished(anim_name):
 	if anim_name == "die":
 		SaveGame.game_data.PlayerHP = 100
 		SaveGame.game_data.RoomNum = SaveGame.game_data.LastSavedRoom
-		SceneManager._init_HUD("endscreen")
+		SceneManager._init_HUD("deathscreen")
 
 func _update_fov():
 	$CameraHolder/Camera.set_fov(Settingsholder.save_data.PlayerFOV)

@@ -15,10 +15,11 @@ func _get_next_room():
 		_100_rooms()
 	elif SaveGame.game_data.RoomNum <= 199:
 		_200_rooms()
-	elif SaveGame.game_data.RoomNum <= 299:
+	elif SaveGame.game_data.RoomNum <= 298:
 		_300_rooms()
-	elif SaveGame.game_data.RoomNum > 299:
-		SceneManager._change_scene("res://scenes/EndScreen.tscn")
+	elif SaveGame.game_data.RoomNum > 298:
+		SaveGame.game_data.RoomNum += 1
+		SceneManager._init_HUD("endscreen")
 
 func _100_rooms():
 	LastRoom = SaveGame.game_data.CurrentRoom

@@ -26,9 +26,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Debug Console"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label2" type="Label" parent="."]
 anchor_top = 0.5
@@ -37,7 +34,7 @@ anchor_bottom = 0.5
 margin_top = 18.0
 margin_bottom = 59.0
 custom_fonts/font = SubResource( 1 )
-text = "type \"close\" to close, \"stuck\" if stuck."
+text = "type \"close\" to close, \"stuck\" if stuck, or \"menu\" for main menu."
 align = 1
 valign = 1
 __meta__ = {

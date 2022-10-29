@@ -131,17 +131,15 @@ custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
 text = "Flappy Ghost"
 
-[node name="AngryGhouls" type="Button" parent="GamesList"]
-visible = false
-margin_top = 37.0
+[node name="GhostRun" type="Button" parent="GamesList"]
 margin_right = 408.0
-margin_bottom = 70.0
+margin_bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
-text = "Angry Ghouls"
+text = "Ghost Run"
 
 [node name="FairyJump" type="Button" parent="GamesList"]
 visible = false
@@ -155,8 +153,9 @@ custom_styles/normal = SubResource( 3 )
 text = "Fairy Jump"
 
 [node name="SuperShadeBros" type="Button" parent="GamesList"]
+margin_top = 37.0
 margin_right = 408.0
-margin_bottom = 33.0
+margin_bottom = 70.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
@@ -196,7 +195,7 @@ color = Color( 1, 1, 1, 0 )
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/ExitBtn" to="." method="_on_ExitBtn_pressed"]
 [connection signal="tween_completed" from="MenuTween" to="." method="_on_MenuTween_tween_completed"]
 [connection signal="pressed" from="GamesList/FlappyGhost" to="." method="_on_FlappyGhost_pressed"]
-[connection signal="pressed" from="GamesList/AngryGhouls" to="." method="_on_AngryGhouls_pressed"]
+[connection signal="pressed" from="GamesList/GhostRun" to="." method="_on_GhostRun_pressed"]
 [connection signal="pressed" from="GamesList/FairyJump" to="." method="_on_FairyJump_pressed"]
 [connection signal="pressed" from="GamesList/SuperShadeBros" to="." method="_on_SuperShadeBros_pressed"]
 [connection signal="pressed" from="GamesList/Pinball" to="." method="_on_Pinball_pressed"]

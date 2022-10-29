@@ -14,7 +14,6 @@ var bye
 var byeList = ["Better luck next time!","Good Luck.","Maybe you'll make it farther next time?","Don't run out of hope yet.","There's more to explore don't forget.","I have a good feeling about your next attempt.","RIP","Good bye.","Next time will be different for sure.","Honestly surprised you lived this long."]
 
 func _ready():
-	SceneManager.HudMode = "none"
 	_get_msg()
 
 func _get_msg():
@@ -54,5 +53,6 @@ func _set_msg():
 	DeathPic.texture = load(PicUsed)
 
 func _on_Timer_timeout():
-	SceneManager.HudMode = "ingame"
 	SceneManager._change_scene(SaveGame.game_data.LastCheckPoint)
+	SceneManager.CurrentScene = null
+	SceneManager.HudMode = "ingame"
