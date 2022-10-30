@@ -19,9 +19,11 @@ func _ready():
 
 func _physics_process(_delta) -> void:
 	# Regen Stamina Bar
-	if !Input.is_action_pressed("sprint") && StamBar.get_value() < 200 && !isPaused:
-		Stamina = StamBar.get_value() + 0.5
-		StamBar.set_value(Stamina)
+	if !Input.is_action_pressed("sprint") && StamBar.get_value() < 200:
+		isPaused = get_tree().paused
+		if !isPaused:
+			Stamina = StamBar.get_value() + 0.5
+			StamBar.set_value(Stamina)
 	
 	# Update HP bar
 	HpBar.set_value(SaveGame.game_data.PlayerHP)

@@ -26,6 +26,7 @@ __meta__ = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource( 1 )]
+visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
