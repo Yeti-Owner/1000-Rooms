@@ -26,7 +26,7 @@ autostart = true
 [node name="GhostArea" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="GhostArea"]
-transform = Transform( -1.1, -1.66095e-07, -7.26026e-15, 0, -4.80825e-08, 1.1, -1.66095e-07, 1.1, 4.80825e-08, 0, -0.793967, 0 )
+transform = Transform( -1.02, -1.54016e-07, -6.73224e-15, 0, -4.45856e-08, 1.02, -1.54016e-07, 1.02, 4.45856e-08, 0, -0.793967, 0 )
 shape = SubResource( 1 )
 
 [node name="stun_timer" type="Timer" parent="."]

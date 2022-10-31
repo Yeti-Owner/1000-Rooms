@@ -152,36 +152,18 @@ scroll_horizontal_enabled = false
 
 [node name="Control" type="Control" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer"]
 margin_right = 698.0
-margin_bottom = 526.0
-rect_min_size = Vector2( 698, 526 )
+margin_bottom = 372.0
+rect_min_size = Vector2( 698, 372 )
 
 [node name="Info" type="Label" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -154.0
 custom_fonts/font = SubResource( 9 )
 text = "
 
 
-- Added 100 More rooms!
-- Added 10+ new textures
-- Added 10+ new Models
-- MASSIVELY overhauled Graphics
-- Added Resolution scaling
-- Updated Settings
-- Updated how Settings data is stored
-- Updated runtime settings
-- Added 2 new Enemies
-- Optimized Lighting (+ improved it)
-- Fixed transition issues (brief flickering when fading in/out)
-- Added more transitions
-- Updated World Environments
-- Updated save data
-- Added proper Death Screens
-- Adjusted difficulty
-- Added 5 new achievements (from 4 to 9)
-- More Story/Lore
-- Optimized Room loading/RNG
-- And much more you'll have to play to see!"
+- Dindu shit lol"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]
@@ -195,7 +177,7 @@ anchor_right = 1.0
 margin_top = 10.0
 margin_bottom = 61.0
 custom_fonts/font = SubResource( 8 )
-text = "Alpha 1.06"
+text = "Alpha 1.07"
 align = 1
 valign = 1
 
@@ -233,13 +215,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 1.0
 custom_fonts/font = SubResource( 9 )
-text = "- New enemies
-- More games for the Arcade
-- Leaderboards for the Arcade(?)
-- Built-in speedrun timer(?)
-- More Story/Lore
-- Revamped Puzzles
-- Controls menu in Settings"
+text = "- S"
 align = 1
 
 [node name="CloseBtn" type="Button" parent="Menu/VersionDialog"]

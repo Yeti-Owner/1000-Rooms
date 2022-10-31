@@ -14,4 +14,6 @@ func _on_Right_pressed():
 
 func _on_Close_pressed():
 	SceneManager._change_scene("res://scenes/StartMenuScene.tscn", "achievement")
-	
+
+func _on_PastLevels_pressed():
+	pass

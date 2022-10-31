@@ -19,10 +19,10 @@ func _jumpscare():
 
 func _on_Area_area_entered(area):
 	if area.name == "PlayerArea" && HasNotJumpScared:
-		RNG = randi() % 45 + 1
+		RNG = randi() % 40 + 1
 		if RNG == 1:
 			_jumpscare()
-		elif int(SaveGame.game_data.JumpScareAmt) == 35:
+		elif int(SaveGame.game_data.JumpScareAmt) == 30:
 			_jumpscare()
 		else:
 			SaveGame.game_data.JumpScareAmt += 1

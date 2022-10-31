@@ -50,8 +50,33 @@ margin_bottom = 53.0
 custom_fonts/font = SubResource( 9 )
 text = " X "
 
+[node name="PastLevels" type="Button" parent="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -292.0
+margin_top = -53.0
+custom_fonts/font = SubResource( 9 )
+text = " Missed an Achievement?"
+
+[node name="Popup" type="Popup" parent="Control"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 200.0
+margin_top = 150.0
+margin_right = -200.0
+margin_bottom = -150.0
+
+[node name="ColorRect" type="ColorRect" parent="Control/Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.592157 )
+
 [node name="AchievementPopupManager" parent="." instance=ExtResource( 4 )]
 
 [connection signal="pressed" from="Control/Left" to="." method="_on_Left_pressed"]
 [connection signal="pressed" from="Control/Right" to="." method="_on_Right_pressed"]
 [connection signal="pressed" from="Control/Close" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="Control/PastLevels" to="." method="_on_PastLevels_pressed"]

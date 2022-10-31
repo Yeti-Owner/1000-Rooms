@@ -15,6 +15,7 @@ signal EnemyPassive
 # Saved Vars
 var game_data = {
 	"RoomNum" : 0,
+	"MaxRoomNum" : 0,
 	"PlayerHP" : 100,
 	"JumpScareAmt" : 0,
 	"CurrentRoom" : "res://scenes/world.tscn",
