@@ -60,19 +60,60 @@ margin_top = -53.0
 custom_fonts/font = SubResource( 9 )
 text = " Missed an Achievement?"
 
-[node name="Popup" type="Popup" parent="Control"]
+[node name="RoomsPopup" type="Popup" parent="Control"]
 visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 200.0
+margin_left = 300.0
 margin_top = 150.0
-margin_right = -200.0
+margin_right = -300.0
 margin_bottom = -150.0
 
-[node name="ColorRect" type="ColorRect" parent="Control/Popup"]
+[node name="ColorRect" type="ColorRect" parent="Control/RoomsPopup"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.592157 )
+
+[node name="Title" type="Label" parent="Control/RoomsPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -284.0
+custom_fonts/font = SubResource( 9 )
+text = "Enter Desired Room Number"
+align = 1
+valign = 1
+
+[node name="RoomNumChanger" type="SpinBox" parent="Control/RoomsPopup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.5
+margin_top = -16.5
+margin_right = 88.5
+margin_bottom = 16.5
+prefix = "Room "
+
+[node name="Label" type="Label" parent="Control/RoomsPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 242.0
+margin_bottom = -37.0
+custom_fonts/font = SubResource( 9 )
+text = "Highest available room number is: S"
+align = 1
+valign = 1
+
+[node name="ConfirmBtn" type="Button" parent="Control/RoomsPopup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -340.0
+margin_top = 162.0
+margin_right = 340.0
+margin_bottom = 210.0
+text = "Confirm?"
 
 [node name="AchievementPopupManager" parent="." instance=ExtResource( 4 )]
 
@@ -80,3 +121,4 @@ color = Color( 0, 0, 0, 0.592157 )
 [connection signal="pressed" from="Control/Right" to="." method="_on_Right_pressed"]
 [connection signal="pressed" from="Control/Close" to="." method="_on_Close_pressed"]
 [connection signal="pressed" from="Control/PastLevels" to="." method="_on_PastLevels_pressed"]
+[connection signal="pressed" from="Control/RoomsPopup/ConfirmBtn" to="." method="_on_ConfirmBtn_pressed"]

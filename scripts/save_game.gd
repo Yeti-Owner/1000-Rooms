@@ -13,7 +13,7 @@ var DeathReason
 signal EnemyPassive
 
 # Saved Vars
-var game_data = {
+var game_data := {
 	"RoomNum" : 0,
 	"MaxRoomNum" : 0,
 	"PlayerHP" : 100,
@@ -61,6 +61,7 @@ func _load():
 
 func _check_contents():
 	game_data.RoomNum = game_data.get("RoomNum", 0)
+	game_data.MaxRoomNum = game_data.get("MaxRoomNum", 0)
 	game_data.PlayerHP = game_data.get("PlayerHP", 100)
 	game_data.JumpScareAmt = game_data.get("JumpScareAmt", 0)
 	game_data.CurrentRoom = game_data.get("CurrentRoom", "res://scenes/world.tscn")
