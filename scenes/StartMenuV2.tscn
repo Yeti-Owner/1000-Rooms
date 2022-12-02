@@ -163,7 +163,8 @@ custom_fonts/font = SubResource( 9 )
 text = "
 
 
-- Dindu shit lol"
+- Dindu shit lol
+- Added reflection probes (more accurate lighting & reflections)"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]
