@@ -1,11 +1,13 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=5]
+[ext_resource path="res://assets/textures/general/BloodHandprint_n.png" type="Texture" id=6]
 [ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/textures/general/BloodHandprint_o.png" type="Texture" id=8]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/signs/JumpScareSign1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/signs/JumpScareSign6.tscn" type="PackedScene" id=12]
@@ -17,13 +19,20 @@
 [ext_resource path="res://scenes/objects/NonFunctionals/Crate.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/textures/general/BloodHandprint.png" type="Texture" id=19]
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="QuadMesh" id=1]
+size = Vector2( 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=3]
 flags_transparent = true
 albedo_texture = ExtResource( 19 )
-
-[sub_resource type="QuadMesh" id=1]
-material = SubResource( 2 )
-size = Vector2( 0.5, 0.5 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 6 )
+ao_enabled = true
+ao_light_affect = 0.0
+ao_texture = ExtResource( 8 )
+ao_on_uv2 = false
+ao_texture_channel = 0
 
 [node name="world" type="Spatial"]
 pause_mode = 1
@@ -132,17 +141,18 @@ visible = false
 [node name="EnemySpawner" type="Spatial" parent="NavMesh"]
 
 [node name="HandPrints" type="Spatial" parent="."]
-visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="HandPrints"]
 transform = Transform( 1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 4.305, 1.414, 25.998 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="HandPrints"]
 transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 5.696, 0.986892, 25.999 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 17 )
