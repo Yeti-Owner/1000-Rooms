@@ -158,13 +158,14 @@ rect_min_size = Vector2( 698, 372 )
 [node name="Info" type="Label" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -154.0
+margin_bottom = 2.0
 custom_fonts/font = SubResource( 9 )
 text = "
 
 
 - Dindu shit lol
-- Added reflection probes (more accurate lighting & reflections)"
+- Added reflection probes (more accurate lighting & reflections)
+- Updated textures (Better depth, occlusion, etc)"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]
