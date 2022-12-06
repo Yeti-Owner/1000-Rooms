@@ -165,7 +165,9 @@ text = "
 
 - Dindu shit lol
 - Added reflection probes (more accurate lighting & reflections)
-- Updated textures (Better depth, occlusion, etc)"
+- Updated textures (Better depth, occlusion, etc)
+- Upscaled art
+- S"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]
