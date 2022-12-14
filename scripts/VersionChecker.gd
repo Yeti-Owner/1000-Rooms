@@ -62,7 +62,7 @@ func _compare_version(new_version):
 	
 	if (int(new_version) > int(cur_version)):
 		OS.set_window_fullscreen(false)
-		Settingsholder.Fullscreen = 0
+		Settingsholder.save_data.Fullscreen = 0
 		yield(get_tree(), "idle_frame")
 		yield(get_tree(), "idle_frame")
 		yield(get_tree(), "idle_frame")

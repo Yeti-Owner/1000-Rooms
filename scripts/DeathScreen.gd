@@ -35,7 +35,7 @@ func _get_msg():
 			var tips = ["The NARRATOR killed you? really?","Of all the things to die to... the Narrator?","What did you do to die to the Narrator?","Next time try listening to the Narrator."]
 			tip = tips[randi() % tips.size()]
 		"statue":
-			var tips = ["It fears the light, do your best to stay close to lanterns.","Lanterns don't last forever, use them for protection while they last.","Your flashlight is your most reliable protection.","Try avoiding death next time."]
+			var tips = ["It fears the light, do your best to stay close to lanterns.","Lanterns don't last forever, use them for protection while they last.","Your flashlight is your most reliable protection.","Try avoiding death next time.","Its eyes glow in the dark and can provide slight warning."]
 			tip = tips[randi() % tips.size()]
 		_:
 			var tips = ["You got killed by unknown? I'm reading the script and it just says error?","How did you manage to die? Genuinely I'm not sure and I'm supposed to be omniscient.","I'd love to give you a tip to avoid death but there's just an error message here.","Death Reason: NULL. How did you die?"]
