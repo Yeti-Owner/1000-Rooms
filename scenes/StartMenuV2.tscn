@@ -167,7 +167,7 @@ text = "
 - Added reflection probes (more accurate lighting & reflections)
 - Updated textures (Better depth, occlusion, etc)
 - Upscaled art
-- S"
+- Touched up several models"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]

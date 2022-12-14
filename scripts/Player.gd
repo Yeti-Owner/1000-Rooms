@@ -60,9 +60,8 @@ func _physics_process(delta: float):
 	
 	# Check HP
 	if SceneManager.CurrentMode == "ingame":
-		if (Health.value <= 0) and (isDead == 0):
+		if (Health <= 0) and (isDead == 0):
 			_die()
-
 
 func _movement(delta, UsedSpeed, bob_speed):
 	var input = Vector2.ZERO
