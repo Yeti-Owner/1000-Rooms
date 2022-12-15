@@ -3,6 +3,7 @@ extends Node
 var LastRoom
 var GotoRoom
 var RoomRNG
+var RNG100 = [1,1,2,2,3,3,4,4,5,5,6,6,7,8,9,9,10,10,11,11,12,12,13,14,14,15,15,16,16,17,17,18,18,19,19,20,20]
 
 func _ready():
 	randomize()
@@ -49,7 +50,8 @@ func _100_rooms():
 			SaveGame.game_data.RoomNum += 1
 			SceneManager._change_scene("res://scenes/rooms/200/IntroRoom.tscn")
 		_:
-			RoomRNG = randi() % 15 + 1
+#			RoomRNG = randi() % 15 + 1
+			RoomRNG = RNG100[randi() % RNG100.size]
 			GotoRoom = str("res://scenes/rooms/100/room" + str(RoomRNG) + ".tscn")
 			if GotoRoom != LastRoom:
 				SceneManager._change_scene(GotoRoom)
