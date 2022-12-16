@@ -87,7 +87,7 @@ func _add_objs():
 
 func _chasing():
 	if AllowChase:
-		RNG = randi() % 6
+		RNG = randi() % 5
 		if (RNG == 0) or SaveGame.isChased > 0:
 			Narrator.messages = [ChaseList[randi() % 4]]
 			Narrator.start_dialogue()
