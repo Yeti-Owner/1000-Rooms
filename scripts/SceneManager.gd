@@ -19,6 +19,7 @@ var CurrentMode
 signal FakeFadeDone
 
 func _ready():
+	VisualServer.scenario_set_reflection_atlas_size(GameScene.find_world().scenario, 2048, 8)
 # warning-ignore:return_value_discarded
 	Settingsholder.connect("bloom_changed", self, "_bloom")
 # warning-ignore:return_value_discarded
@@ -62,6 +63,7 @@ func _reload_scene():
 	Transitions.play("fade_out")
 
 func _fade_in():
+	VisualServer.scenario_set_reflection_atlas_size(GameScene.find_world().scenario, 2048, 8)
 	if NextTransition != null:
 		Transitions.play(NextTransition)
 

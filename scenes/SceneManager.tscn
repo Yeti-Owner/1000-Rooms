@@ -145,8 +145,8 @@ color = Color( 0, 0, 0, 0 )
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Transitions"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 21760.0
-margin_bottom = 12240.0
+margin_right = 23040.0
+margin_bottom = 12960.0
 mouse_filter = 2
 
 [node name="TransitionManager" type="AnimationPlayer" parent="."]

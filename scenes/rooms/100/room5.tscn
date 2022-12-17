@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=1]
-[ext_resource path="res://scenes/objects/NonFunctionals/SiBPoster.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=6]
@@ -92,9 +91,6 @@ visible = false
 
 [node name="GameConsole" parent="Objs" instance=ExtResource( 19 )]
 transform = Transform( -0.4, 0, -2.51452e-06, 0, 0.4, 0, 2.51452e-06, 0, -0.4, 5.5, 0.85, 12.5 )
-
-[node name="SiBPoster" parent="Objs" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1.2, 18.007 )
 
 [node name="NavMesh" type="Spatial" parent="."]
 

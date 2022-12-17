@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=2]
@@ -11,6 +11,37 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=2]
 size = 90
 font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Credits"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CreditsText:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 40, 750 ), Vector2( 40, -600 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CreditsText:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 750 ) ]
+}
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
@@ -25,35 +56,48 @@ color = Color( 0.113725, 0.113725, 0.113725, 1 )
 [node name="CreditsText" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 572.0
-margin_bottom = 572.0
+margin_left = 40.0
+margin_top = 750.0
+margin_right = -40.0
+margin_bottom = 1323.0
 custom_fonts/font = SubResource( 1 )
 text = "I'd like to thank the following people for making
 this game better.
 
 
-Kenney.nl for several small assets
-
 NotoLotta for all his help with animation
 
-Shai, Cole, Ufrz, Formag, Mauro, Hito and many more for
-play-testing and giving criticism
+Shai, Cole, Ufrz, Formag, Mauro, Hito, SIsForSpirit, and many more for play-testing and giving criticism
 
 Many Godot devs and helpers who helped me when I was 
-stuck.
+stuck
 
-Screamingbrain Studios for a few small textures."
+My SiB Family of course
+
+ToxicLanguage for help with my story
+
+And lastly,
+
+You
+
+The player
+
+Thank you :)
+"
 align = 1
 autowrap = true
 
-[node name="CloseBtn" type="Button" parent="CreditsText"]
-anchor_top = 1.0
+[node name="CloseBtn" type="Button" parent="."]
+visible = false
 anchor_right = 1.0
-anchor_bottom = 1.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 225, 100 )
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 2 )
-text = "Close"
+text = "Skip"
 
-[connection signal="pressed" from="CreditsText/CloseBtn" to="." method="_on_CloseBtn_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Credits = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[connection signal="pressed" from="CloseBtn" to="." method="_on_CloseBtn_pressed"]

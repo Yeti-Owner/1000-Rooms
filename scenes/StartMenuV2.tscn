@@ -163,11 +163,13 @@ custom_fonts/font = SubResource( 9 )
 text = "
 
 
-- Dindu shit lol
 - Added reflection probes (more accurate lighting & reflections)
 - Updated textures (Better depth, occlusion, etc)
 - Upscaled art
-- Touched up several models"
+- Touched up several models
+- Adjusted difficulty
+- Adjusted rarity of rooms
+- Added several new rooms"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]

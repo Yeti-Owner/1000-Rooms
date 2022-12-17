@@ -141,6 +141,7 @@ visible = false
 [node name="EnemySpawner" type="Spatial" parent="NavMesh"]
 
 [node name="HandPrints" type="Spatial" parent="."]
+visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="HandPrints"]
 transform = Transform( 1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 4.305, 1.414, 25.998 )

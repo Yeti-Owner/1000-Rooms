@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/objects/NonFunctionals/SiBPoster.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/Floors Walls Etc/FakeFloor2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/objects/ResetBox.tscn" type="PackedScene" id=7]
@@ -184,9 +183,6 @@ transform = Transform( -1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08
 
 [node name="Table2" parent="Objs" instance=ExtResource( 20 )]
 transform = Transform( 0.198413, 0, 0.0251437, 0, 0.2, 0, -0.0251437, 0, 0.198413, -5.1, 0, -5.55 )
-
-[node name="SiBPoster" parent="Objs" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, -4.09683e-06, 1, 0, -1, -4.09683e-06, 3, 0.001, -7.65 )
 
 [node name="Table2" parent="." instance=ExtResource( 20 )]
 transform = Transform( 0.198413, 0, 0.0251437, 0, 0.2, 0, -0.0251437, 0, 0.198413, -5.1, 0, -5.55 )
