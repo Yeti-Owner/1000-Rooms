@@ -147,6 +147,7 @@ I hope if anyone finds my notes they help"
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -12 )
+intensity = 0.75
 extents = Vector3( 19, 5, 19 )
 box_projection = true
 enable_shadows = true

@@ -114,6 +114,7 @@ __meta__ = {
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8 )
+intensity = 0.75
 extents = Vector3( 19, 4.5, 15 )
 box_projection = true
 enable_shadows = true

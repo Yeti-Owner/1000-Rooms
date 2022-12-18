@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=5]
 [ext_resource path="res://assets/textures/general/BloodHandprint_n.png" type="Texture" id=6]
 [ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/textures/general/BloodHandprint_o.png" type="Texture" id=8]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/signs/JumpScareSign1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/signs/JumpScareSign6.tscn" type="PackedScene" id=12]
@@ -28,11 +27,6 @@ albedo_texture = ExtResource( 19 )
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 6 )
-ao_enabled = true
-ao_light_affect = 0.0
-ao_texture = ExtResource( 8 )
-ao_on_uv2 = false
-ao_texture_channel = 0
 
 [node name="world" type="Spatial"]
 pause_mode = 1
@@ -157,6 +151,7 @@ material/0 = SubResource( 3 )
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 17 )
+intensity = 0.75
 extents = Vector3( 21, 4.5, 12 )
 box_projection = true
 enable_shadows = true

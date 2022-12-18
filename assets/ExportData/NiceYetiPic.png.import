@@ -14,7 +14,7 @@ dest_files=[ "res://.import/NiceYetiPic.png-35c3655ffb421a1a0b07b70558916f5d.ste
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.45
 compress/hdr_mode=0
 compress/bptc_ldr=0

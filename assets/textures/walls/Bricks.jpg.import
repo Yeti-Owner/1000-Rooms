@@ -2,19 +2,21 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bricks.jpg-a3bd5260ac7f1fd0964f18b0aec95d15.stex"
+path.s3tc="res://.import/Bricks.jpg-a3bd5260ac7f1fd0964f18b0aec95d15.s3tc.stex"
+path.etc2="res://.import/Bricks.jpg-a3bd5260ac7f1fd0964f18b0aec95d15.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/walls/Bricks.jpg"
-dest_files=[ "res://.import/Bricks.jpg-a3bd5260ac7f1fd0964f18b0aec95d15.stex" ]
+dest_files=[ "res://.import/Bricks.jpg-a3bd5260ac7f1fd0964f18b0aec95d15.s3tc.stex", "res://.import/Bricks.jpg-a3bd5260ac7f1fd0964f18b0aec95d15.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

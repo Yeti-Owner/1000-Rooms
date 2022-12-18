@@ -193,6 +193,7 @@ Text = "dont hav long trust shop keper"
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -18 )
+intensity = 0.75
 extents = Vector3( 9, 6, 21 )
 box_projection = true
 enable_shadows = true
