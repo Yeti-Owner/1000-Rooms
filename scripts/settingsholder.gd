@@ -1,10 +1,13 @@
 extends Node
 
-var file = File.new()
-var save_settings = "user://Settings.dat"
+onready var Keys := InputEventKey.new()
+var file := File.new()
+var file2 := File.new()
+var save_settings := "user://Settings.dat"
+var save_keybinds := "user://Keybinds.dat"
 
 # Saved Vars
-var save_data = {
+var save_data := {
 	"ShowFps" : 0,
 	"MouseSensitivity" : 18,
 	"PlayerFOV" : 70,
@@ -21,6 +24,18 @@ var save_data = {
 	"ResolutionText" : "1080p",
 	"ResolutionScale" : 6,
 	"QualityBloom" : 0
+}
+
+var keybinds_data := {
+	"up" : KEY_W,
+	"down" : KEY_S,
+	"left" : KEY_A,
+	"right" : KEY_D,
+	"jump" : KEY_SPACE,
+	"sprint" : KEY_SHIFT,
+	"interact" : KEY_E,
+	"pause" : KEY_ESCAPE,
+	"console" : KEY_QUOTELEFT
 }
 
 # Signals
@@ -42,18 +57,30 @@ func _ready():
 	_load()
 
 func _save():
+	# Normal Settings
 	file.open(save_settings, File.WRITE)
 	file.store_var(save_data)
 	file.close()
+	
+	file2.open(save_keybinds, File.WRITE)
+	file2.store_var(keybinds_data)
+	file2.close()
 
 func _load():
 	if not file.file_exists(save_settings):
+		_save()
+	if not file2.file_exists(save_keybinds):
 		_save()
 	
 	# Open save file and read values
 	file.open(save_settings, File.READ)
 	save_data = file.get_var()
 	file.close()
+	
+	# ^^^ but binds
+	file2.open(save_keybinds, File.READ)
+	keybinds_data = file2.get_var()
+	file2.close()
 
 func _default():
 	save_data = {
@@ -75,3 +102,13 @@ func _default():
 	"QualityBloom" : 0
 	}
 	_save()
+
+func _apply_keybinds():
+	pass
+#	var binds = ["up","down","left","right","jump","sprint","interact","console","pause"]
+#	for bind in binds:
+#		Keys = keybinds_data[bind]
+#		var test = Keys.scancode
+#		print(str(bind) + str(test))
+#		InputMap.action_erase_events(bind)
+#		InputMap.action_add_event(bind, test)

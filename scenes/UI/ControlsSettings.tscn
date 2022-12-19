@@ -1,0 +1,622 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/UI/ControlsSettings.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "KeyUsed"
+length = 4.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 4.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect/CenterContainer/Text:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Key In Use" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect/CenterContainer/Text:visible_characters")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 8 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect/CenterContainer/Text:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect/CenterContainer/Text:visible_characters")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect/CenterContainer/Text:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Waiting"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect/CenterContainer/Text:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ".", ". .", ". . ." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect/CenterContainer/Text:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect/CenterContainer/Text:visible_characters")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -1 ]
+}
+
+[node name="Controls" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+script = ExtResource( 2 )
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 1255.0
+margin_bottom = 695.0
+custom_constants/separation = 5
+
+[node name="ForwardControl" type="HBoxContainer" parent="Buttons"]
+margin_right = 1230.0
+margin_bottom = 38.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Buttons/ForwardControl"]
+margin_top = 3.0
+margin_right = 407.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Move Forward:"
+align = 1
+valign = 1
+
+[node name="Bound" type="Label" parent="Buttons/ForwardControl"]
+margin_left = 411.0
+margin_top = 3.0
+margin_right = 818.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "W"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Change" type="Button" parent="Buttons/ForwardControl"]
+margin_left = 822.0
+margin_right = 1230.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Change"
+
+[node name="BackControl" type="HBoxContainer" parent="Buttons"]
+margin_top = 43.0
+margin_right = 1230.0
+margin_bottom = 81.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Buttons/BackControl"]
+margin_top = 3.0
+margin_right = 407.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Move Backwards:"
+align = 1
+valign = 1
+
+[node name="Bound" type="Label" parent="Buttons/BackControl"]
+margin_left = 411.0
+margin_top = 3.0
+margin_right = 818.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "S"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Change" type="Button" parent="Buttons/BackControl"]
+margin_left = 822.0
+margin_right = 1230.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Change"
+
+[node name="LeftControl" type="HBoxContainer" parent="Buttons"]
+margin_top = 86.0
+margin_right = 1230.0
+margin_bottom = 124.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Buttons/LeftControl"]
+margin_top = 3.0
+margin_right = 407.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Move Left:"
+align = 1
+valign = 1
+
+[node name="Bound" type="Label" parent="Buttons/LeftControl"]
+margin_left = 411.0
+margin_top = 3.0
+margin_right = 818.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "A"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Change" type="Button" parent="Buttons/LeftControl"]
+margin_left = 822.0
+margin_right = 1230.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Change"
+
+[node name="RightControl" type="HBoxContainer" parent="Buttons"]
+margin_top = 129.0
+margin_right = 1230.0
+margin_bottom = 167.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Buttons/RightControl"]
+margin_top = 3.0
+margin_right = 407.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Move Right:"
+align = 1
+valign = 1
+
+[node name="Bound" type="Label" parent="Buttons/RightControl"]
+margin_left = 411.0
+margin_top = 3.0
+margin_right = 818.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "D"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Change" type="Button" parent="Buttons/RightControl"]
+margin_left = 822.0
+margin_right = 1230.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Change"
+
+[node name="JumpControl" type="HBoxContainer" parent="Buttons"]
+margin_top = 172.0
+margin_right = 1230.0
+margin_bottom = 210.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Buttons/JumpControl"]
+margin_top = 3.0
+margin_right = 407.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Jump:"
+align = 1
+valign = 1
+
+[node name="Bound" type="Label" parent="Buttons/JumpControl"]
+margin_left = 411.0
+margin_top = 3.0
+margin_right = 818.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "SPACE"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Change" type="Button" parent="Buttons/JumpControl"]
+margin_left = 822.0
+margin_right = 1230.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Change"
+
+[node name="SprintControl" type="HBoxContainer" parent="Buttons"]
+margin_top = 215.0
+margin_right = 1230.0
+margin_bottom = 253.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Buttons/SprintControl"]
+margin_top = 3.0
+margin_right = 407.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Sprint:"
+align = 1
+valign = 1
+
+[node name="Bound" type="Label" parent="Buttons/SprintControl"]
+margin_left = 411.0
+margin_top = 3.0
+margin_right = 818.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "shift"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Change" type="Button" parent="Buttons/SprintControl"]
+margin_left = 822.0
+margin_right = 1230.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Change"
+
+[node name="InteractControl" type="HBoxContainer" parent="Buttons"]
+margin_top = 258.0
+margin_right = 1230.0
+margin_bottom = 296.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Buttons/InteractControl"]
+margin_top = 3.0
+margin_right = 407.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Interact:"
+align = 1
+valign = 1
+
+[node name="Bound" type="Label" parent="Buttons/InteractControl"]
+margin_left = 411.0
+margin_top = 3.0
+margin_right = 818.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "E"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Change" type="Button" parent="Buttons/InteractControl"]
+margin_left = 822.0
+margin_right = 1230.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Change"
+
+[node name="PauseControl" type="HBoxContainer" parent="Buttons"]
+margin_top = 301.0
+margin_right = 1230.0
+margin_bottom = 339.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Buttons/PauseControl"]
+margin_top = 3.0
+margin_right = 407.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Pause:"
+align = 1
+valign = 1
+
+[node name="Bound" type="Label" parent="Buttons/PauseControl"]
+margin_left = 411.0
+margin_top = 3.0
+margin_right = 818.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "escape"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Change" type="Button" parent="Buttons/PauseControl"]
+margin_left = 822.0
+margin_right = 1230.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Change"
+
+[node name="ConsoleControl" type="HBoxContainer" parent="Buttons"]
+margin_top = 344.0
+margin_right = 1230.0
+margin_bottom = 382.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Buttons/ConsoleControl"]
+margin_top = 3.0
+margin_right = 407.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Console:"
+align = 1
+valign = 1
+
+[node name="Bound" type="Label" parent="Buttons/ConsoleControl"]
+margin_left = 411.0
+margin_top = 3.0
+margin_right = 818.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "`"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Change" type="Button" parent="Buttons/ConsoleControl"]
+margin_left = 822.0
+margin_right = 1230.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Change"
+
+[node name="PrimaryControl" type="HBoxContainer" parent="Buttons"]
+visible = false
+margin_top = 459.0
+margin_right = 1230.0
+margin_bottom = 497.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Buttons/PrimaryControl"]
+margin_top = 3.0
+margin_right = 407.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Primary:"
+align = 1
+valign = 1
+
+[node name="Bound" type="Label" parent="Buttons/PrimaryControl"]
+margin_left = 411.0
+margin_top = 3.0
+margin_right = 818.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "LMB"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Change" type="Button" parent="Buttons/PrimaryControl"]
+margin_left = 822.0
+margin_right = 1230.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Change"
+
+[node name="SecondaryControl" type="HBoxContainer" parent="Buttons"]
+visible = false
+margin_top = 459.0
+margin_right = 1230.0
+margin_bottom = 497.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Buttons/SecondaryControl"]
+margin_top = 3.0
+margin_right = 407.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Secondary:"
+align = 1
+valign = 1
+
+[node name="Bound" type="Label" parent="Buttons/SecondaryControl"]
+margin_left = 411.0
+margin_top = 3.0
+margin_right = 818.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "RMB"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Change" type="Button" parent="Buttons/SecondaryControl"]
+margin_left = 822.0
+margin_right = 1230.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Change"
+
+[node name="Extras" type="Control" parent="."]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 1255.0
+margin_bottom = 695.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Extras"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.113725, 0.113725, 0.113725, 0.478431 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Extras/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Text" type="Label" parent="Extras/ColorRect/CenterContainer"]
+margin_left = 615.0
+margin_top = 285.0
+margin_right = 615.0
+margin_bottom = 385.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Extras"]
+anims/KeyUsed = SubResource( 4 )
+anims/RESET = SubResource( 6 )
+anims/Waiting = SubResource( 3 )
+
+[connection signal="pressed" from="Buttons/ForwardControl/Change" to="." method="_on_ForChange_pressed"]
+[connection signal="pressed" from="Buttons/BackControl/Change" to="." method="_on_BackChange_pressed"]
+[connection signal="pressed" from="Buttons/LeftControl/Change" to="." method="_on_LeftChange_pressed"]
+[connection signal="pressed" from="Buttons/RightControl/Change" to="." method="_on_RightChange_pressed"]
+[connection signal="pressed" from="Buttons/JumpControl/Change" to="." method="_on_JumpChange_pressed"]
+[connection signal="pressed" from="Buttons/SprintControl/Change" to="." method="_on_SprintChange_pressed"]
+[connection signal="pressed" from="Buttons/InteractControl/Change" to="." method="_on_InteractChange_pressed"]
+[connection signal="pressed" from="Buttons/PauseControl/Change" to="." method="_on_PauseChange_pressed"]
+[connection signal="pressed" from="Buttons/ConsoleControl/Change" to="." method="_on_ConsoleChange_pressed"]

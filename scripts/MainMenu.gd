@@ -5,6 +5,7 @@ onready var MusicPlayer = get_parent().get_node("MusicPlayer")
 
 func _ready():
 	SaveGame._update_presence()
+	Settingsholder._apply_keybinds()
 	$VersionChecker._start()
 
 func _on_StartBtn_pressed():

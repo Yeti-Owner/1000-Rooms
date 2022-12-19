@@ -100,7 +100,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
 [node name="SettingsMenu" parent="Menu" instance=ExtResource( 11 )]
-visible = false
 
 [node name="VersionBtn" type="Button" parent="Menu"]
 anchor_left = 1.0
@@ -168,7 +167,7 @@ text = "
 - Upscaled art
 - Touched up several models
 - Adjusted difficulty
-- Adjusted rarity of rooms
+- Adjusted rarity of certain rooms
 - Added several new rooms"
 align = 1
 
