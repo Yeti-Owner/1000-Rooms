@@ -1,7 +1,7 @@
 extends Interactable
 
 func get_interaction_text():
-	return "Press E to use Medkit"
+	return "Press %s to use Medkit" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
 
 func interact():
 	if SaveGame.game_data.PlayerHP <= 80:

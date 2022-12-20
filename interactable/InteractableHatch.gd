@@ -5,7 +5,7 @@ onready var HatchSound = get_parent().get_node("HatchSound")
 var InteractedWith = 0
 
 func get_interaction_text():
-	return "Press E to open the hatch"
+	return "Press %s to open the hatch" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
 
 func interact():
 	HatchSound.play()

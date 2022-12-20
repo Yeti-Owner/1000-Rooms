@@ -8,7 +8,7 @@ func _ready():
 	SceneManager.connect("FakeFadeDone", self, "on_fade_finished")
 
 func get_interaction_text():
-	return "Press E to enter the pipe"
+	return "Press %s to enter the pipe" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
 
 func interact():
 	SceneManager._fake_fade()

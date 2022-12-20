@@ -9,7 +9,7 @@ func _ready():
 	$CanvasLayer/Popup/MarginContainer/VBoxContainer/Text.add_color_override("font_color", TextColor)
 
 func get_interaction_text():
-	return "Press E to read"
+	return "Press %s to read" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
 
 func interact():
 	$CanvasLayer/Popup/MarginContainer/VBoxContainer/Title.text = Title

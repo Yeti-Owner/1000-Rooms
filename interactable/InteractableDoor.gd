@@ -5,7 +5,7 @@ onready var DoorSound = get_parent().get_node("Door2/Door2/DoorSound")
 var InteractedWith = 0
 
 func get_interaction_text():
-	return "Press E to open the door"
+	return "Press %s to open the door" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
 
 func interact():
 	AnimPlayer.play("opening")

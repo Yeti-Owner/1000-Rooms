@@ -1,5 +1,5 @@
 extends Interactable
-var ReleasedText = "Press E to mess with it"
+var ReleasedText = "Press %s to mess with it" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
 var ReleasedYet = 0
 #onready var loc = $Fairy.global_transform.origin
 signal FairyReleased

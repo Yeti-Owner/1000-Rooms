@@ -168,7 +168,8 @@ text = "
 - Touched up several models
 - Adjusted difficulty
 - Adjusted rarity of certain rooms
-- Added several new rooms"
+- Added several new rooms
+- Added controls to settings"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]

@@ -1,6 +1,5 @@
 extends Node
 
-onready var Keys := InputEventKey.new()
 var file := File.new()
 var file2 := File.new()
 var save_settings := "user://Settings.dat"
@@ -58,10 +57,12 @@ func _ready():
 
 func _save():
 	# Normal Settings
+# warning-ignore:return_value_discarded
 	file.open(save_settings, File.WRITE)
 	file.store_var(save_data)
 	file.close()
 	
+# warning-ignore:return_value_discarded
 	file2.open(save_keybinds, File.WRITE)
 	file2.store_var(keybinds_data)
 	file2.close()
@@ -73,11 +74,13 @@ func _load():
 		_save()
 	
 	# Open save file and read values
+# warning-ignore:return_value_discarded
 	file.open(save_settings, File.READ)
 	save_data = file.get_var()
 	file.close()
 	
 	# ^^^ but binds
+# warning-ignore:return_value_discarded
 	file2.open(save_keybinds, File.READ)
 	keybinds_data = file2.get_var()
 	file2.close()
@@ -104,11 +107,9 @@ func _default():
 	_save()
 
 func _apply_keybinds():
-	pass
-#	var binds = ["up","down","left","right","jump","sprint","interact","console","pause"]
-#	for bind in binds:
-#		Keys = keybinds_data[bind]
-#		var test = Keys.scancode
-#		print(str(bind) + str(test))
-#		InputMap.action_erase_events(bind)
-#		InputMap.action_add_event(bind, test)
+	var binds = ["up","down","left","right","jump","sprint","interact","console","pause"]
+	for bind in binds:
+		var event := InputEventKey.new()
+		event.scancode = keybinds_data[bind]
+		InputMap.action_erase_events(bind)
+		InputMap.action_add_event(bind, event)

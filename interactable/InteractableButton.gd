@@ -12,7 +12,7 @@ onready var Narrator = get_node("/root/SceneManager/GameScene/GameViewport/world
 var Interacted = true
 
 func get_interaction_text():
-	return str("Press E to " + FuncText)
+	return str("Press %s to %s" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode), FuncText])
 
 func interact():
 	if Interacted:

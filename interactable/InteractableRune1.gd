@@ -3,7 +3,7 @@ onready var room = get_parent().get_parent()
 var InteractedWith = 0
 
 func get_interaction_text():
-	return "Press E to touch the Rune"
+	return "Press %s to touch the Rune" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
 
 func interact():
 	if InteractedWith:

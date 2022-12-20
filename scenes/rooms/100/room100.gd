@@ -119,6 +119,8 @@ func _release_fairy():
 	var Hatch2 = Hatch.instance()
 	Hatch2.transform.origin = Vector3(0, 0, -32.3)
 	get_node("RoomItems").add_child(Hatch2)
+	$ArrowSigns.visible = true
+	$ArrowSigns.transform.origin = Vector3(-1.3,0,-32.4)
 	
 	# remove door and wall
 	$RoomItems/FakeDoor.queue_free()
