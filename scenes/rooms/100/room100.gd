@@ -22,6 +22,15 @@ func _ready():
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	FakeDoor.connect("DoorOpened", self, "_door_triggered")
 	FairyCage.connect("FairyReleased", self, "_release_fairy")
+	
+	# Check if Asshole Achievement done
+	if AchievementsHolder.game_data.Asshole:
+		$RoomItems/BlockedDoor.visible = true
+		$RoomItems/BlockedDoor.global_transform.origin = Vector3(0,0,-55.98)
+		$RoomItems/FakeDoor.global_transform.origin = Vector3(0,0,-59.98)
+	else:
+		$RoomItems/BlockedDoor.queue_free()
+	
 	if SaveGame.game_data.CurrentPos == Vector3(4, 0.7, -21.5):
 		player.transform.origin = Vector3(4, 0.7, -21.5)
 	$RoomItems/WallObj3.global_transform.origin = Vector3(0, 5, 0)
