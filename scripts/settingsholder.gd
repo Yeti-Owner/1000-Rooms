@@ -50,6 +50,8 @@ signal fov_changed
 signal sens_changed
 # warning-ignore:unused_signal
 signal quality_bloom_changed
+# warning-ignore:unused_signal
+signal hp_changed
 
 # Check saved data
 func _ready():

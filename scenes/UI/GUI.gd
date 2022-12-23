@@ -15,7 +15,8 @@ func _ready():
 	HpBar.set_value(SaveGame.game_data.PlayerHP)
 # warning-ignore:return_value_discarded
 	Settingsholder.connect("fps_changed", self, "_update_vals")
-
+# warning-ignore:return_value_discarded
+	Settingsholder.connect("hp_changed", self, "_update_hp")
 
 func _physics_process(_delta) -> void:
 	# Regen Stamina Bar
@@ -24,12 +25,12 @@ func _physics_process(_delta) -> void:
 		if !isPaused:
 			Stamina = StamBar.get_value() + 0.5
 			StamBar.set_value(Stamina)
-	
-	# Update HP bar
-	HpBar.set_value(SaveGame.game_data.PlayerHP)
 
 func _on_UpdateTimer_timeout():
 	_update_vals()
+
+func _update_hp():
+	HpBar.set_value(SaveGame.game_data.PlayerHP)
 
 func _update_vals():
 	# Show FPS if enabled

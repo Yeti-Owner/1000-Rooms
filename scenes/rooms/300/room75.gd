@@ -10,6 +10,7 @@ func _ready():
 	randomize()
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	SaveGame.game_data.CurrentRoom = _room
+	
 	SaveGame._update_presence()
 	if SaveGame.game_data.CurrentPos == Vector3(-1.9,1,-54):
 		Player.global_transform.origin = Vector3(-1.9,1,-54)

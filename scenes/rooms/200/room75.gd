@@ -7,8 +7,8 @@ export(Environment) var EnvironmentUsed
 var RuneStage = 0
 
 func _ready():
-	SaveGame.game_data.PlayerHP += 5
 	randomize()
+	
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	SaveGame.game_data.CurrentRoom = _room

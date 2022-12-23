@@ -61,22 +61,8 @@ func _viewport_settings():
 	get_node("/root/SceneManager/GameScene/GameViewport").set_msaa(Settingsholder.save_data.MSAA)
 	
 #	You can see I really just gave up here tbh
-	if Settingsholder.save_data.ResolutionScale == 0:
-		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(848,480))
-	elif Settingsholder.save_data.ResolutionScale == 1:
-		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(960,540))
-	elif Settingsholder.save_data.ResolutionScale == 2:
-		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1024,576))
-	elif Settingsholder.save_data.ResolutionScale == 3:
-		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1280,720))
-	elif Settingsholder.save_data.ResolutionScale == 4:
-		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1366,768))
-	elif Settingsholder.save_data.ResolutionScale == 5:
-		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1600,900))
-	elif Settingsholder.save_data.ResolutionScale == 6:
-		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1920,1080))
-	elif Settingsholder.save_data.ResolutionScale == 7:
-		get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(2560,1440))
+	var resolutions := [Vector2(848,480),Vector2(960, 540),Vector2(1024,576),Vector2(1280,720),Vector2(1366,768),Vector2(1600,900),Vector2(1920,1080),Vector2(2560,1440)]
+	get_node("/root/SceneManager/GameScene/GameViewport").set_size(resolutions[Settingsholder.save_data.ResolutionScale])
 
 # Windowed/Fullscreen option
 func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
@@ -189,22 +175,8 @@ func _on_MSAAOptions_item_selected(index):
 
 func _on_ResolutionScale_value_changed(value):
 	Settingsholder.save_data.ResolutionScale = value
-	if value == 0:
-		Settingsholder.save_data.ResolutionText = "480p"
-	elif value == 1:
-		Settingsholder.save_data.ResolutionText = "540p"
-	elif value == 2:
-		Settingsholder.save_data.ResolutionText = "576p"
-	elif value == 3:
-		Settingsholder.save_data.ResolutionText = "720p"
-	elif value == 4:
-		Settingsholder.save_data.ResolutionText = "768p"
-	elif value == 5:
-		Settingsholder.save_data.ResolutionText = "900p"
-	elif value == 6:
-		Settingsholder.save_data.ResolutionText = "1080p"
-	elif value == 7:
-		Settingsholder.save_data.ResolutionText = "1440p"
+	var ResolutionText := ["480p","540p","576p","720p","768p","900p","1080p","1440p"]
+	Settingsholder.save_data.ResolutionText = ResolutionText[value]
 	ScaleText.text = Settingsholder.save_data.ResolutionText
 	_viewport_settings()
 

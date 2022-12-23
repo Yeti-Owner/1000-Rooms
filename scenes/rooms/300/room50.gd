@@ -12,6 +12,7 @@ var Seconds = 29
 
 func _ready():
 	randomize()
+	
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	SaveGame.game_data.CurrentRoom = _room
 	SaveGame._update_presence()

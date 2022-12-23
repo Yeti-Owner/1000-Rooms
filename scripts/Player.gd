@@ -21,13 +21,13 @@ var state = WALKING
 onready var _camera := get_node("%CameraHolder")
 onready var Stamina = get_node("/root/SceneManager/GameScene/HUD/GUI/HPandStam/StamBar2")
 onready var StepPlayer = $StepPlayer
-onready var Health = SaveGame.game_data.PlayerHP
 onready var PlayerAnim = $PlayerAnims
 onready var HurtAnims = $HurtPlayer
 onready var Coyote = $CoyoteTimer
 
 func _ready():
 	self.scale = Vector3(0.6, 0.6, 0.6)
+#	isDead = 0
 	
 	StepPlayer.stream = load(FootStepList[SaveGame.game_data.StepUsed])
 	
@@ -38,6 +38,14 @@ func _ready():
 
 func _physics_process(delta: float):
 	# Set State
+	if (SaveGame.game_data.PlayerHP <= 0) and (isDead == 0):
+		state = DEAD
+		print("if went through")
+		_die()
+	
+	if Input.is_action_just_pressed("secondary"):
+		print(isDead)
+	
 	if Input.is_action_just_pressed("sprint"):
 		Stamina.set_value(Stamina.get_value() - 7.5)
 		state = RUNNING
@@ -57,11 +65,6 @@ func _physics_process(delta: float):
 			_movement(delta, walk_speed, 1)
 		RUNNING:
 			_movement(delta, sprint_speed, 1.25)
-	
-	# Check HP
-	if SceneManager.CurrentMode == "ingame":
-		if (Health <= 0) and (isDead == 0):
-			_die()
 
 func _movement(delta, UsedSpeed, bob_speed):
 	var input = Vector2.ZERO
@@ -142,9 +145,9 @@ func _on_PlayerArea_area_entered(area):
 			print("Acid")
 
 func _die():
+	print("_die called")
 	SaveGame.game_data.Deaths += 1
 	isDead = 1
-	state = DEAD
 	PlayerAnim.play("die")
 
 func _hurt(source):
@@ -154,17 +157,21 @@ func _hurt(source):
 			HurtAnims.play("hurt")
 			$CameraHolder/Camera/HurtPlayer.play()
 			SaveGame.DeathReason = "ghost"
+			Settingsholder.emit_signal("hp_changed")
 		"fairy":
 			HurtAnims.play("hurt")
 			SaveGame.game_data.PlayerHP -= 8
 			SaveGame.DeathReason = "fairy"
+			Settingsholder.emit_signal("hp_changed")
 		"spike":
 			HurtAnims.play("hurt")
 			SaveGame.game_data.PlayerHP -= 10
+			Settingsholder.emit_signal("hp_changed")
 		"statue":
 			HurtAnims.play("hurt")
 			SaveGame.DeathReason = "statue"
 			SaveGame.game_data.PlayerHP -= 24
+			Settingsholder.emit_signal("hp_changed")
 
 func _on_PlayerAnims_animation_finished(anim_name):
 	if anim_name == "die":

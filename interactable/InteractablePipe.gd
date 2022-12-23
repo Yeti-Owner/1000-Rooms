@@ -7,5 +7,7 @@ func get_interaction_text():
 
 func interact():
 	if InteractedWith == 0:
+		SaveGame.game_data.PlayerHP = min(SaveGame.game_data.PlayerHP + 5, 100)
+		Settingsholder.emit_signal("hp_changed")
 		RoomLoader._get_next_room()
 	InteractedWith = 1

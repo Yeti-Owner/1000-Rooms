@@ -16,7 +16,6 @@ func _ready():
 	randomize()
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	SaveGame.game_data.CurrentRoom = _room
-	SaveGame.game_data.PlayerHP = min(SaveGame.game_data.PlayerHP + 5, 100)
 	_check_room()
 	_add_objs()
 	SaveGame._update_presence()

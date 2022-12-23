@@ -169,7 +169,8 @@ text = "
 - Adjusted difficulty
 - Adjusted rarity of certain rooms
 - Added several new rooms
-- Added controls to settings"
+- Added controls to settings
+- Fixed (small) bug making Player borderline invincible"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]

@@ -23,10 +23,6 @@ func _on_console_text_entered(cmd):
 	match cmd[0]:
 		"b":
 			match cmd[1]:
-				"print":
-					print(cmd[2])
-					self.set_visible(false)
-					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				"goto":
 					SceneManager._change_scene(str(cmd[2]))
 					self.set_visible(false)
@@ -37,10 +33,13 @@ func _on_console_text_entered(cmd):
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				"hp":
 					SaveGame.game_data.PlayerHP = int(cmd[2])
+					Settingsholder.emit_signal("hp_changed")
 					self.set_visible(false)
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-				"hp?":
+				"h":
 					print(SaveGame.game_data.PlayerHP)
+				"cm":
+					print(SceneManager.CurrentMode)
 				"scare?":
 					print(SaveGame.game_data.JumpScareAmt)
 				"scare": 

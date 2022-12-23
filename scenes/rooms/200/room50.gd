@@ -9,9 +9,9 @@ var CorrectDoor
 var lost = 0
 
 func _ready():
-	SaveGame.game_data.PlayerHP += 5
 	randomize()
 	SceneManager.GameScene.world.environment = EnvironmentUsed
+	
 # warning-ignore:return_value_discarded
 	$Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	SaveGame.game_data.CurrentRoom = _room
