@@ -4,4 +4,3 @@
 
 [node name="FakeFloor" type="MeshInstance"]
 mesh = ExtResource( 1 )
-material/0 = null

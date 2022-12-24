@@ -40,7 +40,6 @@ func _physics_process(delta: float):
 	# Set State
 	if (SaveGame.game_data.PlayerHP <= 0) and (isDead == 0):
 		state = DEAD
-		print("if went through")
 		_die()
 	
 	if Input.is_action_just_pressed("secondary"):

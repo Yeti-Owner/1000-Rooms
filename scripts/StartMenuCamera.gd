@@ -1,12 +1,15 @@
 extends Camera
 
-var RNG
-var Last
+export(Environment) var EnvironmentUsed
+
 onready var Anim = $AnimationPlayer
 onready var timer = get_parent().get_node("Timer")
 
+var RNG
+var Last
 
 func _ready():
+	SceneManager.GameScene.world.environment = EnvironmentUsed
 	SceneManager.HudMode = "mainmenu"
 	randomize()
 	_change_cam()

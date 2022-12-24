@@ -73,3 +73,6 @@ func _on_console_text_entered(cmd):
 				AchievementsHolder.game_data.NotoLotta = 1
 				AchievementsHolder._save()
 				AchievementsHolder.emit_signal("NewAchievement")
+		"temp":
+			SceneManager._change_scene("res://TempWorld.tscn")
+			SceneManager.HudMode = "none"
