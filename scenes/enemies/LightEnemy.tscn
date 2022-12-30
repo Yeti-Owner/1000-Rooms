@@ -10,7 +10,7 @@ radius = 0.167
 height = 0.333
 
 [sub_resource type="SphereShape" id=4]
-radius = 0.167
+radius = 0.3
 
 [sub_resource type="SphereShape" id=5]
 radius = 4.7
