@@ -51,6 +51,7 @@ custom_fonts/font = SubResource( 9 )
 text = " X "
 
 [node name="PastLevels" type="Button" parent="Control"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -61,7 +62,6 @@ custom_fonts/font = SubResource( 9 )
 text = " Missed an Achievement?"
 
 [node name="RoomsPopup" type="Popup" parent="Control"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 300.0

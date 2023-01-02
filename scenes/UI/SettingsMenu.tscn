@@ -35,10 +35,8 @@ margin_top = -200.0
 margin_right = 350.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 700, 400 )
+popup_exclusive = true
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -548,6 +546,15 @@ size_flags_horizontal = 10
 
 [node name="ClickPlayer" parent="." instance=ExtResource( 4 )]
 
+[node name="Close" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -29.0
+margin_bottom = 20.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+text = "X"
+
 [connection signal="tab_changed" from="SettingsTabs" to="." method="_on_SettingsTabs_tab_changed"]
 [connection signal="item_selected" from="SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn" to="." method="_on_DisplayOptionBtn_item_selected"]
 [connection signal="pressed" from="SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn" to="." method="_on_VsyncCheckBtn_pressed"]
@@ -566,3 +573,4 @@ size_flags_horizontal = 10
 [connection signal="value_changed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider" to="." method="_on_MouseSensitivitySlider_value_changed"]
 [connection signal="pressed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/ClearSaveBtn" to="." method="_on_ClearSaveBtn_pressed"]
 [connection signal="pressed" from="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/DefaultBtn" to="." method="_on_DefaultBtn_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]

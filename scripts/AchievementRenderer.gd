@@ -55,7 +55,7 @@ func _process(_delta):
 			# NotoLotta Award
 			get_parent().get_node("Renderer/NotoLotta/hide").visible = !AchievementsHolder.game_data.NotoLotta
 			if AchievementsHolder.game_data.NotoLotta == 0:
-				Text.text = "The NotoLotta achievement, use ~ to access the Dev console and fill in: blasters are BLANK. (all lowercase)"
+				Text.text = "The NotoLotta achievement, use %s to access the Dev console and fill in: blasters are BLANK. (all lowercase)" % [OS.get_scancode_string(InputMap.get_action_list("console")[0].scancode)]
 			else:
 				Text.text = "The NotoLotta achievement, buff lord goat."
 			CurrentPos = Cam.global_transform.origin

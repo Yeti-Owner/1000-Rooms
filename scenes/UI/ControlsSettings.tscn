@@ -597,9 +597,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Text" type="Label" parent="Extras/ColorRect/CenterContainer"]
-margin_left = 417.0
+margin_left = 615.0
 margin_top = 285.0
-margin_right = 812.0
+margin_right = 615.0
 margin_bottom = 385.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 5 )

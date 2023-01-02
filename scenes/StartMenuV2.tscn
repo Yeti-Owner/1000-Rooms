@@ -163,6 +163,7 @@ text = "
 
 
 - Added reflection probes (more accurate lighting & reflections)
+- Added several new textures
 - Updated textures (Better depth, occlusion, etc)
 - Upscaled art
 - Touched up several models
@@ -222,7 +223,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 1.0
 custom_fonts/font = SubResource( 9 )
-text = "- S"
+text = "- New Enemies
+- More games for the arcade
+- Leaderboards for the arcade(?)
+- Built in speedrun-timer(?)
+- More Story/Lore
+- Revamped Puzzles"
 align = 1
 
 [node name="CloseBtn" type="Button" parent="Menu/VersionDialog"]

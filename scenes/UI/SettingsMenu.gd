@@ -188,3 +188,7 @@ func _on_QualBloomCheck_pressed():
 	ClickPlayer._click_sound()
 	BloomCheckBtn.set_pressed_no_signal(Settingsholder.save_data.BloomSet)
 	Settingsholder.emit_signal("quality_bloom_changed")
+
+
+func _on_Close_pressed():
+	self.hide()

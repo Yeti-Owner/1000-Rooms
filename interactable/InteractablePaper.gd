@@ -2,7 +2,7 @@ extends Interactable
 
 export(String) var Title = ""
 export(String, MULTILINE) var Text = ""
-export(Color) var TextColor
+export(Color) var TextColor = Color(1,1,1,1)
 
 func _ready():
 	$CanvasLayer/Popup/MarginContainer/VBoxContainer/Title.add_color_override("font_color", TextColor)
