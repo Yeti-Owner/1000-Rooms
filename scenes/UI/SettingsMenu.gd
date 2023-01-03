@@ -144,8 +144,12 @@ func _on_SfxVolSlider_value_changed(SfVol):
 	SfVol = SfVol - 50
 	AudioServer.set_bus_volume_db(2, SfVol)
 
-func _on_SettingsTabs_tab_changed(_tab):
+func _on_SettingsTabs_tab_changed(tab):
 	ClickPlayer._click_sound()
+	if tab == 2:
+		self.popup_exclusive = true
+	else:
+		self.popup_exclusive = false
 
 # Clear SaveGame
 func _on_ClearSaveBtn_pressed():
