@@ -12,7 +12,6 @@ onready var TextureHolder = $CanvasLayer/Transitions/TextureRect
 var SceneToLoad: String
 var CurrentScene
 var HudMode:String = "none" setget _init_HUD
-var UsableBrightness = float(Settingsholder.save_data.Brightness)/8
 var NextTransition
 var CurrentMode
 
@@ -71,13 +70,9 @@ func _init_HUD(mode):
 	CurrentMode = mode
 	match mode:
 		"none":
-			for child in GameHud.get_children():
-				child.queue_free()
+			_swap_HUD(0)
 		"ingame":
-			for child in GameHud.get_children():
-				child.queue_free()
-			var _GUI = load("res://scenes/UI/GUI.tscn").instance()
-			GameHud.add_child(_GUI)
+			_swap_HUD(0, "res://scenes/UI/GUI.tscn")
 		"mainmenu":
 			for child in GameHud.get_children():
 				child.queue_free()
@@ -103,27 +98,38 @@ func _init_HUD(mode):
 			var _end = load("res://scenes/EndScreen.tscn").instance()
 			GameHud.add_child(_end)
 
+func _swap_HUD(step, scene = null):
+	match step:
+		0:
+			for child in GameHud.get_children():
+				child.queue_free()
+			if scene != null:
+				var _s = load(scene).instance()
+				GameHud.add_child(_s)
+		1:
+			pass
+
 # WorldEnvironment Shenanigans
 func _bloom():
+	environment.set_glow_bloom(0.75)
 	if (Settingsholder.save_data.BloomSet):
-		environment.set_glow_bloom(0.75)
-		environment.set_adjustment_saturation(1.1)
+#		environment.set_glow_bloom(0.75)
+		environment.set_adjustment_saturation(1.7)
 	else:
 		Settingsholder.save_data.QualityBloom = 0
-		environment.set_glow_bloom(0)
-		environment.set_adjustment_saturation(1)
+#		environment.set_glow_bloom(0)
+		environment.set_adjustment_saturation(1.5)
 		environment.glow_bicubic_upscale = false
 		environment.glow_high_quality = false
 
 func _brightness():
-	UsableBrightness = float(Settingsholder.save_data.Brightness)/8
-	environment.set_adjustment_brightness(UsableBrightness)
+	environment.set_adjustment_brightness(float(Settingsholder.save_data.Brightness)/8)
 
 func _quality_bloom():
 	if (Settingsholder.save_data.QualityBloom):
 		Settingsholder.save_data.BloomSet = 1
 		environment.set_glow_bloom(0.75)
-		environment.set_adjustment_saturation(1.1)
+		environment.set_adjustment_saturation(1.7)
 		environment.glow_bicubic_upscale = true
 		environment.glow_high_quality = true
 	else:
