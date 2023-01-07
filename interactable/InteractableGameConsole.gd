@@ -27,6 +27,9 @@ var CamFOV
 var NewCam
 var PlayerLoc
 
+func _ready():
+	self.queue_free()
+
 func get_interaction_text():
 	return "Press %s to play" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
 
@@ -117,21 +120,5 @@ func _on_DisableEnemy_timeout():
 		world.AllowEnemy = false
 
 func _fix_viewport():
-	# There MUST be a better way to do this but I'm inbred or something idk
-	match Settingsholder.save_data.ResolutionScale:
-		0:
-			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(848,480))
-		1:
-			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(960,540))
-		2:
-			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1024,576))
-		3:
-			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1280,720))
-		4:
-			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1366,768))
-		5:
-			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1600,900))
-		6:
-			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(1920,1080))
-		7:
-			get_node("/root/SceneManager/GameScene/GameViewport").set_size(Vector2(2560,1440))
+	var Resolutions = [Vector2(848,480), Vector2(960,540), Vector2(1024,576), Vector2(1280,720), Vector2(1366,768), Vector2(1600,900), Vector2(1920,1080), Vector2(2560,1440)]
+	get_node("/root/SceneManager/GameScene/GameViewport").set_size(Resolutions[Settingsholder.save_data.ResolutionScale])

@@ -165,6 +165,7 @@ text = "
 - Added reflection probes (more accurate lighting & reflections)
 - Added several new textures
 - Updated textures (Better depth, occlusion, etc)
+- Better bloom
 - Upscaled art
 - Touched up several models
 - Adjusted difficulty
@@ -224,6 +225,7 @@ anchor_bottom = 1.0
 margin_bottom = 1.0
 custom_fonts/font = SubResource( 9 )
 text = "- New Enemies
+- Fixing Arcade machines
 - More games for the arcade
 - Leaderboards for the arcade(?)
 - Built in speedrun-timer(?)

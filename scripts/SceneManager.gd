@@ -74,29 +74,13 @@ func _init_HUD(mode):
 		"ingame":
 			_swap_HUD(0, "res://scenes/UI/GUI.tscn")
 		"mainmenu":
-			for child in GameHud.get_children():
-				child.queue_free()
-			var _mainmenu = load("res://scenes/StartMenuV2.tscn").instance()
-			GameHud.add_child(_mainmenu)
+			_swap_HUD(0, "res://scenes/StartMenuV2.tscn")
 		"achievement":
-			for child in GameHud.get_children():
-				child.queue_free()
-			var _a = load("res://scenes/AchievementHolder.tscn").instance()
-			GameHud.add_child(_a)
+			_swap_HUD(0, "res://scenes/AchievementHolder.tscn")
 		"deathscreen":
-			for scene in GameScene.get_children():
-				scene.queue_free()
-			for child in GameHud.get_children():
-				child.queue_free()
-			var _death = load("res://scenes/DeathScreen.tscn").instance()
-			GameHud.add_child(_death)
+			_swap_HUD(1, "res://scenes/DeathScreen.tscn")
 		"endscreen":
-			for scene in GameScene.get_children():
-				scene.queue_free()
-			for child in GameHud.get_children():
-				child.queue_free()
-			var _end = load("res://scenes/EndScreen.tscn").instance()
-			GameHud.add_child(_end)
+			_swap_HUD(1, "res://scenes/EndScreen.tscn")
 
 func _swap_HUD(step, scene = null):
 	match step:
@@ -107,7 +91,12 @@ func _swap_HUD(step, scene = null):
 				var _s = load(scene).instance()
 				GameHud.add_child(_s)
 		1:
-			pass
+			for child in GameHud.get_children():
+				child.queue_free()
+			for scene in GameScene.get_children():
+				scene.queue_free()
+			var _s = load(scene).instance()
+			GameHud.add_child(_s)
 
 # WorldEnvironment Shenanigans
 func _bloom():
