@@ -5,11 +5,11 @@ var CurrentPos
 var LerpWeight = 0.05
 var MaxStage = 10
 
+onready var parent = get_parent()
 onready var Cam = self
-onready var Text = get_parent().get_node("Renderer/AchievementText")#get_node("/root/SceneManager/GameScene/HUD/AchievementHolder/Control/AchievementText")
+onready var Text = get_parent().get_node("Renderer/AchievementText")
 
 func _ready():
-	
 	# Connect Signals
 # warning-ignore:return_value_discarded
 	get_node("/root/SceneManager/GameScene/HUD/AchievementHolder").connect("LeftA", self, "_left")
@@ -17,16 +17,11 @@ func _ready():
 	get_node("/root/SceneManager/GameScene/HUD/AchievementHolder").connect("RightA", self, "_right")
 	
 	# Check if unlocked
-	get_parent().get_node("Renderer/NJ/hide").visible = !AchievementsHolder.game_data.FormagDrung
-	get_parent().get_node("Renderer/Beanie/hide").visible = !AchievementsHolder.game_data.Badenov
-	get_parent().get_node("Renderer/NotoLotta/hide").visible = !AchievementsHolder.game_data.NotoLotta
-	get_parent().get_node("Renderer/Asshole/hide").visible = !AchievementsHolder.game_data.Asshole
-	get_parent().get_node("Renderer/Wyoming/hide").visible = !AchievementsHolder.game_data.Wyoming
-	get_parent().get_node("Renderer/Shai/hide").visible = !AchievementsHolder.game_data.Shai
-	get_parent().get_node("Renderer/Ufrz/hide").visible = !AchievementsHolder.game_data.Ufrz
-	get_parent().get_node("Renderer/Hell/hide").visible = !AchievementsHolder.game_data.Hell
-	get_parent().get_node("Renderer/IQTest/hide").visible = !AchievementsHolder.game_data.IQTest
-
+	
+	var achievements = ["FormagDrung", "Badenov", "NotoLotta", "Asshole", "Wyoming", "Shai", "Ufrz", "Hell", "IQTest"]
+	for achievement in achievements:
+		var node_name = "Renderer/" + achievement + "/hide"
+		parent.get_node(node_name).visible = !AchievementsHolder.game_data[achievement]
 
 func _process(_delta):
 	if CameraStage < 1:

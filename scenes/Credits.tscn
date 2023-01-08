@@ -14,7 +14,7 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Credits"
-length = 20.0
+length = 28.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CreditsText:rect_position")
 tracks/0/interp = 1
@@ -22,10 +22,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 20 ),
+"times": PoolRealArray( 0, 28 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 40, 750 ), Vector2( 40, -600 ) ]
+"values": [ Vector2( 40, 750 ), Vector2( 40, -810 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -58,23 +58,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 40.0
 margin_top = 750.0
-margin_right = -40.0
-margin_bottom = 1323.0
+margin_right = -10.0
+margin_bottom = 1485.0
 custom_fonts/font = SubResource( 1 )
-text = "I'd like to thank the following people for making
+text = "This game was proudly made with the Godot game engine.
+
+I'd like to thank the following people for making
 this game better.
 
 
-NotoLotta for all his help with animation
+NotoLotta for all his help with animation and his many other contributions.
 
-Shai, Cole, Ufrz, Formag, Mauro, Hito, SIsForSpirit, and many more for play-testing and giving criticism
+Shai, Cole, Ufrz, Formag, Mauro, Hito, SIsForSpirit, and many more for play-testing and giving criticism.
 
-Many Godot devs and helpers who helped me when I was stuck
-(Espectially Haledire <3)
+ToxicLanguage & Ness for help with my story.
 
-My SiB Family of course
+Many Godot devs and helpers who helped me when I was stuck.
+(Espectially Haledire <3).
 
-ToxicLanguage for help with my story
+My SiB Family of course.
 
 And lastly,
 
@@ -90,7 +92,8 @@ autowrap = true
 [node name="CloseBtn" type="Button" parent="."]
 visible = false
 anchor_right = 1.0
-margin_bottom = 100.0
+margin_top = 620.0
+margin_bottom = 720.0
 rect_min_size = Vector2( 225, 100 )
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 2 )

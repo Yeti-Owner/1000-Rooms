@@ -1,4 +1,5 @@
 extends Interactable
+
 export(int) var RoomAmt = 5
 
 func _ready():

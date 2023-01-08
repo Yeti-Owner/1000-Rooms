@@ -105,27 +105,27 @@ material/0 = SubResource( 6 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1357, 6, -8.29881 )
 mesh = SubResource( 7 )
 
-[node name="NJ" type="MeshInstance" parent="Renderer"]
+[node name="FormagDrung" type="MeshInstance" parent="Renderer"]
 transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0.05087 )
 mesh = ExtResource( 3 )
 material/0 = SubResource( 10 )
 
-[node name="hide" type="MeshInstance" parent="Renderer/NJ"]
+[node name="hide" type="MeshInstance" parent="Renderer/FormagDrung"]
 mesh = SubResource( 8 )
 material/0 = SubResource( 9 )
 
-[node name="Beanie" type="MeshInstance" parent="Renderer"]
+[node name="Badenov" type="MeshInstance" parent="Renderer"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4, -0.65666, 0 )
 mesh = ExtResource( 8 )
 material/0 = SubResource( 22 )
 
-[node name="hide" type="MeshInstance" parent="Renderer/Beanie"]
+[node name="hide" type="MeshInstance" parent="Renderer/Badenov"]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 6.5666, 0 )
 mesh = SubResource( 8 )
-skeleton = NodePath("../../NJ")
+skeleton = NodePath("../../FormagDrung")
 material/0 = SubResource( 9 )
 
-[node name="ACDC Logo" type="MeshInstance" parent="Renderer/Beanie"]
+[node name="ACDC Logo" type="MeshInstance" parent="Renderer/Badenov"]
 transform = Transform( 10, 0, 0, 0, 5.566, 3.73409, 0, -2.24045, 9.27667, -0.540733, 7.86448, 9.32593 )
 mesh = SubResource( 23 )
 skeleton = NodePath("../..")
@@ -139,7 +139,7 @@ material/0 = SubResource( 25 )
 [node name="hide" type="MeshInstance" parent="Renderer/NotoLotta"]
 transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
 mesh = SubResource( 8 )
-skeleton = NodePath("../../NJ")
+skeleton = NodePath("../../FormagDrung")
 material/0 = SubResource( 9 )
 
 [node name="Asshole" type="MeshInstance" parent="Renderer"]
@@ -150,7 +150,7 @@ material/0 = SubResource( 12 )
 [node name="hide" type="MeshInstance" parent="Renderer/Asshole"]
 transform = Transform( 0.961538, 0, 0, 0, 0.961538, 0, 0, 0, 0.961538, 0, 42.1215, 0 )
 mesh = SubResource( 8 )
-skeleton = NodePath("../../NJ")
+skeleton = NodePath("../../FormagDrung")
 material/0 = SubResource( 9 )
 
 [node name="Wyoming" type="MeshInstance" parent="Renderer"]
@@ -161,7 +161,7 @@ material/0 = SubResource( 13 )
 [node name="hide" type="MeshInstance" parent="Renderer/Wyoming"]
 transform = Transform( 0.03125, 0, 0, 0, 0.03125, 0, 0, 0, 0.03125, 0, -1.49012e-07, 0 )
 mesh = SubResource( 8 )
-skeleton = NodePath("../../NJ")
+skeleton = NodePath("../../FormagDrung")
 material/0 = SubResource( 9 )
 
 [node name="Shai" type="MeshInstance" parent="Renderer"]
@@ -172,7 +172,7 @@ material/0 = SubResource( 16 )
 [node name="hide" type="MeshInstance" parent="Renderer/Shai"]
 transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -1.19209e-07, 0 )
 mesh = SubResource( 8 )
-skeleton = NodePath("../../NJ")
+skeleton = NodePath("../../FormagDrung")
 material/0 = SubResource( 9 )
 
 [node name="Ufrz" type="MeshInstance" parent="Renderer"]
@@ -182,7 +182,7 @@ mesh = SubResource( 17 )
 [node name="hide" type="MeshInstance" parent="Renderer/Ufrz"]
 transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -1.19209e-07, 0 )
 mesh = SubResource( 8 )
-skeleton = NodePath("../../NJ")
+skeleton = NodePath("../../FormagDrung")
 material/0 = SubResource( 9 )
 
 [node name="Brawlhalla" type="MeshInstance" parent="Renderer"]
@@ -192,7 +192,7 @@ mesh = SubResource( 14 )
 [node name="hide" type="MeshInstance" parent="Renderer/Brawlhalla"]
 transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -1.19209e-07, 0 )
 mesh = SubResource( 8 )
-skeleton = NodePath("../../NJ")
+skeleton = NodePath("../../FormagDrung")
 material/0 = SubResource( 9 )
 
 [node name="Hell" type="Particles" parent="Renderer"]
@@ -208,7 +208,7 @@ draw_pass_1 = SubResource( 20 )
 [node name="hide" type="MeshInstance" parent="Renderer/Hell"]
 transform = Transform( 0.0510204, 0, 0, 0, 0.0510204, 0, 0, 0, 0.0510204, 0, 2.17046, 0 )
 mesh = SubResource( 8 )
-skeleton = NodePath("../../NJ")
+skeleton = NodePath("../../FormagDrung")
 material/0 = SubResource( 9 )
 
 [node name="IQTest" type="MeshInstance" parent="Renderer"]
@@ -219,7 +219,7 @@ material/0 = SubResource( 21 )
 [node name="hide" type="MeshInstance" parent="Renderer/IQTest"]
 transform = Transform( 0.921037, -0.0472299, -0.386602, -0.0262231, 0.982848, -0.182545, 0.388592, 0.178268, 0.904001, 0, 0.000221252, 6.10352e-05 )
 mesh = SubResource( 8 )
-skeleton = NodePath("../../NJ")
+skeleton = NodePath("../../FormagDrung")
 material/0 = SubResource( 9 )
 
 [node name="AchievementText" type="Label" parent="Renderer"]

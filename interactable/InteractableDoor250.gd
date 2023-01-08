@@ -2,6 +2,8 @@ extends Interactable
 
 export(int) var Door = 1
 
+onready var father = get_parent().get_parent().get_parent().get_parent()
+
 func get_interaction_text():
 	match Door:
 		1:
@@ -12,9 +14,9 @@ func get_interaction_text():
 			return ("Press %s to choose door C" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)])
 
 func interact():
-	if get_parent().get_parent().get_parent().get_parent().DoorStage == 1:
-		get_parent().get_parent().get_parent().get_parent()._first_door(Door)
-		get_parent().get_parent().get_parent().get_parent().DoorStage += 1
-	elif get_parent().get_parent().get_parent().get_parent().DoorStage == 2:
-		get_parent().get_parent().get_parent().get_parent()._second_door(Door)
-		get_parent().get_parent().get_parent().get_parent().DoorStage += 1
+	if father.DoorStage == 1:
+		father._first_door(Door)
+		father.DoorStage += 1
+	elif father.DoorStage == 2:
+		father._second_door(Door)
+		father.DoorStage += 1

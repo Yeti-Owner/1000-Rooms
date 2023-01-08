@@ -1,7 +1,6 @@
 extends Interactable
 var ReleasedText = "Press %s to mess with it" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
 var ReleasedYet = 0
-#onready var loc = $Fairy.global_transform.origin
 signal FairyReleased
 var v = 20
 
@@ -23,6 +22,7 @@ func _process(_delta):
 		if abs(loc.distance_to(Vector3(0, 1, -50.3))) <= 0.08:
 			ReleasedYet = 1
 			$Fairy.queue_free()
+
 func _released():
 	if ReleasedYet:
 		return

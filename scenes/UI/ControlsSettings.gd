@@ -37,26 +37,19 @@ func _assign_key(key):
 	# Save in keybinds
 	key = key.scancode
 	
+	var keybinds_mapping = {
+		0: "up",
+		1: "down",
+		2: "left",
+		3: "right",
+		4: "jump",
+		5: "sprint",
+		6: "interact",
+		7: "pause",
+		8: "console"
+	}
 	
-	if ActionChange == 0:
-		Settingsholder.keybinds_data.up = key
-	elif ActionChange == 1:
-		Settingsholder.keybinds_data.down = key
-	elif ActionChange == 2:
-		Settingsholder.keybinds_data.left = key
-	elif ActionChange == 3:
-		Settingsholder.keybinds_data.right = key
-	elif ActionChange == 4:
-		Settingsholder.keybinds_data.jump = key
-	elif ActionChange == 5:
-		Settingsholder.keybinds_data.sprint = key
-	elif ActionChange == 6:
-		Settingsholder.keybinds_data.interact = key
-	elif ActionChange == 7:
-		Settingsholder.keybinds_data.pause = key
-	elif ActionChange == 8:
-		Settingsholder.keybinds_data.console = key
-	
+	Settingsholder.keybinds_data[keybinds_mapping[ActionChange]] = key
 
 func _input(event):
 	if EnableInput:

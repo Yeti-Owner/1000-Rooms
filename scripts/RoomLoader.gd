@@ -10,9 +10,6 @@ var RNG300 = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,9,9,10,10,11,11,12,13,14,14,15,16,16
 func _ready():
 	randomize()
 
-# There is 100% a better way to do this but I am too mentally handicapped
-# to figure it out
-
 func _get_next_room():
 	if SaveGame.game_data.RoomNum <= 100:
 		_100_rooms()
