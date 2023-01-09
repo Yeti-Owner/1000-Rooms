@@ -1,20 +1,14 @@
 extends Spatial
 
 export(String, "Ghost", "Fairy", "Spike") var Enemy = "Ghost"
-var scene
-var Warning = 2
+var scene:PackedScene
+var Warning:int = 2
 
 func _ready():
 	match Enemy:
 		"Ghost":
 			scene = preload("res://scenes/enemies/GhostEnemy.tscn")
 			$WarningPlayer.stream = load("res://assets/audio/scary/ghost1.ogg")
-		"Fairy":
-			scene = preload("res://scenes/enemies/FairyEnemy.tscn")
-			$WarningPlayer.stream = load("res://assets/audio/scary/FairyBell.ogg")
-		"Spike":
-			scene = preload("res://scenes/enemies/Spike.tscn")
-#	_summon()
 
 func _summon():
 	yield(get_tree(), "idle_frame")
@@ -25,9 +19,12 @@ func _summon():
 func _on_SummonTimer_timeout():
 	$AnimationPlayer.play(Enemy)
 
-func _on_AnimationPlayer_animation_finished(anim_name):
-	match anim_name:
-		"Ghost":
-			var Ginstance = scene.instance()
-			get_parent().add_child(Ginstance)
-			Ginstance.global_transform.origin = $GhostPos.global_transform.origin
+func _on_AnimationPlayer_animation_finished(_anim_name):
+	var Ginstance := scene.instance()
+	get_parent().add_child(Ginstance)
+	Ginstance.global_transform.origin = $GhostPos.global_transform.origin
+#	match _anim_name:
+#		"Ghost":
+#			var Ginstance = scene.instance()
+#			get_parent().add_child(Ginstance)
+#			Ginstance.global_transform.origin = $GhostPos.global_transform.origin

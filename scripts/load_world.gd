@@ -3,10 +3,9 @@ extends Spatial
 export(bool) var EnemyAllowed = true
 export(Environment) var EnvironmentUsed
 
-onready var Narrator = $Narrator
-onready var Objs = $Objs
-onready var _room = self.filename
-var RNG
+onready var Narrator := $Narrator
+onready var Objs := $Objs
+onready var _room := self.filename
  
 func _ready():
 	randomize()
@@ -45,7 +44,7 @@ func _check_room():
 
 func _add_objs():
 	for _i in Objs.get_children():
-		RNG = randi() % 5
+		var RNG := randi() % 5
 		if RNG == 0:
 			_i.visible = true
 		else:
@@ -56,8 +55,8 @@ func _summon_enemy():
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
 	if EnemyAllowed:
-		var RNG2 = randi() % 5
-		if RNG2 == 0 or SaveGame.isChased > 0:
+		var RNG := randi() % 5
+		if RNG == 0 or SaveGame.isChased > 0:
 			get_node("NavMesh/EnemySpawner")._summon()
 			if SaveGame.isChased == 0:
 				SaveGame.isChased = 5

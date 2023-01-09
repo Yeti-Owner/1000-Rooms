@@ -5,9 +5,9 @@ var sprint_speed: float = 7.5
 var jump_speed: float = 8.9
 var acceleration_speed: float = 6.0
 var gravity: float = -32.0
-var _dir = Vector3.ZERO
-var _vel = Vector3.ZERO
-var isDead = 0
+var _dir := Vector3.ZERO
+var _vel := Vector3.ZERO
+var isDead:bool = false
 var FootStepList = ["res://assets/audio/misc/footsteps/wood_floor1.wav","res://assets/audio/misc/footsteps/tiles1.wav","res://assets/audio/misc/footsteps/hub_floor.wav","res://assets/audio/misc/footsteps/shop_floor.wav","res://assets/audio/misc/footsteps/MetalStep.wav"]
 
 # States
@@ -27,7 +27,6 @@ onready var Coyote = $CoyoteTimer
 
 func _ready():
 	self.scale = Vector3(0.6, 0.6, 0.6)
-#	isDead = 0
 	
 	StepPlayer.stream = load(FootStepList[SaveGame.game_data.StepUsed])
 	
@@ -38,12 +37,9 @@ func _ready():
 
 func _physics_process(delta: float):
 	# Set State
-	if (SaveGame.game_data.PlayerHP <= 0) and (isDead == 0):
+	if (SaveGame.game_data.PlayerHP <= 0) and (isDead == false):
 		state = DEAD
 		_die()
-	
-	if Input.is_action_just_pressed("secondary"):
-		print(isDead)
 	
 	if Input.is_action_just_pressed("sprint"):
 		Stamina.set_value(Stamina.get_value() - 7.5)
@@ -146,7 +142,7 @@ func _on_PlayerArea_area_entered(area):
 func _die():
 	print("_die called")
 	SaveGame.game_data.Deaths += 1
-	isDead = 1
+	isDead = true
 	PlayerAnim.play("die")
 
 func _hurt(source):

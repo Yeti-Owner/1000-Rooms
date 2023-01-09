@@ -1,6 +1,6 @@
 extends Spatial
 
-onready var Player = get_parent().get_node("RoomItems/Player")
+onready var Player := get_parent().get_node("RoomItems/Player")
 var hits := 0
 
 func _ready():

@@ -3,7 +3,7 @@ extends Node
 var file = File.new()
 var save_data = "user://achievements.dat"
 
-var game_data = {
+var game_data := {
 	"FormagDrung" : 0,
 	"Badenov" : 0,
 	"NotoLotta" : 0,

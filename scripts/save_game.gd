@@ -1,13 +1,13 @@
 extends Node
 
-var file = File.new()
-var save_data = "user://save_game.dat"
+var file := File.new()
+var save_data := "user://save_game.dat"
 
 # Unsaved vars
-var isChased = 0
-var ChasedBy = 0 # 0 = ghost, 1 = [PLACEHOLDER]
-var LastSavedRoomNum = 0
-var DeathReason
+var isChased := 0
+var ChasedBy := 0 # 0 = ghost, 1 = [PLACEHOLDER]
+var LastSavedRoomNum:int = 0
+var DeathReason:String
 
 # warning-ignore:unused_signal
 signal EnemyPassive
@@ -53,6 +53,7 @@ func _load():
 		_save()
 		
 	# Open save file and read values
+# warning-ignore:return_value_discarded
 	file.open(save_data, File.READ)
 	game_data = file.get_var()
 	file.close()
@@ -90,6 +91,7 @@ func _check_contents():
 	game_data.FirstTimeConfusing312 = game_data.get("FirstTimeConfusing312", 1)
 
 func _save():
+# warning-ignore:return_value_discarded
 	file.open(save_data, File.WRITE)
 	file.store_var(game_data)
 	file.close()

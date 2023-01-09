@@ -1,17 +1,17 @@
 extends Control
 
-onready var DeathText = $DeathLabel
-onready var DeathReason = SaveGame.DeathReason
-onready var DeathPic = $DeathTexture
+onready var DeathText := $DeathLabel
+onready var DeathReason := SaveGame.DeathReason
+onready var DeathPic := $DeathTexture
 
 var text: String
 
-var message
-var messages = ["Another body left behind to be consumed by the dungeon.","Your crippled form is later found and devoured","Well that sucks.","Death comes for us all and it found you.","Your soul wanders the endless dungeon for all eternity.","Your screams echo but they fall on deaf ears.","Yet another is lost to the dungeon.","There will be no funeral for your mangled corpse."]
-var stats
-var tip
-var bye
-var byeList = ["Better luck next time!","Good Luck.","Maybe you'll make it farther next time?","Don't run out of hope yet.","There's more to explore don't forget.","I have a good feeling about your next attempt.","RIP","Good bye.","Next time will be different for sure.","Honestly surprised you lived this long."]
+var message:String
+var messages := ["Another body left behind to be consumed by the dungeon.","Your crippled form is later found and devoured","Well that sucks.","Death comes for us all and it found you.","Your soul wanders the endless dungeon for all eternity.","Your screams echo but they fall on deaf ears.","Yet another is lost to the dungeon.","There will be no funeral for your mangled corpse."]
+var stats:String
+var tip:String
+var bye:String
+var byeList := ["Better luck next time!","Good Luck.","Maybe you'll make it farther next time?","Don't run out of hope yet.","There's more to explore don't forget.","I have a good feeling about your next attempt.","RIP","Good bye.","Next time will be different for sure.","Honestly surprised you lived this long."]
 
 func _ready():
 	_get_msg()

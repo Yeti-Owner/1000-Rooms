@@ -1,7 +1,7 @@
 extends Control
 
-onready var ClickPlayer = get_node("SettingsMenu/ClickPlayer")
-onready var MusicPlayer = get_parent().get_node("MusicPlayer")
+onready var ClickPlayer := get_node("SettingsMenu/ClickPlayer")
+onready var MusicPlayer := get_parent().get_node("MusicPlayer")
 
 func _ready():
 	SaveGame._update_presence()

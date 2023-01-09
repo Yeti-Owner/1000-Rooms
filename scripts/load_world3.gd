@@ -3,11 +3,10 @@ extends Spatial
 export(NodePath) onready var Removable
 export(Environment) var EnvironmentUsed
 
-onready var Narrator = $Narrator
-onready var _room = self.filename
-var RNG
-var RNG2
-var RemovableList = ["Good job","Congrats","Well Done","I knew you could do it","You could've done it faster","Lets not waste any more time","Next time try doing it faster","I'm very proud of you and your ability to hit glowing orbs","have you tried walking... but faster?"]
+onready var Narrator := $Narrator
+onready var _room := self.filename
+#var RNG
+var RemovableList := ["Good job","Congrats","Well Done","I knew you could do it","You could've done it faster","Lets not waste any more time","Next time try doing it faster","I'm very proud of you and your ability to hit glowing orbs","have you tried walking... but faster?"]
 export var AllowEnemy:bool = true
 
 func _ready():
@@ -49,7 +48,7 @@ func _check_room():
 
 func _add_objs():
 	for _i2 in $Objs.get_children():
-		RNG2 = randi() % 3
+		var RNG2 := randi() % 3
 		if RNG2 != 0:
 			_i2.queue_free()
 

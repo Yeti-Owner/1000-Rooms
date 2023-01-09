@@ -6,7 +6,7 @@ onready var LightArea := $LightArea/CollisionShape
 export var Shrinks:bool = true
 
 var Triggered := false
-var rate
+var rate:float
 
 func _ready():
 	randomize()

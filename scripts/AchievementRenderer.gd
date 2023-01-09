@@ -1,13 +1,13 @@
 extends Spatial
 
-var CameraStage = 5
-var CurrentPos
-var LerpWeight = 0.05
-var MaxStage = 10
+var CameraStage:int = 5
+var CurrentPos:Vector3
+var LerpWeight:float = 0.05
+var MaxStage:int = 10
 
-onready var parent = get_parent()
-onready var Cam = self
-onready var Text = get_parent().get_node("Renderer/AchievementText")
+onready var parent := get_parent()
+onready var Cam := self
+onready var Text := get_parent().get_node("Renderer/AchievementText")
 
 func _ready():
 	# Connect Signals
@@ -18,7 +18,7 @@ func _ready():
 	
 	# Check if unlocked
 	
-	var achievements = ["FormagDrung", "Badenov", "NotoLotta", "Asshole", "Wyoming", "Shai", "Ufrz", "Hell", "IQTest"]
+	var achievements := ["FormagDrung", "Badenov", "NotoLotta", "Asshole", "Wyoming", "Shai", "Ufrz", "Hell", "IQTest"]
 	for achievement in achievements:
 		var node_name = "Renderer/" + achievement + "/hide"
 		parent.get_node(node_name).visible = !AchievementsHolder.game_data[achievement]

@@ -1,11 +1,11 @@
 extends Control
 
-var messages = [""]
-var typing_speed = 0.05
-var read_time = 1.5
-var current_message = 0
-var display = ""
-var current_char = 0
+var messages := [""]
+var typing_speed := 0.05
+var read_time := 1.5
+var current_message := 0
+var display := ""
+var current_char := 0
 
 signal DialogueFinished
 

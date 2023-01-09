@@ -3,7 +3,7 @@ extends Spatial
 export(bool) var Bulb_On
 export(bool) var Flashing
 
-var timer = null
+var timer:Timer = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +16,7 @@ func _ready():
 	elif Flashing:
 		timer = Timer.new()
 		timer.wait_time = rand_range(0.05, 0.1)
+# warning-ignore:return_value_discarded
 		timer.connect("timeout", self, "_on_timer_timeout")
 		add_child(timer)
 		timer.start()

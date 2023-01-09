@@ -1,13 +1,13 @@
 extends Node
 
 # References
-onready var Transitions = $TransitionManager
-onready var Canvas = $CanvasLayer
-onready var GameScene = $GameScene/GameViewport
-onready var GameViewportContainer = $GameScene
-onready var GameHud = $GameScene/HUD
-onready var environment = $GameScene/GameViewport.world.environment
-onready var TextureHolder = $CanvasLayer/Transitions/TextureRect
+onready var Transitions := $TransitionManager
+onready var Canvas := $CanvasLayer
+onready var GameScene := $GameScene/GameViewport
+onready var GameViewportContainer := $GameScene
+onready var GameHud := $GameScene/HUD
+onready var environment:Environment = $GameScene/GameViewport.world.environment
+onready var TextureHolder := $CanvasLayer/Transitions/TextureRect
 
 var SceneToLoad: String
 var CurrentScene

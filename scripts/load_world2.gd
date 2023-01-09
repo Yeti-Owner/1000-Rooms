@@ -1,16 +1,17 @@
 extends Spatial
 
-onready var Narrator = $Narrator
-onready var MonsterHandler = $EnemyPath/PathFollow
-onready var _room = self.filename
+onready var Narrator := $Narrator
+onready var MonsterHandler := $EnemyPath/PathFollow
+onready var _room := self.filename
 export(bool) var AllowChase = true
 export(Environment) var EnvironmentUsed 
-var FairyEnemy = preload("res://scenes/enemies/FairyEnemy.tscn")
-var ChaseList = ["HURRY!","IT'S HERE!","RUN!","HIDE!"]
-var RNG
-var ReRunSpawn = 1
+var FairyEnemy := preload("res://scenes/enemies/FairyEnemy.tscn")
+var ChaseList := ["HURRY!","IT'S HERE!","RUN!","HIDE!"]
+var ReRunSpawn:bool = true
 
 func _ready():
+	if $ReflectionProbe:
+		$ReflectionProbe.intensity = 0.01
 # warning-ignore:return_value_discarded
 	$Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	randomize()
@@ -73,12 +74,12 @@ func _check_room():
 		$Table1.queue_free()
 
 func _dialogue_finished():
-	if ReRunSpawn == 1:
+	if ReRunSpawn == true:
 		_chasing()
 
 func _add_objs():
 	for _i in $Objs.get_children():
-		RNG = randi() % 3
+		var RNG := randi() % 3
 		if RNG == 0:
 			_i.visible = true
 		else:
@@ -86,12 +87,12 @@ func _add_objs():
 
 func _chasing():
 	if AllowChase:
-		RNG = randi() % 5
+		var RNG := randi() % 5
 		if (RNG == 0) or SaveGame.isChased > 0:
 			Narrator.messages = [ChaseList[randi() % 4]]
 			Narrator.start_dialogue()
 			$SpawnTimer.start()
-			ReRunSpawn = 0
+			ReRunSpawn = false
 			if SaveGame.isChased == 0:
 				SaveGame.isChased = 3
 			else:
@@ -102,4 +103,4 @@ func _on_SpawnTimer_timeout():
 	var FairyEnemy2 = FairyEnemy.instance()
 	MonsterHandler.add_child(FairyEnemy2)
 	get_node("EnemyPath/PathFollow/FairyEnemy")._change_state(3)
-	ReRunSpawn = 0
+	ReRunSpawn = false
