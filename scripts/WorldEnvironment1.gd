@@ -1,6 +1,6 @@
 extends WorldEnvironment
 
-var UsableBrightness = float(Settingsholder.save_data.Brightness)/10
+var UsableBrightness := float(Settingsholder.save_data.Brightness)/10
 
 func _ready():
 # warning-ignore:return_value_discarded

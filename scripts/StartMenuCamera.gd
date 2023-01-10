@@ -2,11 +2,10 @@ extends Camera
 
 export(Environment) var EnvironmentUsed
 
-onready var Anim = $AnimationPlayer
-onready var timer = get_parent().get_node("Timer")
+onready var Anim := $AnimationPlayer
+onready var timer := get_parent().get_node("Timer")
 
-var RNG
-var Last
+var Last:int = 1
 
 func _ready():
 	SceneManager.GameScene.world.environment = EnvironmentUsed
@@ -19,10 +18,11 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 	_change_cam()
 
 func _change_cam():
-	RNG = randi() % 4
+	var RNG := randi() % 4
 	if RNG == Last:
 		_change_cam()
 	else:
+		Last = RNG
 		var AnimName = str("loc" + str(RNG + 1))
 		Anim.play(AnimName)
 

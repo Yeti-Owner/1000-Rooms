@@ -10,8 +10,7 @@ var ChaseList := ["HURRY!","IT'S HERE!","RUN!","HIDE!"]
 var ReRunSpawn:bool = true
 
 func _ready():
-	if $ReflectionProbe:
-		$ReflectionProbe.intensity = 0.01
+	$ReflectionProbe.intensity = 0.01
 # warning-ignore:return_value_discarded
 	$Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	randomize()

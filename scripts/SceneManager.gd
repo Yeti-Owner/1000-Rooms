@@ -13,7 +13,7 @@ var SceneToLoad: String
 var CurrentScene
 var HudMode:String = "none" setget _init_HUD
 var NextTransition
-var CurrentMode
+var CurrentMode:String
 
 signal FakeFadeDone
 
