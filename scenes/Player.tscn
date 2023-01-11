@@ -488,7 +488,11 @@ stream = ExtResource( 13 )
 volume_db = 10.0
 bus = "SfxBus"
 
+[node name="iFrames" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 [connection signal="animation_finished" from="PlayerAnims" to="." method="_on_PlayerAnims_animation_finished"]
 [connection signal="timeout" from="Timer" to="CameraHolder" method="_on_Timer_timeout"]
 [connection signal="timeout" from="CameraHolder/Camera/HeldSway/Timer" to="CameraHolder/Camera/HeldSway" method="_on_Timer_timeout"]
+[connection signal="timeout" from="iFrames" to="." method="_on_iFrames_timeout"]

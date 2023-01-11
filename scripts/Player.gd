@@ -8,7 +8,7 @@ var gravity: float = -32.0
 var _dir := Vector3.ZERO
 var _vel := Vector3.ZERO
 var isDead:bool = false
-var FootStepList = ["res://assets/audio/misc/footsteps/wood_floor1.wav","res://assets/audio/misc/footsteps/tiles1.wav","res://assets/audio/misc/footsteps/hub_floor.wav","res://assets/audio/misc/footsteps/shop_floor.wav","res://assets/audio/misc/footsteps/MetalStep.wav"]
+var FootStepList := ["res://assets/audio/misc/footsteps/wood_floor1.wav","res://assets/audio/misc/footsteps/tiles1.wav","res://assets/audio/misc/footsteps/hub_floor.wav","res://assets/audio/misc/footsteps/shop_floor.wav","res://assets/audio/misc/footsteps/MetalStep.wav"]
 
 # States
 enum {
@@ -16,14 +16,14 @@ enum {
 	WALKING,
 	RUNNING
 }
-var state = WALKING
+var state := WALKING
 
 onready var _camera := get_node("%CameraHolder")
-onready var Stamina = get_node("/root/SceneManager/GameScene/HUD/GUI/HPandStam/StamBar2")
-onready var StepPlayer = $StepPlayer
-onready var PlayerAnim = $PlayerAnims
-onready var HurtAnims = $HurtPlayer
-onready var Coyote = $CoyoteTimer
+onready var Stamina := get_node("/root/SceneManager/GameScene/HUD/GUI/HPandStam/StamBar2")
+onready var StepPlayer := $StepPlayer
+onready var PlayerAnim := $PlayerAnims
+onready var HurtAnims := $HurtPlayer
+onready var Coyote := $CoyoteTimer
 
 func _ready():
 	self.scale = Vector3(0.6, 0.6, 0.6)
@@ -167,6 +167,7 @@ func _hurt(source):
 			SaveGame.DeathReason = "statue"
 			SaveGame.game_data.PlayerHP -= 24
 			Settingsholder.emit_signal("hp_changed")
+	
 
 func _on_PlayerAnims_animation_finished(anim_name):
 	if anim_name == "die":
@@ -176,3 +177,6 @@ func _on_PlayerAnims_animation_finished(anim_name):
 
 func _update_fov():
 	$CameraHolder/Camera.set_fov(Settingsholder.save_data.PlayerFOV)
+
+func _on_iFrames_timeout():
+	pass # Replace with function body.

@@ -1,14 +1,13 @@
 extends KinematicBody
 
-export var speed = 4
+export var speed := 4
+onready var nav := get_node("NavigationAgent")
+onready var target := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
 
-var GhostFx = ["res://assets/audio/scary/ghost1.ogg", "res://assets/audio/scary/ghost2.ogg", "res://assets/audio/scary/ghost3.ogg"]
-var EnabledChasing = 1
+var GhostFx := ["res://assets/audio/scary/ghost1.ogg", "res://assets/audio/scary/ghost2.ogg", "res://assets/audio/scary/ghost3.ogg"]
+var EnabledChasing := true
 var targetPos
 var direction
-
-onready var nav = get_node("NavigationAgent")
-onready var target = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
 
 func _ready():
 	$SoundTimer.start()
@@ -37,11 +36,11 @@ func _on_Timer_timeout():
 
 func _on_EnemyArea_area_entered(area):
 	if area.name == "PlayerArea":
-		EnabledChasing = 0
+		EnabledChasing = false
 		$stun_timer.start()
 
 func _on_stun_timer_timeout():
-	EnabledChasing = 1
+	EnabledChasing = true
 
 func _on_SoundTimer_timeout():
 	$AudioStreamPlayer3D.stream = load(GhostFx [randi() % GhostFx.size()])
@@ -53,4 +52,4 @@ func _on_AudioStreamPlayer3D_finished():
 	$SoundTimer.start()
 
 func _passive():
-	EnabledChasing = 0
+	EnabledChasing = false

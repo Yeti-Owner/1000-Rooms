@@ -1,5 +1,5 @@
 extends Spatial
-var Prompt = 0
+var Prompt := 0
 
 func _ready():
 	$CustomFader/PromptText.visible = false
