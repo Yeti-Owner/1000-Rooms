@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-var transitionstage = 0
+var transitionstage := 0
 var OldMusVol
 
 func _ready():

@@ -1,16 +1,16 @@
 extends Spatial
 
-onready var Narrator = $Narrator
-onready var player = $RoomItems/Player
-onready var _room = self.filename
 export(Environment) var EnvironmentUsed 
-var RuneStage = 0
+onready var Narrator := $Narrator
+onready var player := $RoomItems/Player
+onready var _room := self.filename
+
+var RuneStage:int = 0
 
 func _ready():
 	randomize()
 	
 	SceneManager.GameScene.world.environment = EnvironmentUsed
-	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	SaveGame.game_data.CurrentRoom = _room
 	if SaveGame.game_data.CurrentPos == Vector3(-4.1, -5.35, -41.9):
 		Narrator.messages = ["You weren't careful"]
@@ -18,9 +18,6 @@ func _ready():
 		$Fader/FairyHolder.queue_free()
 	else:
 		Narrator.messages = ["Before you progress let me explain some things.","Just up ahead is the Fairy nesting area.","You obviously need to move carefully, they are bouncing around sporadically and if you are found it could be disastrous.","in order to progress you must find 5 Runes.","The first rune is just ahead on the wall."]
-
-func _dialogue_finished():
-	pass
 
 func _rune_found():
 	RuneStage += 1
@@ -39,7 +36,6 @@ func _rune_found():
 			Narrator.start_dialogue()
 			$RoomItems/MovingPillar._move()
 			$RoomItems/Rune5.queue_free()
-
 
 func _on_Area_area_entered(area):
 	if area.name == "PlayerArea":

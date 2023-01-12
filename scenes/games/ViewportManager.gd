@@ -1,21 +1,21 @@
 extends Spatial
 
 var quad_mesh_size
-var is_mouse_inside = false
-var is_mouse_held = false
+var is_mouse_inside := false
+var is_mouse_held := false
 var last_mouse_pos3D = null
 var last_mouse_pos2D = null
 
-onready var node_viewport = $Viewport
-onready var node_quad = $Screen
-onready var node_area = $Screen/Area
+onready var node_viewport := $Viewport
+onready var node_quad := $Screen
+onready var node_area := $Screen/Area
 
 
 func _on_Area_mouse_entered():
 	is_mouse_inside = true
 
 func _unhandled_input(event):
-	var is_mouse_event = false
+	var is_mouse_event := false
 	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag]:
 		if event is mouse_event:
 			is_mouse_event = true
@@ -44,7 +44,7 @@ func handle_mouse(event):
 		if mouse_pos3D == null:
 			mouse_pos3D = Vector3.ZERO
 	
-	var mouse_pos2D = Vector2(mouse_pos3D.x, -mouse_pos3D.y)
+	var mouse_pos2D := Vector2(mouse_pos3D.x, -mouse_pos3D.y)
 	
 	mouse_pos2D.x += quad_mesh_size.x / 2
 	mouse_pos2D.y += quad_mesh_size.y / 2

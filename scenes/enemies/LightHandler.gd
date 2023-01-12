@@ -1,6 +1,6 @@
 extends Spatial
 
-export(int, 2, 15) var Amount = 2
+export(int, 2, 15) var Amount := 2
 var Children
 
 # warning-ignore:unused_signal

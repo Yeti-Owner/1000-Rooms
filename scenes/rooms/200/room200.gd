@@ -1,11 +1,11 @@
 extends Spatial
 
 export(Environment) var Environment1
-
 onready var Narrator := $Narrator
 onready var _room := self.filename
 onready var DialoguePause := $DialoguePause
-var stage = 0
+
+var stage:int = 0
 
 func _ready():
 	randomize()

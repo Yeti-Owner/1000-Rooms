@@ -19,18 +19,16 @@ func _physics_process(_delta):
 	$BG.position = $Player.position
 
 func _on_SpawnTimer_timeout():
-	var o = load(TreePath)
-	var _o = o.instance()
-	_o.position = $TileMap/TreeSpawn.position
-	$Spawns.add_child(_o)
+	var o = load(TreePath).instance()
+	o.position = $TileMap/TreeSpawn.position
+	$Spawns.add_child(o)
 	$SpawnTimer.wait_time = rand_range(Toffset1, Toffset2)
 	$SpawnTimer.start()
 
 func _on_SpawnTimer2_timeout():
-	var c = load(CloudPath)
-	var _c = c.instance()
-	_c.position = $TileMap/CloudSpawn.position
-	$Spawns.add_child(_c)
+	var c = load(CloudPath).instance()
+	c.position = $TileMap/CloudSpawn.position
+	$Spawns.add_child(c)
 	$SpawnTimer2.wait_time = rand_range(Coffset1, Coffset2)
 	$SpawnTimer2.start()
 

@@ -1,7 +1,7 @@
 extends Node2D
 
 var ShadeBro
-var OldCamPos
+var OldCamPos:Vector2
 
 func _on_FlagArea_area_entered(area):
 	if area.name == "ShadeArea":

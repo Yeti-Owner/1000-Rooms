@@ -1,7 +1,6 @@
 extends Spatial
 
 export(Environment) var EnvironmentUsed
-
 onready var Narrator := $Narrator
 onready var _room := self.filename
 onready var Player := $RoomItems/Player

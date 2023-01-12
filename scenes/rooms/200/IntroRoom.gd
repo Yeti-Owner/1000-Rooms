@@ -1,8 +1,8 @@
 extends Spatial
 
-onready var Narrator = $Narrator
-onready var _room = self.filename
 export(Environment) var EnvironmentUsed
+onready var Narrator := $Narrator
+onready var _room := self.filename
 
 func _ready():
 	SceneManager.GameScene.world.environment = EnvironmentUsed

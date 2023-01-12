@@ -1,13 +1,12 @@
 extends CanvasLayer
 
-var Stamina = 200
-var isPaused = false
+onready var RoomNum := $RoomNumHolder/CenterContainer/RoomNum
+onready var FpsCounter := $MarginContainer/FpsCounter
+onready var HpBar := $HPandStam/HpBar2
+onready var StamBar := $HPandStam/StamBar2
 
-# References
-onready var RoomNum = $RoomNumHolder/CenterContainer/RoomNum
-onready var FpsCounter = $MarginContainer/FpsCounter
-onready var HpBar = $HPandStam/HpBar2
-onready var StamBar = $HPandStam/StamBar2
+var Stamina := 200
+var isPaused := false
 
 func _ready():
 	StamBar.set_value(Stamina)

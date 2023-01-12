@@ -12,7 +12,6 @@ func _physics_process(_delta):
 		velocity.y -= jumpheight
 	velocity.y += grav * _delta
 	velocity.y = move_and_slide(velocity, Vector2.UP).y
-	
 
 func _lose(obstacle):
 	print("You lost to: " + str(obstacle))

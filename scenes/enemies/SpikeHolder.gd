@@ -1,7 +1,7 @@
 extends PathFollow
 
-var Chase = true
-onready var path = get_parent()
+var Chase := true
+onready var path := get_parent()
 
 func _ready():
 	randomize()

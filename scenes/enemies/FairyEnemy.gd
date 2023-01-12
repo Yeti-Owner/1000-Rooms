@@ -1,6 +1,6 @@
 extends KinematicBody
 
-onready var Player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
+onready var Player := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
 
 enum {
 	IDLE,
@@ -8,10 +8,10 @@ enum {
 	CHASING,
 	MARCH
 }
-export(int) var state = 0
-export(float) var MarchSpeed = 0.075
+export(int) var state := 0
+export(float) var MarchSpeed := 0.075
 
-var speed = 6
+var speed := 6
 var _dir
 var _vel
 var pLocation
@@ -19,11 +19,11 @@ var fLocation
 var Mx
 var Mz
 
-var v = 12
-var RandomDir = Vector3(0, 0, 1)
-var BounceSpeed = 9.5
+var v := 12
+var RandomDir := Vector3(0, 0, 1)
+var BounceSpeed := 9.5
 
-var Num = 1
+var Num := 1
 
 
 func _change_state(STATE):
@@ -52,7 +52,7 @@ func _on_FairyVision_area_entered(area):
 func _bounce():
 	if is_on_floor() or is_on_ceiling() or is_on_wall():
 		RandomDir = RandomDir*-1
-	var _error = move_and_slide(RandomDir.normalized()*BounceSpeed, Vector3.UP)
+	var _error := move_and_slide(RandomDir.normalized()*BounceSpeed, Vector3.UP)
 
 func _move_to_player():
 	pLocation = Player.global_transform.origin # Player pos
@@ -64,7 +64,7 @@ func _move_to_player():
 		Mz = sign(pLocation.z - fLocation.z)
 		_dir = Vector3(Mx, 0, Mz) 
 		_vel = _dir.normalized()*speed
-		var _error = move_and_slide(_vel, Vector3.UP)
+		var _error := move_and_slide(_vel, Vector3.UP)
 
 func _march():
 	if get_parent().unit_offset == 1:

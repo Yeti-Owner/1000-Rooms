@@ -1,7 +1,7 @@
 extends Spatial
 
-var triggered = false
-onready var player = get_node("/root/world/Fader/Player")
+var triggered := false
+onready var player := get_node("/root/world/Fader/Player")
 
 func _ready():
 	$Spike/StaticBody/CollisionShape.disabled = true

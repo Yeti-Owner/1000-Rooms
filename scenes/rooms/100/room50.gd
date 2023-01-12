@@ -1,12 +1,10 @@
 extends Spatial
 
 export(Environment) var EnvironmentUsed
-var RNG
-
-onready var Narrator = $Narrator
-onready var Monster = $NavMesh/GhostEnemy
-onready var player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
-onready var _room = self.filename
+onready var Narrator := $Narrator
+onready var Monster := $NavMesh/GhostEnemy
+onready var player := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
+onready var _room := self.filename
 
 func _ready():
 	randomize()
@@ -35,7 +33,7 @@ func _ready():
 
 func _add_objs():
 	for _i in $Objs.get_children():
-		RNG = randi() % 10
+		var RNG = randi() % 10
 		if RNG == 0:
 			_i.visible = true
 		else:
@@ -117,20 +115,17 @@ func _on_Timer_timeout():
 	Narrator.messages = ["You're safe now", "take this time to look around before leaving"]
 	Narrator.start_dialogue()
 
-
 func _on_KillBox1_area_entered(kill1):
 	if kill1.name == "PlayerArea":
 		SaveGame.DeathReason = "fall"
 		SaveGame.game_data.PlayerHP -= 5
 		SceneManager._reload_scene()
 
-
 func _on_KillBox2_area_entered(kill2):
 	if kill2.name == "PlayerArea":
 		SaveGame.DeathReason = "fall"
 		SaveGame.game_data.PlayerHP -= 5
 		SceneManager._reload_scene()
-
 
 func _on_Check11_area_entered(area):
 	if area.name == "PlayerArea":

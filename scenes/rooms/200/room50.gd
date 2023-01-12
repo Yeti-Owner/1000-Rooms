@@ -1,12 +1,13 @@
 extends Spatial
 
-onready var Narrator = $Narrator
-onready var player = $RoomItems/Player
-onready var _room = self.filename
 export(Environment) var EnvironmentUsed 
+onready var Narrator := $Narrator
+onready var player := $RoomItems/Player
+onready var _room := self.filename
+
 var DoorStage = 1
-var CorrectDoor
-var lost = 0
+var CorrectDoor:int
+var lost := false
 
 func _ready():
 	randomize()
@@ -64,11 +65,11 @@ func _second_door(door):
 				_lose()
 
 func _lose():
-	lost = 1
+	lost = true
 	SaveGame.game_data.PlayerHP = 1
 	Narrator.messages = ["Let's try that again shall we?"]
 	Narrator.start_dialogue()
 
 func _dialogue_finished():
-	if lost == 1:
+	if lost == true:
 		SceneManager._reload_scene()

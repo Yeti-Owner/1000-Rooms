@@ -1,6 +1,6 @@
 extends Spatial
 
-export(String, "Ghost", "Fairy", "Spike") var Enemy = "Ghost"
+export(String, "Ghost", "Fairy", "Spike") var Enemy := "Ghost"
 var scene:PackedScene
 var Warning:int = 2
 

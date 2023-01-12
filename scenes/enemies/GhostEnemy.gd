@@ -28,7 +28,7 @@ func move_to_target():
 	direction = targetPos - self.transform.origin
 	direction.y = 0.0
 	direction = direction.normalized()
-	var _error = move_and_slide(direction * speed, Vector3.UP)
+	var _error := move_and_slide(direction * speed, Vector3.UP)
 
 func _on_Timer_timeout():
 	nav.set_target_location(target.transform.origin)

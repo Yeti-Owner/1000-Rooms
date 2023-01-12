@@ -1,6 +1,6 @@
 extends Control
 
-var isActive = 0
+var isActive:bool = false
 var MouseMode
 
 func _ready():

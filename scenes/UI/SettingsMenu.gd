@@ -1,30 +1,30 @@
 extends Popup
 
 # vars
-var dir = Directory.new()
-var save_data = "user://save_game.dat"
+var dir := Directory.new()
+var save_data := "user://save_game.dat"
 
 # Cleaned up referencing
-onready var MaxFpsValue = $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue
-onready var MaxFpsSlider = $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider
-onready var VsyncCheckBtn = $SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn
-onready var ShowFpsCheckBtn = $SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn
-onready var FovVal = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal
-onready var FovSlider = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider
-onready var MouseSensitivityVal = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal
-onready var MouseSensitivitySlider = $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider
-onready var BloomCheckBtn = $SettingsTabs/Video/MarginContainer/VideoSettings/BloomCheckBtn
-onready var BrightnessSlider = $SettingsTabs/Video/MarginContainer/VideoSettings/BrightnessSlider
-onready var MasterVol = $SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolSlider
-onready var MusicVol = $SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolSlider
-onready var SfxVol = $SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider
-onready var ClickPlayer = $ClickPlayer
-onready var FullScreenOption = $SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn
-onready var FXAABtn = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/FXAA/FXAACheck
-onready var MSAAOption = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA/MSAAOptions
-onready var ScaleText = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ScaleText
-onready var ScaleSlider = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ResolutionScale
-onready var QualBloomBtn = $SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom/QualBloomCheck
+onready var MaxFpsValue := $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue
+onready var MaxFpsSlider := $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider
+onready var VsyncCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn
+onready var ShowFpsCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn
+onready var FovVal := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal
+onready var FovSlider := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider
+onready var MouseSensitivityVal := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal
+onready var MouseSensitivitySlider := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider
+onready var BloomCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/BloomCheckBtn
+onready var BrightnessSlider := $SettingsTabs/Video/MarginContainer/VideoSettings/BrightnessSlider
+onready var MasterVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolSlider
+onready var MusicVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolSlider
+onready var SfxVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider
+onready var ClickPlayer := $ClickPlayer
+onready var FullScreenOption := $SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn
+onready var FXAABtn := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/FXAA/FXAACheck
+onready var MSAAOption := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA/MSAAOptions
+onready var ScaleText := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ScaleText
+onready var ScaleSlider := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ResolutionScale
+onready var QualBloomBtn := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom/QualBloomCheck
 
 func _ready():
 	# Set FPS to correct value
@@ -153,6 +153,7 @@ func _on_SettingsTabs_tab_changed(tab):
 # Clear SaveGame
 func _on_ClearSaveBtn_pressed():
 	ClickPlayer._click_sound()
+# warning-ignore:return_value_discarded
 	dir.remove(save_data)
 	get_tree().quit()
 

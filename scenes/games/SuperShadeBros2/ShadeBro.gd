@@ -3,12 +3,11 @@ extends KinematicBody2D
 var speed : int = 200
 var jump_speed : int = -300
 var grav : int = 550
-var vel = Vector2()
-var EnabledMovement = true
+var vel := Vector2()
+var EnabledMovement := true
 
 func get_input(delta):
 	# Basic Movement/Input Manager
-	
 	vel.x = 0
 	if Input.is_action_pressed("right"):
 		vel.x += speed

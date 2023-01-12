@@ -7,8 +7,8 @@ onready var _room := self.filename
 onready var Player := $RoomItems/Player
 onready var TimeLabel := $RoomItems/StaticBody/TimeLeft
 onready var SecondTimer := $RoomItems/StaticBody/SecondTimer
-var stage = 0
-var Seconds = 29
+var stage:int = 0
+var Seconds:int = 29
 
 func _ready():
 	randomize()

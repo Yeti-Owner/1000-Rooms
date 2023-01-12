@@ -11,13 +11,13 @@ enum STATE {
 	STUNNED,
 	SOLID
 }
-export(STATE) var NewState = STATE.CHASING
-export(int, 3, 14, 1.0) var speed = 8
+export(STATE) var NewState := STATE.CHASING
+export(int, 3, 14, 1.0) var speed := 8
 
 var state
 var targetPos
 var direction
-var IsStunned = false
+var IsStunned := false
 
 func _ready():
 	state = NewState
@@ -47,7 +47,7 @@ func move_to_target():
 	direction = targetPos - self.transform.origin
 	direction.y = 0.0
 	direction = direction.normalized()
-	var _error = move_and_slide(direction * speed, Vector3.UP)
+	var _error := move_and_slide(direction * speed, Vector3.UP)
 
 func _passive():
 	state = STATE.IDLE
@@ -61,7 +61,6 @@ func _on_HitTimer_timeout():
 	state = STATE.CHASING
 
 func _stun():
-	print("_stun() called")
 	IsStunned = true
 	state = STATE.IDLE
 	$HitTimer.start()

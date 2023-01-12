@@ -2,14 +2,13 @@ extends Spatial
 
 export(Environment) var EnvironmentUsed
 
-onready var Narrator = $Narrator
-onready var Objs = $Objs
-onready var player = $RoomItems/Player
-onready var _room = self.filename
+onready var Narrator := $Narrator
+onready var Objs := $Objs
+onready var player := $RoomItems/Player
+onready var _room := self.filename
 
-var RNG
-var Ending
-var MovePos
+var Ending:String
+var MovePos:Vector3
 
 func _ready():
 	SceneManager.GameScene.world.set_environment(EnvironmentUsed)

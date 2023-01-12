@@ -2,17 +2,16 @@ extends Spatial
 
 export(Environment) var EnvironmentUsed
 
-onready var Narrator = $Narrator
-onready var FakeDoor = $RoomItems/FakeDoor/StaticBody
-onready var FairyCage = $RoomItems/GlassCage
-onready var player = get_node("RoomItems/Player")
-onready var _room = self.filename
+onready var Narrator := $Narrator
+onready var FakeDoor := $RoomItems/FakeDoor/StaticBody
+onready var FairyCage := $RoomItems/GlassCage
+onready var player := get_node("RoomItems/Player")
+onready var _room := self.filename
 
-var RNG
-var RoomStage = 0
-var DoorStage = 0
-var FairyEnemy = preload("res://scenes/enemies/FairyEnemy.tscn")
-var Hatch = preload("res://scenes/objects/doors/Hatch.tscn")
+var RoomStage := 0
+var DoorStage := 0
+var FairyEnemy := preload("res://scenes/enemies/FairyEnemy.tscn")
+var Hatch := preload("res://scenes/objects/doors/Hatch.tscn")
 
 func _ready():
 	randomize()
@@ -39,7 +38,7 @@ func _ready():
 
 func _add_objs():
 	for _i in $Objs.get_children():
-		RNG = randi() % 10
+		var RNG = randi() % 10
 		if RNG == 0:
 			_i.visible = true
 		else:

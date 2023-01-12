@@ -1,10 +1,10 @@
 extends Spatial
 
-export(Vector3) var NewPos = Vector3(1, 1, 1)
-export(float) var TimeToMove = 2.0
+export(Vector3) var NewPos := Vector3(1, 1, 1)
+export(float) var TimeToMove := 2.0
 
 onready var tween := Tween.new()
-onready var Pos = self.global_transform.origin
+onready var Pos := self.global_transform.origin
 
 
 func _ready():

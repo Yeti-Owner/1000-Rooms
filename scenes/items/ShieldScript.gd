@@ -5,12 +5,12 @@ enum {
 	SHIELD,
 	TRANSITION
 }
-var state = NEUTRAL
+var state := NEUTRAL
 
-var cooldown = false
+var cooldown := false
 
-onready var anim_player = $AnimationPlayer
-onready var ShieldArea = $Shield/ShieldArea/CollisionShape
+onready var anim_player := $AnimationPlayer
+onready var ShieldArea := $Shield/ShieldArea/CollisionShape
 
 func _ready():
 	ShieldArea.disabled = true

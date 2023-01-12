@@ -1,12 +1,12 @@
 extends Node2D
 
-onready var Player = $ShadeBro
+onready var Player := $ShadeBro
 
-var SpawnLoc = Vector2(2, -32)
+var SpawnLoc := Vector2(2, -32)
 var level:int = 1 setget _next_level
-var Score = 0
-var Lives = 3
-var dead = false
+var Score:int = 0
+var Lives := 3
+var dead := false
 
 func _process(_delta):
 	$CanvasLayer/Control/Coins.text = str("Score: " + str(Score) + str(" "))
@@ -65,10 +65,9 @@ func _next_level(NewLevel):
 	self.add_child(_l)
 	
 	# Re-add Player
-	var p = load("res://scenes/games/SuperShadeBros2/ShadeBro.tscn")
-	var _p = p.instance()
-	self.add_child(_p)
-	_p.position = SpawnLoc
+	var p = load("res://scenes/games/SuperShadeBros2/ShadeBro.tscn").instance()
+	self.add_child(p)
+	p.position = SpawnLoc
 	
 	level = NewLevel
 

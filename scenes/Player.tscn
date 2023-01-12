@@ -489,6 +489,7 @@ volume_db = 10.0
 bus = "SfxBus"
 
 [node name="iFrames" type="Timer" parent="."]
+wait_time = 2.25
 one_shot = true
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]

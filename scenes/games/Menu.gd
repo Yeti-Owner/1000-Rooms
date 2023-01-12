@@ -1,7 +1,7 @@
 extends Control
 
-var Hidden
-onready var tween = $MenuTween
+var Hidden:bool
+onready var tween := $MenuTween
 
 func _ready():
 	$MarginContainer.visible = false
@@ -10,7 +10,7 @@ func _active():
 	yield(get_tree(), "idle_frame")
 	$GamesHider.color.a = 1
 	$GamesHider.visible = true
-	Hidden = 1
+	Hidden = true
 	$Hider.color.a = 0
 	$MarginContainer.visible = true
 	tween.interpolate_property($MarginContainer/VBoxContainer/CenterContainer, "rect_position", Vector2(0,-360), Vector2(0,0), 2, 9)
@@ -22,11 +22,11 @@ func _on_GamesBtn_pressed():
 	if CurCol == 1:
 		tween.interpolate_property($GamesHider, "color:a", 1, 0, 1, 0)
 		tween.start()
-		Hidden = 0
+		Hidden = false
 	elif CurCol == 0:
 		tween.interpolate_property($GamesHider, "color:a", 0, 1, 1, 0)
 		tween.start()
-		Hidden = 1
+		Hidden = true
 		$GamesHider.visible = true
 
 func _on_OptionsBtn_pressed():
