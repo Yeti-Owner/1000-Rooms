@@ -49,9 +49,9 @@ func _physics_process(delta: float):
 	if Input.is_action_pressed("sprint") && Stamina.get_value() > 0:
 		Stamina.set_value(Stamina.get_value() - 0.2)
 		state = RUNNING
-	if state != DEAD and (!Input.is_action_pressed("sprint") or Stamina.get_value() <= 1):
+	if (state != DEAD) and ((!Input.is_action_pressed("sprint") or Stamina.get_value() <= 2)):
 		state = WALKING
-		if Stamina.get_value() <= 2:
+		if Stamina.get_value() <= 5:
 			$BreathingPlayer.play()
 	
 	# Use State
@@ -94,9 +94,9 @@ func _movement(delta, UsedSpeed, bob_speed):
 	_dir = _dir.normalized()
 	
 	
-	var acc = _vel.linear_interpolate(_dir * UsedSpeed, acceleration_speed * delta)
+	var acc := _vel.linear_interpolate(_dir * UsedSpeed, acceleration_speed * delta)
 	
-	var was_on_floor = is_on_floor()
+	var was_on_floor := is_on_floor()
 	
 	_vel = move_and_slide(Vector3(acc.x, _vel.y, acc.z), Vector3.UP)
 	

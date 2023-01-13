@@ -8,7 +8,6 @@ onready var ClickPlayer := $CanvasLayer/SettingsMenu/ClickPlayer
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		self.isPaused = !isPaused
-		get_parent().isPaused = !get_parent().isPaused
 
 func set_is_paused(value):
 	isPaused = value

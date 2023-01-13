@@ -264,6 +264,6 @@ func _ready():
 		lobby_manager = LobbyManager_.new(discore_core_.get_lobby_manager())
 		overlay_manager = OverlayManager_.new(discore_core_.get_overlay_manager())
 	
-func _process(delta:float) -> void:
-	if discore_core_:
-		discore_core_.run_callbacks()
+#func _process(delta:float) -> void:
+#	if discore_core_:
+#		discore_core_.run_callbacks()

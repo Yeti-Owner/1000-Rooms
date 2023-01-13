@@ -5,8 +5,7 @@ onready var FpsCounter := $MarginContainer/FpsCounter
 onready var HpBar := $HPandStam/HpBar2
 onready var StamBar := $HPandStam/StamBar2
 
-var Stamina := 200
-var isPaused := false
+var Stamina:float = 200
 
 func _ready():
 	StamBar.set_value(Stamina)
@@ -17,13 +16,6 @@ func _ready():
 # warning-ignore:return_value_discarded
 	Settingsholder.connect("hp_changed", self, "_update_hp")
 
-func _physics_process(_delta) -> void:
-	# Regen Stamina Bar
-	if !Input.is_action_pressed("sprint") && StamBar.get_value() < 200:
-		isPaused = get_tree().paused
-		if !isPaused:
-			Stamina = StamBar.get_value() + 0.5
-			StamBar.set_value(Stamina)
 
 func _on_UpdateTimer_timeout():
 	_update_vals()
@@ -41,3 +33,9 @@ func _update_vals():
 	
 	# Room Num
 	RoomNum.set_text("Room: " + str(SaveGame.game_data.RoomNum))
+
+
+func _on_StamRegen_timeout():
+	if !Input.is_action_pressed("sprint") and !get_tree().paused:
+			Stamina = min(StamBar.get_value() + 3.75, 200)
+			StamBar.set_value(Stamina)

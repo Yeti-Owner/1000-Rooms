@@ -11,6 +11,7 @@ var lost := false
 
 func _ready():
 	randomize()
+	$ReflectionProbe.intensity = 0.01
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	
 # warning-ignore:return_value_discarded

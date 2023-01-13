@@ -131,4 +131,9 @@ texture_progress_offset = Vector2( 3, 0 )
 [node name="UpdateTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="StamRegen" type="Timer" parent="."]
+wait_time = 0.063
+autostart = true
+
 [connection signal="timeout" from="UpdateTimer" to="." method="_on_UpdateTimer_timeout"]
+[connection signal="timeout" from="StamRegen" to="." method="_on_StamRegen_timeout"]

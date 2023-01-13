@@ -5,6 +5,7 @@ onready var Narrator := $Narrator
 onready var _room := self.filename
 
 func _ready():
+	$ReflectionProbe.intensity = 0.01
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	
 	SaveGame.game_data.CurrentRoom = _room

@@ -1,6 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/textures/floors/floor1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/textures/floors/floor1/Wood052_1K_Roughness.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/textures/floors/floor1/Wood052_1K_NormalDX.jpg" type="Texture" id=3]
+[ext_resource path="res://assets/textures/floors/floor1/Wood052_1K_Color.jpg" type="Texture" id=4]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 4 )
+metallic = 0.5
+roughness_texture = ExtResource( 2 )
+normal_enabled = true
+normal_scale = -1.0
+normal_texture = ExtResource( 3 )
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, 1 )
@@ -8,6 +19,7 @@ data = PoolVector3Array( -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -
 [node name="FloorObj" type="MeshInstance"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 mesh = ExtResource( 1 )
+material/0 = SubResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 collision_layer = 5

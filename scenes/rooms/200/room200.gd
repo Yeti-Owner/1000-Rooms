@@ -9,6 +9,7 @@ var stage:int = 0
 
 func _ready():
 	randomize()
+	$ReflectionProbe.intensity = 0.01
 	SceneManager.GameScene.world.environment = Environment1
 # warning-ignore:return_value_discarded
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")

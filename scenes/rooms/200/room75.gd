@@ -9,7 +9,7 @@ var RuneStage:int = 0
 
 func _ready():
 	randomize()
-	
+	$ReflectionProbe.intensity = 0.01
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	SaveGame.game_data.CurrentRoom = _room
 	if SaveGame.game_data.CurrentPos == Vector3(-4.1, -5.35, -41.9):

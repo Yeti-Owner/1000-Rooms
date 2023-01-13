@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/enemies/LightEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/objects/Floors Walls Etc/floor+roof3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/objects/Floors Walls Etc/floor3.tscn" type="PackedScene" id=8]
 [ext_resource path="res://resources/WorldEnvironment3.tres" type="Environment" id=9]
 [ext_resource path="res://scenes/objects/doors/Pipe.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/objects/NonFunctionals/Carpet.tscn" type="PackedScene" id=11]
