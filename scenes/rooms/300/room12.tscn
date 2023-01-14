@@ -52,37 +52,17 @@ transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -4, -5.5, 10 )
 transform = Transform( 3.14315e-06, -8.74228e-08, -1, 0, 1, -8.74228e-08, -1, -2.74783e-13, -3.14315e-06, -1.976, 1.3, 6.5 )
 Text = "FUN PIT HERE!!!"
 
-[node name="SpotLight" type="SpotLight" parent="RoomItems/Plaque"]
-transform = Transform( 1, 0, 0, 0, 1, 8.63686e-19, 0, 8.63686e-19, 1, -5.24521e-06, 0.600001, 1.6 )
-spot_range = 1.9
-spot_angle = 33.0
-
 [node name="Plaque2" parent="RoomItems" instance=ExtResource( 16 )]
 transform = Transform( 3.11137e-06, 8.74231e-08, 1, -8.74228e-08, 1, -8.74228e-08, 1, 8.74225e-08, -3.11137e-06, 1.983, 1.3, 16.5 )
 Text = "FREE HUGS!!!"
-
-[node name="SpotLight" type="SpotLight" parent="RoomItems/Plaque2"]
-transform = Transform( 1, 0, 0, 0, 1, -1.99724e-15, 0, -1.99724e-15, 1, 0, 0.6, 1.57 )
-spot_range = 1.85
-spot_angle = 30.0
 
 [node name="Plaque3" parent="RoomItems" instance=ExtResource( 16 )]
 transform = Transform( 3.14315e-06, -8.74228e-08, -1, 0, 1, -8.74228e-08, -1, -2.74783e-13, -3.14315e-06, -1.976, 1.3, 25.5 )
 Text = "NEW FRIEND!!!"
 
-[node name="SpotLight" type="SpotLight" parent="RoomItems/Plaque3"]
-transform = Transform( 1, 0, 0, 0, 1, 8.63686e-19, 0, 8.63686e-19, 1, -5.24521e-06, 0.600001, 1.6 )
-spot_range = 1.9
-spot_angle = 32.0
-
 [node name="Plaque4" parent="RoomItems" instance=ExtResource( 16 )]
 transform = Transform( 3.11137e-06, 8.74231e-08, 1, -8.74228e-08, 1, -8.74228e-08, 1, 8.74225e-08, -3.11137e-06, 1.983, 1.3, 35.5 )
 Text = "hell?"
-
-[node name="SpotLight" type="SpotLight" parent="RoomItems/Plaque4"]
-transform = Transform( 1, 0, 0, 0, 1, 8.63686e-19, 0, 8.63686e-19, 1, 0, 0.6, 1.57 )
-spot_range = 1.8
-spot_angle = 29.0
 
 [node name="Lantern" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, -2.4 )

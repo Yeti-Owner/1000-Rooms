@@ -135,7 +135,6 @@ transform = Transform( -1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08
 
 [node name="Table1" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.5, 0, -26.8 )
-visible = false
 skeleton = NodePath("../Objs")
 
 [node name="Paper" parent="Table1" instance=ExtResource( 4 )]

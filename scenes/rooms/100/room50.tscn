@@ -119,9 +119,6 @@ transform = Transform( 2.44784e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, 2.44784e-07, 17.
 [node name="WallTorch23" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -3.21071e-07, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.21071e-07, 12.0244, 5.76986, -55.3201 )
 
-[node name="WallTorch24" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
-transform = Transform( -3.21071e-07, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.21071e-07, 12.1864, 6.69113, -72.2677 )
-
 [node name="WallTorch17" parent="RoomItems/TorchHolder" instance=ExtResource( 14 )]
 transform = Transform( -3.14722e-07, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.14722e-07, -46.0015, 9.76986, -50.2201 )
 

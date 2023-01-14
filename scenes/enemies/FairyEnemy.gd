@@ -86,8 +86,9 @@ func _on_DirTimer_timeout():
 
 func _on_BellTimer_timeout():
 	$FairyBell.pitch_scale = rand_range(0.9, 1.3)
-	$FairyBell.play()
-	$BellTimer.wait_time = rand_range(1.23, 4.1)
+	if $FairyBell.is_playing() == false:
+		$FairyBell.play()
+		$BellTimer.wait_time = rand_range(1.23, 4.1)
 
 func _passive():
 	state = IDLE

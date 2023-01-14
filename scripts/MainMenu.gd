@@ -3,9 +3,16 @@ extends Control
 onready var ClickPlayer := get_node("SettingsMenu/ClickPlayer")
 onready var MusicPlayer := get_parent().get_node("MusicPlayer")
 
+var TitleTexts := ["Made by YetiOwner","Feedback appreciated","Almost no blood!","You have nice hair!","Ngl I'm pretty bad at gamedev","I would kill for a 3D Sphinx model","Graphics Update!!!!","Does anyone read these?","It took way too long to make this.","Your Jordans are fake","This was a Graphics & Tweaks update"]
+var TitleLocs := [Vector2(135,134),Vector2(336,276),Vector2(916,154),Vector2(373,592),Vector2(1066,431)]
+
 func _ready():
+	randomize()
 	SaveGame._update_presence()
 	$VersionChecker._start()
+	$TitleText.rect_position = TitleLocs[randi() % TitleLocs.size()]
+	$TitleText.rect_rotation = rand_range(-28, 28)
+	$TitleText.text = TitleTexts[randi() % TitleTexts.size()]
 
 func _on_StartBtn_pressed():
 	$Timer.start()
@@ -23,7 +30,6 @@ func _on_AchievementsBtn_pressed():
 
 func _on_CreditsBtn_pressed():
 	pass
-#	var _error = get_tree().change_scene("res://scenes/Credits.tscn")
 
 func _on_QuitBtn_pressed():
 	ClickPlayer._click_sound()

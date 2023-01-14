@@ -15,7 +15,7 @@ func _ready():
 	if SaveGame.game_data.CurrentPos == Vector3(-4.1, -5.35, -41.9):
 		Narrator.messages = ["You weren't careful"]
 		player.global_transform.origin = Vector3(-4.1, -5.35, -41.9)
-		$Fader/FairyHolder.queue_free()
+		$RoomItems/FairyHolder.queue_free()
 	else:
 		Narrator.messages = ["Before you progress let me explain some things.","Just up ahead is the Fairy nesting area.","You obviously need to move carefully, they are bouncing around sporadically and if you are found it could be disastrous.","in order to progress you must find 5 Runes.","The first rune is just ahead on the wall."]
 
@@ -41,3 +41,9 @@ func _on_Area_area_entered(area):
 	if area.name == "PlayerArea":
 		Narrator.messages = ["Up ahead may be the hardest part.","Do be careful please."]
 		Narrator.start_dialogue()
+
+func _on_Sensor_PlayerDetected():
+	$RoomItems/MovingPillar.Pos = $RoomItems/MovingPillar.global_transform.origin
+	$RoomItems/MovingPillar.NewPos = Vector3(0, 0, 0)
+	$RoomItems/MovingPillar._move()
+	$RoomItems/FairyHolder.queue_free()

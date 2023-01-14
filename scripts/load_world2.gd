@@ -34,18 +34,15 @@ func _check_room():
 		Narrator.messages = ["I'm terribly sorry but I do enjoy making large rooms"]
 		SaveGame.game_data.FirstTimeRoom211 = 0
 	elif _room == "res://scenes/rooms/200/room12.tscn" && (SaveGame.game_data.FirstTimeRoom212 == 1):
-		AllowChase = false
 		Narrator.messages = ["I'm quite sorry I don't remember leaving all this junk around.","Do the opposite of what the signs say,","I don't even remember what is written"]
 		SaveGame.game_data.FirstTimeRoom212 = 2
 	elif _room == "res://scenes/rooms/200/room12.tscn" && (SaveGame.game_data.FirstTimeRoom212 == 2):
-		AllowChase = false
 		Narrator.messages = ["Again I'm very sorry","Most of the signs should be cleaned up now"]
 		get_node("RoomItems/Plaque2").queue_free()
 		get_node("RoomItems/Plaque4").queue_free()
 		get_node("RoomItems/Plaque6").queue_free()
-		SaveGame.FirstTimeRoom212 = 3
+		SaveGame.game_data.FirstTimeRoom212 = 3
 	elif _room == "res://scenes/rooms/200/room12.tscn" && (SaveGame.game_data.FirstTimeRoom212 == 3):
-		AllowChase = false
 		get_node("RoomItems/Plaque2").queue_free()
 		get_node("RoomItems/Plaque4").queue_free()
 		get_node("RoomItems/Plaque6").queue_free()
@@ -90,6 +87,7 @@ func _chasing():
 		if (RNG == 0) or SaveGame.isChased > 0:
 			Narrator.messages = [ChaseList[randi() % 4]]
 			Narrator.start_dialogue()
+			$SpawnTimer.wait_time = 4.5
 			$SpawnTimer.start()
 			ReRunSpawn = false
 			if SaveGame.isChased == 0:

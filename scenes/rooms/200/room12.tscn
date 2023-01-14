@@ -32,62 +32,101 @@ EnvironmentUsed = ExtResource( 1 )
 [node name="Player" parent="RoomItems" instance=ExtResource( 3 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.7, -0.3 )
 
-[node name="wall" parent="RoomItems" instance=ExtResource( 6 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, -11 )
-skeleton = NodePath("")
-
-[node name="wall2" parent="RoomItems" instance=ExtResource( 6 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, -23 )
-skeleton = NodePath("")
-
-[node name="wall3" parent="RoomItems" instance=ExtResource( 6 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, -37 )
-skeleton = NodePath("")
-
 [node name="Button" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( -3.14315e-06, 1, 0, -1, -3.14315e-06, 0, 0, 0, 1, -10, 1, -9 )
-Function = "delete2"
+Function = "delete"
 FuncText = "open wall"
-Arg1 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/wall"
-Arg4 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/Plaque"
+Arg1 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/Barricade1"
 
 [node name="Button2" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( 3.14315e-06, -1, -6.28631e-06, -1, -3.14315e-06, 0, -1.97588e-11, 6.28631e-06, -1, 10, 1, -21 )
-Function = "delete2"
+Function = "delete"
 FuncText = "open wall"
-Arg1 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/wall2"
-Arg4 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/Plaque3"
+Arg1 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/Barricade2"
 
 [node name="Button3" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( 3.14315e-06, -1, -6.28631e-06, -1, -3.14315e-06, 0, -1.97588e-11, 6.28631e-06, -1, 10, 1, -35 )
-Function = "delete2"
+Function = "delete"
 FuncText = "open wall"
-Arg1 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/wall3"
-Arg4 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/Plaque5"
+Arg1 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/Barricade3"
 
-[node name="Plaque" parent="RoomItems" instance=ExtResource( 8 )]
-transform = Transform( 1, -5.49566e-13, -6.28631e-06, 0, 1, -8.74228e-08, -6.28631e-06, -8.74228e-08, -1, 0, 1, -10 )
+[node name="Barricade1" type="Spatial" parent="RoomItems"]
+
+[node name="wall" parent="RoomItems/Barricade1" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -11 )
+skeleton = NodePath("")
+
+[node name="wall2" parent="RoomItems/Barricade1" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -11 )
+skeleton = NodePath("")
+
+[node name="wall3" parent="RoomItems/Barricade1" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, -11 )
+skeleton = NodePath("")
+
+[node name="wall4" parent="RoomItems/Barricade1" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -11 )
+skeleton = NodePath("")
+
+[node name="Plaque" parent="RoomItems/Barricade1" instance=ExtResource( 8 )]
+transform = Transform( -1, 8.74222e-08, -6.28631e-06, 8.74228e-08, 1, -8.74228e-08, 6.28631e-06, -8.74233e-08, -1, 0, 1, -10 )
 Text = "Go to the right"
 FontSize = 30
 
-[node name="Plaque2" parent="RoomItems" instance=ExtResource( 8 )]
-transform = Transform( 2.90135e-06, 8.74231e-08, 1, -7.43094e-08, 1, -8.74228e-08, 0.85, 8.74225e-08, -3.41336e-06, 10, 0.6, -9 )
-Text = "He can't read, he doesn't know what I tell you"
-FontSize = 30
+[node name="Barricade2" type="Spatial" parent="RoomItems"]
 
-[node name="Plaque3" parent="RoomItems" instance=ExtResource( 8 )]
+[node name="Plaque" parent="RoomItems/Barricade2" instance=ExtResource( 8 )]
 transform = Transform( 1, -5.49566e-13, -6.28631e-06, 0, 1, -8.74228e-08, -6.28631e-06, -8.74228e-08, -1, 0, 1, -22 )
 Text = "Go to the left"
+FontSize = 30
+
+[node name="wall" parent="RoomItems/Barricade2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -23 )
+skeleton = NodePath("")
+
+[node name="wall2" parent="RoomItems/Barricade2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -23 )
+skeleton = NodePath("")
+
+[node name="wall3" parent="RoomItems/Barricade2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, -23 )
+skeleton = NodePath("")
+
+[node name="wall4" parent="RoomItems/Barricade2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -23 )
+skeleton = NodePath("")
+
+[node name="Barricade3" type="Spatial" parent="RoomItems"]
+
+[node name="Plaque" parent="RoomItems/Barricade3" instance=ExtResource( 8 )]
+transform = Transform( 1, -5.49566e-13, -6.28631e-06, 0, 1, -8.74228e-08, -6.28631e-06, -8.74228e-08, -1, 0, 1, -36 )
+Text = "Go to the left"
+FontSize = 30
+
+[node name="wall" parent="RoomItems/Barricade3" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -37 )
+skeleton = NodePath("")
+
+[node name="wall2" parent="RoomItems/Barricade3" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -37 )
+skeleton = NodePath("")
+
+[node name="wall3" parent="RoomItems/Barricade3" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, -37 )
+skeleton = NodePath("")
+
+[node name="wall4" parent="RoomItems/Barricade3" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -37 )
+skeleton = NodePath("")
+
+[node name="Plaque2" parent="RoomItems" instance=ExtResource( 8 )]
+transform = Transform( 2.90135e-06, 8.74233e-08, 1, -1.28346e-07, 1, -8.74228e-08, 0.85, 1.50996e-07, -3.41336e-06, 10, 0.6, -9 )
+Text = "He can't read, he doesn't know what I tell you"
 FontSize = 30
 
 [node name="Plaque4" parent="RoomItems" instance=ExtResource( 8 )]
 transform = Transform( -8.04206e-06, -8.74236e-08, -1, -7.43094e-08, 1, -8.74228e-08, -0.85, -8.7422e-08, 9.46125e-06, -10, 0.6, -21 )
 Text = "He isn't who he claims to be"
-FontSize = 30
-
-[node name="Plaque5" parent="RoomItems" instance=ExtResource( 8 )]
-transform = Transform( 1, -5.49566e-13, -6.28631e-06, 0, 1, -8.74228e-08, -6.28631e-06, -8.74228e-08, -1, 0, 1, -36 )
-Text = "Go to the left"
 FontSize = 30
 
 [node name="Plaque6" parent="RoomItems" instance=ExtResource( 8 )]

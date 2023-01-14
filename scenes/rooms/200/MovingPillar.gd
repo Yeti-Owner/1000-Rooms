@@ -8,7 +8,6 @@ onready var Pos := self.global_transform.origin
 
 
 func _ready():
-	Pos = self.global_transform.origin
 	add_child(tween)
 
 func _move():

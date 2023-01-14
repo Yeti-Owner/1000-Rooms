@@ -11,4 +11,4 @@ func _ready():
 	SaveGame.game_data.RoomNum = 176
 	SaveGame.game_data.LastCheckPoint = _room
 	SaveGame._save()
-	Narrator.messages = ["Very well done!","You're almost done with this section."]
+	Narrator.messages = ["Very well done!","You're almost done with this floor."]

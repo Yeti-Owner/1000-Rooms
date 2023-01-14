@@ -30,11 +30,6 @@ transform = Transform( 1, -5.49566e-13, -6.28631e-06, 0, 1, -8.74228e-08, -6.286
 Text = "go back to the pipe you entered"
 FontSize = 22
 
-[node name="SpotLight" type="SpotLight" parent="RoomItems/Plaque"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65768e-06, 0.6, 0.900002 )
-spot_range = 1.845
-spot_angle = 55.51
-
 [node name="Pipe" parent="RoomItems" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4.1 )
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/3D models/terrain/terrain.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/3D models/WoodShed/woodshed.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/UI/Blink.png" type="Texture" id=3]
 [ext_resource path="res://scenes/Room0.gd" type="Script" id=4]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/3D models/terrain/TerrainColor.png" type="Texture" id=6]
 [ext_resource path="res://assets/textures/general/YellowEyes.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=6]
@@ -295,6 +296,12 @@ tracks/5/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="SpatialMaterial" id=1]
+resource_name = "TerrainMat"
+albedo_color = Color( 0.8, 0.8, 0.8, 1 )
+albedo_texture = ExtResource( 6 )
+metallic = 0.5
+
 [sub_resource type="ProceduralSky" id=11]
 sky_top_color = Color( 0, 0.0588235, 0.372549, 1 )
 sky_horizon_color = Color( 0, 0, 0, 1 )
@@ -320,7 +327,7 @@ adjustment_contrast = 1.01
 flags_unshaded = true
 albedo_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="CubeMesh" id=12]
 material = SubResource( 2 )
 
 [node name="Room0" type="Spatial"]
@@ -392,6 +399,7 @@ anims/RESET = SubResource( 4 )
 
 [node name="Terrain" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
 
 [node name="IntroEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 7 )
@@ -406,7 +414,7 @@ skeleton = NodePath("../..")
 
 [node name="ShedInside" type="MeshInstance" parent="Shed"]
 transform = Transform( 3.28041, 0, -2.39587, 0, 3, 0, 3.0804, 0, 2.55143, -30.9784, 3.27155, -49.3216 )
-mesh = SubResource( 1 )
+mesh = SubResource( 12 )
 skeleton = NodePath("../..")
 
 [node name="OmniLight" type="OmniLight" parent="Shed"]

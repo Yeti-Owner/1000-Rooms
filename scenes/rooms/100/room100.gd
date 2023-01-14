@@ -49,7 +49,7 @@ func _dialogue_finished():
 		1:
 			get_node("RoomItems/WallObj").queue_free()
 			$BricksBreaking.play()
-			Narrator.messages = ["But before you continue I need to share some info.","The next 100 rooms are much different from what you're used to.","They are much darker with different entrances","they are also much harder","...","I hope you're ready."]
+			Narrator.messages = ["But before you continue I caution you.","The next floor is much different from what you're used to.","They are much darker with different entrances","they are also much harder","...","I hope you're ready."]
 			Narrator.start_dialogue()
 			RoomStage += 1
 		2:

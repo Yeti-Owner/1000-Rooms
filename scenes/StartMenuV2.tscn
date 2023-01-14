@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/audio/MusicPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/UI/AchievementPopupManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/theme/MinimalUI/_bitmap_font____romulus_by_pix3m-d6aokem.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=5]
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=10]
@@ -29,6 +30,13 @@ font_data = ExtResource( 6 )
 size = 45
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=12]
+size = 28
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
 [node name="StartMenuV2" type="CanvasLayer"]
 
 [node name="Menu" type="Control" parent="."]
@@ -44,9 +52,9 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/CenterContainer"]
 margin_left = 427.0
-margin_top = 201.0
+margin_top = 181.0
 margin_right = 852.0
-margin_bottom = 519.0
+margin_bottom = 539.0
 
 [node name="Title" type="Label" parent="Menu/CenterContainer/VBoxContainer"]
 margin_right = 425.0
@@ -57,30 +65,30 @@ text = "1000-Rooms"
 [node name="MarginContainer" type="MarginContainer" parent="Menu/CenterContainer/VBoxContainer"]
 margin_top = 100.0
 margin_right = 425.0
-margin_bottom = 110.0
-custom_constants/margin_top = 10
+margin_bottom = 150.0
+custom_constants/margin_top = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StartBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-margin_top = 114.0
+margin_top = 154.0
 margin_right = 425.0
-margin_bottom = 162.0
+margin_bottom = 202.0
 custom_fonts/font = SubResource( 1 )
 text = "Start"
 
 [node name="OptionsBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-margin_top = 166.0
+margin_top = 206.0
 margin_right = 425.0
-margin_bottom = 214.0
+margin_bottom = 254.0
 custom_fonts/font = SubResource( 1 )
 text = "Options"
 
 [node name="AchievementsBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-margin_top = 218.0
+margin_top = 258.0
 margin_right = 425.0
-margin_bottom = 266.0
+margin_bottom = 306.0
 custom_fonts/font = SubResource( 1 )
 text = "Achievements"
 
@@ -93,9 +101,9 @@ custom_fonts/font = SubResource( 1 )
 text = "Credits"
 
 [node name="QuitBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-margin_top = 270.0
+margin_top = 310.0
 margin_right = 425.0
-margin_bottom = 318.0
+margin_bottom = 358.0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
@@ -112,7 +120,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Changelog"
 
 [node name="VersionDialog" type="Popup" parent="Menu"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -162,7 +169,7 @@ custom_fonts/font = SubResource( 9 )
 text = "
 
 
-- Added reflection probes (more accurate lighting & reflections)
+- Better reflections & more  accurate lighting
 - Added several new textures
 - Updated textures (Better depth, occlusion, etc)
 - Better bloom
@@ -252,6 +259,17 @@ text = "Feedback"
 [node name="Timer" type="Timer" parent="Menu"]
 wait_time = 0.99
 one_shot = true
+
+[node name="TitleText" type="Label" parent="Menu"]
+margin_left = 135.0
+margin_top = 134.0
+margin_right = 310.0
+margin_bottom = 160.0
+custom_colors/font_color = Color( 0.698039, 0.956863, 0.615686, 1 )
+custom_fonts/font = SubResource( 12 )
+text = "Test Text??!?!?!"
+align = 1
+valign = 1
 
 [node name="ScarePlayer" parent="." instance=ExtResource( 10 )]
 
