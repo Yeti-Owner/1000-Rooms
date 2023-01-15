@@ -1,10 +1,11 @@
 extends Spatial
 
+export(bool) var AllowChase = true
+export(Environment) var EnvironmentUsed 
 onready var Narrator := $Narrator
 onready var MonsterHandler := $EnemyPath/PathFollow
 onready var _room := self.filename
-export(bool) var AllowChase = true
-export(Environment) var EnvironmentUsed 
+
 var FairyEnemy := preload("res://scenes/enemies/FairyEnemy.tscn")
 var ChaseList := ["HURRY!","IT'S HERE!","RUN!","HIDE!"]
 var ReRunSpawn:bool = true
@@ -68,6 +69,9 @@ func _check_room():
 		$Table1.visible = true
 	elif _room == "res://scenes/rooms/200/room13.tscn" and SaveGame.game_data.RoomNum != 122:
 		$Table1.queue_free()
+
+func _room_event():
+	pass
 
 func _dialogue_finished():
 	if ReRunSpawn == true:

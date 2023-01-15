@@ -2,6 +2,7 @@ extends Spatial
 
 export(bool) var EnemyAllowed = true
 export(Environment) var EnvironmentUsed
+export var room_event: Resource
 
 onready var Narrator := $Narrator
 onready var Objs := $Objs
@@ -12,35 +13,25 @@ func _ready():
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	_add_objs()
 	SaveGame.game_data.CurrentRoom = _room
-	_check_room()
+	_room_event()
 	SaveGame._update_presence()
 	_summon_enemy()
 
-func _check_room():
-	if _room == "res://scenes/world.tscn":
-		Narrator.messages = ["Welcome to my dungeon", "it's a bit bigger on the inside","I wonder how far you'll make"]
-		EnemyAllowed = false
-	elif _room == "res://scenes/rooms/100/room13.tscn" && SaveGame.game_data.FirstTimeRoom13:
-		Narrator.messages = ["This room is an interesting one", "I'll give you a hint though", "I'm not a fan of tedious puzzles.", "I'd rather just hide the solution in plain sight"]
-		SaveGame.game_data.FirstTimeRoom13 = 0
-		EnemyAllowed = false
-	elif SaveGame.game_data.RoomNum == 18 and _room == "res://scenes/rooms/100/room1.tscn":
-		$Table1.visible = true
-		EnemyAllowed = false
-	elif _room == "res://scenes/rooms/100/room1.tscn" and SaveGame.game_data.RoomNum != 18:
-		$Table1.queue_free()
-	elif SaveGame.game_data.RoomNum == 30 and _room == "res://scenes/rooms/100/room10.tscn":
-		$Table2.visible = true
-		EnemyAllowed = false
-	elif _room == "res://scenes/rooms/100/room10.tscn" and SaveGame.game_data.RoomNum != 30:
-		$Table2.queue_free()
-	elif SaveGame.game_data.RoomNum == 49:
-		$HandPrints.visible = true
-	elif _room == "res://scenes/rooms/100/room14.tscn" and SaveGame.game_data.RoomNum == 56:
-		$Table3.visible = true
-		EnemyAllowed = false
-	elif _room == "res://scenes/rooms/100/room14.tscn" and SaveGame.game_data.RoomNum != 56:
-		$Table3.queue_free()
+func _room_event():
+	if not room_event:
+		return
+	if (room_event.first_time) and (SaveGame.game_data[room_event.var_used] == 0):
+		return
+	if (room_event.on_number != -1) and (room_event.on_number != SaveGame.game_data.RoomNum):
+		if room_event.table_remove:
+			get_node(room_event.table_path).queue_free()
+			return
+		else:
+			return
+	if room_event.narrator_text.size() > 0: Narrator.messages = room_event.narrator_text
+	EnemyAllowed = room_event.enemy_allowed
+	if room_event.var_used != null:
+		SaveGame.game_data[room_event.var_used] = 0
 
 func _add_objs():
 	for _i in Objs.get_children():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/load_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=5]
 [ext_resource path="res://assets/textures/general/BloodHandprint_n.png" type="Texture" id=6]
 [ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/RoomEvent.gd" type="Script" id=8]
 [ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/signs/JumpScareSign1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/signs/JumpScareSign6.tscn" type="PackedScene" id=12]
@@ -17,6 +18,16 @@
 [ext_resource path="res://scenes/objects/NonFunctionals/Planks.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/objects/NonFunctionals/Crate.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/textures/general/BloodHandprint.png" type="Texture" id=19]
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 8 )
+on_number = 49
+table_path = NodePath("HandPrints")
+table_remove = true
+enemy_allowed = false
+narrator_text = [  ]
+first_time = false
+var_used = ""
 
 [sub_resource type="QuadMesh" id=1]
 size = Vector2( 0.5, 0.5 )
@@ -33,6 +44,7 @@ pause_mode = 1
 script = ExtResource( 1 )
 EnemyAllowed = false
 EnvironmentUsed = ExtResource( 5 )
+room_event = SubResource( 4 )
 
 [node name="RoomItems" type="Spatial" parent="."]
 
@@ -139,7 +151,6 @@ visible = false
 [node name="EnemySpawner" type="Spatial" parent="NavMesh"]
 
 [node name="HandPrints" type="Spatial" parent="."]
-visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="HandPrints"]
 transform = Transform( 1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 4.305, 1.414, 25.998 )
