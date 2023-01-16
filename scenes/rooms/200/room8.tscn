@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
+[ext_resource path="res://scripts/RoomEvent.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/objects/Lightbulb.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=4]
@@ -20,6 +21,16 @@
 [ext_resource path="res://interactable/InteractableXRA.gd" type="Script" id=21]
 [ext_resource path="res://scenes/objects/NonFunctionals/Table3.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/objects/Paper.tscn" type="PackedScene" id=23]
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 1 )
+on_number = 103
+table_path = NodePath("Table3")
+table_remove = true
+enemy_allowed = false
+narrator_text = [ "Hope you're ready for some parkour" ]
+first_time = true
+var_used = "FirstTimeParkour"
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 20 )
@@ -42,6 +53,7 @@ pause_mode = 1
 script = ExtResource( 9 )
 AllowChase = false
 EnvironmentUsed = ExtResource( 4 )
+room_event = SubResource( 5 )
 
 [node name="RoomItems" type="Spatial" parent="."]
 

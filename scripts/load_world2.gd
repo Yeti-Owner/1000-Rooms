@@ -1,7 +1,8 @@
 extends Spatial
 
 export(bool) var AllowChase = true
-export(Environment) var EnvironmentUsed 
+export(Environment) var EnvironmentUsed
+export var room_event: Resource
 onready var Narrator := $Narrator
 onready var MonsterHandler := $EnemyPath/PathFollow
 onready var _room := self.filename
@@ -17,61 +18,40 @@ func _ready():
 	randomize()
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	SaveGame.game_data.CurrentRoom = _room
+	if _room == "res://scenes/rooms/200/room12.tscn": _check_room()
 	_check_room()
+	_room_event()
 	_add_objs()
 	SaveGame._update_presence()
 
 func _check_room():
-	if _room == "res://scenes/rooms/200/room10.tscn" && SaveGame.game_data.FirstTimeRoom210:
-		AllowChase = false
-		Narrator.messages = ["I don't remember making this room", "This may be bad","But no fear, all rooms are created to be possible."]
-		SaveGame.game_data.FirstTimeRoom210 = 0
-	elif _room == "res://scenes/rooms/200/room8.tscn" && SaveGame.game_data.FirstTimeParkour:
-		AllowChase = false
-		Narrator.messages = ["Hope you're ready for some parkour"]
-		SaveGame.game_data.FirstTimeParkour = 0
-	elif _room == "res://scenes/rooms/200/room11.tscn" && SaveGame.game_data.FirstTimeRoom211:
-		AllowChase = false
-		Narrator.messages = ["I'm terribly sorry but I do enjoy making large rooms"]
-		SaveGame.game_data.FirstTimeRoom211 = 0
-	elif _room == "res://scenes/rooms/200/room12.tscn" && (SaveGame.game_data.FirstTimeRoom212 == 1):
-		Narrator.messages = ["I'm quite sorry I don't remember leaving all this junk around.","Do the opposite of what the signs say,","I don't even remember what is written"]
-		SaveGame.game_data.FirstTimeRoom212 = 2
-	elif _room == "res://scenes/rooms/200/room12.tscn" && (SaveGame.game_data.FirstTimeRoom212 == 2):
-		Narrator.messages = ["Again I'm very sorry","Most of the signs should be cleaned up now"]
-		get_node("RoomItems/Plaque2").queue_free()
-		get_node("RoomItems/Plaque4").queue_free()
-		get_node("RoomItems/Plaque6").queue_free()
-		SaveGame.game_data.FirstTimeRoom212 = 3
-	elif _room == "res://scenes/rooms/200/room12.tscn" && (SaveGame.game_data.FirstTimeRoom212 == 3):
-		get_node("RoomItems/Plaque2").queue_free()
-		get_node("RoomItems/Plaque4").queue_free()
-		get_node("RoomItems/Plaque6").queue_free()
-	elif _room == "res://scenes/rooms/200/room13.tscn" && SaveGame.game_data.FirstTimeRoom213:
-		Narrator.messages = ["Oh","...","this room isn't very fun"]
-		SaveGame.game_data.FirstTimeRoom213 = 0
-	elif _room == "res://scenes/rooms/200/room14.tscn" && SaveGame.game_data.FirstTimeRoom214:
-		AllowChase = false
-		Narrator.messages = ["This may require some trial and error but I believe in you!"]
-		SaveGame.game_data.FirstTimeRoom214 = 0
-	elif _room == "res://scenes/rooms/200/room15.tscn" && SaveGame.game_data.FirstTimeRoom215:
-		Narrator.messages = ["Before you begin...","I'd like you to know I'm sorry"]
-		SaveGame.game_data.FirstTimeRoom215 = 0
-	elif SaveGame.game_data.RoomNum == 103:
-		AllowChase = false
-	elif _room == "res://scenes/rooms/200/room8.tscn" and SaveGame.game_data.RoomNum != 103:
-		$Table3.queue_free()
-	elif SaveGame.game_data.RoomNum == 104:
-		AllowChase = false
-	elif _room == "res://scenes/rooms/200/room14.tscn" and SaveGame.game_data.RoomNum != 104:
-		$Table2.queue_free()
-	elif _room == "res://scenes/rooms/200/room13.tscn" and SaveGame.game_data.RoomNum == 122:
-		$Table1.visible = true
-	elif _room == "res://scenes/rooms/200/room13.tscn" and SaveGame.game_data.RoomNum != 122:
-		$Table1.queue_free()
+	match SaveGame.game_data.FirstTimeRoom212:
+		1:
+			Narrator.messages = ["I'm quite sorry I don't remember leaving all this junk around.","Do the opposite of what the signs say,","I don't even remember what is written"]
+			SaveGame.game_data.FirstTimeRoom212 = 2
+		2:
+			Narrator.messages = ["Again I'm very sorry","Most of the signs should be cleaned up now"]
+			get_node("RoomItems/Plaque2").queue_free()
+			get_node("RoomItems/Plaque4").queue_free()
+			get_node("RoomItems/Plaque6").queue_free()
+			SaveGame.game_data.FirstTimeRoom212 = 3
+		3:
+			get_node("RoomItems/Plaque2").queue_free()
+			get_node("RoomItems/Plaque4").queue_free()
+			get_node("RoomItems/Plaque6").queue_free()
 
 func _room_event():
-	pass
+	if not room_event:
+		return
+	if (room_event.on_number != -1) and (room_event.on_number != SaveGame.game_data.RoomNum):
+		if room_event.table_remove:
+			get_node(room_event.table_path).queue_free()
+	if (room_event.first_time) and (SaveGame.game_data[room_event.var_used] == 0):
+		return
+	if room_event.narrator_text.size() > 0: Narrator.messages = room_event.narrator_text
+	AllowChase = room_event.enemy_allowed
+	if room_event.var_used != null:
+		SaveGame.game_data[room_event.var_used] = 0
 
 func _dialogue_finished():
 	if ReRunSpawn == true:

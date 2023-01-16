@@ -2,12 +2,11 @@ extends Spatial
 
 export(NodePath) onready var Removable
 export(Environment) var EnvironmentUsed
-
+export var AllowEnemy:bool = true
 onready var Narrator := $Narrator
 onready var _room := self.filename
-#var RNG
+
 var RemovableList := ["Good job","Congrats","Well Done","I knew you could do it","You could've done it faster","Lets not waste any more time","Next time try doing it faster","I'm very proud of you and your ability to hit glowing orbs","have you tried walking... but faster?"]
-export var AllowEnemy:bool = true
 
 func _ready():
 	randomize()
@@ -15,7 +14,6 @@ func _ready():
 	SaveGame.game_data.CurrentRoom = _room
 	_check_room()
 	_add_objs()
-#	_enable_spikes() 
 	SaveGame._update_presence()
 
 func _check_room():
@@ -47,16 +45,10 @@ func _check_room():
 		SaveGame.game_data.FirstTimeConfusing312 = 0
 
 func _add_objs():
-	for _i2 in $Objs.get_children():
-		var RNG2 := randi() % 3
-		if RNG2 != 0:
-			_i2.queue_free()
-
-#func _enable_spikes():
-#	for _i in $SpikeHolder.get_children():
-#		RNG = randi() % (int($SpikeHolder.get_child_count()) + 2)
-#		if RNG != 0:
-#			_i.queue_free()
+	for _i in $Objs.get_children():
+		var RNG := randi() % 3
+		if RNG != 0:
+			_i.queue_free()
 
 func _lights_complete():
 	get_node(Removable).queue_free()

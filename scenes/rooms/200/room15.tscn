@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=1]
+[ext_resource path="res://scripts/RoomEvent.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/objects/Barrier.tscn" type="PackedScene" id=6]
@@ -11,6 +12,16 @@
 [ext_resource path="res://scenes/objects/doors/HatchClosed.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/objects/NonFunctionals/Bones.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/objects/NonFunctionals/Poster3.tscn" type="PackedScene" id=14]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+on_number = -1
+table_path = NodePath("")
+table_remove = false
+enemy_allowed = false
+narrator_text = [ "Before you begin...", "I'd like you to know I'm sorry" ]
+first_time = true
+var_used = "FirstTimeRoom215"
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -23,6 +34,7 @@ pause_mode = 1
 script = ExtResource( 10 )
 AllowChase = false
 EnvironmentUsed = ExtResource( 1 )
+room_event = SubResource( 2 )
 
 [node name="RoomItems" type="Spatial" parent="."]
 

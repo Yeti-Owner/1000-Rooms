@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=1]
+[ext_resource path="res://scripts/RoomEvent.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/objects/Barrier.tscn" type="PackedScene" id=6]
@@ -15,6 +16,16 @@
 [ext_resource path="res://scenes/objects/NonFunctionals/ChainPainting.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/objects/NonFunctionals/Bones.tscn" type="PackedScene" id=17]
 
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+on_number = -1
+table_path = NodePath("")
+table_remove = false
+enemy_allowed = false
+narrator_text = [ "I don't remember making this room", "This may be bad", "But no fear, all rooms are created to be possible." ]
+first_time = true
+var_used = "FirstTimeRoom210"
+
 [sub_resource type="Curve3D" id=1]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 4.9924, 0, -1.024, 0, 0, 0, 0, 0, 0, 3.59362, 0, -1.19458, 0, 0, 0, 0, 0, 0, 1.40933, 0, -1.46096, 0, 0, 0, 0, 0, 0, 1.32195, 0, -37.2042, 0, 0, 0, 0, 0, 0, -1.2998, 0, -37.0294, 0, 0, 0, 0, 0, 0, -1.12502, 0, -1.72313 ),
@@ -25,6 +36,7 @@ _data = {
 pause_mode = 1
 script = ExtResource( 11 )
 EnvironmentUsed = ExtResource( 1 )
+room_event = SubResource( 2 )
 
 [node name="RoomItems" type="Spatial" parent="."]
 

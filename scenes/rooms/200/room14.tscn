@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/Gridmaps/GridMap2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/RoomEvent.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/Floors Walls Etc/FakeFloor2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/objects/ResetBox.tscn" type="PackedScene" id=7]
@@ -19,6 +20,16 @@
 [ext_resource path="res://scenes/objects/NonFunctionals/Table2.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/objects/Paper.tscn" type="PackedScene" id=21]
 
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+on_number = 104
+table_path = NodePath("Table2")
+table_remove = true
+enemy_allowed = false
+narrator_text = [ "This may require some trial and error but I believe in you!" ]
+first_time = true
+var_used = "FirstTimeRoom214"
+
 [sub_resource type="Curve3D" id=1]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 43.1625, 0, 36.878, 0, 0, 0, 0, 0, 0, 41.0651, 0, 37.0528, 0, 0, 0, 0, 0, 0, 40.803, 0, 39.2376, 0, 0, 0, 0, 0, 0, 42.5508, 0, 39.1502 ),
@@ -30,6 +41,7 @@ pause_mode = 1
 script = ExtResource( 10 )
 AllowChase = false
 EnvironmentUsed = ExtResource( 1 )
+room_event = SubResource( 2 )
 
 [node name="RoomItems" type="Spatial" parent="."]
 
@@ -186,14 +198,14 @@ transform = Transform( -4.09683e-06, 0, 1, 0, 1, 0, -1, 0, -4.09683e-06, 0, 0.00
 transform = Transform( -1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, -1.1, 0, -35.86 )
 
 [node name="Table2" parent="Objs" instance=ExtResource( 20 )]
-transform = Transform( 0.198413, 0, 0.0251437, 0, 0.2, 0, -0.0251437, 0, 0.198413, -5.1, 0, -5.55 )
+transform = Transform( 0.198413, 0, 0.0251437, 0, 0.2, 0, -0.0251437, 0, 0.198413, -4.82709, 0, -5.55 )
 
 [node name="Table2" parent="." instance=ExtResource( 20 )]
-transform = Transform( 0.198413, 0, 0.0251437, 0, 0.2, 0, -0.0251437, 0, 0.198413, -5.1, 0, -5.55 )
+transform = Transform( 0.198413, 0, 0.0251437, 0, 0.2, 0, -0.0251437, 0, 0.198413, -4.82709, 0, -5.55 )
 
 [node name="Paper" parent="Table2" instance=ExtResource( 21 )]
 transform = Transform( -0.628568, 0, -4.96033, 0, 5, 0, 4.96033, 0, -0.628568, 0.502312, 4, 0.0132732 )
-Text = "dont hav long trust shop keper"
+Text = "dont hav long dont trust "
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -18 )
