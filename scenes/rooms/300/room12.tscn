@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment3.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/load_world3.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Gridmaps/GridMap3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/ResetBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/RoomEvent.gd" type="Script" id=6]
 [ext_resource path="res://scenes/objects/Lantern.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/enemies/FairyEnemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/objects/doors/PipeClosed.tscn" type="PackedScene" id=9]
@@ -15,6 +16,16 @@
 [ext_resource path="res://scenes/enemies/GhostEnemy.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/enemies/EnemySpawner.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/objects/plaque.tscn" type="PackedScene" id=16]
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 6 )
+on_number = -1
+table_path = NodePath("")
+table_remove = false
+enemy_allowed = false
+narrator_text = [ "This room is a bit of an IQ test.", "Please don't listen to the signs." ]
+first_time = true
+var_used = "FirstTimeConfusing312"
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -38,6 +49,7 @@ agent_max_climb = 1.0
 pause_mode = 1
 script = ExtResource( 2 )
 EnvironmentUsed = ExtResource( 1 )
+room_event = SubResource( 4 )
 AllowEnemy = false
 
 [node name="RoomItems" type="Spatial" parent="."]

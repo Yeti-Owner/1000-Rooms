@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/load_world3.gd" type="Script" id=2]
@@ -11,6 +11,17 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/NonFunctionals/Bricks.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/objects/GameConsole.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/RoomEvent.gd" type="Script" id=12]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 12 )
+on_number = -1
+table_path = NodePath("")
+table_remove = false
+enemy_allowed = false
+narrator_text = [ "Just as I expected.", "The Dungeon will try to confuse you at every opportunity.", "Keep your wits about you." ]
+first_time = true
+var_used = "FirstTimeConfusing300"
 
 [sub_resource type="NavigationMesh" id=1]
 cell_size = 0.2
@@ -21,6 +32,7 @@ agent_max_climb = 1.0
 pause_mode = 1
 script = ExtResource( 2 )
 EnvironmentUsed = ExtResource( 1 )
+room_event = SubResource( 2 )
 AllowEnemy = false
 
 [node name="RoomItems" type="Spatial" parent="."]

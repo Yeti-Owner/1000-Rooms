@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/load_world3.gd" type="Script" id=1]
 [ext_resource path="res://scenes/objects/Floors Walls Etc/WallObj3.tscn" type="PackedScene" id=2]
@@ -14,6 +14,17 @@
 [ext_resource path="res://scenes/objects/Barrier.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/objects/doors/Pipe.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/enemies/StatueEnemyManager.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scripts/RoomEvent.gd" type="Script" id=15]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 15 )
+on_number = -1
+table_path = NodePath("")
+table_remove = false
+enemy_allowed = false
+narrator_text = [ "Be wary of optical illusions.", "The dungeon loves to play tricks on the mind." ]
+first_time = true
+var_used = "FirstTimeRoom309"
 
 [sub_resource type="OccluderShapePolygon" id=1]
 polygon_points = PoolVector2Array( 2, -2, 2, 2, -2, 2, -2, -2 )
@@ -29,6 +40,7 @@ agent_max_climb = 1.0
 pause_mode = 1
 script = ExtResource( 1 )
 EnvironmentUsed = ExtResource( 9 )
+room_event = SubResource( 3 )
 
 [node name="RoomItems" type="Spatial" parent="."]
 
