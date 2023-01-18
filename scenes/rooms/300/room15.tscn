@@ -112,7 +112,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7, 1, 5.7 )
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 2 )
-visible = false
 intensity = 0.75
 extents = Vector3( 60, 5, 9 )
 box_projection = true

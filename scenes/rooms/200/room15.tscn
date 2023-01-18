@@ -71,7 +71,7 @@ transform = Transform( -0.11152, 0, 0.899421, 0, 2, 0, -2.5684, 0, -0.0390527, -
 [node name="Button" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 14, 1.4, -3 )
 Function = "continue"
-FuncText = "continue"
+FuncText = "go to next room"
 
 [node name="Lightbulb" parent="RoomItems" instance=ExtResource( 9 )]
 transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.863, -4 )

@@ -1,13 +1,13 @@
 extends Spatial
 
-export(bool) var AllowChase = true
+export(bool) var AllowChase := true
 export(Environment) var EnvironmentUsed
 export var room_event: Resource
 onready var Narrator := $Narrator
 onready var MonsterHandler := $EnemyPath/PathFollow
 onready var _room := self.filename
 
-var FairyEnemy := preload("res://scenes/enemies/FairyEnemy.tscn")
+#var FairyEnemy := preload("res://scenes/enemies/FairyEnemy.tscn")
 var ChaseList := ["HURRY!","IT'S HERE!","RUN!","HIDE!"]
 var ReRunSpawn:bool = true
 
@@ -81,7 +81,7 @@ func _chasing():
 
 func _on_SpawnTimer_timeout():
 	$RoomItems/wall.queue_free()
-	var FairyEnemy2 = FairyEnemy.instance()
-	MonsterHandler.add_child(FairyEnemy2)
+	var FairyEnemy = load("res://scenes/enemies/FairyEnemy.tscn").instance()
+	MonsterHandler.add_child(FairyEnemy)
 	get_node("EnemyPath/PathFollow/FairyEnemy")._change_state(3)
 	ReRunSpawn = false

@@ -36,19 +36,19 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.7, -0.3 )
 transform = Transform( -3.14315e-06, 1, 0, -1, -3.14315e-06, 0, 0, 0, 1, -10, 1, -9 )
 Function = "delete"
 FuncText = "open wall"
-Arg1 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/Barricade1"
+Arg1 = NodePath("../Barricade1")
 
 [node name="Button2" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( 3.14315e-06, -1, -6.28631e-06, -1, -3.14315e-06, 0, -1.97588e-11, 6.28631e-06, -1, 10, 1, -21 )
 Function = "delete"
 FuncText = "open wall"
-Arg1 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/Barricade2"
+Arg1 = NodePath("../Barricade2")
 
 [node name="Button3" parent="RoomItems" instance=ExtResource( 7 )]
 transform = Transform( 3.14315e-06, -1, -6.28631e-06, -1, -3.14315e-06, 0, -1.97588e-11, 6.28631e-06, -1, 10, 1, -35 )
 Function = "delete"
 FuncText = "open wall"
-Arg1 = "/root/SceneManager/GameScene/GameViewport/world/RoomItems/Barricade3"
+Arg1 = NodePath("../Barricade3")
 
 [node name="Barricade1" type="Spatial" parent="RoomItems"]
 
