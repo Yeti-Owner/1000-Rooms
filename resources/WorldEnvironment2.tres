@@ -23,5 +23,6 @@ fog_transmit_enabled = true
 fog_height_enabled = true
 fog_height_min = 0.0
 fog_height_max = 5.0
+tonemap_mode = 3
 glow_enabled = true
 adjustment_enabled = true

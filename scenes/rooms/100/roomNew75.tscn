@@ -24,5 +24,3 @@ __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 2, 0 )
 }
-
-[node name="SoftBody" type="SoftBody" parent="."]

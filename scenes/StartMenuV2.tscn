@@ -264,12 +264,13 @@ one_shot = true
 margin_left = 135.0
 margin_top = 134.0
 margin_right = 310.0
-margin_bottom = 160.0
+margin_bottom = 224.0
 custom_colors/font_color = Color( 0.698039, 0.956863, 0.615686, 1 )
 custom_fonts/font = SubResource( 12 )
 text = "Test Text??!?!?!"
 align = 1
 valign = 1
+autowrap = true
 
 [node name="ScarePlayer" parent="." instance=ExtResource( 10 )]
 

@@ -89,6 +89,7 @@ visible = false
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, 8.35823 )
+intensity = 0.75
 extents = Vector3( 15, 4.5, 5 )
 box_projection = true
 enable_shadows = true
