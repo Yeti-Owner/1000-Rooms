@@ -179,7 +179,9 @@ text = "
 - Adjusted rarity of certain rooms
 - Added several new rooms
 - Added controls to settings
-- Fixed (small) bug making Player borderline invincible"
+- Fixed (small) bug making Player borderline invincible
+- Updated the intro cutscene
+- Added messages to main menu :)"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]

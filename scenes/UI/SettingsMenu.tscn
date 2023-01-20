@@ -154,6 +154,7 @@ size_flags_horizontal = 10
 size_flags_vertical = 1
 min_value = 30.0
 max_value = 120.0
+step = 15.0
 value = 60.0
 
 [node name="BloomLabel" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]

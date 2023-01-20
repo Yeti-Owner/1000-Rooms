@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/3D models/terrain/terrain.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/3D models/WoodShed/woodshed.obj" type="ArrayMesh" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://assets/3D models/terrain/TerrainColor.png" type="Texture" id=6]
 [ext_resource path="res://assets/textures/general/YellowEyes.png" type="Texture" id=7]
+[ext_resource path="res://assets/textures/skybox/AllSky_Night_MoonBurst Equirect.png" type="Texture" id=8]
+[ext_resource path="res://assets/audio/misc/dragging-body1.wav" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=6]
 size = 30
@@ -89,7 +91,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.7, 1.3, 2, 2.7, 3.4, 4, 4.7, 5.3, 6, 6.6, 7.2, 7.8, 8.5, 9.1, 9.7, 10.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -158.104, 1.77492, -21.815 ), Vector3( -158.104, 1.775, -22 ), Vector3( -158.104, 1.775, -27 ), Vector3( -158.104, 1.775, -27 ), Vector3( -158.104, 1.775, -32 ), Vector3( -158.104, 1.775, -32 ), Vector3( -158.104, 1.775, -37 ), Vector3( -158.104, 1.775, -37 ), Vector3( -158.104, 1.775, -42 ), Vector3( -158.104, 1.775, -42 ), Vector3( -158.104, 1.775, -47 ), Vector3( -158.104, 1.775, -47 ), Vector3( -158.104, 1.775, -52 ), Vector3( -158.104, 1.775, -52 ), Vector3( -158.104, 2.23789, -57 ), Vector3( -158.104, 2.23789, -57 ), Vector3( -158.115, 2.46696, -61.9864 ) ]
+"values": [ Vector3( -158.104, 1.77492, -21.815 ), Vector3( -158.104, 1.775, -22 ), Vector3( -158.104, 1.775, -27 ), Vector3( -158.104, 1.775, -27 ), Vector3( -158.104, 1.775, -32 ), Vector3( -158.104, 1.775, -32 ), Vector3( -158.104, 1.775, -37 ), Vector3( -158.104, 1.775, -37 ), Vector3( -158.104, 1.775, -42 ), Vector3( -158.104, 1.775, -42 ), Vector3( -158.104, 1.775, -47 ), Vector3( -158.104, 1.775, -47 ), Vector3( -158.104, 1.775, -52 ), Vector3( -158, 1.775, -52 ), Vector3( -158.104, 2.23789, -57 ), Vector3( -158.104, 2.23789, -57 ), Vector3( -158.115, 2.46696, -61.9864 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("CustomFader/BlinkControl/bBottom:rect_position")
@@ -114,6 +116,42 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -400 ), Vector2( 0, -400 ), Vector2( 0, 0 ), Vector2( 0, -400 ), Vector2( 0, -400 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.7, 2, 3.4, 4.6, 5.8, 7.1, 8.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, true, true, true, true, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.6, 1.8, 3.2, 4.5, 5.6, 6.8, 8.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1.0, 1.1, 1.0, 0.95, 0.88, 0.96, 1.08 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.3, 2.5, 3.5, 4.3, 5.1, 5.9, 7.5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0, 0.0, -20.0, -20.0, 0.0, 0.0, -20.0, -30.0 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -295,6 +333,42 @@ tracks/5/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.773 ]
+}
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "TerrainMat"
@@ -302,19 +376,12 @@ albedo_color = Color( 0.8, 0.8, 0.8, 1 )
 albedo_texture = ExtResource( 6 )
 metallic = 0.5
 
-[sub_resource type="ProceduralSky" id=11]
-sky_top_color = Color( 0, 0.0588235, 0.372549, 1 )
-sky_horizon_color = Color( 0, 0, 0, 1 )
-sky_curve = 0.206765
-ground_bottom_color = Color( 0, 0, 0, 1 )
-ground_horizon_color = Color( 0, 0, 0, 1 )
-sun_latitude = 168.33
-sun_longitude = -8.0
-sun_energy = 0.08
+[sub_resource type="PanoramaSky" id=13]
+panorama = ExtResource( 8 )
 
 [sub_resource type="Environment" id=7]
 background_mode = 2
-background_sky = SubResource( 11 )
+background_sky = SubResource( 13 )
 background_energy = 0.4
 fog_enabled = true
 fog_color = Color( 0, 0, 0, 1 )
@@ -362,7 +429,7 @@ anchor_bottom = 1.0
 margin_left = -640.0
 margin_top = -550.0
 margin_right = 640.0
-margin_bottom = -0.00195313
+margin_bottom = -0.0218506
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource( 3 )
@@ -428,5 +495,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5297, 9.23686, -10.7365 )
 [node name="Eyes" type="Sprite3D" parent="EyePosition"]
 billboard = 2
 texture = ExtResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -1.773
+bus = "SfxBus"
 
 [connection signal="animation_finished" from="IntroAnim" to="." method="_on_IntroAnim_animation_finished"]

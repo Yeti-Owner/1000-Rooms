@@ -21,7 +21,7 @@ func _on_IntroAnim_animation_finished(anim_name):
 		"Blink":
 			$IntroAnim.play("Intro")
 
-func _process(_delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		match Prompt:
 			0:

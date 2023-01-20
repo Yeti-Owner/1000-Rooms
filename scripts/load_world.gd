@@ -9,6 +9,8 @@ onready var Objs := $Objs
 onready var _room := self.filename
  
 func _ready():
+	$ReflectionProbe.visible = true
+	$ReflectionProbe.intensity = 0.75
 	randomize()
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	_add_objs()
