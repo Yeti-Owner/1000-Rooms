@@ -19,7 +19,6 @@ func _ready():
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	SaveGame.game_data.CurrentRoom = _room
 	if _room == "res://scenes/rooms/200/room12.tscn": _check_room()
-	_check_room()
 	_room_event()
 	_add_objs()
 	SaveGame._update_presence()

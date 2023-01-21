@@ -96,6 +96,39 @@ func _save():
 	file.store_var(game_data)
 	file.close()
 
+func _clear_save():
+	game_data = {
+		"RoomNum" : 0,
+		"MaxRoomNum" : 0,
+		"PlayerHP" : 100,
+		"JumpScareAmt" : 0,
+		"CurrentRoom" : "res://scenes/world.tscn",
+		"CurrentPos" : Vector3(1,1,1),
+		"LastCheckPoint" : "res://scenes/world.tscn",
+		"LastSavedRoom" : 0,
+		"EnabledShield" : 0,
+		"Reputation" : 0,
+		"Deaths" : 0,
+		"Intro" : 1,
+		"StepUsed" : 0,
+		"FirstTimeRoom13" : 1,
+		"FirstTimeRoom210" : 1,
+		"FirstTimeRoom211" : 1,
+		"FirstTimeRoom212" : 1,
+		"FirstTimeRoom213" : 1,
+		"FirstTimeRoom214" : 1,
+		"FirstTimeRoom215" : 1,
+		"FirstTimeParkour" : 1,
+		"FirstTimeAcid" : 1,
+		"FirstTimeLights" : 1,
+		"FirstTimeRoom305" : 1,
+		"FirstTimeRoom306" : 1,
+		"FirstTimeRoom309" : 1,
+		"FirstTimeConfusing300" : 1,
+		"FirstTimeConfusing312" : 1
+	}
+	_save()
+
 func _update_presence():
 	pass
 #	print("updating presence")

@@ -1,9 +1,5 @@
 extends Popup
 
-# vars
-var dir := Directory.new()
-var save_data := "user://save_game.dat"
-
 # Cleaned up referencing
 onready var MaxFpsValue := $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue
 onready var MaxFpsSlider := $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider
@@ -153,9 +149,9 @@ func _on_SettingsTabs_tab_changed(tab):
 # Clear SaveGame
 func _on_ClearSaveBtn_pressed():
 	ClickPlayer._click_sound()
-# warning-ignore:return_value_discarded
-	dir.remove(save_data)
-	get_tree().quit()
+	SaveGame._clear_save()
+	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/ClearSaveBtn.pressed = false
+	self.visible = false
 
 # Set settings to defaults
 func _on_DefaultBtn_pressed():

@@ -52,10 +52,9 @@ func _scene_load():
 		yield(get_tree(), "idle_frame")
 	
 	var _scene = load(SceneToLoad)
-	var s = _scene.instance()
-	
-	GameScene.add_child(s, true)
-	CurrentScene = s
+	var _s = _scene.instance()
+	GameScene.add_child(_s, true)
+	CurrentScene = _s
 	_fade_in()
 
 func _reload_scene():

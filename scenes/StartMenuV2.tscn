@@ -90,7 +90,7 @@ margin_top = 258.0
 margin_right = 425.0
 margin_bottom = 306.0
 custom_fonts/font = SubResource( 1 )
-text = "Achievements"
+text = "Secrets"
 
 [node name="CreditsBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
 visible = false
@@ -195,7 +195,7 @@ anchor_right = 1.0
 margin_top = 10.0
 margin_bottom = 61.0
 custom_fonts/font = SubResource( 8 )
-text = "Alpha 1.07"
+text = "Update 1.07"
 align = 1
 valign = 1
 
@@ -236,7 +236,6 @@ custom_fonts/font = SubResource( 9 )
 text = "- New Enemies
 - Fixing Arcade machines
 - More games for the arcade
-- Leaderboards for the arcade(?)
 - More Story/Lore
 - Revamped Puzzles"
 align = 1
