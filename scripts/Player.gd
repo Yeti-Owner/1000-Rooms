@@ -28,6 +28,7 @@ enum {
 var state := WALKING
 
 func _ready():
+	isDead = false
 	self.scale = Vector3(0.6, 0.6, 0.6)
 	
 	StepPlayer.stream = load(FootStepList[SaveGame.game_data.StepUsed])
@@ -39,9 +40,9 @@ func _ready():
 
 func _physics_process(delta: float):
 	# Set State
-	if (SaveGame.game_data.PlayerHP <= 0) and (isDead == false):
-		state = DEAD
+	if (SaveGame.game_data.PlayerHP <= 1) and (isDead == false):
 		_die()
+		state = DEAD
 	
 	if Input.is_action_just_pressed("sprint"):
 		Stamina.set_value(Stamina.get_value() - 7.5)

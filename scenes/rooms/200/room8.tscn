@@ -65,7 +65,7 @@ transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 0, 3.86
 Bulb_On = true
 
 [node name="Lightbulb2" parent="RoomItems" instance=ExtResource( 3 )]
-transform = Transform( -2, 1.74846e-07, 0, -1.74846e-07, -2, 0, 0, 0, 2, 21, 3.863, -18 )
+transform = Transform( 2, -3.49692e-07, 0, 3.49692e-07, 2, 0, 0, 0, 2, 5.79308, -1.88506, 3.76519 )
 Bulb_On = true
 
 [node name="wall" parent="RoomItems" instance=ExtResource( 5 )]
