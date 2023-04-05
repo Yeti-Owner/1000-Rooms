@@ -27,7 +27,7 @@ func interact():
 		"continue":
 			RoomLoader._get_next_room()
 		"delete":
-			get_node(Arg1).queue_free()
+			if has_node(Arg1): get_node(Arg1).queue_free()
 		"fairy":
 			var FairyEnemy = load("res://scenes/enemies/FairyEnemy.tscn").instance()
 			get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/wall").queue_free()
