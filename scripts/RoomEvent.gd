@@ -1,9 +1,9 @@
 class_name RoomEvent extends Resource
 
-export(int) var on_number := -1
-export(NodePath) var table_path
-export(bool) var table_remove := false
-export(bool) var enemy_allowed := false
-export(Array, String) var narrator_text
-export(bool) var first_time = false
-export(String) var var_used
+@export var on_number: int := -1
+@export var table_path: NodePath
+@export var table_remove: bool := false
+@export var enemy_allowed: bool := false
+@export var narrator_text # (Array, String)
+@export var first_time: bool = false
+@export var var_used: String

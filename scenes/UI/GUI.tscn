@@ -1,33 +1,33 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/UI/PauseMenu.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="FontFile" id=2]
 [ext_resource path="res://scenes/UI/GUI.gd" type="Script" id=3]
 [ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=4]
 [ext_resource path="res://scenes/UI/AchievementPopupManager.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/UI/hand.png" type="Texture" id=7]
-[ext_resource path="res://assets/UI/BarBack.png" type="Texture" id=8]
-[ext_resource path="res://assets/UI/HealthBar.png" type="Texture" id=9]
-[ext_resource path="res://assets/UI/HealthBarProg.png" type="Texture" id=11]
-[ext_resource path="res://assets/UI/StamBar.png" type="Texture" id=12]
-[ext_resource path="res://assets/UI/StamBarProg.png" type="Texture" id=13]
+[ext_resource path="res://assets/UI/hand.png" type="Texture2D" id=7]
+[ext_resource path="res://assets/UI/BarBack.png" type="Texture2D" id=8]
+[ext_resource path="res://assets/UI/HealthBar.png" type="Texture2D" id=9]
+[ext_resource path="res://assets/UI/HealthBarProg.png" type="Texture2D" id=11]
+[ext_resource path="res://assets/UI/StamBar.png" type="Texture2D" id=12]
+[ext_resource path="res://assets/UI/StamBarProg.png" type="Texture2D" id=13]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="FontFile" id=3]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 size = 40
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="FontFile" id=2]
 size = 45
 font_data = ExtResource( 2 )
 
 [node name="GUI" type="CanvasLayer"]
-pause_mode = 2
+process_mode = 2
 layer = 0
 script = ExtResource( 3 )
 
@@ -37,18 +37,18 @@ anchor_bottom = 1.0
 
 [node name="handpng" type="TextureRect" parent="hand"]
 visible = false
-margin_left = 621.0
-margin_top = 334.0
-margin_right = 659.0
-margin_bottom = 385.0
+offset_left = 621.0
+offset_top = 334.0
+offset_right = 659.0
+offset_bottom = 385.0
 texture = ExtResource( 7 )
 
 [node name="InteractLabel" type="Label" parent="."]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 30.0
-margin_bottom = 62.0
+offset_top = 30.0
+offset_bottom = 62.0
 custom_fonts/font = SubResource( 3 )
 align = 1
 valign = 1
@@ -57,18 +57,18 @@ valign = 1
 visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-pause_mode = 1
+process_mode = 1
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -139.0
-margin_bottom = 120.0
-custom_constants/margin_right = 70
-custom_constants/margin_top = 40
+offset_left = -139.0
+offset_bottom = 120.0
+custom_constants/offset_right = 70
+custom_constants/offset_top = 40
 
 [node name="FpsCounter" type="Label" parent="MarginContainer"]
-margin_top = 60.0
-margin_right = 69.0
-margin_bottom = 100.0
+offset_top = 60.0
+offset_right = 69.0
+offset_bottom = 100.0
 custom_fonts/font = SubResource( 1 )
 text = "Fps: "
 __meta__ = {
@@ -76,11 +76,11 @@ __meta__ = {
 }
 
 [node name="RoomNumHolder" type="ColorRect" parent="."]
-pause_mode = 1
+process_mode = 1
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -211.0
-margin_bottom = 54.0
+offset_left = -211.0
+offset_bottom = 54.0
 theme = ExtResource( 4 )
 color = Color( 0, 0, 0, 1 )
 
@@ -89,24 +89,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="RoomNum" type="Label" parent="RoomNumHolder/CenterContainer"]
-margin_left = 22.0
-margin_top = 4.0
-margin_right = 189.0
-margin_bottom = 50.0
+offset_left = 22.0
+offset_top = 4.0
+offset_right = 189.0
+offset_bottom = 50.0
 custom_fonts/font = SubResource( 2 )
 text = "Room: 100"
 align = 1
 
 [node name="HPandStam" type="VBoxContainer" parent="."]
-pause_mode = 1
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 670.0
-margin_bottom = 224.0
+process_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 670.0
+offset_bottom = 224.0
 
-[node name="HpBar2" type="TextureProgress" parent="HPandStam"]
-margin_right = 650.0
-margin_bottom = 80.0
+[node name="HpBar2" type="TextureProgressBar" parent="HPandStam"]
+offset_right = 650.0
+offset_bottom = 80.0
 size_flags_horizontal = 11
 value = 50.0
 texture_under = ExtResource( 8 )
@@ -114,10 +114,10 @@ texture_over = ExtResource( 9 )
 texture_progress = ExtResource( 11 )
 texture_progress_offset = Vector2( 3, 0 )
 
-[node name="StamBar2" type="TextureProgress" parent="HPandStam"]
-margin_top = 84.0
-margin_right = 650.0
-margin_bottom = 164.0
+[node name="StamBar2" type="TextureProgressBar" parent="HPandStam"]
+offset_top = 84.0
+offset_right = 650.0
+offset_bottom = 164.0
 max_value = 200.0
 step = 0.01
 value = 100.0

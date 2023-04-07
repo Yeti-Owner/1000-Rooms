@@ -1,33 +1,33 @@
 extends Popup
 
 # Cleaned up referencing
-onready var MaxFpsValue := $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue
-onready var MaxFpsSlider := $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider
-onready var VsyncCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn
-onready var ShowFpsCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn
-onready var FovVal := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal
-onready var FovSlider := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider
-onready var MouseSensitivityVal := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal
-onready var MouseSensitivitySlider := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider
-onready var BloomCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/BloomCheckBtn
-onready var BrightnessSlider := $SettingsTabs/Video/MarginContainer/VideoSettings/BrightnessSlider
-onready var MasterVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolSlider
-onready var MusicVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolSlider
-onready var SfxVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider
-onready var ClickPlayer := $ClickPlayer
-onready var FullScreenOption := $SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn
-onready var FXAABtn := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/FXAA/FXAACheck
-onready var MSAAOption := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA/MSAAOptions
-onready var ScaleText := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ScaleText
-onready var ScaleSlider := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ResolutionScale
-onready var QualBloomBtn := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom/QualBloomCheck
+@onready var MaxFpsValue := $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue
+@onready var MaxFpsSlider := $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider
+@onready var VsyncCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn
+@onready var ShowFpsCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn
+@onready var FovVal := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal
+@onready var FovSlider := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider
+@onready var MouseSensitivityVal := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal
+@onready var MouseSensitivitySlider := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider
+@onready var BloomCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/BloomCheckBtn
+@onready var BrightnessSlider := $SettingsTabs/Video/MarginContainer/VideoSettings/BrightnessSlider
+@onready var MasterVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolSlider
+@onready var MusicVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolSlider
+@onready var SfxVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider
+@onready var ClickPlayer := $ClickPlayer
+@onready var FullScreenOption := $SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn
+@onready var FXAABtn := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/FXAA/FXAACheck
+@onready var MSAAOption := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA/MSAAOptions
+@onready var ScaleText := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ScaleText
+@onready var ScaleSlider := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ResolutionScale
+@onready var QualBloomBtn := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom/QualBloomCheck
 
 func _ready():
 	# Set FPS to correct value
 	Engine.set_target_fps(int(Settingsholder.save_data.FrameRate))
 	
 	# Set Windowd/Fullscreen
-	OS.set_window_fullscreen(Settingsholder.save_data.Fullscreen)
+	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (Settingsholder.save_data.Fullscreen) else Window.MODE_WINDOWED
 	
 	# Set values and sliders to correct value
 	MaxFpsValue.set_text(str(Settingsholder.save_data.FrameRate))
@@ -44,7 +44,7 @@ func _ready():
 	MusicVol.set_value(Settingsholder.save_data.MusicVolume)
 	SfxVol.set_value(Settingsholder.save_data.SfxVolume)
 	FullScreenOption.selected = Settingsholder.save_data.Fullscreen
-	FXAABtn.pressed = Settingsholder.save_data.FXAA
+	FXAABtn.button_pressed = Settingsholder.save_data.FXAA
 	MSAAOption.selected = Settingsholder.save_data.MSAA
 	ScaleText.text = Settingsholder.save_data.ResolutionText
 	ScaleSlider.value = Settingsholder.save_data.ResolutionScale
@@ -63,22 +63,22 @@ func _viewport_settings():
 func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
 	match FullScreenIndex:
 		0:
-			OS.set_window_fullscreen(false)
+			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (false) else Window.MODE_WINDOWED
 			ClickPlayer._click_sound()
 			Settingsholder.save_data.Fullscreen = 0
-			yield(get_tree(), "idle_frame")
+			await get_tree().idle_frame
 			self.popup_centered()
 		1:
-			OS.set_window_fullscreen(true)
+			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (true) else Window.MODE_WINDOWED
 			ClickPlayer._click_sound()
 			Settingsholder.save_data.Fullscreen = 1
-			yield(get_tree(), "idle_frame")
+			await get_tree().idle_frame
 			self.popup_centered()
 
 # Vsync
 func _on_VsyncCheckBtn_pressed():
 	Settingsholder.save_data.VsyncEnabled = !Settingsholder.save_data.VsyncEnabled
-	OS.set_use_vsync(Settingsholder.save_data.VsyncEnabled)
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if (Settingsholder.save_data.VsyncEnabled) else DisplayServer.VSYNC_DISABLED)
 	ClickPlayer._click_sound()
 
 # Max Fps
@@ -142,15 +142,15 @@ func _on_SfxVolSlider_value_changed(SfVol):
 func _on_SettingsTabs_tab_changed(tab):
 	ClickPlayer._click_sound()
 	if tab == 2:
-		self.popup_exclusive = true
+		self.exclusive = true
 	else:
-		self.popup_exclusive = false
+		self.exclusive = false
 
 # Clear SaveGame
 func _on_ClearSaveBtn_pressed():
 	ClickPlayer._click_sound()
 	SaveGame._clear_save()
-	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/ClearSaveBtn.pressed = false
+	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/ClearSaveBtn.button_pressed = false
 	self.visible = false
 
 # Set settings to defaults
@@ -158,7 +158,7 @@ func _on_DefaultBtn_pressed():
 	ClickPlayer._click_sound()
 	Settingsholder._default()
 	_ready()
-	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/DefaultBtn.pressed = false
+	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/DefaultBtn.button_pressed = false
 
 
 # GAMEPLAY SETTINGS

@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 var quad_mesh_size
 var is_mouse_inside := false
@@ -6,9 +6,9 @@ var is_mouse_held := false
 var last_mouse_pos3D = null
 var last_mouse_pos2D = null
 
-onready var node_viewport := $Viewport
-onready var node_quad := $Screen
-onready var node_area := $Screen/Area
+@onready var node_viewport := $SubViewport
+@onready var node_quad := $Screen
+@onready var node_area := $Screen/Area3D
 
 
 func _on_Area_mouse_entered():
@@ -68,12 +68,12 @@ func handle_mouse(event):
 
 
 func find_mouse(global_position):
-	var camera = get_viewport().get_camera()
+	var camera = get_viewport().get_camera_3d()
 	var from = camera.project_ray_origin(global_position)
 	var dist = find_further_distance_to(camera.transform.origin)
 	var to = from + camera.project_ray_normal(global_position) * dist
 	
-	var result = get_world().direct_space_state.intersect_ray(from, to, [], node_area.collision_layer,false,true) #for 3.1 changes
+	var result = get_world_3d().direct_space_state.intersect_ray(from, to, [], node_area.collision_layer,false,true) #for 3.1 changes
 	
 	if result.size() > 0:
 		return result.position

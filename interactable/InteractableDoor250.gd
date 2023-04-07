@@ -1,17 +1,17 @@
 extends Interactable
 
-export(int) var Door = 1
+@export var Door: int = 1
 
-onready var father = get_parent().get_parent().get_parent().get_parent()
+@onready var father = get_parent().get_parent().get_parent().get_parent()
 
 func get_interaction_text():
 	match Door:
 		1:
-			return ("Press %s to choose door A" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)])
+			return ("Press %s to choose door A" % [OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode)])
 		2: 
-			return ("Press %s to choose door B" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)])
+			return ("Press %s to choose door B" % [OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode)])
 		3:
-			return ("Press %s to choose door C" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)])
+			return ("Press %s to choose door C" % [OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode)])
 
 func interact():
 	if father.DoorStage == 1:

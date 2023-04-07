@@ -1,12 +1,12 @@
-extends Spatial
+extends Node3D
 
-export(bool) var EnemyAllowed = true
-export(Environment) var EnvironmentUsed
-export var room_event: Resource
+@export var EnemyAllowed: bool = true
+@export var EnvironmentUsed: Environment
+@export var room_event: Resource
 
-onready var Narrator := $Narrator
-onready var Objs := $Objs
-onready var _room := self.filename
+@onready var Narrator := $Narrator
+@onready var Objs := $Objs
+@onready var _room := self.filename
  
 func _ready():
 	$ReflectionProbe.visible = true
@@ -44,9 +44,9 @@ func _add_objs():
 			_i.queue_free()
 
 func _summon_enemy():
-	yield(get_tree(), "idle_frame")
-	yield(get_tree(), "idle_frame")
-	yield(get_tree(), "idle_frame")
+	await get_tree().idle_frame
+	await get_tree().idle_frame
+	await get_tree().idle_frame
 	if EnemyAllowed:
 		var RNG := randi() % 5
 		if RNG == 0 or SaveGame.isChased > 0:

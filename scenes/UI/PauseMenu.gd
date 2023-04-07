@@ -1,8 +1,8 @@
 extends Control
-var isPaused = false setget set_is_paused
+var isPaused = false : set = set_is_paused
 
-onready var VCont := $CenterContainer/VBoxContainer
-onready var ClickPlayer := $CanvasLayer/SettingsMenu/ClickPlayer
+@onready var VCont := $CenterContainer/VBoxContainer
+@onready var ClickPlayer := $CanvasLayer/SettingsMenu/ClickPlayer
 
 
 func _unhandled_input(event):

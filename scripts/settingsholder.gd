@@ -112,6 +112,6 @@ func _apply_keybinds():
 	var binds = ["up","down","left","right","jump","sprint","interact","console","pause"]
 	for bind in binds:
 		var event := InputEventKey.new()
-		event.scancode = keybinds_data[bind]
+		event.keycode = keybinds_data[bind]
 		InputMap.action_erase_events(bind)
 		InputMap.action_add_event(bind, event)

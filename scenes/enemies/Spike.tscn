@@ -4,34 +4,34 @@
 [ext_resource path="res://assets/3D models/spike/Spike.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://scenes/enemies/SpikeEnemy.gd" type="Script" id=3]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="StandardMaterial3D" id=1]
 resource_name = "Palette"
 albedo_color = Color( 0, 0, 0, 1 )
 metallic = 0.9
 
-[sub_resource type="ConvexPolygonShape" id=2]
-points = PoolVector3Array( -0.0265253, 4.92342, -0.130636, 0.00734097, 4.9463, 0.163236, 0.00736199, -0.00455141, 0.0728065, 0.109108, 4.9463, 0.0162688, -0.105652, 4.96865, 0.0162688, 0.0299605, -0.00455141, -0.0401761, -0.0491238, -0.00455141, 0.0162688, 0.0299605, 4.93459, -0.130636, -0.00383821, 5.3996, 0.00499219, 0.0412703, -0.00455141, 0.0275763, -0.0604335, 4.96865, 0.0841141, -0.105652, 4.91224, 0.00499219, 0.0638688, 4.96865, -0.0740987, 0.0638688, 4.99101, 0.0728065 )
+[sub_resource type="ConvexPolygonShape3D" id=2]
+points = PackedVector3Array( -0.0265253, 4.92342, -0.130636, 0.00734097, 4.9463, 0.163236, 0.00736199, -0.00455141, 0.0728065, 0.109108, 4.9463, 0.0162688, -0.105652, 4.96865, 0.0162688, 0.0299605, -0.00455141, -0.0401761, -0.0491238, -0.00455141, 0.0162688, 0.0299605, 4.93459, -0.130636, -0.00383821, 5.3996, 0.00499219, 0.0412703, -0.00455141, 0.0275763, -0.0604335, 4.96865, 0.0841141, -0.105652, 4.91224, 0.00499219, 0.0638688, 4.96865, -0.0740987, 0.0638688, 4.99101, 0.0728065 )
 
-[node name="SpikeMover" type="PathFollow"]
+[node name="SpikeMover" type="PathFollow3D"]
 rotation_mode = 0
 script = ExtResource( 1 )
 
-[node name="SpikeHolder" type="Spatial" parent="."]
+[node name="SpikeHolder" type="Node3D" parent="."]
 script = ExtResource( 3 )
 
-[node name="Spike" type="MeshInstance" parent="SpikeHolder"]
-transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 5.45 )
+[node name="Spike" type="MeshInstance3D" parent="SpikeHolder"]
+transform = Transform3D( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 5.45 )
 mesh = ExtResource( 2 )
 material/0 = SubResource( 1 )
 
-[node name="SpikeArea" type="Area" parent="SpikeHolder/Spike"]
+[node name="SpikeArea" type="Area3D" parent="SpikeHolder/Spike"]
 
-[node name="CollisionShape" type="CollisionShape" parent="SpikeHolder/Spike/SpikeArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpikeHolder/Spike/SpikeArea"]
 shape = SubResource( 2 )
 
-[node name="StaticBody" type="StaticBody" parent="SpikeHolder/Spike"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SpikeHolder/Spike"]
 
-[node name="CollisionShape" type="CollisionShape" parent="SpikeHolder/Spike/StaticBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpikeHolder/Spike/StaticBody3D"]
 shape = SubResource( 2 )
 
 [node name="TriggeredTween" type="Tween" parent="SpikeHolder"]
@@ -41,5 +41,5 @@ wait_time = 5.0
 one_shot = true
 
 [connection signal="area_entered" from="SpikeHolder/Spike/SpikeArea" to="SpikeHolder" method="_on_SpikeArea_area_entered"]
-[connection signal="tween_completed" from="SpikeHolder/TriggeredTween" to="SpikeHolder" method="_on_TriggeredTween_tween_completed"]
+[connection signal="finished" from="SpikeHolder/TriggeredTween" to="SpikeHolder" method="_on_TriggeredTween_tween_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

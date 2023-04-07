@@ -1,8 +1,8 @@
-[gd_resource type="ParticlesMaterial" load_steps=5 format=2]
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=2]
 
 [ext_resource path="res://assets/3D models/torch/Fire.tres" type="Gradient" id=1]
 
-[sub_resource type="GradientTexture" id=6]
+[sub_resource type="GradientTexture2D" id=6]
 gradient = ExtResource( 1 )
 
 [sub_resource type="Curve" id=5]

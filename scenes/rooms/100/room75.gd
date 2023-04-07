@@ -1,18 +1,18 @@
-extends Spatial
+extends Node3D
 
-export(Environment) var EnvironmentUsed
+@export var EnvironmentUsed: Environment
 
-onready var Narrator := $Narrator
-onready var Objs := $Objs
-onready var player := $RoomItems/Player
-onready var _room := self.filename
+@onready var Narrator := $Narrator
+@onready var Objs := $Objs
+@onready var player := $RoomItems/Player
+@onready var _room := self.filename
 
 var Ending:String
 var MovePos:Vector3
 
 func _ready():
 	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
-	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
+	Narrator.connect("DialogueFinished",Callable(self,"_dialogue_finished"))
 	SaveGame.game_data.CurrentRoom = _room
 	if SaveGame.game_data.CurrentPos == Vector3(7.731, 0.7, 45.853):
 		Narrator.messages = ["Hello again."]

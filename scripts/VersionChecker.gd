@@ -26,7 +26,7 @@ func _download_file(link: String, path: String, just_version: bool):
 	add_child(http_request)
 	
 # warning-ignore:return_value_discarded
-	http_request.connect("request_completed", self, "_install_file", [path, just_version])
+	http_request.connect("request_completed",Callable(self,"_install_file").bind(path, just_version))
 	
 	# Error handling
 	var error = http_request.request_raw(link)
@@ -64,11 +64,11 @@ func _compare_version(new_version):
 	file.close()
 	
 	if (int(new_version) > int(cur_version)):
-		OS.set_window_fullscreen(false)
+		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (false) else Window.MODE_WINDOWED
 		Settingsholder.save_data.Fullscreen = 0
-		yield(get_tree(), "idle_frame")
-		yield(get_tree(), "idle_frame")
-		yield(get_tree(), "idle_frame")
+		await get_tree().idle_frame
+		await get_tree().idle_frame
+		await get_tree().idle_frame
 		var dir = Directory.new()
 		dir.remove(version_path)
 		OS.alert("You appear to be running an outdated version, you can install the latest version on itch: https://yetiowner.itch.io/1000-rooms this warning will only appear once per update.", "Outdated Version")

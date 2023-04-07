@@ -1,20 +1,21 @@
 [remap]
 
 importer="wavefront_obj"
+importer_version=1
 type="Mesh"
-path="res://.import/uploads_files_2691895_button.obj-36603b01f238efbf2c195266a74ac6eb.mesh"
+uid="uid://dfpi670ppjuvj"
+path="res://.godot/imported/uploads_files_2691895_button.obj-36603b01f238efbf2c195266a74ac6eb.mesh"
 
 [deps]
 
-files=[ "res://.import/uploads_files_2691895_button.obj-36603b01f238efbf2c195266a74ac6eb.mesh" ]
+files=["res://.godot/imported/uploads_files_2691895_button.obj-36603b01f238efbf2c195266a74ac6eb.mesh"]
 
 source_file="res://assets/3D models/button/uploads_files_2691895_button.obj"
-dest_files=[ "res://.import/uploads_files_2691895_button.obj-36603b01f238efbf2c195266a74ac6eb.mesh", "res://.import/uploads_files_2691895_button.obj-36603b01f238efbf2c195266a74ac6eb.mesh" ]
+dest_files=["res://.godot/imported/uploads_files_2691895_button.obj-36603b01f238efbf2c195266a74ac6eb.mesh", "res://.godot/imported/uploads_files_2691895_button.obj-36603b01f238efbf2c195266a74ac6eb.mesh"]
 
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3( 1, 1, 1 )
-offset_mesh=Vector3( 0, 0, 0 )
-octahedral_compression=true
-optimize_mesh_flags=4286
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

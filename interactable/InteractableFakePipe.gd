@@ -5,10 +5,10 @@ signal PipeEntered
 
 func _ready():
 # warning-ignore:return_value_discarded
-	SceneManager.connect("FakeFadeDone", self, "on_fade_finished")
+	SceneManager.connect("FakeFadeDone",Callable(self,"on_fade_finished"))
 
 func get_interaction_text():
-	return "Press %s to enter the pipe" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
+	return "Press %s to enter the pipe" % [OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode)]
 
 func interact():
 	SceneManager._fake_fade()

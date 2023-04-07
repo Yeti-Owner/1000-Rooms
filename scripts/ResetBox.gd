@@ -1,4 +1,4 @@
-extends Area
+extends Area3D
 
 func _on_ResetBox_area_entered(area):
 	if area.name == "PlayerArea":

@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 var Prompt := 0
 
 func _ready():

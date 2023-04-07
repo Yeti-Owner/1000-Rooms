@@ -1,7 +1,7 @@
-extends PathFollow
+extends PathFollow3D
 
 var Chase := true
-onready var path := get_parent()
+@onready var path := get_parent()
 
 func _ready():
 	randomize()

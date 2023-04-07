@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 var Pos
 var SpawnPos
@@ -20,7 +20,7 @@ func _ready():
 		for i in (get_child_count() - num):
 			Pos.pop_at(randi() % Pos.size()).queue_free()
 		
-		yield(get_tree(), "idle_frame")
+		await get_tree().idle_frame
 		
 		_summon_statue()
 
@@ -28,16 +28,16 @@ func _summon_statue():
 	if get_parent().get_parent().AllowEnemy == true:
 		if num == 1:
 			SpawnPos = get_child(0).global_transform.origin
-			var _s = load("res://scenes/enemies/StatueEnemy.tscn").instance()
+			var _s = load("res://scenes/enemies/StatueEnemy.tscn").instantiate()
 			get_parent().add_child(_s)
 			_s.global_transform.origin = SpawnPos
 		elif num == 2:
 			SpawnPos = get_child(0).global_transform.origin
-			var _s = load("res://scenes/enemies/StatueEnemy.tscn").instance()
+			var _s = load("res://scenes/enemies/StatueEnemy.tscn").instantiate()
 			get_parent().add_child(_s)
 			_s.global_transform.origin = SpawnPos
 			
 			var SpawnPos2 = get_child(1).global_transform.origin
-			var _s2 = load("res://scenes/enemies/StatueEnemy.tscn").instance()
+			var _s2 = load("res://scenes/enemies/StatueEnemy.tscn").instantiate()
 			get_parent().add_child(_s2)
 			_s2.global_transform.origin = SpawnPos2

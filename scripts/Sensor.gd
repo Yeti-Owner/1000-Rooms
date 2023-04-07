@@ -1,6 +1,6 @@
-extends Area
+extends Area3D
 
-export(bool) var OneShot = true
+@export var OneShot: bool = true
 signal PlayerDetected
 
 func _on_Sensor_area_entered(area):

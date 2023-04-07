@@ -1,9 +1,9 @@
-extends Spatial
+extends Node3D
 
-export(Environment) var EnvironmentUsed 
-onready var Narrator := $Narrator
-onready var player := $RoomItems/Player
-onready var _room := self.filename
+@export var EnvironmentUsed: Environment 
+@onready var Narrator := $Narrator
+@onready var player := $RoomItems/Player
+@onready var _room := self.filename
 
 var DoorStage = 1
 var CorrectDoor:int
@@ -15,7 +15,7 @@ func _ready():
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	
 # warning-ignore:return_value_discarded
-	$Narrator.connect("DialogueFinished", self, "_dialogue_finished")
+	$Narrator.connect("DialogueFinished",Callable(self,"_dialogue_finished"))
 	SaveGame.game_data.CurrentRoom = _room
 	
 	if SaveGame.game_data.CurrentPos == Vector3(67, 0.8, 13):

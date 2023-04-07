@@ -1,8 +1,8 @@
-extends Spatial
+extends Node3D
 
-export var Text = ""
-export(int) var FontSize = 50
-onready var label := $PlaqueText
+@export var Text = ""
+@export var FontSize: int = 50
+@onready var label := $PlaqueText
 var LabelStyle := preload("res://resources/PlaqueFont.tres")
 
 func _ready():

@@ -4,20 +4,20 @@
 [ext_resource path="res://scenes/objects/Floors Walls Etc/HubWallObj.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/textures/hub/roof.obj" type="ArrayMesh" id=3]
 
-[sub_resource type="ConvexPolygonShape" id=1]
-points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+[sub_resource type="ConvexPolygonShape3D" id=1]
+points = PackedVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
 
 [node name="HubTileset" type="Node"]
 
 [node name="wall" parent="." instance=ExtResource( 2 )]
 
-[node name="roof" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
+[node name="roof" type="MeshInstance3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
 mesh = ExtResource( 3 )
 
-[node name="StaticBody" type="StaticBody" parent="roof"]
+[node name="StaticBody3D" type="StaticBody3D" parent="roof"]
 
-[node name="CollisionShape" type="CollisionShape" parent="roof/StaticBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="roof/StaticBody3D"]
 shape = SubResource( 1 )
 
 [node name="floor" parent="." instance=ExtResource( 1 )]

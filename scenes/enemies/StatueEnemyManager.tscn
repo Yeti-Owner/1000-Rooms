@@ -2,5 +2,5 @@
 
 [ext_resource path="res://scenes/enemies/StatueEnemyManager.gd" type="Script" id=1]
 
-[node name="StatueEnemyManager" type="Spatial"]
+[node name="StatueEnemyManager" type="Node3D"]
 script = ExtResource( 1 )

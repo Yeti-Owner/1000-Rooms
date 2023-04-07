@@ -1,9 +1,9 @@
-extends Camera
+extends Camera3D
 
-export(Environment) var EnvironmentUsed
+@export var EnvironmentUsed: Environment
 
-onready var Anim := $AnimationPlayer
-onready var timer := get_parent().get_node("Timer")
+@onready var Anim := $AnimationPlayer
+@onready var timer := get_parent().get_node("Timer")
 
 var Last:int = 1
 

@@ -2,7 +2,7 @@ extends Node
 
 func _ready():
 	if SaveGame.game_data.Intro == 0:
-		OS.set_window_fullscreen(false)
+		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (false) else Window.MODE_WINDOWED
 		Settingsholder.save_data.Fullscreen = 0
 		SceneManager._change_scene("res://scenes/Room0.tscn")
 		queue_free()

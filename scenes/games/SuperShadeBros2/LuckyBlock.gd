@@ -1,7 +1,7 @@
 extends Node2D
 
-export(String, "Coin", "Life", "C") var Reward := "Coin"
-export(int) var NumBumps := 1
+@export var Reward := "Coin" # (String, "Coin", "Life", "C")
+@export var NumBumps: int := 1
 
 func _on_Area2D_area_entered(area):
 	if area.name == "ShadeArea" and NumBumps > 0:
@@ -11,4 +11,4 @@ func _on_Area2D_area_entered(area):
 					$AnimationPlayer.play(Reward)
 					get_parent().get_parent().Score += 10
 					NumBumps -= 1
-	if NumBumps <= 0: $Sprite.texture = load("res://scenes/games/SuperShadeBros2/EmptyLuckyBlock.png")
+	if NumBumps <= 0: $Sprite2D.texture = load("res://scenes/games/SuperShadeBros2/EmptyLuckyBlock.png")

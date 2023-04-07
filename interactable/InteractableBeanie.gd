@@ -5,7 +5,7 @@ func _ready():
 		self.queue_free()
 
 func get_interaction_text():
-	return ("Press %s to collect Beanie" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)])
+	return ("Press %s to collect Beanie" % [OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode)])
 
 func interact():
 	if AchievementsHolder.game_data.Badenov == 0:

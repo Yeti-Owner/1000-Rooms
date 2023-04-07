@@ -1,6 +1,6 @@
 extends Interactable
 
-var ReleasedText := "Press %s to mess with it" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
+var ReleasedText := "Press %s to mess with it" % [OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode)]
 var ReleasedYet:bool = false
 var v := 20
 

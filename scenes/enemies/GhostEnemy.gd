@@ -1,8 +1,8 @@
-extends KinematicBody
+extends CharacterBody3D
 
-export var speed := 4
-onready var nav := get_node("NavigationAgent")
-onready var target := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
+@export var speed := 4
+@onready var nav := get_node("NavigationAgent3D")
+@onready var target := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
 
 var GhostFx := ["res://assets/audio/scary/ghost1.ogg", "res://assets/audio/scary/ghost2.ogg", "res://assets/audio/scary/ghost3.ogg"]
 var EnabledChasing := true
@@ -13,12 +13,12 @@ func _ready():
 	$SoundTimer.start()
 	randomize()
 # warning-ignore:return_value_discarded
-	SaveGame.connect("EnemyPassive", self, "_passive")
+	SaveGame.connect("EnemyPassive",Callable(self,"_passive"))
 	nav.set_target_location(target.transform.origin)
 	targetPos = nav.get_next_location()
 
 func _physics_process(_delta):
-	look_at(target.get_translation(), Vector3.UP)
+	look_at(target.get_position(), Vector3.UP)
 	if EnabledChasing:
 		if $Timer.is_stopped():
 			$Timer.start()
@@ -28,7 +28,10 @@ func move_to_target():
 	direction = targetPos - self.transform.origin
 	direction.y = 0.0
 	direction = direction.normalized()
-	var _error := move_and_slide(direction * speed, Vector3.UP)
+	set_velocity(direction * speed)
+	set_up_direction(Vector3.UP)
+	move_and_slide()
+	var _error := velocity
 
 func _on_Timer_timeout():
 	nav.set_target_location(target.transform.origin)

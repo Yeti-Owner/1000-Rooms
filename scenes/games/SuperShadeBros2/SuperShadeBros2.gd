@@ -1,9 +1,9 @@
 extends Node2D
 
-onready var Player := $ShadeBro
+@onready var Player := $ShadeBro
 
 var SpawnLoc := Vector2(2, -32)
-var level:int = 1 setget _next_level
+var level:int = 1 : set = _next_level
 var Score:int = 0
 var Lives := 3
 var dead := false
@@ -30,8 +30,8 @@ func _on_QuitBtn_pressed():
 
 func _quit():
 	var scene = load("res://scenes/games/Menu.tscn")
-	yield(get_tree(), "idle_frame")
-	var Game = scene.instance()
+	await get_tree().idle_frame
+	var Game = scene.instantiate()
 	get_parent().add_child(Game)
 	Game._active()
 	self.queue_free()
@@ -61,11 +61,11 @@ func _next_level(NewLevel):
 	
 	# Add Next level
 	var l = load("res://scenes/games/SuperShadeBros2/Level" + str(NewLevel) + ".tscn")
-	var _l = l.instance()
+	var _l = l.instantiate()
 	self.add_child(_l)
 	
 	# Re-add Player
-	var p = load("res://scenes/games/SuperShadeBros2/ShadeBro.tscn").instance()
+	var p = load("res://scenes/games/SuperShadeBros2/ShadeBro.tscn").instantiate()
 	self.add_child(p)
 	p.position = SpawnLoc
 	

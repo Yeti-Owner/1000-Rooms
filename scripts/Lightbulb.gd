@@ -1,7 +1,7 @@
-extends Spatial
+extends Node3D
 
-export(bool) var Bulb_On
-export(bool) var Flashing
+@export var Bulb_On: bool
+@export var Flashing: bool
 
 var timer:Timer = null
 
@@ -9,15 +9,15 @@ var timer:Timer = null
 func _ready():
 	randomize()
 	if not Bulb_On:
-		$OmniLight.queue_free()
+		$OmniLight3D.queue_free()
 		$OnBulb.visible = false
 		$OffBulb.visible = true
 		$Sparks.queue_free()
 	elif Flashing:
 		timer = Timer.new()
-		timer.wait_time = rand_range(0.05, 0.1)
+		timer.wait_time = randf_range(0.05, 0.1)
 # warning-ignore:return_value_discarded
-		timer.connect("timeout", self, "_on_timer_timeout")
+		timer.connect("timeout",Callable(self,"_on_timer_timeout"))
 		add_child(timer)
 		timer.start()
 		$AudioStreamPlayer3D.play()
@@ -25,5 +25,5 @@ func _ready():
 		$Sparks.queue_free()
 
 func _on_timer_timeout():
-	timer.wait_time = rand_range(0.05, 0.1)
-	$OmniLight.light_energy = rand_range(0, 2.0)
+	timer.wait_time = randf_range(0.05, 0.1)
+	$OmniLight3D.light_energy = randf_range(0, 2.0)

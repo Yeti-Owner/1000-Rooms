@@ -1,9 +1,9 @@
-extends RayCast
+extends RayCast3D
 
 var current_collider
 
-onready var interaction_label = get_node("/root/SceneManager/GameScene/HUD/GUI/InteractLabel")
-onready var interaction_hand = get_node("/root/SceneManager/GameScene/HUD/GUI/hand/handpng")
+@onready var interaction_label = get_node("/root/SceneManager/GameScene/HUD/GUI/InteractLabel")
+@onready var interaction_hand = get_node("/root/SceneManager/GameScene/HUD/GUI/hand/handpng")
 
 func _ready():
 	interaction_hand.visible = false

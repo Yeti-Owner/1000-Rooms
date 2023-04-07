@@ -1,10 +1,10 @@
-extends Spatial
+extends Node3D
 
-export(Environment) var EnvironmentUsed
-onready var Narrator := $Narrator
-onready var Monster := $NavMesh/GhostEnemy
-onready var player := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
-onready var _room := self.filename
+@export var EnvironmentUsed: Environment
+@onready var Narrator := $Narrator
+@onready var Monster := $NavMesh/GhostEnemy
+@onready var player := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
+@onready var _room := self.filename
 
 func _ready():
 	randomize()
@@ -28,7 +28,7 @@ func _ready():
 		player.transform.origin = Vector3(SaveGame.game_data.CurrentPos)
 		Narrator.messages = ["Welcome back"]
 	else: # if not
-		get_node("ObjHolder/WallObj").translation = Vector3(0, -4.1, 0)
+		get_node("ObjHolder/WallObj").position = Vector3(0, -4.1, 0)
 		Narrator.messages = ["Run", "you need to run"]
 
 func _add_objs():
@@ -55,7 +55,7 @@ func _on_Check2_area_entered(area2):
 func _on_Check3_area_entered(area3):
 	if area3.name == "PlayerArea":
 		$AreaHolder/Check3.queue_free()
-		get_node("ObjHolder/WallObj").translation = Vector3(0,0,0)
+		get_node("ObjHolder/WallObj").position = Vector3(0,0,0)
 		$Timer.start()
 
 func _on_Check4_area_entered(area4):

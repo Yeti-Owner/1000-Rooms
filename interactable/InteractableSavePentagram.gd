@@ -1,7 +1,7 @@
 extends Interactable
 
-var Saved = "Press %s to Save" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
-export(Vector3) var CurrentPos
+var Saved = "Press %s to Save" % [OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode)]
+@export var CurrentPos: Vector3
 
 func get_interaction_text():
 	return Saved

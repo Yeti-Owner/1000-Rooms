@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/games/Menu.gd" type="Script" id=1]
-[ext_resource path="res://assets/theme/MinimalUI/monogram-extended.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/theme/MinimalUI/monogram-extended.ttf" type="FontFile" id=2]
 [ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=3]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 size = 90
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="FontFile" id=2]
 size = 65
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -22,7 +22,7 @@ draw_center = false
 anti_aliasing = false
 anti_aliasing_size = 0.01
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="FontFile" id=4]
 size = 40
 outline_size = 2
 font_data = ExtResource( 2 )
@@ -40,44 +40,44 @@ color = Color( 0.376471, 1, 0.662745, 1 )
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
+custom_constants/offset_right = 20
+custom_constants/offset_top = 20
+custom_constants/offset_left = 20
+custom_constants/offset_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 1260.0
-margin_bottom = 704.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1260.0
+offset_bottom = 704.0
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
-margin_right = 1240.0
-margin_bottom = 340.0
-rect_min_size = Vector2( 0, 340 )
+offset_right = 1240.0
+offset_bottom = 340.0
+custom_minimum_size = Vector2( 0, 340 )
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer"]
-margin_left = 263.0
-margin_top = 133.0
-margin_right = 977.0
-margin_bottom = 207.0
+offset_left = 263.0
+offset_top = 133.0
+offset_right = 977.0
+offset_bottom = 207.0
 custom_fonts/font = SubResource( 1 )
 text = "Super Funtime Arcade!"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 344.0
-margin_right = 1240.0
-margin_bottom = 684.0
-rect_min_size = Vector2( 0, 340 )
+offset_top = 344.0
+offset_right = 1240.0
+offset_bottom = 684.0
+custom_minimum_size = Vector2( 0, 340 )
 theme = ExtResource( 3 )
 custom_constants/separation = 25
 alignment = 1
 
 [node name="GamesBtn" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 95.0
-margin_right = 1240.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 0, 65 )
+offset_top = 95.0
+offset_right = 1240.0
+offset_bottom = 160.0
+custom_minimum_size = Vector2( 0, 65 )
 focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 3 )
@@ -87,10 +87,10 @@ text = "Games"
 
 [node name="OptionsBtn" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 visible = false
-margin_top = 142.0
-margin_right = 1240.0
-margin_bottom = 202.0
-rect_min_size = Vector2( 0, 60 )
+offset_top = 142.0
+offset_right = 1240.0
+offset_bottom = 202.0
+custom_minimum_size = Vector2( 0, 60 )
 focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 3 )
@@ -99,10 +99,10 @@ custom_styles/normal = SubResource( 3 )
 text = "Options"
 
 [node name="ExitBtn" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 185.0
-margin_right = 1240.0
-margin_bottom = 245.0
-rect_min_size = Vector2( 0, 60 )
+offset_top = 185.0
+offset_right = 1240.0
+offset_bottom = 245.0
+custom_minimum_size = Vector2( 0, 60 )
 focus_mode = 1
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 3 )
@@ -115,15 +115,15 @@ text = "Exit"
 [node name="GamesList" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 852.0
-margin_top = 424.0
-margin_right = -20.0
-margin_bottom = -20.0
+offset_left = 852.0
+offset_top = 424.0
+offset_right = -20.0
+offset_bottom = -20.0
 
 [node name="FlappyGhost" type="Button" parent="GamesList"]
 visible = false
-margin_right = 408.0
-margin_bottom = 33.0
+offset_right = 408.0
+offset_bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
@@ -133,8 +133,8 @@ text = "Flappy Ghost"
 
 [node name="GhostRun" type="Button" parent="GamesList"]
 visible = false
-margin_right = 408.0
-margin_bottom = 33.0
+offset_right = 408.0
+offset_bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
@@ -144,8 +144,8 @@ text = "Ghost Run"
 
 [node name="FairyJump" type="Button" parent="GamesList"]
 visible = false
-margin_right = 408.0
-margin_bottom = 33.0
+offset_right = 408.0
+offset_bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
@@ -154,8 +154,8 @@ custom_styles/normal = SubResource( 3 )
 text = "Fairy Jump"
 
 [node name="SuperShadeBros" type="Button" parent="GamesList"]
-margin_right = 408.0
-margin_bottom = 33.0
+offset_right = 408.0
+offset_bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
@@ -165,9 +165,9 @@ text = "Super Shade Bros 2"
 
 [node name="Pinball" type="Button" parent="GamesList"]
 visible = false
-margin_top = 111.0
-margin_right = 408.0
-margin_bottom = 144.0
+offset_top = 111.0
+offset_right = 408.0
+offset_bottom = 144.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
@@ -178,10 +178,10 @@ text = "Pinball"
 [node name="GamesHider" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 852.0
-margin_top = 424.0
-margin_right = -20.0
-margin_bottom = -20.0
+offset_left = 852.0
+offset_top = 424.0
+offset_right = -20.0
+offset_bottom = -20.0
 color = Color( 0.376471, 1, 0.662745, 1 )
 
 [node name="Hider" type="ColorRect" parent="."]
@@ -193,7 +193,7 @@ color = Color( 1, 1, 1, 0 )
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/GamesBtn" to="." method="_on_GamesBtn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/ExitBtn" to="." method="_on_ExitBtn_pressed"]
-[connection signal="tween_completed" from="MenuTween" to="." method="_on_MenuTween_tween_completed"]
+[connection signal="finished" from="MenuTween" to="." method="_on_MenuTween_tween_completed"]
 [connection signal="pressed" from="GamesList/FlappyGhost" to="." method="_on_FlappyGhost_pressed"]
 [connection signal="pressed" from="GamesList/GhostRun" to="." method="_on_GhostRun_pressed"]
 [connection signal="pressed" from="GamesList/FairyJump" to="." method="_on_FairyJump_pressed"]

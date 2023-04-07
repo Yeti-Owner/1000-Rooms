@@ -143,7 +143,7 @@ func _update_presence():
 #	assets.set_small_image("blank")
 #	assets.set_small_text("")
 
-#	var result = yield(Discord.activity_manager.update_activity(activity), "result").result
+#	var result = await Discord.activity_manager.update_activity(activity).result.result
 #	if result != Discord.Result.Ok:
 #		push_error(result)
 

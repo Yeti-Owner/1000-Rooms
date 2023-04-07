@@ -1,7 +1,7 @@
-extends Spatial
+extends Node3D
 
-onready var EnemySpawner := get_parent().get_node("NavMesh2/EnemySpawner")
-onready var Player := get_parent().get_node("RoomItems/Player")
+@onready var EnemySpawner := get_parent().get_node("NavMesh2/EnemySpawner")
+@onready var Player := get_parent().get_node("RoomItems/Player")
 
 func _on_Sensor_PlayerDetected():
 	# Spawn Ghost

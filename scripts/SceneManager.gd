@@ -1,30 +1,30 @@
 extends Node
 
 # References
-onready var Transitions := $TransitionManager
-onready var Canvas := $CanvasLayer
-onready var GameScene := $GameScene/GameViewport
-onready var GameViewportContainer := $GameScene
-onready var GameHud := $GameScene/HUD
-onready var environment:Environment = $GameScene/GameViewport.world.environment
-onready var TextureHolder := $CanvasLayer/Transitions/TextureRect
+@onready var Transitions := $TransitionManager
+@onready var Canvas := $CanvasLayer
+@onready var GameScene := $GameScene/GameViewport
+@onready var GameViewportContainer := $GameScene
+@onready var GameHud := $GameScene/HUD
+@onready var environment:Environment = $GameScene/GameViewport.world.environment
+@onready var TextureHolder := $CanvasLayer/Transitions/TextureRect
 
 var SceneToLoad: String
 var CurrentScene
-var HudMode:String = "none" setget _init_HUD
+var HudMode:String = "none" : set = _init_HUD
 var NextTransition
 var CurrentMode:String
 
 signal FakeFadeDone
 
 func _ready():
-	VisualServer.scenario_set_reflection_atlas_size(GameScene.find_world().scenario, 2048, 8)
+	RenderingServer.scenario_set_reflection_atlas_size(GameScene.find_world().scenario, 2048, 8)
 # warning-ignore:return_value_discarded
-	Settingsholder.connect("bloom_changed", self, "_bloom")
+	Settingsholder.connect("bloom_changed",Callable(self,"_bloom"))
 # warning-ignore:return_value_discarded
-	Settingsholder.connect("brightness_changed", self, "_brightness")
+	Settingsholder.connect("brightness_changed",Callable(self,"_brightness"))
 # warning-ignore:return_value_discarded
-	Settingsholder.connect("quality_bloom_changed", self, "_quality_bloom")
+	Settingsholder.connect("quality_bloom_changed",Callable(self,"_quality_bloom"))
 	
 	_bloom()
 	
@@ -49,10 +49,10 @@ func _change_scene(scene:String, type := "normal"):
 func _scene_load():
 	if CurrentScene != null:
 		CurrentScene.queue_free()
-		yield(get_tree(), "idle_frame")
+		await get_tree().idle_frame
 	
 	var _scene = load(SceneToLoad)
-	var _s = _scene.instance()
+	var _s = _scene.instantiate()
 	GameScene.add_child(_s, true)
 	CurrentScene = _s
 	_fade_in()
@@ -61,7 +61,7 @@ func _reload_scene():
 	Transitions.play("fade_out")
 
 func _fade_in():
-	VisualServer.scenario_set_reflection_atlas_size(GameScene.find_world().scenario, 2048, 8)
+	RenderingServer.scenario_set_reflection_atlas_size(GameScene.find_world().scenario, 2048, 8)
 	if NextTransition != null:
 		Transitions.play(NextTransition)
 
@@ -87,14 +87,14 @@ func _swap_HUD(step, scene = null):
 			for child in GameHud.get_children():
 				child.queue_free()
 			if scene != null:
-				var _s = load(scene).instance()
+				var _s = load(scene).instantiate()
 				GameHud.add_child(_s)
 		1:
 			for child in GameHud.get_children():
 				child.queue_free()
 			for scene in GameScene.get_children():
 				scene.queue_free()
-			var _s = load(scene).instance()
+			var _s = load(scene).instantiate()
 			GameHud.add_child(_s)
 
 # WorldEnvironment Shenanigans

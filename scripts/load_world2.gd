@@ -1,11 +1,11 @@
-extends Spatial
+extends Node3D
 
-export(bool) var AllowChase := true
-export(Environment) var EnvironmentUsed
-export var room_event: Resource
-onready var Narrator := $Narrator
-onready var MonsterHandler := $EnemyPath/PathFollow
-onready var _room := self.filename
+@export var AllowChase: bool := true
+@export var EnvironmentUsed: Environment
+@export var room_event: Resource
+@onready var Narrator := $Narrator
+@onready var MonsterHandler := $EnemyPath/PathFollow3D
+@onready var _room := self.filename
 
 #var FairyEnemy := preload("res://scenes/enemies/FairyEnemy.tscn")
 var ChaseList := ["HURRY!","IT'S HERE!","RUN!","HIDE!"]
@@ -14,7 +14,7 @@ var ReRunSpawn:bool = true
 func _ready():
 	$ReflectionProbe.intensity = 0.01
 # warning-ignore:return_value_discarded
-	$Narrator.connect("DialogueFinished", self, "_dialogue_finished")
+	$Narrator.connect("DialogueFinished",Callable(self,"_dialogue_finished"))
 	randomize()
 	SceneManager.GameScene.world.environment = EnvironmentUsed
 	SaveGame.game_data.CurrentRoom = _room
@@ -80,7 +80,7 @@ func _chasing():
 
 func _on_SpawnTimer_timeout():
 	$RoomItems/wall.queue_free()
-	var FairyEnemy = load("res://scenes/enemies/FairyEnemy.tscn").instance()
+	var FairyEnemy = load("res://scenes/enemies/FairyEnemy.tscn").instantiate()
 	MonsterHandler.add_child(FairyEnemy)
-	get_node("EnemyPath/PathFollow/FairyEnemy")._change_state(3)
+	get_node("EnemyPath/PathFollow3D/FairyEnemy")._change_state(3)
 	ReRunSpawn = false

@@ -1,9 +1,9 @@
-extends Spatial
+extends Node3D
 
-export(Environment) var EnvironmentUsed
-onready var Narrator := $Narrator
-onready var _room := self.filename
-onready var Player := $RoomItems/Player
+@export var EnvironmentUsed: Environment
+@onready var Narrator := $Narrator
+@onready var _room := self.filename
+@onready var Player := $RoomItems/Player
 
 func _ready():
 	randomize()
@@ -17,7 +17,7 @@ func _ready():
 	else:
 		Narrator.messages = ["You better find the exit before they find you."]
 # warning-ignore:return_value_discarded
-		$RoomItems/FakePipe/StaticBody.connect("PipeEntered", self, "_on_FakePipe_PipeEntered")
+		$RoomItems/FakePipe/StaticBody3D.connect("PipeEntered",Callable(self,"_on_FakePipe_PipeEntered"))
 
 func _on_FakePipe_PipeEntered():
 	Player.global_transform.origin = Vector3(-2,0.9,-42)

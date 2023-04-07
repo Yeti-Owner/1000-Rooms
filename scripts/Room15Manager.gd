@@ -1,6 +1,6 @@
-extends Spatial
+extends Node3D
 
-onready var Player := get_parent().get_node("RoomItems/Player")
+@onready var Player := get_parent().get_node("RoomItems/Player")
 
 
 func _on_Sensor_PlayerDetected():

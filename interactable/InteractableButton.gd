@@ -1,16 +1,16 @@
 extends Interactable
 
-export(String) var Function = ""
-export(String) var FuncText = ""
-export(NodePath) var Arg1
-export(int) var Arg2 := 0
+@export var Function: String = ""
+@export var FuncText: String = ""
+@export var Arg1: NodePath
+@export var Arg2: int := 0
 
-onready var player := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
-onready var Narrator := get_node("/root/SceneManager/GameScene/GameViewport/world/Narrator")
+@onready var player := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
+@onready var Narrator := get_node("/root/SceneManager/GameScene/GameViewport/world/Narrator")
 var Interacted := false
 
 func get_interaction_text():
-	return str("Press %s to %s" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode), FuncText])
+	return str("Press %s to %s" % [OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode), FuncText])
 
 func interact():
 	if Interacted == true:
@@ -29,7 +29,7 @@ func interact():
 		"delete":
 			if has_node(Arg1): get_node(Arg1).queue_free()
 		"fairy":
-			var FairyEnemy = load("res://scenes/enemies/FairyEnemy.tscn").instance()
+			var FairyEnemy = load("res://scenes/enemies/FairyEnemy.tscn").instantiate()
 			get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/wall").queue_free()
 			FairyEnemy.transform.origin = Vector3(-5, 1, 3)
 			get_node("/root/SceneManager/GameScene/GameViewport/world/").add_child(FairyEnemy)
@@ -39,6 +39,6 @@ func interact():
 		"hp":
 			SaveGame.game_data.PlayerHP = Arg2
 			Settingsholder.emit_signal("hp_changed")
-	$ButtonNoise.pitch_scale = rand_range(0.80, 1.2)
+	$ButtonNoise.pitch_scale = randf_range(0.80, 1.2)
 	$ButtonNoise.play()
 	Interacted = true

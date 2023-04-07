@@ -1,9 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/DeathScreen.gd" type="Script" id=1]
-[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="FontFile" id=2]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 size = 45
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -28,10 +28,10 @@ stretch_mode = 6
 [node name="DeathLabel" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 15.0
-margin_top = 188.0
-margin_right = -15.0
-rect_min_size = Vector2( 0, 375 )
+offset_left = 15.0
+offset_top = 188.0
+offset_right = -15.0
+custom_minimum_size = Vector2( 0, 375 )
 custom_fonts/font = SubResource( 1 )
 text = "Another body left behind to be consumed by the dungeon.
 

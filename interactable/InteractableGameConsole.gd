@@ -4,9 +4,9 @@ extends Interactable
 var Player
 var PlayerCam
 var GUI
-onready var viewport = $ViewportManager/Viewport
-onready var Screen = $ViewportManager/Screen
-onready var Collision2 = $CollisionShape2
+@onready var viewport = $ViewportManager/SubViewport
+@onready var Screen = $ViewportManager/Screen
+@onready var Collision2 = $CollisionShape2
 var Menu
 
 # Constants for Instancing
@@ -15,9 +15,9 @@ const GUIScene = preload("res://scenes/UI/GUI.tscn")
 
 var Interacted = 0
 var Stage = 0
-onready var GameRot = $Position3D.global_transform.basis
-onready var TestRotation = $RotationPos.global_transform.basis
-onready var world = get_node("/root/SceneManager/GameScene/GameViewport/world")
+@onready var GameRot = $Marker3D.global_transform.basis
+@onready var TestRotation = $RotationPos.global_transform.basis
+@onready var world = get_node("/root/SceneManager/GameScene/GameViewport/world")
 
 # PlayerVars
 var CamLoc
@@ -31,7 +31,7 @@ func _ready():
 	self.queue_free()
 
 func get_interaction_text():
-	return "Press %s to play" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
+	return "Press %s to play" % [OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode)]
 
 func interact():
 	if Interacted == 0:
@@ -39,9 +39,9 @@ func interact():
 		
 		# Manage Vars
 		Player = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
-		PlayerCam = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player/CameraHolder/Camera")
-		NewCam = Camera.new()
-		Menu = $ViewportManager/Viewport/Menu
+		PlayerCam = get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player/CameraHolder/Camera3D")
+		NewCam = Camera3D.new()
+		Menu = $ViewportManager/SubViewport/Menu
 		
 		# Add in New Cam
 		add_child(NewCam)
@@ -50,7 +50,7 @@ func interact():
 		# Position/Rotate it correctly
 		PlayerLoc = Player.global_transform.origin
 		CamLoc = PlayerCam.global_transform.origin
-		GameLoc = $Position3D.global_transform.origin
+		GameLoc = $Marker3D.global_transform.origin
 		CamRot = PlayerCam.global_transform.basis
 		CamFOV = Settingsholder.save_data.PlayerFOV
 		
@@ -81,7 +81,7 @@ func _on_PlayerCamera_tween_completed(_object, _key):
 	elif Stage == 2:
 		# Re-add GUI and Player
 		SceneManager.HudMode = "ingame"
-		var NewPlayer = PlayerScene.instance()
+		var NewPlayer = PlayerScene.instantiate()
 		get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems").add_child(NewPlayer)
 		NewCam.queue_free()
 		NewPlayer.global_transform.origin = PlayerLoc

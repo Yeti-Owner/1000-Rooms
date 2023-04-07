@@ -1,7 +1,7 @@
 extends MarginContainer
 
-onready var KeyTester := InputEventKey.new()
-onready var AnimPlayer := $Extras/AnimationPlayer
+@onready var KeyTester := InputEventKey.new()
+@onready var AnimPlayer := $Extras/AnimationPlayer
 
 var ActionsList := ["up","down","left","right","jump","sprint","interact","pause","console","primary","secondary"]
 var ActionChange
@@ -15,7 +15,7 @@ func _ready():
 	var num:int = 0
 	for child in $Buttons.get_children():
 		if num <9:
-			child.get_node("Bound").text = OS.get_scancode_string(InputMap.get_action_list(ActionsList[num])[0].scancode)
+			child.get_node("Bound").text = OS.get_keycode_string(InputMap.action_get_events(ActionsList[num])[0].keycode)
 		num += 1
 
 func _check_key(key):
@@ -35,7 +35,7 @@ func _assign_key(key):
 	InputMap.action_add_event(Action, key)
 	
 	# Save in keybinds
-	key = key.scancode
+	key = key.keycode
 	
 	var keybinds_mapping := {
 		0: "up",

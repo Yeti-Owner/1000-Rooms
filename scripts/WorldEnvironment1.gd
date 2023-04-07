@@ -4,11 +4,11 @@ var UsableBrightness := float(Settingsholder.save_data.Brightness)/10
 
 func _ready():
 # warning-ignore:return_value_discarded
-	Settingsholder.connect("bloom_changed", self, "_bloom")
+	Settingsholder.connect("bloom_changed",Callable(self,"_bloom"))
 # warning-ignore:return_value_discarded
-	Settingsholder.connect("brightness_changed", self, "_brightness")
+	Settingsholder.connect("brightness_changed",Callable(self,"_brightness"))
 # warning-ignore:return_value_discarded
-	Settingsholder.connect("quality_bloom_changed", self, "_quality_bloom")
+	Settingsholder.connect("quality_bloom_changed",Callable(self,"_quality_bloom"))
 	
 	_bloom()
 

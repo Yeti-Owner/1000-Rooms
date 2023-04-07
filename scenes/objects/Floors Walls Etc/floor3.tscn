@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/textures/floors/floor+roof.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://assets/textures/floors/floor3/MetalWalkway012_1K_NormalGL.jpg" type="Texture" id=2]
-[ext_resource path="res://assets/textures/floors/floor3/MetalWalkway012_1K_Color.jpg" type="Texture" id=3]
-[ext_resource path="res://assets/textures/floors/floor3/MetalWalkway012_1K_Metalness.jpg" type="Texture" id=4]
-[ext_resource path="res://assets/textures/floors/floor3/MetalWalkway012_1K_Roughness.jpg" type="Texture" id=5]
+[ext_resource path="res://assets/textures/floors/floor3/MetalWalkway012_1K_NormalGL.jpg" type="Texture2D" id=2]
+[ext_resource path="res://assets/textures/floors/floor3/MetalWalkway012_1K_Color.jpg" type="Texture2D" id=3]
+[ext_resource path="res://assets/textures/floors/floor3/MetalWalkway012_1K_Metalness.jpg" type="Texture2D" id=4]
+[ext_resource path="res://assets/textures/floors/floor3/MetalWalkway012_1K_Roughness.jpg" type="Texture2D" id=5]
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="StandardMaterial3D" id=4]
 albedo_texture = ExtResource( 3 )
 metallic = 0.5
 metallic_texture = ExtResource( 4 )
@@ -15,15 +15,15 @@ normal_enabled = true
 normal_scale = -1.0
 normal_texture = ExtResource( 2 )
 
-[sub_resource type="ConvexPolygonShape" id=3]
-points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+[sub_resource type="ConvexPolygonShape3D" id=3]
+points = PackedVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
 
-[node name="floor3" type="MeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
+[node name="floor3" type="MeshInstance3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
 mesh = ExtResource( 1 )
 material/0 = SubResource( 4 )
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource( 3 )
