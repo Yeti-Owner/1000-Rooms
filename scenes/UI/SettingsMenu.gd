@@ -24,7 +24,7 @@ extends Popup
 
 func _ready():
 	# Set FPS to correct value
-	Engine.set_target_fps(int(Settingsholder.save_data.FrameRate))
+	Engine.set_max_fps(int(Settingsholder.save_data.FrameRate))
 	
 	# Set Windowd/Fullscreen
 	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (Settingsholder.save_data.Fullscreen) else Window.MODE_WINDOWED
@@ -53,8 +53,8 @@ func _ready():
 	_viewport_settings()
 
 func _viewport_settings():
-	get_node("/root/SceneManager/GameScene/GameViewport").fxaa = Settingsholder.save_data.FXAA
-	get_node("/root/SceneManager/GameScene/GameViewport").set_msaa(Settingsholder.save_data.MSAA)
+#	get_node("/root/SceneManager/GameScene/GameViewport").fxaa = Settingsholder.save_data.FXAA
+	get_node("/root/SceneManager/GameScene/GameViewport").set_msaa_3d(Settingsholder.save_data.MSAA)
 	
 	var resolutions := [Vector2(848,480),Vector2(960, 540),Vector2(1024,576),Vector2(1280,720),Vector2(1366,768),Vector2(1600,900),Vector2(1920,1080),Vector2(2560,1440)]
 	get_node("/root/SceneManager/GameScene/GameViewport").set_size(resolutions[Settingsholder.save_data.ResolutionScale])
@@ -66,13 +66,13 @@ func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
 			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (false) else Window.MODE_WINDOWED
 			ClickPlayer._click_sound()
 			Settingsholder.save_data.Fullscreen = 0
-			await get_tree().idle_frame
+			await(get_tree().idle_frame)
 			self.popup_centered()
 		1:
 			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (true) else Window.MODE_WINDOWED
 			ClickPlayer._click_sound()
 			Settingsholder.save_data.Fullscreen = 1
-			await get_tree().idle_frame
+			await(get_tree().idle_frame)
 			self.popup_centered()
 
 # Vsync
@@ -85,7 +85,7 @@ func _on_VsyncCheckBtn_pressed():
 func _on_MaxFpsSlider_value_changed(MaxFps):
 	MaxFpsValue.set_text(str(MaxFps))
 	Settingsholder.save_data.FrameRate = MaxFps
-	Engine.set_target_fps(int(Settingsholder.save_data.FrameRate))
+	Engine.set_max_fps(int(Settingsholder.save_data.FrameRate))
 
 # Show Fps
 func _on_ShowFpsCheckBtn_pressed():

@@ -33,7 +33,8 @@ func _on_CreditsBtn_pressed():
 
 func _on_QuitBtn_pressed():
 	ClickPlayer._click_sound()
-	Settingsholder._save()
+	Settingsholder._save(Settingsholder.save_settings, Settingsholder.save_data)
+	Settingsholder._save(Settingsholder.save_keybinds, Settingsholder.keybinds_data)
 	AchievementsHolder._save()
 	get_tree().quit()
 

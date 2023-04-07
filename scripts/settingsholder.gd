@@ -1,9 +1,7 @@
 extends Node
 
-var file := File.new()
-var file2 := File.new()
-var save_settings := "user://Settings.dat"
-var save_keybinds := "user://Keybinds.dat"
+const save_settings := "user://Settings.dat"
+const save_keybinds := "user://Keybinds.dat"
 
 # Saved Vars
 var save_data := {
@@ -38,54 +36,34 @@ var keybinds_data := {
 }
 
 # Signals
-# warning-ignore:unused_signal
 signal brightness_changed
-# warning-ignore:unused_signal
 signal bloom_changed
-# warning-ignore:unused_signal
 signal fps_changed
-# warning-ignore:unused_signal
 signal fov_changed
-# warning-ignore:unused_signal
 signal sens_changed
-# warning-ignore:unused_signal
 signal quality_bloom_changed
-# warning-ignore:unused_signal
 signal hp_changed
 
 # Check saved data
 func _ready():
-	_load()
+	if not FileAccess.file_exists(save_settings):
+		_save(save_settings, save_data)
+	else:
+		save_data = _load(save_settings)
+	if not FileAccess.file_exists(save_keybinds):
+		_save(save_keybinds, keybinds_data)
+	else:
+		keybinds_data = _load(save_keybinds)
 
-func _save():
-	# Normal Settings
-# warning-ignore:return_value_discarded
-	file.open(save_settings, File.WRITE)
-	file.store_var(save_data)
-	file.close()
-	
-# warning-ignore:return_value_discarded
-	file2.open(save_keybinds, File.WRITE)
-	file2.store_var(keybinds_data)
-	file2.close()
+func _save(SaveType:String, SaveData):
+	# Save data based off given file path and data
+	var file := FileAccess.open(SaveType, FileAccess.WRITE)
+	file.store_var(SaveData)
 
-func _load():
-	if not file.file_exists(save_settings):
-		_save()
-	if not file2.file_exists(save_keybinds):
-		_save()
-	
+func _load(LoadType:String):
 	# Open save file and read values
-# warning-ignore:return_value_discarded
-	file.open(save_settings, File.READ)
-	save_data = file.get_var()
-	file.close()
-	
-	# ^^^ but binds
-# warning-ignore:return_value_discarded
-	file2.open(save_keybinds, File.READ)
-	keybinds_data = file2.get_var()
-	file2.close()
+	var file := FileAccess.open(LoadType, FileAccess.READ)
+	return file.get_var()
 
 func _default():
 	save_data = {
@@ -106,7 +84,7 @@ func _default():
 	"ResolutionScale" : 6,
 	"QualityBloom" : 0
 	}
-	_save()
+	_save(save_settings, save_data)
 
 func _apply_keybinds():
 	var binds = ["up","down","left","right","jump","sprint","interact","console","pause"]

@@ -1,171 +1,106 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://c6pj57v4p2htv"]
 
-[ext_resource path="res://scenes/audio/MusicPlayer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/UI/AchievementPopupManager.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/theme/MinimalUI/_bitmap_font____romulus_by_pix3m-d6aokem.ttf" type="FontFile" id=3]
-[ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=5]
-[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="FontFile" id=6]
-[ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/UI/SettingsMenu.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=12]
-[ext_resource path="res://scenes/VersionChecker.tscn" type="PackedScene" id=16]
-
-[sub_resource type="FontFile" id=11]
-size = 95
-font_data = ExtResource( 6 )
-
-[sub_resource type="FontFile" id=1]
-size = 45
-font_data = ExtResource( 6 )
-
-[sub_resource type="FontFile" id=9]
-size = 20
-font_data = ExtResource( 6 )
-
-[sub_resource type="FontFile" id=8]
-size = 50
-font_data = ExtResource( 6 )
-
-[sub_resource type="FontFile" id=10]
-size = 45
-font_data = ExtResource( 6 )
-
-[sub_resource type="FontFile" id=12]
-size = 28
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 3 )
+[ext_resource type="PackedScene" path="res://scenes/audio/MusicPlayer.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/UI/AchievementPopupManager.tscn" id="2"]
+[ext_resource type="Theme" uid="uid://biyfm0rxrcuru" path="res://assets/theme/MinimalUI/MinimalUI.tres" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/audio/ScarePlayer.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://ciksd20q8f3fh" path="res://scenes/UI/SettingsMenu.tscn" id="11"]
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="12"]
+[ext_resource type="PackedScene" path="res://scenes/VersionChecker.tscn" id="16"]
 
 [node name="StartMenuV2" type="CanvasLayer"]
 
 [node name="Menu" type="Control" parent="."]
 show_behind_parent = true
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 5 )
-script = ExtResource( 12 )
+theme = ExtResource("5")
+script = ExtResource("12")
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/CenterContainer"]
-offset_left = 427.0
-offset_top = 181.0
-offset_right = 852.0
-offset_bottom = 539.0
+layout_mode = 2
 
 [node name="Title" type="Label" parent="Menu/CenterContainer/VBoxContainer"]
-offset_right = 425.0
-offset_bottom = 96.0
-custom_fonts/font = SubResource( 11 )
+layout_mode = 2
 text = "1000-Rooms"
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/CenterContainer/VBoxContainer"]
-offset_top = 100.0
-offset_right = 425.0
-offset_bottom = 150.0
-custom_constants/offset_top = 50
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="StartBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-offset_top = 154.0
-offset_right = 425.0
-offset_bottom = 202.0
-custom_fonts/font = SubResource( 1 )
+layout_mode = 2
 text = "Start"
 
 [node name="OptionsBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-offset_top = 206.0
-offset_right = 425.0
-offset_bottom = 254.0
-custom_fonts/font = SubResource( 1 )
+layout_mode = 2
 text = "Options"
 
 [node name="AchievementsBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-offset_top = 258.0
-offset_right = 425.0
-offset_bottom = 306.0
-custom_fonts/font = SubResource( 1 )
+layout_mode = 2
 text = "Secrets"
 
 [node name="CreditsBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
 visible = false
-offset_top = 280.0
-offset_right = 376.0
-offset_bottom = 328.0
-custom_fonts/font = SubResource( 1 )
+layout_mode = 2
 text = "Credits"
 
 [node name="QuitBtn" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
-offset_top = 310.0
-offset_right = 425.0
-offset_bottom = 358.0
-custom_fonts/font = SubResource( 1 )
+layout_mode = 2
 text = "Quit"
 
-[node name="SettingsMenu" parent="Menu" instance=ExtResource( 11 )]
+[node name="SettingsMenu" parent="Menu" instance=ExtResource("11")]
+size = Vector2i(495, 100)
+visible = true
 
 [node name="VersionBtn" type="Button" parent="Menu"]
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -193.0
 offset_top = -59.0
-custom_fonts/font = SubResource( 1 )
 text = "Changelog"
 
 [node name="VersionDialog" type="Popup" parent="Menu"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -200.0
-offset_right = 350.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 700, 400 )
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.592157 )
+color = Color(0, 0, 0, 0.592157)
 
 [node name="TabContainer" type="TabContainer" parent="Menu/VersionDialog"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-tab_alignment = 0
 
 [node name="Current" type="TabBar" parent="Menu/VersionDialog/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 26.0
-offset_right = -1.0
-offset_bottom = -1.0
-tab_alignment = 0
+layout_mode = 2
 
 [node name="InfoContainer" type="ScrollContainer" parent="Menu/VersionDialog/TabContainer/Current"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 14.0
 offset_bottom = 1.0
-scroll_horizontal_enabled = false
 
 [node name="Control" type="Control" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer"]
-offset_right = 698.0
-offset_bottom = 372.0
-custom_minimum_size = Vector2( 698, 372 )
+custom_minimum_size = Vector2(698, 372)
+layout_mode = 2
 
 [node name="Info" type="Label" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer/Control"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = 2.0
-custom_fonts/font = SubResource( 9 )
 text = "
 
 
@@ -182,65 +117,55 @@ text = "
 - Fixed (small) bug making Player borderline invincible
 - Updated the intro cutscene
 - Added messages to main menu :)"
-align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -308.0
-color = Color( 0, 0, 0, 1 )
+color = Color(0, 0, 0, 1)
 
 [node name="Version" type="Label" parent="Menu/VersionDialog/TabContainer/Current/ColorRect"]
+layout_mode = 0
 anchor_right = 1.0
 offset_top = 10.0
 offset_bottom = 61.0
-custom_fonts/font = SubResource( 8 )
 text = "Update 1.07"
-align = 1
-valign = 1
 
 [node name="Next" type="TabBar" parent="Menu/VersionDialog/TabContainer"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 26.0
-offset_right = -1.0
-offset_bottom = -1.0
-tab_alignment = 0
+layout_mode = 2
 
 [node name="Version" type="Label" parent="Menu/VersionDialog/TabContainer/Next"]
+layout_mode = 0
 anchor_right = 1.0
 offset_top = 10.0
 offset_bottom = 61.0
-custom_fonts/font = SubResource( 8 )
 text = "Coming Soon (Hopefully)"
-align = 1
-valign = 1
 
 [node name="InfoContainer" type="ScrollContainer" parent="Menu/VersionDialog/TabContainer/Next"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 65.0
 
 [node name="Control" type="Control" parent="Menu/VersionDialog/TabContainer/Next/InfoContainer"]
-offset_right = 698.0
-offset_bottom = 308.0
-custom_minimum_size = Vector2( 698, 308 )
+custom_minimum_size = Vector2(698, 308)
+layout_mode = 2
 
 [node name="Info" type="Label" parent="Menu/VersionDialog/TabContainer/Next/InfoContainer/Control"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = 1.0
-custom_fonts/font = SubResource( 9 )
 text = "- New Enemies
 - Fixing Arcade machines
 - More games for the arcade
 - More Story/Lore
 - Revamped Puzzles"
-align = 1
 
 [node name="CloseBtn" type="Button" parent="Menu/VersionDialog"]
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -40.0
@@ -248,36 +173,36 @@ offset_bottom = 25.0
 text = "X"
 
 [node name="FeedbackBtn" type="Button" parent="Menu"]
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -48.0
 offset_right = 183.0
-custom_fonts/font = SubResource( 10 )
 text = "Feedback"
 
-[node name="VersionChecker" parent="Menu" instance=ExtResource( 16 )]
+[node name="VersionChecker" parent="Menu" instance=ExtResource("16")]
 
 [node name="Timer" type="Timer" parent="Menu"]
 wait_time = 0.99
 one_shot = true
 
 [node name="TitleText" type="Label" parent="Menu"]
+layout_mode = 0
 offset_left = 135.0
 offset_top = 134.0
 offset_right = 310.0
 offset_bottom = 224.0
-custom_colors/font_color = Color( 0.698039, 0.956863, 0.615686, 1 )
-custom_fonts/font = SubResource( 12 )
 text = "Test Text??!?!?!"
-align = 1
-valign = 1
-autowrap = true
 
-[node name="ScarePlayer" parent="." instance=ExtResource( 10 )]
+[node name="ScarePlayer" parent="." instance=ExtResource("10")]
+bus = &"SfxBus"
 
-[node name="MusicPlayer" parent="." instance=ExtResource( 1 )]
+[node name="MusicPlayer" parent="." instance=ExtResource("1")]
+bus = &"MusicBus"
 
-[node name="AchievementPopupManager" parent="." instance=ExtResource( 2 )]
+[node name="AchievementPopupManager" parent="." instance=ExtResource("2")]
+layout_mode = 3
+anchors_preset = 15
 offset_bottom = -48.0
 
 [connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/StartBtn" to="Menu" method="_on_StartBtn_pressed"]

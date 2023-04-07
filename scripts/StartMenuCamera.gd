@@ -8,7 +8,7 @@ extends Camera3D
 var Last:int = 1
 
 func _ready():
-	SceneManager.GameScene.world.environment = EnvironmentUsed
+#	SceneManager.GameScene.world_3d.environment = EnvironmentUsed
 	SceneManager.HudMode = "mainmenu"
 	randomize()
 	_change_cam()

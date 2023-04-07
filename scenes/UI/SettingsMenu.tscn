@@ -1,558 +1,336 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://ciksd20q8f3fh"]
 
-[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="FontFile" id=1]
-[ext_resource path="res://scenes/UI/SettingsMenu.gd" type="Script" id=2]
-[ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=3]
-[ext_resource path="res://scenes/audio/ClickPlayer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/UI/ControlsSettings.tscn" type="PackedScene" id=5]
-
-[sub_resource type="FontFile" id=1]
-font_data = ExtResource( 1 )
-
-[sub_resource type="FontFile" id=2]
-size = 32
-font_data = ExtResource( 1 )
-
-[sub_resource type="FontFile" id=3]
-size = 32
-font_data = ExtResource( 1 )
-
-[sub_resource type="FontFile" id=5]
-size = 26
-font_data = ExtResource( 1 )
-
-[sub_resource type="FontFile" id=4]
-size = 30
-font_data = ExtResource( 1 )
+[ext_resource type="Script" path="res://scenes/UI/SettingsMenu.gd" id="2"]
+[ext_resource type="Theme" uid="uid://biyfm0rxrcuru" path="res://assets/theme/MinimalUI/MinimalUI.tres" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/audio/ClickPlayer.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/UI/ControlsSettings.tscn" id="5"]
 
 [node name="SettingsMenu" type="Popup"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -200.0
-offset_right = 350.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 700, 400 )
-script = ExtResource( 2 )
+visible = true
+script = ExtResource("2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.592157 )
+color = Color(0, 0, 0, 0.592157)
 
 [node name="SettingsTabs" type="TabContainer" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 3 )
-custom_fonts/font = SubResource( 1 )
-tab_alignment = 0
+theme = ExtResource("3")
 
 [node name="Video" type="TabBar" parent="SettingsTabs"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 19.0
-offset_right = -1.0
-offset_bottom = -1.0
-tab_alignment = 0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Video"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/offset_right = 25
-custom_constants/offset_top = 25
-custom_constants/offset_left = 25
-custom_constants/offset_bottom = 25
 
 [node name="VideoSettings" type="GridContainer" parent="SettingsTabs/Video/MarginContainer"]
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 673.0
-offset_bottom = 355.0
-custom_constants/v_separation = 13
+layout_mode = 2
 columns = 2
 
 [node name="DisplayLabel" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_top = 1.0
-offset_right = 152.0
-offset_bottom = 33.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
 text = "Display Mode"
 
 [node name="DisplayOptionBtn" type="OptionButton" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_left = 520.0
-offset_right = 648.0
-offset_bottom = 34.0
-tooltip_text = "Use fullscreen for best experience."
+layout_mode = 2
 size_flags_horizontal = 10
-custom_fonts/font = SubResource( 2 )
-text = "Windowed"
-items = [ "Windowed", null, false, 0, null, "Fullscreen", null, false, 1, null ]
-selected = 0
+tooltip_text = "Use fullscreen for best experience."
 
 [node name="VsyncLabel" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_top = 47.0
-offset_right = 152.0
-offset_bottom = 79.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
 text = "Vsync"
 
 [node name="VsyncCheckBtn" type="CheckButton" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_left = 614.0
-offset_top = 47.0
-offset_right = 648.0
-offset_bottom = 79.0
-tooltip_text = "May impact performance. Only enable if you are experiencing screen tearing."
+layout_mode = 2
 size_flags_horizontal = 10
-custom_fonts/font = SubResource( 2 )
+tooltip_text = "May impact performance. Only enable if you are experiencing screen tearing."
 
 [node name="ShowFpsLabel" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_top = 92.0
-offset_right = 152.0
-offset_bottom = 124.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
 text = "Display FPS"
 
 [node name="ShowFpsCheckBtn" type="CheckButton" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_left = 614.0
-offset_top = 92.0
-offset_right = 648.0
-offset_bottom = 124.0
-tooltip_text = "Displays Frames Per Second in top right while in game."
+layout_mode = 2
 size_flags_horizontal = 10
-custom_fonts/font = SubResource( 2 )
+tooltip_text = "Displays Frames Per Second in top right while in game."
 
 [node name="MaxFpsLabel" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_top = 137.0
-offset_right = 152.0
-offset_bottom = 169.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
 text = "Max fps"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_left = 196.0
-offset_top = 137.0
-offset_right = 648.0
-offset_bottom = 169.0
+layout_mode = 2
 size_flags_horizontal = 10
 
 [node name="MaxFpsValue" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer"]
-offset_right = 48.0
-offset_bottom = 32.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
 text = "60  "
 
 [node name="MaxFpsSlider" type="HSlider" parent="SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer"]
-offset_left = 52.0
-offset_right = 452.0
-offset_bottom = 32.0
-custom_minimum_size = Vector2( 400, 0 )
-tooltip_text = "Caps out the Frames Per Second."
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
+tooltip_text = "Caps out the Frames Per Second."
 min_value = 30.0
 max_value = 120.0
 step = 15.0
 value = 60.0
 
 [node name="BloomLabel" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_top = 182.0
-offset_right = 152.0
-offset_bottom = 214.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
 text = "Bloom"
 
 [node name="BloomCheckBtn" type="CheckButton" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_left = 614.0
-offset_top = 182.0
-offset_right = 648.0
-offset_bottom = 214.0
-tooltip_text = "Bloom will slightly increase lighting quality and saturation."
+layout_mode = 2
 size_flags_horizontal = 10
-custom_fonts/font = SubResource( 2 )
+tooltip_text = "Bloom will slightly increase lighting quality and saturation."
 
 [node name="BrightnessLabel" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_top = 227.0
-offset_right = 152.0
-offset_bottom = 259.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
 text = "Brightness"
 
 [node name="BrightnessSlider" type="HSlider" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-offset_left = 248.0
-offset_top = 227.0
-offset_right = 648.0
-offset_bottom = 259.0
-custom_minimum_size = Vector2( 400, 0 )
-tooltip_text = "Adjusts overall brightness of the game."
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
+tooltip_text = "Adjusts overall brightness of the game."
 max_value = 8.0
 value = 3.0
 
 [node name="Audio" type="TabBar" parent="SettingsTabs"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 19.0
-offset_right = -1.0
-offset_bottom = -1.0
-tab_alignment = 0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Audio"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/offset_right = 25
-custom_constants/offset_top = 25
-custom_constants/offset_left = 25
-custom_constants/offset_bottom = 25
 
 [node name="AudioSettings" type="GridContainer" parent="SettingsTabs/Audio/MarginContainer"]
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 673.0
-offset_bottom = 355.0
-custom_constants/v_separation = 13
+layout_mode = 2
 columns = 2
 
 [node name="MasterVolLabel" type="Label" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
-offset_right = 168.0
-offset_bottom = 32.0
-custom_fonts/font = SubResource( 3 )
+layout_mode = 2
 text = "Master Volume"
 
 [node name="MasterVolSlider" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
-offset_left = 248.0
-offset_right = 648.0
-offset_bottom = 32.0
-custom_minimum_size = Vector2( 400, 0 )
-tooltip_text = "Master volume control, effects Music and Sfx volume."
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
+tooltip_text = "Master volume control, effects Music and Sfx volume."
 max_value = 55.0
 value = 25.0
 
 [node name="MusicVolLabel" type="Label" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
-offset_top = 45.0
-offset_right = 168.0
-offset_bottom = 77.0
-custom_fonts/font = SubResource( 3 )
+layout_mode = 2
 text = "Music Volume"
 
 [node name="MusicVolSlider" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
-offset_left = 248.0
-offset_top = 45.0
-offset_right = 648.0
-offset_bottom = 77.0
-custom_minimum_size = Vector2( 400, 0 )
-tooltip_text = "Adjusts the volume of the music in the game."
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
+tooltip_text = "Adjusts the volume of the music in the game."
 max_value = 75.0
 value = 50.0
 
 [node name="SfxVolLabel" type="Label" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
-offset_top = 90.0
-offset_right = 168.0
-offset_bottom = 122.0
-custom_fonts/font = SubResource( 3 )
+layout_mode = 2
 text = "Sfx Volume"
 
 [node name="SfxVolSlider" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
-offset_left = 248.0
-offset_top = 90.0
-offset_right = 648.0
-offset_bottom = 122.0
-custom_minimum_size = Vector2( 400, 0 )
-tooltip_text = "Adjusts the volume of the Sfx in the game such as: jumpscares, footsteps, etc."
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
+tooltip_text = "Adjusts the volume of the Sfx in the game such as: jumpscares, footsteps, etc."
 max_value = 60.0
 value = 50.0
 
 [node name="WarningLabel" type="Label" parent="SettingsTabs/Audio"]
+layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -32.0
-custom_fonts/font = SubResource( 5 )
 text = "BE VERY CAREFUL ADJUSTING AUDIO, JUMPSCARES CAN GET LOUD"
-align = 1
-valign = 1
 
 [node name="Controls" type="TabBar" parent="SettingsTabs"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 19.0
-offset_right = -1.0
-offset_bottom = -1.0
-tab_alignment = 0
+layout_mode = 2
 
-[node name="Controls" parent="SettingsTabs/Controls" instance=ExtResource( 5 )]
+[node name="Controls" parent="SettingsTabs/Controls" instance=ExtResource("5")]
+layout_mode = 0
 
 [node name="Graphics" type="TabBar" parent="SettingsTabs"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 19.0
-offset_right = -1.0
-offset_bottom = -1.0
-tab_alignment = 0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Graphics"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/offset_right = 25
-custom_constants/offset_top = 25
-custom_constants/offset_left = 25
-custom_constants/offset_bottom = 25
 
 [node name="GameplaySettings" type="VBoxContainer" parent="SettingsTabs/Graphics/MarginContainer"]
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 673.0
-offset_bottom = 355.0
-custom_constants/separation = 20
+layout_mode = 2
 
 [node name="FXAA" type="GridContainer" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings"]
-offset_right = 648.0
-offset_bottom = 32.0
-custom_constants/v_separation = 13
+layout_mode = 2
 columns = 2
 
 [node name="Label" type="Label" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/FXAA"]
-offset_right = 56.0
-offset_bottom = 32.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
 text = "FXAA"
 
 [node name="FXAACheck" type="CheckButton" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/FXAA"]
-offset_left = 614.0
-offset_right = 648.0
-offset_bottom = 32.0
-tooltip_text = "Fast approximate antialiasing. Less performance impacting version of MSAA. Blurs corners to give the appearance of higher quality."
+layout_mode = 2
 size_flags_horizontal = 10
-custom_fonts/font = SubResource( 2 )
+tooltip_text = "Fast approximate antialiasing. Less performance impacting version of MSAA. Blurs corners to give the appearance of higher quality."
 
 [node name="MSAA" type="GridContainer" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings"]
-offset_top = 52.0
-offset_right = 648.0
-offset_bottom = 86.0
-custom_constants/v_separation = 13
+layout_mode = 2
 columns = 2
 
 [node name="Label" type="Label" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA"]
-offset_top = 1.0
-offset_right = 58.0
-offset_bottom = 33.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
 text = "MSAA"
 
 [node name="MSAAOptions" type="OptionButton" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA"]
-offset_left = 518.0
-offset_right = 648.0
-offset_bottom = 34.0
-custom_minimum_size = Vector2( 130, 0 )
-tooltip_text = "Multi-sampling antialiasing. Provides higher quality sharpness to corners and edges at the cost of more performance."
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
 size_flags_horizontal = 10
-custom_fonts/font = SubResource( 2 )
-text = "Disabled"
-align = 1
-items = [ "Disabled", null, false, 0, null, "2x", null, false, 1, null, "4x", null, false, 2, null, "8x", null, false, 3, null, "16x", null, false, 4, null ]
-selected = 0
+tooltip_text = "Multi-sampling antialiasing. Provides higher quality sharpness to corners and edges at the cost of more performance."
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings"]
-offset_top = 106.0
-offset_right = 648.0
-offset_bottom = 170.0
-custom_constants/separation = 0
+layout_mode = 2
 
 [node name="ResolutionText" type="Label" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer"]
-offset_right = 648.0
-offset_bottom = 32.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
 text = "Resolution Scale"
-align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer"]
-offset_top = 32.0
-offset_right = 648.0
-offset_bottom = 64.0
+layout_mode = 2
 
 [node name="ScaleText" type="Label" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer"]
-offset_right = 80.0
-offset_bottom = 32.0
-custom_minimum_size = Vector2( 80, 0 )
-custom_fonts/font = SubResource( 2 )
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
 text = "720p"
-align = 1
 
 [node name="ResolutionScale" type="HSlider" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer"]
-offset_left = 84.0
-offset_right = 648.0
-offset_bottom = 28.0
-tooltip_text = "Adjusts the scale of the game to greatly improve performance. Will not affect any GUI's or HUD's."
+layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Adjusts the scale of the game to greatly improve performance. Will not affect any GUI's or HUD's."
 max_value = 7.0
 value = 6.0
 
 [node name="QualityBloom" type="GridContainer" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings"]
-offset_top = 190.0
-offset_right = 648.0
-offset_bottom = 222.0
-custom_constants/v_separation = 13
+layout_mode = 2
 columns = 2
 
 [node name="Label" type="Label" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom"]
-offset_right = 256.0
-offset_bottom = 32.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
 text = "High Quality Lighting"
 
 [node name="QualBloomCheck" type="CheckButton" parent="SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom"]
-offset_left = 614.0
-offset_right = 648.0
-offset_bottom = 32.0
-tooltip_text = "Improved version of Bloom. Vastly improves lighting at medium cost to performance."
+layout_mode = 2
 size_flags_horizontal = 10
-custom_fonts/font = SubResource( 2 )
+tooltip_text = "Improved version of Bloom. Vastly improves lighting at medium cost to performance."
 
 [node name="Gameplay" type="TabBar" parent="SettingsTabs"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 19.0
-offset_right = -1.0
-offset_bottom = -1.0
-tab_alignment = 0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Gameplay"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/offset_right = 25
-custom_constants/offset_top = 25
-custom_constants/offset_left = 25
-custom_constants/offset_bottom = 25
 
 [node name="GameplaySettings" type="GridContainer" parent="SettingsTabs/Gameplay/MarginContainer"]
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 673.0
-offset_bottom = 355.0
-custom_constants/v_separation = 13
+layout_mode = 2
 columns = 2
 
 [node name="FovLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-offset_right = 179.0
-offset_bottom = 31.0
-custom_fonts/font = SubResource( 4 )
+layout_mode = 2
 text = "FOV"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-offset_left = 218.0
-offset_right = 648.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 10
 
 [node name="FovVal" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer"]
-offset_right = 26.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 12
-custom_fonts/font = SubResource( 4 )
 text = "70"
 
 [node name="FovSlider" type="HSlider" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer"]
-offset_left = 30.0
-offset_right = 430.0
-offset_bottom = 31.0
-custom_minimum_size = Vector2( 400, 0 )
-tooltip_text = "Field of View is the extent of the world visible to you at one time."
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
+tooltip_text = "Field of View is the extent of the world visible to you at one time."
 min_value = 70.0
 value = 70.0
 
 [node name="MouseSensitivityLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-offset_top = 44.0
-offset_right = 179.0
-offset_bottom = 75.0
-custom_fonts/font = SubResource( 4 )
+layout_mode = 2
 text = "Sensitivity"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-offset_left = 183.0
-offset_top = 44.0
-offset_right = 648.0
-offset_bottom = 75.0
+layout_mode = 2
 
 [node name="MouseSensitivityVal" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2"]
-offset_left = 16.0
-offset_right = 61.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 10
-custom_fonts/font = SubResource( 4 )
 text = "0.18"
-align = 2
-valign = 1
 
 [node name="MouseSensitivitySlider" type="HSlider" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2"]
-offset_left = 65.0
-offset_right = 465.0
-offset_bottom = 31.0
-custom_minimum_size = Vector2( 400, 0 )
-tooltip_text = "Adjusts sensitivity of your mouse when looking around in game."
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
+tooltip_text = "Adjusts sensitivity of your mouse when looking around in game."
 min_value = 5.0
 max_value = 50.0
 value = 18.0
 
 [node name="ClearSaveLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-offset_top = 88.0
-offset_right = 179.0
-offset_bottom = 119.0
-custom_fonts/font = SubResource( 4 )
+layout_mode = 2
 text = "Clear Save"
 
 [node name="ClearSaveBtn" type="CheckButton" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-offset_left = 614.0
-offset_top = 88.0
-offset_right = 648.0
-offset_bottom = 119.0
-tooltip_text = "Clears your save data not including Settings and Achievements."
+layout_mode = 2
 size_flags_horizontal = 10
+tooltip_text = "Clears your save data not including Settings and Achievements."
 
 [node name="DefaultLabel" type="Label" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-offset_top = 132.0
-offset_right = 179.0
-offset_bottom = 163.0
-custom_fonts/font = SubResource( 4 )
+layout_mode = 2
 text = "Default Settings"
 
 [node name="DefaultBtn" type="CheckButton" parent="SettingsTabs/Gameplay/MarginContainer/GameplaySettings"]
-offset_left = 614.0
-offset_top = 132.0
-offset_right = 648.0
-offset_bottom = 163.0
-tooltip_text = "Resets all settings to default."
+layout_mode = 2
 size_flags_horizontal = 10
+tooltip_text = "Resets all settings to default."
 
-[node name="ClickPlayer" parent="." instance=ExtResource( 4 )]
+[node name="ClickPlayer" parent="." instance=ExtResource("4")]
+bus = &"SfxBus"
 
 [node name="Close" type="Button" parent="."]
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -29.0
 offset_bottom = 20.0
-theme = ExtResource( 3 )
-custom_fonts/font = SubResource( 1 )
+theme = ExtResource("3")
 text = "X"
 
 [connection signal="tab_changed" from="SettingsTabs" to="." method="_on_SettingsTabs_tab_changed"]
