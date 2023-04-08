@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6pj57v4p2htv"]
+[gd_scene load_steps=7 format=3 uid="uid://c6pj57v4p2htv"]
 
 [ext_resource type="PackedScene" path="res://scenes/audio/MusicPlayer.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/UI/AchievementPopupManager.tscn" id="2"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" path="res://scenes/audio/ScarePlayer.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://ciksd20q8f3fh" path="res://scenes/UI/SettingsMenu.tscn" id="11"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="12"]
-[ext_resource type="PackedScene" path="res://scenes/VersionChecker.tscn" id="16"]
 
 [node name="StartMenuV2" type="CanvasLayer"]
 
@@ -16,6 +15,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("5")
 script = ExtResource("12")
 
@@ -56,8 +57,7 @@ layout_mode = 2
 text = "Quit"
 
 [node name="SettingsMenu" parent="Menu" instance=ExtResource("11")]
-size = Vector2i(495, 100)
-visible = true
+layout_mode = 1
 
 [node name="VersionBtn" type="Button" parent="Menu"]
 layout_mode = 0
@@ -180,8 +180,6 @@ offset_top = -48.0
 offset_right = 183.0
 text = "Feedback"
 
-[node name="VersionChecker" parent="Menu" instance=ExtResource("16")]
-
 [node name="Timer" type="Timer" parent="Menu"]
 wait_time = 0.99
 one_shot = true
@@ -204,12 +202,14 @@ bus = &"MusicBus"
 layout_mode = 3
 anchors_preset = 15
 offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/StartBtn" to="Menu" method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/OptionsBtn" to="Menu" method="_on_OptionsBtn_pressed"]
 [connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/AchievementsBtn" to="Menu" method="_on_AchievementsBtn_pressed"]
 [connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/CreditsBtn" to="Menu" method="_on_CreditsBtn_pressed"]
-[connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/QuitBtn" to="Menu" method="_on_QuitBtn_pressed"]
+[connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/QuitBtn" to="Menu" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="Menu/VersionBtn" to="Menu" method="_on_VersionBtn_pressed"]
 [connection signal="pressed" from="Menu/VersionDialog/CloseBtn" to="Menu" method="_on_CloseBtn_pressed"]
 [connection signal="pressed" from="Menu/FeedbackBtn" to="Menu" method="_on_FeedbackBtn_pressed"]

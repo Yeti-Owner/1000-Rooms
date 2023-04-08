@@ -1,7 +1,7 @@
 extends Node
 
 func _ready():
-	SaveGame.game_data.Intro = 1
+	SaveGame.game_data.Intro = 1 # For porting purposes, don't wanna work on Room0 atm.
 	if SaveGame.game_data.Intro == 0:
 		get_window().set_mode(Window.MODE_WINDOWED)
 		Settingsholder.save_data.Fullscreen = 0

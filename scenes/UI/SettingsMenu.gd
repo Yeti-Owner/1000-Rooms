@@ -1,26 +1,26 @@
-extends Popup
+extends Control
 
 # Cleaned up referencing
-@onready var MaxFpsValue := $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue
-@onready var MaxFpsSlider := $SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider
-@onready var VsyncCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn
-@onready var ShowFpsCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn
-@onready var FovVal := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal
-@onready var FovSlider := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider
-@onready var MouseSensitivityVal := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal
-@onready var MouseSensitivitySlider := $SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider
-@onready var BloomCheckBtn := $SettingsTabs/Video/MarginContainer/VideoSettings/BloomCheckBtn
-@onready var BrightnessSlider := $SettingsTabs/Video/MarginContainer/VideoSettings/BrightnessSlider
-@onready var MasterVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolSlider
-@onready var MusicVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolSlider
-@onready var SfxVol := $SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider
-@onready var ClickPlayer := $ClickPlayer
-@onready var FullScreenOption := $SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn
-@onready var FXAABtn := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/FXAA/FXAACheck
-@onready var MSAAOption := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA/MSAAOptions
-@onready var ScaleText := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ScaleText
-@onready var ScaleSlider := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ResolutionScale
-@onready var QualBloomBtn := $SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom/QualBloomCheck
+@onready var MaxFpsValue := $Holder/SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsValue
+@onready var MaxFpsSlider := $Holder/SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider
+@onready var VsyncCheckBtn := $Holder/SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn
+@onready var ShowFpsCheckBtn := $Holder/SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn
+@onready var FovVal := $Holder/SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovVal
+@onready var FovSlider := $Holder/SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider
+@onready var MouseSensitivityVal := $Holder/SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivityVal
+@onready var MouseSensitivitySlider := $Holder/SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider
+@onready var BloomCheckBtn := $Holder/SettingsTabs/Video/MarginContainer/VideoSettings/BloomCheckBtn
+@onready var BrightnessSlider := $Holder/SettingsTabs/Video/MarginContainer/VideoSettings/BrightnessSlider
+@onready var MasterVol := $Holder/SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolSlider
+@onready var MusicVol := $Holder/SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolSlider
+@onready var SfxVol := $Holder/SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider
+@onready var ClickPlayer := $Holder/ClickPlayer
+@onready var FullScreenOption := $Holder/SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn
+@onready var FXAABtn := $Holder/SettingsTabs/Graphics/MarginContainer/GameplaySettings/FXAA/FXAACheck
+@onready var MSAAOption := $Holder/SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA/MSAAOptions
+@onready var ScaleText := $Holder/SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ScaleText
+@onready var ScaleSlider := $Holder/SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ResolutionScale
+@onready var QualBloomBtn := $Holder/SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom/QualBloomCheck
 
 func _ready():
 	# Set FPS to correct value
@@ -60,35 +60,31 @@ func _viewport_settings():
 	get_node("/root/SceneManager/GameScene/GameViewport").set_size(resolutions[Settingsholder.save_data.ResolutionScale])
 
 # Windowed/Fullscreen option
-func _on_DisplayOptionBtn_item_selected(FullScreenIndex):
-	match FullScreenIndex:
+func _on_display_option_btn_item_selected(index):
+	match index:
 		0:
-			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (false) else Window.MODE_WINDOWED
+			get_window().set_mode(Window.MODE_FULLSCREEN)
 			ClickPlayer._click_sound()
 			Settingsholder.save_data.Fullscreen = 0
-			await(get_tree().idle_frame)
-			self.popup_centered()
 		1:
-			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (true) else Window.MODE_WINDOWED
+			get_window().set_mode(Window.MODE_WINDOWED)
 			ClickPlayer._click_sound()
 			Settingsholder.save_data.Fullscreen = 1
-			await(get_tree().idle_frame)
-			self.popup_centered()
 
 # Vsync
-func _on_VsyncCheckBtn_pressed():
+func _on_vsync_check_btn_pressed():
 	Settingsholder.save_data.VsyncEnabled = !Settingsholder.save_data.VsyncEnabled
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if (Settingsholder.save_data.VsyncEnabled) else DisplayServer.VSYNC_DISABLED)
 	ClickPlayer._click_sound()
 
 # Max Fps
-func _on_MaxFpsSlider_value_changed(MaxFps):
-	MaxFpsValue.set_text(str(MaxFps))
-	Settingsholder.save_data.FrameRate = MaxFps
+func _on_max_fps_slider_drag_ended(value_changed):
+	MaxFpsValue.set_text(str(value_changed))
+	Settingsholder.save_data.FrameRate = value_changed
 	Engine.set_max_fps(int(Settingsholder.save_data.FrameRate))
 
 # Show Fps
-func _on_ShowFpsCheckBtn_pressed():
+func _on_show_fps_check_btn_pressed():
 	Settingsholder.save_data.ShowFps = !Settingsholder.save_data.ShowFps
 	ClickPlayer._click_sound()
 	Settingsholder.emit_signal("fps_changed")
@@ -106,7 +102,7 @@ func _on_FovSlider_value_changed(CurrentFov):
 	Settingsholder.emit_signal("fov_changed")
 
 # Enable/Disable Bloom
-func _on_BloomCheckBtn_pressed():
+func _on_bloom_check_btn_pressed():
 	Settingsholder.save_data.BloomSet = !Settingsholder.save_data.BloomSet
 	if !(Settingsholder.save_data.BloomSet):
 		Settingsholder.save_data.QualityBloom = 0
@@ -117,34 +113,27 @@ func _on_BloomCheckBtn_pressed():
 	QualBloomBtn.set_pressed_no_signal(Settingsholder.save_data.QualityBloom)
 
 # Adjust Brightness
-func _on_BrightnessSlider_value_changed(CurrentBrightness):
-	Settingsholder.save_data.Brightness = CurrentBrightness
+func _on_brightness_slider_drag_ended(value_changed):
+	Settingsholder.save_data.Brightness = value_changed
 	Settingsholder.emit_signal("brightness_changed")
 
 # Master Volume
-func _on_MasterVolSlider_value_changed(MasVol):
-	Settingsholder.save_data.MasterVolume = MasVol
-	MasVol = MasVol - 40
-	AudioServer.set_bus_volume_db(0, MasVol)
+func _on_master_vol_slider_drag_ended(value_changed):
+	Settingsholder.save_data.MasterVolume = value_changed
+	value_changed = value_changed - 40
+	AudioServer.set_bus_volume_db(0, value_changed)
 
 # Music Volume
-func _on_MusicVolSlider_value_changed(MusVol):
-	Settingsholder.save_data.MusicVolume = MusVol
-	MusVol = MusVol - 50
-	AudioServer.set_bus_volume_db(1, MusVol)
+func _on_music_vol_slider_drag_ended(value_changed):
+	Settingsholder.save_data.MusicVolume = value_changed
+	value_changed = value_changed - 50
+	AudioServer.set_bus_volume_db(1, value_changed)
 
 # Sound Effects/Sfx Volume
-func _on_SfxVolSlider_value_changed(SfVol):
-	Settingsholder.save_data.SfxVolume = SfVol
-	SfVol = SfVol - 50
-	AudioServer.set_bus_volume_db(2, SfVol)
-
-func _on_SettingsTabs_tab_changed(tab):
-	ClickPlayer._click_sound()
-	if tab == 2:
-		self.exclusive = true
-	else:
-		self.exclusive = false
+func _on_sfx_vol_slider_drag_ended(value_changed):
+	Settingsholder.save_data.SfxVolume = value_changed
+	value_changed = value_changed - 50
+	AudioServer.set_bus_volume_db(2, value_changed)
 
 # Clear SaveGame
 func _on_ClearSaveBtn_pressed():
@@ -189,6 +178,11 @@ func _on_QualBloomCheck_pressed():
 	BloomCheckBtn.set_pressed_no_signal(Settingsholder.save_data.BloomSet)
 	Settingsholder.emit_signal("quality_bloom_changed")
 
-
-func _on_Close_pressed():
+func _on_click_out_pressed():
 	self.hide()
+
+func _on_close_pressed():
+	self.hide()
+
+func _on_settings_tabs_tab_changed(_tab):
+	ClickPlayer._click_sound()

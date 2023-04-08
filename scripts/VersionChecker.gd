@@ -23,8 +23,8 @@ func _verify_version():
 #		# Download it
 #		_check_integrity()
 
-func _download_file(link: String, path: String, just_version: bool):
-	pass
+#func _download_file(link: String, path: String, just_version: bool):
+#	pass
 #	# Create HTTP request node + connect completion signal
 #	http_request = HTTPRequest.new()
 #	add_child(http_request)

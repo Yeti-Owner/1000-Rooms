@@ -49,7 +49,6 @@ func _change_scene(scene:String, type := "normal"):
 func _scene_load():
 	if CurrentScene != null:
 		CurrentScene.queue_free()
-		await(get_tree().idle_frame)
 	
 	var _scene = load(SceneToLoad)
 	var _s = _scene.instantiate()

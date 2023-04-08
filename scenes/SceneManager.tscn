@@ -130,11 +130,9 @@ _data = {
 }
 
 [node name="SceneManager" type="Node"]
-process_mode = 2
 script = ExtResource("1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 2
 
 [node name="Transitions" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -144,6 +142,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="BlackRect" type="ColorRect" parent="CanvasLayer/Transitions"]
 layout_mode = 0
@@ -151,14 +150,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Transitions"]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 26880.0
-offset_bottom = 15120.0
+offset_right = 30720.0
+offset_bottom = 17280.0
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="TransitionManager" type="AnimationPlayer" parent="."]
 process_mode = 3
@@ -167,14 +168,11 @@ libraries = {
 }
 
 [node name="GameScene" type="SubViewportContainer" parent="."]
-process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-stretch = true
 
 [node name="Additional" type="Control" parent="GameScene"]
-process_mode = 2
 layout_mode = 2
 mouse_filter = 2
 
@@ -186,12 +184,12 @@ visible = false
 anchors_preset = 14
 
 [node name="HUD" type="Control" parent="GameScene"]
-process_mode = 2
+process_mode = 3
 layout_mode = 2
 mouse_filter = 2
 
 [node name="GameViewport" type="SubViewport" parent="GameScene"]
-process_mode = 2
+process_mode = 1
 handle_input_locally = false
 audio_listener_enable_3d = true
 physics_object_picking = true
