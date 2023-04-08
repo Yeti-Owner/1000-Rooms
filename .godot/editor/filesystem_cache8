@@ -1,7 +1,7 @@
 2a60927148abd1d33b818b535e306557
-::res://::1680885138
-default_bus_layout.tres::AudioBusLayout::5612627371569164824::1680880277::0::1::::<><>::
-default_env.tres::Environment::685947838173040537::1680885301::0::1::::<><>::
+::res://::1680991582
+default_bus_layout.tres::AudioBusLayout::5612627371569164824::1680991585::0::1::::<><>::
+default_env.tres::Environment::685947838173040537::1680898466::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1674331845::0::1::::<><>::
 icon.png::CompressedTexture2D::6683081824618726794::1672704809::1680879146::1::::<><>::
 ShowcaseWorld.tscn::PackedScene::-1::1680878950::0::1::::<><>::res://scenes/Gridmaps/GridMap.tscn<>res://scenes/Player.tscn<>res://scenes/objects/WallTorch.tscn<>res://scenes/objects/SavePentagram.tscn<>res://scripts/load_world.gd<>res://scenes/Narrator.tscn<>res://scenes/Gridmaps/GridMap2.tscn<>res://scenes/objects/Paper.tscn<>res://scenes/Gridmaps/Shop.tscn<>res://scenes/Gridmaps/HubGridmap.tscn<>res://scenes/objects/button.tscn<>res://scenes/objects/NonFunctionals/Bones.tscn<>res://scenes/objects/NonFunctionals/Lamp.tscn<>res://scenes/objects/Areas/WoodStepOne.tscn<>res://scenes/objects/Areas/TileStepOne.tscn<>res://scenes/objects/Areas/ShopStep.tscn<>res://scenes/objects/Areas/HubStep.tscn<>res://scenes/Gridmaps/GridMap3.tscn<>res://scenes/objects/GameConsole.tscn<>res://resources/WorldEnvironment1.tres
@@ -127,7 +127,7 @@ Spike.obj::Mesh::9127774773589705336::1672704800::1680879055::1::::<><>::
 Statue3.obj::Mesh::1014587503733477723::1672704795::1680879055::1::::<><>::
 Wood054_1K_Color.jpg::CompressedTexture2D::7784320876837507509::1672704795::1680879146::1::::<><>::
 Wood054_1K_Roughness.jpg::CompressedTexture2D::5735689755528883823::1672704795::1680879146::1::::<><>::
-::res://assets/3D models/terrain/::1680879155
+::res://assets/3D models/terrain/::1680885347
 terrain.obj::Mesh::6647101662264148726::1672704801::1680879056::1::::<><>::
 TerrainColor.png::CompressedTexture2D::8513359706515526575::1672704801::1680885347::1::::<><>::
 ::res://assets/3D models/torch/::1680879146
@@ -196,10 +196,10 @@ floor1.obj::Mesh::3971180123072283584::1672704805::1680879059::1::::<><>::
 floor2.obj::Mesh::8021994631543589225::1672704805::1680879059::1::::<><>::
 floor+roof.obj::Mesh::8908093981426282256::1672704805::1680879059::1::::<><>::
 Metal009_1K_Color.jpg::CompressedTexture2D::3648016475371205080::1672704804::1680879154::1::::<><>::
-::res://assets/textures/floors/floor1/::1680879155
-Wood052_1K_Color.jpg::CompressedTexture2D::1560731368748757391::1672704805::1680879154::1::::<><>::
-Wood052_1K_NormalDX.jpg::CompressedTexture2D::2514720089271979834::1672704805::1680879151::1::::<><>::
-Wood052_1K_Roughness.jpg::CompressedTexture2D::4049237669469386233::1672704805::1680879152::1::::<><>::
+::res://assets/textures/floors/floor1/::1680892235
+Wood052_1K_Color.jpg::CompressedTexture2D::1560731368748757391::1672704805::1680892235::1::::<><>::
+Wood052_1K_NormalDX.jpg::CompressedTexture2D::2514720089271979834::1672704805::1680892235::1::::<><>::
+Wood052_1K_Roughness.jpg::CompressedTexture2D::4049237669469386233::1672704805::1680892235::1::::<><>::
 ::res://assets/textures/floors/floor2/::1680879152
 Tiles074_1K_Color.jpg::CompressedTexture2D::3096090308233990615::1672704805::1680879152::1::::<><>::
 Tiles074_1K_NormalDX.jpg::CompressedTexture2D::5527585698025216696::1672704805::1680879152::1::::<><>::
@@ -209,7 +209,7 @@ MetalWalkway012_1K_Color.jpg::CompressedTexture2D::3358777556678520885::16727048
 MetalWalkway012_1K_Metalness.jpg::CompressedTexture2D::2130911240232331281::1672704805::1680879152::1::::<><>::
 MetalWalkway012_1K_NormalGL.jpg::CompressedTexture2D::6087949833296740609::1672704805::1680879152::1::::<><>::
 MetalWalkway012_1K_Roughness.jpg::CompressedTexture2D::4683448949453916492::1672704805::1680879152::1::::<><>::
-::res://assets/textures/general/::1680879154
+::res://assets/textures/general/::1680885188
 AlienText1.png::CompressedTexture2D::6202030286342487102::1672704805::1680879153::1::::<><>::
 AlienText1_n.png::CompressedTexture2D::8723601681297391347::1672704805::1680879153::1::::<><>::
 BloodHandprint.png::CompressedTexture2D::5417203839825949055::1672704805::1680879153::1::::<><>::
@@ -251,9 +251,9 @@ SiBPoster_n.png::CompressedTexture2D::9188321753011329028::1672704804::168087914
 Vraxx.png::CompressedTexture2D::7312054587893185819::1672704804::1680879140::1::::<><>::
 wyoming.jpg::CompressedTexture2D::3103431401252943382::1672704804::1680879140::1::::<><>::
 XRA.png::CompressedTexture2D::2976235157153459344::1672704804::1680879140::1::::<><>::
-::res://assets/textures/roofs/::1680879138
+::res://assets/textures/roofs/::1680892235
 roof1.obj::Mesh::3595296201578079905::1672704807::1680879052::1::::<><>::
-roof1.png::CompressedTexture2D::8586326300797882418::1672704807::1680879138::1::::<><>::
+roof1.png::CompressedTexture2D::8586326300797882418::1672704807::1680892235::1::::<><>::
 roof2.obj::Mesh::2307087297733588811::1672704807::1680879052::1::::<><>::
 ::res://assets/textures/roofs/roof2/::1680879138
 Tiles012_1K_Color.jpg::CompressedTexture2D::149748202362839465::1672704807::1680879138::1::::<><>::
@@ -281,11 +281,11 @@ AllSky_Night_MoonBurst Equirect.png::CompressedTexture2D::2695436846386160225::1
 ::res://assets/textures/walls/::1680879048
 wall2.obj::Mesh::1178359670516219014::1672704808::1680879048::1::::<><>::
 wall.obj::Mesh::4075193846236573360::1672704808::1680879047::1::::<><>::
-::res://assets/textures/walls/wall1/::1680879142
-Bricks066_1K_AmbientOcclusion.jpg::CompressedTexture2D::8299944661355928636::1672704808::1680879142::1::::<><>::
-Bricks066_1K_Color.jpg::CompressedTexture2D::6823181140806414160::1672704808::1680879142::1::::<><>::
-Bricks066_1K_NormalDX.jpg::CompressedTexture2D::4171587228257622443::1672704808::1680879142::1::::<><>::
-Bricks066_1K_Roughness.jpg::CompressedTexture2D::6464427318127681147::1672704808::1680879142::1::::<><>::
+::res://assets/textures/walls/wall1/::1680892235
+Bricks066_1K_AmbientOcclusion.jpg::CompressedTexture2D::8299944661355928636::1672704808::1680892235::1::::<><>::
+Bricks066_1K_Color.jpg::CompressedTexture2D::6823181140806414160::1672704808::1680892235::1::::<><>::
+Bricks066_1K_NormalDX.jpg::CompressedTexture2D::4171587228257622443::1672704808::1680892235::1::::<><>::
+Bricks066_1K_Roughness.jpg::CompressedTexture2D::6464427318127681147::1672704808::1680892235::1::::<><>::
 ::res://assets/textures/walls/wall2/::1680880277
 Bricks058_1K_AmbientOcclusion.jpg::CompressedTexture2D::5968036454625850832::1672704808::1680880277::1::::<><>::
 Bricks058_1K_Color.jpg::CompressedTexture2D::2826995803598264562::1672704808::1680880277::1::::<><>::
@@ -300,11 +300,11 @@ MetalPlates008_1K_Roughness.jpg::CompressedTexture2D::8736198026277659564::16727
 wall3.obj::Mesh::6474061432932894453::1672704808::1680879060::1::::<><>::
 ::res://assets/theme/::1680879137
 SpookyCreeky.ttf::FontFile::6938523071134836181::1672704808::1680879137::1::::<><>::
-::res://assets/theme/MinimalUI/::1680879143
+::res://assets/theme/MinimalUI/::1680887007
 digital-7.ttf::FontFile::3355916198713608293::1672704808::1680879137::1::::<><>::
 EquipmentPro.ttf::FontFile::6994123088027080576::1672704808::1680879137::1::::<><>::
 icons.svg::CompressedTexture2D::8280129247539003141::1672704808::1680879142::1::::<><>::
-MinimalUI.tres::Theme::-1::1680878964::0::1::::<><>::res://assets/theme/MinimalUI/OpenSans-Regular.ttf<>res://assets/theme/MinimalUI/icons.svg
+MinimalUI.tres::Theme::2997802853798749286::1680887007::0::1::::<><>::uid://djospm6mg1vu1<>uid://dp77rv6nsj3vd
 monogram-extended.ttf::FontFile::7386727604267865861::1672704808::1680879137::1::::<><>::
 OpenSans-Regular.ttf::FontFile::7820983303880229894::1672704808::1680879137::1::::<><>::
 _bitmap_font____romulus_by_pix3m-d6aokem.ttf::FontFile::1375014502847681467::1672704808::1680879137::1::::<><>::
@@ -355,20 +355,20 @@ WallTorch.tres::ParticleProcessMaterial::-1::1680878963::0::1::::<><>::res://ass
 WorldEnvironment1.tres::Environment::-1::1680878963::0::1::::<><>::
 WorldEnvironment2.tres::Environment::-1::1680878963::0::1::::<><>::
 WorldEnvironment3.tres::Environment::-1::1680878963::0::1::::<><>::
-::res://scenes/::1680885138
+::res://scenes/::1680892899
 AchievementHolder.tscn::PackedScene::-1::1680878952::0::1::::<><>::res://assets/theme/MinimalUI/MinimalUI.tres<>res://assets/theme/MinimalUI/EquipmentPro.ttf<>res://scripts/Achievements.gd<>res://scenes/UI/AchievementPopupManager.tscn
 AchievementRenderer.tscn::PackedScene::-1::1680878952::0::1::::<><>::res://scripts/AchievementRenderer.gd<>res://assets/theme/MinimalUI/EquipmentPro.ttf<>res://assets/3D models/NewJersey/NewJersey.obj<>res://assets/3D models/NonFunctionals/middlefinger.obj<>res://assets/textures/NonFuncs/wyoming.jpg<>res://assets/textures/NonFuncs/LinFei.png<>res://assets/textures/NonFuncs/XRA.png<>res://assets/3D models/NonFunctionals/Beanie.obj<>res://resources/WallTorch.tres<>res://assets/3D models/torch/Smoke30Frames_0.png<>res://assets/3D models/NonFunctionals/brain.obj<>res://assets/3D models/NonFunctionals/brain_Albedo.png<>res://assets/textures/NonFuncs/ACDC_Logo.png<>res://assets/textures/NonFuncs/Vraxx.png<>res://scenes/WorldEnvironment.tscn
 Credits.tscn::PackedScene::-1::1680878952::0::1::::<><>::res://assets/theme/MinimalUI/EquipmentPro.ttf<>res://assets/theme/MinimalUI/MinimalUI.tres<>res://scripts/Credits.gd
 DeathScreen.tscn::PackedScene::-1::1680878952::0::1::::<><>::res://scripts/DeathScreen.gd<>res://assets/theme/MinimalUI/EquipmentPro.ttf
 EndScreen.tscn::PackedScene::-1::1680878952::0::1::::<><>::res://assets/theme/MinimalUI/EquipmentPro.ttf<>res://scripts/EndScreen.gd<>res://assets/theme/MinimalUI/MinimalUI.tres
-FirstScene.tscn::PackedScene::139218979568734814::1680885176::0::1::::<><>::res://scripts/FirstScene.gd<>uid://cdkh2qfyr0mbi
+FirstScene.tscn::PackedScene::139218979568734814::1680886051::0::1::::<><>::res://scripts/FirstScene.gd<>uid://cdkh2qfyr0mbi
 Narrator.tscn::PackedScene::-1::1680878952::0::1::::<><>::res://scripts/Narrator.gd<>res://assets/theme/MinimalUI/_bitmap_font____romulus_by_pix3m-d6aokem.ttf
 Player.tscn::PackedScene::-1::1680878952::0::1::::<><>::res://scripts/CameraHolder.gd<>res://scripts/Player.gd<>res://interactable/InteractionRay.gd<>res://assets/audio/misc/footsteps/wood_floor1.wav<>res://assets/audio/misc/hurt.ogg<>res://scenes/items/Shield.tscn<>res://scripts/HeldSway.gd<>res://assets/3D models/flashlight/flashlight.obj<>res://assets/3D models/flashlight/torch_BaseColor.png<>res://assets/3D models/flashlight/torch_Normal.png<>res://assets/3D models/flashlight/torch_Roughness.png<>res://assets/3D models/flashlight/torch_Metallic.png<>res://assets/audio/misc/heaving-breathing.wav
 Room0.gd::GDScript::-1::1680878952::0::1::::<>Node3D<>::
-Room0.tscn::PackedScene::1973496678836126602::1680885301::0::1::::<><>::uid://c1x51774q650u<>uid://d3revxkcsrwrs<>uid://6t8ovv7u4vwe<>res://scenes/Room0.gd<>uid://c21jels5xkb6<>uid://q5626ukjqdaw
-SceneManager.tscn::PackedScene::2986134303552340001::1680885138::0::1::::<><>::res://scripts/SceneManager.gd<>res://scenes/UI/DebugConsole.tscn
+Room0.tscn::PackedScene::1973496678836126602::1680885380::0::1::::<><>::uid://c1x51774q650u<>uid://d3revxkcsrwrs<>uid://6t8ovv7u4vwe<>res://scenes/Room0.gd<>uid://dtj6144y7chrb<>uid://c21jels5xkb6<>uid://q5626ukjqdaw
+SceneManager.tscn::PackedScene::2986134303552340001::1680892899::0::1::::<><>::res://scripts/SceneManager.gd<>res://scenes/UI/DebugConsole.tscn
 StartMenuScene.tscn::PackedScene::-1::1680878952::0::1::::<><>::res://resources/WorldEnvironment1.tres<>res://assets/3D models/doors/DoorTex.png<>res://scripts/StartMenuCamera.gd<>res://scenes/objects/WallTorch.tscn<>res://scenes/objects/doors/Door2Closed.tscn<>res://scenes/Gridmaps/GridMap.tscn
-StartMenuV2.tscn::PackedScene::-1::1680878953::0::1::::<><>::res://scenes/audio/MusicPlayer.tscn<>res://scenes/UI/AchievementPopupManager.tscn<>res://assets/theme/MinimalUI/_bitmap_font____romulus_by_pix3m-d6aokem.ttf<>res://assets/theme/MinimalUI/MinimalUI.tres<>res://assets/theme/MinimalUI/EquipmentPro.ttf<>res://scenes/audio/ScarePlayer.tscn<>res://scenes/UI/SettingsMenu.tscn<>res://scripts/MainMenu.gd<>res://scenes/VersionChecker.tscn
+StartMenuV2.tscn::PackedScene::6980262927754987359::1680892899::0::1::::<><>::res://scenes/audio/MusicPlayer.tscn<>res://scenes/UI/AchievementPopupManager.tscn<>uid://biyfm0rxrcuru<>res://scenes/audio/ScarePlayer.tscn<>uid://ciksd20q8f3fh<>res://scripts/MainMenu.gd
 VersionChecker.tscn::PackedScene::-1::1680878953::0::1::::<><>::res://scripts/VersionChecker.gd
 world.tscn::PackedScene::-1::1680878953::0::1::::<><>::res://scripts/RoomEvent.gd<>res://scenes/Gridmaps/GridMap.tscn<>res://scenes/Player.tscn<>res://scenes/objects/doors/Door2.tscn<>res://resources/WorldEnvironment1.tres<>res://scenes/objects/WallTorch.tscn<>res://scenes/objects/doors/Door2Closed.tscn<>res://scripts/load_world.gd<>res://scenes/objects/signs/JumpScareSign1.tscn<>res://scenes/objects/signs/JumpScareSign2.tscn<>res://scenes/objects/signs/JumpScareSign4.tscn<>res://scenes/audio/ScarePlayer.tscn<>res://scenes/Narrator.tscn<>res://scenes/objects/NonFunctionals/Planks.tscn<>res://scenes/objects/NonFunctionals/Bricks.tscn
 WorldEnvironment2.tscn::PackedScene::-1::1680878953::0::1::::<><>::res://scripts/WorldEnvironment1.gd<>res://resources/WorldEnvironment2.tres
@@ -633,20 +633,20 @@ room50.gd::GDScript::-1::1680878954::0::1::::<>Node3D<>::
 room50.tscn::PackedScene::-1::1680878954::0::1::::<><>::res://scenes/Narrator.tscn<>res://scenes/Gridmaps/GridMap3.tscn<>res://scenes/rooms/300/room50.gd<>res://scenes/objects/doors/PipeClosed.tscn<>res://scenes/Player.tscn<>res://scenes/objects/Lantern.tscn<>res://scenes/objects/Floors Walls Etc/WallObj3.tscn<>res://scenes/objects/Sensor.tscn<>res://resources/WorldEnvironment3.tres<>res://scenes/enemies/LightHandler.tscn<>res://scenes/enemies/LightEnemy.tscn<>res://assets/theme/MinimalUI/digital-7.ttf<>res://scenes/objects/SavePentagram.tscn<>res://scenes/objects/GameConsole.tscn<>res://scenes/objects/doors/Pipe.tscn
 room75.gd::GDScript::-1::1680878954::0::1::::<>Node3D<>::
 room75.tscn::PackedScene::-1::1680878954::0::1::::<><>::res://scenes/Narrator.tscn<>res://scenes/Gridmaps/GridMap3.tscn<>res://scenes/Player.tscn<>res://scenes/objects/doors/PipeClosed.tscn<>res://scenes/objects/Lantern.tscn<>res://scenes/rooms/300/room75.gd<>res://resources/WorldEnvironment3.tres<>res://scenes/objects/ResetBox.tscn<>res://scenes/objects/doors/FakePipe.tscn<>res://scenes/objects/doors/Pipe.tscn<>res://scenes/objects/GameConsole.tscn<>res://scenes/objects/Medkit.tscn<>res://scenes/objects/SavePentagram.tscn<>res://scenes/enemies/StatueEnemy.tscn
-::res://scenes/UI/::1674261658
+::res://scenes/UI/::1680898467
 AchievementPopupManager.gd::GDScript::-1::1680878953::0::1::::<>Control<>::
 AchievementPopupManager.tscn::PackedScene::-1::1680878953::0::1::::<><>::res://scenes/UI/AchievementPopupManager.gd<>res://assets/theme/MinimalUI/EquipmentPro.ttf
 ControlsSettings.gd::GDScript::-1::1680878953::0::1::::<>MarginContainer<>::
-ControlsSettings.tscn::PackedScene::-1::1680878953::0::1::::<><>::res://assets/theme/MinimalUI/EquipmentPro.ttf<>res://scenes/UI/ControlsSettings.gd
+ControlsSettings.tscn::PackedScene::6971711784722501350::1680892001::0::1::::<><>::res://scenes/UI/ControlsSettings.gd
 DebugConsole.gd::GDScript::-1::1680878953::0::1::::<>Control<>::
 DebugConsole.tscn::PackedScene::-1::1680878953::0::1::::<><>::res://scenes/UI/DebugConsole.gd<>res://assets/theme/MinimalUI/EquipmentPro.ttf
 GUI.gd::GDScript::-1::1680878953::0::1::::<>CanvasLayer<>::
 GUI.tscn::PackedScene::-1::1680878953::0::1::::<><>::res://scenes/UI/PauseMenu.tscn<>res://assets/theme/MinimalUI/EquipmentPro.ttf<>res://scenes/UI/GUI.gd<>res://assets/theme/MinimalUI/MinimalUI.tres<>res://scenes/UI/AchievementPopupManager.tscn<>res://assets/UI/hand.png<>res://assets/UI/BarBack.png<>res://assets/UI/HealthBar.png<>res://assets/UI/HealthBarProg.png<>res://assets/UI/StamBar.png<>res://assets/UI/StamBarProg.png
 PauseMenu.gd::GDScript::-1::1680878953::0::1::::<>Control<>::
 PauseMenu.tscn::PackedScene::-1::1680878953::0::1::::<><>::res://scenes/UI/SettingsMenu.tscn<>res://scenes/UI/PauseMenu.gd<>res://assets/theme/MinimalUI/EquipmentPro.ttf<>res://assets/theme/MinimalUI/MinimalUI.tres
-SettingsMenu.gd::GDScript::-1::1680878953::0::1::::<>Popup<>::
-SettingsMenu.tscn::PackedScene::-1::1680878953::0::1::::<><>::res://assets/theme/MinimalUI/EquipmentPro.ttf<>res://scenes/UI/SettingsMenu.gd<>res://assets/theme/MinimalUI/MinimalUI.tres<>res://scenes/audio/ClickPlayer.tscn<>res://scenes/UI/ControlsSettings.tscn
-::res://scripts/::1680885135
+SettingsMenu.gd::GDScript::-1::1680894569::0::1::::<>Control<>::
+SettingsMenu.tscn::PackedScene::5356095614804429209::1680898467::0::1::::<><>::res://scenes/UI/SettingsMenu.gd<>uid://biyfm0rxrcuru<>res://scenes/audio/ClickPlayer.tscn<>uid://c6lfcseypy663
+::res://scripts/::1680892611
 AchievementRenderer.gd::GDScript::-1::1680878950::0::1::::<>Node3D<>::
 Achievements.gd::GDScript::-1::1680878950::0::1::::<>CanvasLayer<>::
 AchievementsHolder.gd::GDScript::-1::1680884189::0::1::::<>Node<>::
@@ -654,7 +654,7 @@ CameraHolder.gd::GDScript::-1::1680878950::0::1::::<>Node3D<>::
 Credits.gd::GDScript::-1::1680878950::0::1::::<>Control<>::
 DeathScreen.gd::GDScript::-1::1680878950::0::1::::<>Control<>::
 EndScreen.gd::GDScript::-1::1680878950::0::1::::<>Control<>::
-FirstScene.gd::GDScript::-1::1680885135::0::1::::<>Node<>::
+FirstScene.gd::GDScript::-1::1680889947::0::1::::<>Node<>::
 HeldSway.gd::GDScript::-1::1680878950::0::1::::<>Node3D<>::
 JumpScareSign1.gd::GDScript::-1::1680878950::0::1::::<>StaticBody3D<>::
 Lantern.gd::GDScript::-1::1680878950::0::1::::<>Node3D<>::
@@ -663,7 +663,7 @@ LinFeiPoster.gd::GDScript::-1::1680878951::0::1::::<>Interactable<>::
 load_world2.gd::GDScript::-1::1680878951::0::1::::<>Node3D<>::
 load_world3.gd::GDScript::-1::1680878951::0::1::::<>Node3D<>::
 load_world.gd::GDScript::-1::1680878951::0::1::::<>Node3D<>::
-MainMenu.gd::GDScript::-1::1680878951::0::1::::<>Control<>::
+MainMenu.gd::GDScript::-1::1680891987::0::1::::<>Control<>::
 Narrator.gd::GDScript::-1::1680878951::0::1::::<>Control<>::
 Plaque.gd::GDScript::-1::1680878951::0::1::::<>Node3D<>::
 Player.gd::GDScript::-1::1680878951::0::1::::<>CharacterBody3D<>::
@@ -676,9 +676,9 @@ Room15Manager.gd::GDScript::-1::1680878951::0::1::::<>Node3D<>::
 RoomEvent.gd::GDScript::-1::1680878951::0::1::::RoomEvent<>Resource<>::
 RoomLoader.gd::GDScript::-1::1680884853::0::1::::<>Node<>::
 save_game.gd::GDScript::-1::1680884202::0::1::::<>Node<>::
-SceneManager.gd::GDScript::-1::1680884763::0::1::::<>Node<>::
+SceneManager.gd::GDScript::-1::1680892611::0::1::::<>Node<>::
 Sensor.gd::GDScript::-1::1680878951::0::1::::<>Area3D<>::
 settingsholder.gd::GDScript::-1::1680884226::0::1::::<>Node<>::
-StartMenuCamera.gd::GDScript::-1::1680878952::0::1::::<>Camera3D<>::
-VersionChecker.gd::GDScript::-1::1680878952::0::1::::<>Node<>::
+StartMenuCamera.gd::GDScript::-1::1680885999::0::1::::<>Camera3D<>::
+VersionChecker.gd::GDScript::-1::1680890336::0::1::::<>Node<>::
 WorldEnvironment1.gd::GDScript::-1::1680878952::0::1::::<>WorldEnvironment<>::

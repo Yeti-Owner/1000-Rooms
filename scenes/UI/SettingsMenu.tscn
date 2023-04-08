@@ -61,6 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Video" type="TabBar" parent="Holder/SettingsTabs"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Holder/SettingsTabs/Video"]
@@ -229,7 +230,6 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Graphics" type="TabBar" parent="Holder/SettingsTabs"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Holder/SettingsTabs/Graphics"]
@@ -248,6 +248,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="FXAA" type="GridContainer" parent="Holder/SettingsTabs/Graphics/MarginContainer/GameplaySettings"]
+visible = false
 layout_mode = 2
 columns = 2
 
