@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://kc46vk6ny6n8"
+path="res://.godot/imported/A4_Lined_Paper_OBJ.obj-091e96801cc7faca0a1d863d0f447012.mesh"
+
+[deps]
+
+files=["res://.godot/imported/A4_Lined_Paper_OBJ.obj-091e96801cc7faca0a1d863d0f447012.mesh"]
+
+source_file="res://assets/3D models/Paper/A4_Lined_Paper_OBJ.obj"
+dest_files=["res://.godot/imported/A4_Lined_Paper_OBJ.obj-091e96801cc7faca0a1d863d0f447012.mesh", "res://.godot/imported/A4_Lined_Paper_OBJ.obj-091e96801cc7faca0a1d863d0f447012.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

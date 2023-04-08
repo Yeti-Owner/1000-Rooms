@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cgyamrl2owoqa"
+path="res://.godot/imported/grate.obj-8035a804b2edda0514d57f35e9ab392f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/grate.obj-8035a804b2edda0514d57f35e9ab392f.mesh"]
+
+source_file="res://assets/3D models/NonFunctionals/grate.obj"
+dest_files=["res://.godot/imported/grate.obj-8035a804b2edda0514d57f35e9ab392f.mesh", "res://.godot/imported/grate.obj-8035a804b2edda0514d57f35e9ab392f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

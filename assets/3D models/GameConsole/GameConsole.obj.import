@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bjv17otc86ycj"
+path="res://.godot/imported/GameConsole.obj-5fd422c0955ea71c2a3cfa3f932c09c7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/GameConsole.obj-5fd422c0955ea71c2a3cfa3f932c09c7.mesh"]
+
+source_file="res://assets/3D models/GameConsole/GameConsole.obj"
+dest_files=["res://.godot/imported/GameConsole.obj-5fd422c0955ea71c2a3cfa3f932c09c7.mesh", "res://.godot/imported/GameConsole.obj-5fd422c0955ea71c2a3cfa3f932c09c7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
