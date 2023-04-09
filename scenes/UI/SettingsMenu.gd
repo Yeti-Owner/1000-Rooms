@@ -78,9 +78,9 @@ func _on_vsync_check_btn_pressed():
 	ClickPlayer._click_sound()
 
 # Max Fps
-func _on_max_fps_slider_drag_ended(value_changed):
-	MaxFpsValue.set_text(str(value_changed))
-	Settingsholder.save_data.FrameRate = value_changed
+func _on_max_fps_slider_value_changed(value):
+	MaxFpsValue.set_text(str(value))
+	Settingsholder.save_data.FrameRate = value
 	Engine.set_max_fps(int(Settingsholder.save_data.FrameRate))
 
 # Show Fps
@@ -90,15 +90,15 @@ func _on_show_fps_check_btn_pressed():
 	Settingsholder.emit_signal("fps_changed")
 
 # Sensitivity
-func _on_MouseSensitivitySlider_value_changed(Sensitivity):
-	MouseSensitivityVal.set_text(str(Sensitivity))
-	Settingsholder.save_data.MouseSensitivity = Sensitivity
+func _on_mouse_sensitivity_slider_value_changed(value):
+	MouseSensitivityVal.set_text(str(value))
+	Settingsholder.save_data.MouseSensitivity = value
 	Settingsholder.emit_signal("sens_changed")
 
 # Fov
-func _on_FovSlider_value_changed(CurrentFov):
-	Settingsholder.save_data.PlayerFOV = CurrentFov
-	FovVal.set_text(str(CurrentFov))
+func _on_fov_slider_value_changed(value):
+	Settingsholder.save_data.PlayerFOV = value
+	FovVal.set_text(str(value))
 	Settingsholder.emit_signal("fov_changed")
 
 # Enable/Disable Bloom
@@ -118,58 +118,56 @@ func _on_brightness_slider_drag_ended(value_changed):
 	Settingsholder.emit_signal("brightness_changed")
 
 # Master Volume
-func _on_master_vol_slider_drag_ended(value_changed):
-	Settingsholder.save_data.MasterVolume = value_changed
-	value_changed = value_changed - 40
-	AudioServer.set_bus_volume_db(0, value_changed)
+func _on_master_vol_slider_value_changed(value):
+	Settingsholder.save_data.MasterVolume = value
+	value = value - 40
+	AudioServer.set_bus_volume_db(0, value)
 
 # Music Volume
-func _on_music_vol_slider_drag_ended(value_changed):
-	Settingsholder.save_data.MusicVolume = value_changed
-	value_changed = value_changed - 50
-	AudioServer.set_bus_volume_db(1, value_changed)
+func _on_music_vol_slider_value_changed(value):
+	Settingsholder.save_data.MusicVolume = value
+	value = value - 50
+	AudioServer.set_bus_volume_db(1, value)
 
 # Sound Effects/Sfx Volume
-func _on_sfx_vol_slider_drag_ended(value_changed):
-	Settingsholder.save_data.SfxVolume = value_changed
-	value_changed = value_changed - 50
-	AudioServer.set_bus_volume_db(2, value_changed)
+func _on_sfx_vol_slider_value_changed(value):
+	Settingsholder.save_data.SfxVolume = value
+	value = value - 50
+	AudioServer.set_bus_volume_db(2, value)
 
 # Clear SaveGame
-func _on_ClearSaveBtn_pressed():
+func _on_clear_save_btn_pressed():
 	ClickPlayer._click_sound()
 	SaveGame._clear_save()
-	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/ClearSaveBtn.button_pressed = false
+	$Holder/SettingsTabs/Gameplay/MarginContainer/GameplaySettings/ClearSaveBtn.button_pressed = false
 	self.visible = false
 
 # Set settings to defaults
-func _on_DefaultBtn_pressed():
+func _on_default_btn_pressed():
 	ClickPlayer._click_sound()
 	Settingsholder._default()
 	_ready()
-	$SettingsTabs/Gameplay/MarginContainer/GameplaySettings/DefaultBtn.button_pressed = false
-
+	$Holder/SettingsTabs/Gameplay/MarginContainer/GameplaySettings/DefaultBtn.button_pressed = false
 
 # GAMEPLAY SETTINGS
-
 func _on_FXAACheck_pressed():
 	ClickPlayer._click_sound()
 	Settingsholder.save_data.FXAA = !Settingsholder.save_data.FXAA
 	_viewport_settings()
 
-func _on_MSAAOptions_item_selected(index):
+func _on_msaa_options_item_selected(index):
 	ClickPlayer._click_sound()
 	Settingsholder.save_data.MSAA = index
 	_viewport_settings()
 
-func _on_ResolutionScale_value_changed(value):
+func _on_resolution_scale_value_changed(value):
 	Settingsholder.save_data.ResolutionScale = value
 	var ResolutionText := ["480p","540p","576p","720p","768p","900p","1080p","1440p"]
 	Settingsholder.save_data.ResolutionText = ResolutionText[value]
 	ScaleText.text = Settingsholder.save_data.ResolutionText
 	_viewport_settings()
 
-func _on_QualBloomCheck_pressed():
+func _on_qual_bloom_check_pressed():
 	Settingsholder.save_data.QualityBloom = !Settingsholder.save_data.QualityBloom
 	if (Settingsholder.save_data.QualityBloom):
 		Settingsholder.save_data.BloomSet = 1
@@ -186,3 +184,4 @@ func _on_close_pressed():
 
 func _on_settings_tabs_tab_changed(_tab):
 	ClickPlayer._click_sound()
+

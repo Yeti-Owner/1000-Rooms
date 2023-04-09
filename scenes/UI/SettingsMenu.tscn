@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6lfcseypy663" path="res://scenes/UI/ControlsSettings.tscn" id="5"]
 
 [node name="SettingsMenu" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,7 +62,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Video" type="TabBar" parent="Holder/SettingsTabs"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Holder/SettingsTabs/Video"]
@@ -230,6 +230,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Graphics" type="TabBar" parent="Holder/SettingsTabs"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Holder/SettingsTabs/Graphics"]
@@ -274,6 +275,17 @@ custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 tooltip_text = "Multi-sampling antialiasing. Provides higher quality sharpness to corners and edges at the cost of more performance."
+alignment = 1
+item_count = 4
+selected = 0
+popup/item_0/text = "Off"
+popup/item_0/id = 0
+popup/item_1/text = "2x"
+popup/item_1/id = 1
+popup/item_2/text = "4x"
+popup/item_2/id = 2
+popup/item_3/text = "8x"
+popup/item_3/id = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Holder/SettingsTabs/Graphics/MarginContainer/GameplaySettings"]
 layout_mode = 2
@@ -411,10 +423,17 @@ text = "X"
 [connection signal="item_selected" from="Holder/SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionBtn" to="." method="_on_display_option_btn_item_selected"]
 [connection signal="pressed" from="Holder/SettingsTabs/Video/MarginContainer/VideoSettings/VsyncCheckBtn" to="." method="_on_vsync_check_btn_pressed"]
 [connection signal="pressed" from="Holder/SettingsTabs/Video/MarginContainer/VideoSettings/ShowFpsCheckBtn" to="." method="_on_show_fps_check_btn_pressed"]
-[connection signal="drag_ended" from="Holder/SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider" to="." method="_on_max_fps_slider_drag_ended"]
+[connection signal="value_changed" from="Holder/SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider" to="." method="_on_max_fps_slider_value_changed"]
 [connection signal="pressed" from="Holder/SettingsTabs/Video/MarginContainer/VideoSettings/BloomCheckBtn" to="." method="_on_bloom_check_btn_pressed"]
 [connection signal="drag_ended" from="Holder/SettingsTabs/Video/MarginContainer/VideoSettings/BrightnessSlider" to="." method="_on_brightness_slider_drag_ended"]
-[connection signal="drag_ended" from="Holder/SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolSlider" to="." method="_on_master_vol_slider_drag_ended"]
-[connection signal="drag_ended" from="Holder/SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolSlider" to="." method="_on_music_vol_slider_drag_ended"]
-[connection signal="drag_ended" from="Holder/SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider" to="." method="_on_sfx_vol_slider_drag_ended"]
+[connection signal="value_changed" from="Holder/SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolSlider" to="." method="_on_master_vol_slider_value_changed"]
+[connection signal="value_changed" from="Holder/SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="value_changed" from="Holder/SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
+[connection signal="item_selected" from="Holder/SettingsTabs/Graphics/MarginContainer/GameplaySettings/MSAA/MSAAOptions" to="." method="_on_msaa_options_item_selected"]
+[connection signal="value_changed" from="Holder/SettingsTabs/Graphics/MarginContainer/GameplaySettings/VBoxContainer/HBoxContainer/ResolutionScale" to="." method="_on_resolution_scale_value_changed"]
+[connection signal="pressed" from="Holder/SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom/QualBloomCheck" to="." method="_on_qual_bloom_check_pressed"]
+[connection signal="value_changed" from="Holder/SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer/FovSlider" to="." method="_on_fov_slider_value_changed"]
+[connection signal="value_changed" from="Holder/SettingsTabs/Gameplay/MarginContainer/GameplaySettings/HBoxContainer2/MouseSensitivitySlider" to="." method="_on_mouse_sensitivity_slider_value_changed"]
+[connection signal="pressed" from="Holder/SettingsTabs/Gameplay/MarginContainer/GameplaySettings/ClearSaveBtn" to="." method="_on_clear_save_btn_pressed"]
+[connection signal="pressed" from="Holder/SettingsTabs/Gameplay/MarginContainer/GameplaySettings/DefaultBtn" to="." method="_on_default_btn_pressed"]
 [connection signal="pressed" from="Holder/Close" to="." method="_on_close_pressed"]
