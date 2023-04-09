@@ -23,6 +23,8 @@ extends Control
 @onready var QualBloomBtn := $Holder/SettingsTabs/Graphics/MarginContainer/GameplaySettings/QualityBloom/QualBloomCheck
 
 func _ready():
+	self.hide()
+	
 	# Set FPS to correct value
 	Engine.set_max_fps(int(Settingsholder.save_data.FrameRate))
 	

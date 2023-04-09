@@ -10,7 +10,7 @@ func _ready():
 # warning-ignore:return_value_discarded
 	Settingsholder.connect("quality_bloom_changed",Callable(self,"_quality_bloom"))
 	
-	_bloom()
+#	_bloom()
 
 func _bloom():
 	if (Settingsholder.save_data.BloomSet):

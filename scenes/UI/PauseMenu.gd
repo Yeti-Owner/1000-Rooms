@@ -2,7 +2,7 @@ extends Control
 var isPaused = false : set = set_is_paused
 
 @onready var VCont := $CenterContainer/VBoxContainer
-@onready var ClickPlayer := $CanvasLayer/SettingsMenu/ClickPlayer
+@onready var ClickPlayer := $CanvasLayer/SettingsMenu/Holder/ClickPlayer
 
 
 func _unhandled_input(event):
@@ -25,7 +25,8 @@ func _on_ResumeBtn_pressed():
 
 func _on_QuitBtn_pressed():
 	ClickPlayer._click_sound()
-	Settingsholder._save()
+	Settingsholder._save(Settingsholder.save_settings, Settingsholder.save_data)
+	Settingsholder._save(Settingsholder.save_keybinds, Settingsholder.keybinds_data)
 	AchievementsHolder._save()
 	get_tree().quit()
 

@@ -1,79 +1,86 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://bbwtywufrhnfs"]
 
-[ext_resource path="res://scenes/UI/AchievementPopupManager.gd" type="Script" id=1]
-[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="FontFile" id=2]
+[ext_resource type="Script" path="res://scenes/UI/AchievementPopupManager.gd" id="1"]
 
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-[sub_resource type="FontFile" id=4]
-size = 25
-font_data = ExtResource( 2 )
-
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id="5"]
 resource_name = "Achievement"
 length = 4.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("AchievementPopupManager/Achievement/AchievementPopup:position")
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AchievementPopupManager/Achievement:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.8, 1.2, 2.5, 4, 4.2 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.8, 1.2, 2.5, 4, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( -239, 0 ), Vector2( 23, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 45 ), Vector2( 0, 250 ) ]
+"values": [Vector2(-239, 675), Vector2(23, 675), Vector2(0, 675), Vector2(0, 675), Vector2(0, 790), Vector2(0, 950)]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id="6"]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("AchievementPopupManager/Achievement/AchievementPopup:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("AchievementPopupManager/Achievement:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( -239, 0 ) ]
+"values": [Vector2(-239, 675)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tuehi"]
+_data = {
+"Achievement": SubResource("5"),
+"RESET": SubResource("6")
 }
 
 [node name="AchievementPopupManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="Achievement" type="Panel" parent="."]
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -45.0
+offset_top = 230.0
 offset_right = 240.0
-custom_styles/panel = SubResource( 7 )
+offset_bottom = 275.0
 
 [node name="AchievementPopup" type="ColorRect" parent="Achievement"]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -359.0
-offset_top = -22.5
-offset_right = -120.0
-offset_bottom = 21.5
-color = Color( 0, 0, 0, 1 )
+offset_left = -117.0
+offset_top = -19.5
+offset_right = 117.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="Achievement/AchievementPopup"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 4 )
+theme_override_font_sizes/font_size = 20
 text = "Achievement Unlocked"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
-anims/Achievement = SubResource( 5 )
-anims/RESET = SubResource( 6 )
+libraries = {
+"": SubResource("AnimationLibrary_tuehi")
+}

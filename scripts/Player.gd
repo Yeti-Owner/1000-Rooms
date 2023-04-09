@@ -29,7 +29,7 @@ var state := WALKING
 
 func _ready():
 	isDead = false
-	self.scale = Vector3(0.6, 0.6, 0.6)
+#	self.scale = Vector3(0.6, 0.6, 0.6)
 	
 	StepPlayer.stream = load(FootStepList[SaveGame.game_data.StepUsed])
 	
@@ -88,10 +88,10 @@ func _movement(delta, UsedSpeed, bob_speed):
 	
 	_vel.y += gravity * delta
 	
-	var basis: Basis = _camera.global_transform.basis
+	var _basis: Basis = _camera.global_transform.basis
 	_dir = Vector3.ZERO
-	_dir += -basis.z * input.y
-	_dir += basis.x * input.x
+	_dir += -_basis.z * input.y
+	_dir += _basis.x * input.x
 	_dir = _dir.normalized()
 	
 	

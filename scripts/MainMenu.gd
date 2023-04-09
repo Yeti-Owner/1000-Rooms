@@ -2,12 +2,14 @@ extends Control
 
 @onready var ClickPlayer := get_node("SettingsMenu/Holder/ClickPlayer")
 @onready var MusicPlayer := get_parent().get_node("MusicPlayer")
+@onready var Changelog := $Changelog
 
 var TitleTexts := ["Made by YetiOwner","Feedback appreciated","Almost no bloody handprints!","You have nice hair!","Ngl I'm pretty bad at gamedev","I would kill for a 3D Sphinx model","Graphics Update!!!!","Does anyone read these?","It took way too long to make this","Your Jordans are fake","This was a Graphics and tweaks update","Thank you to all my playtesters","No one has gotten 100% Achievements yet","I bet you have good music taste"]
 var TitleLocs := [Vector2(135,134),Vector2(336,276),Vector2(916,154),Vector2(373,592),Vector2(1066,431)]
 
 func _ready():
 	randomize()
+	Changelog.hide()
 	SaveGame._update_presence()
 #	$VersionChecker._start()
 	$TitleText.position = TitleLocs[randi() % TitleLocs.size()]
@@ -31,12 +33,6 @@ func _on_AchievementsBtn_pressed():
 func _on_CreditsBtn_pressed():
 	pass
 
-func _on_VersionBtn_pressed():
-	get_node("VersionDialog").popup_centered()
-
-func _on_CloseBtn_pressed():
-	get_node("VersionDialog").visible = false
-
 func _on_FeedbackBtn_pressed():
 	var _error = OS.shell_open("https://forms.gle/FtncNqYqHXxhzjqg7")
 
@@ -49,3 +45,12 @@ func _on_quit_btn_pressed():
 	Settingsholder._save(Settingsholder.save_keybinds, Settingsholder.keybinds_data)
 	AchievementsHolder._save()
 	get_tree().quit()
+
+func _on_close_btn_pressed():
+	Changelog.hide()
+
+func _on_clickout_pressed():
+	Changelog.hide()
+
+func _on_changelog_btn_pressed():
+	Changelog.show()

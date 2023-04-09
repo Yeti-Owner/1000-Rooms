@@ -26,9 +26,9 @@ func _ready():
 # warning-ignore:return_value_discarded
 	Settingsholder.connect("quality_bloom_changed",Callable(self,"_quality_bloom"))
 	
-	_bloom()
+#	_bloom()
 	
-	GameViewportContainer.mouse_filter = 0
+#	GameViewportContainer.mouse_filter = 0
 
 func _change_scene(scene:String, type := "normal"):
 	match type:
@@ -38,11 +38,9 @@ func _change_scene(scene:String, type := "normal"):
 			SceneToLoad = scene
 		"achievement":
 			NextTransition = null
-			var img = get_viewport().get_texture().get_data()
-			img.flip_y()
-			var screenshot = ImageTexture.new()
-			screenshot.create_from_image(img)
-			TextureHolder.texture = screenshot
+			var img = get_viewport().get_texture().get_image()
+			var texture = ImageTexture.create_from_image(img)
+			TextureHolder.texture = texture
 			SceneToLoad = scene
 			Transitions.play("achievement_out")
 

@@ -6,13 +6,14 @@ extends Node3D
 
 @onready var Narrator := $Narrator
 @onready var Objs := $Objs
-@onready var _room := self.filename
+@onready var _room:String = self.get_scene_file_path()
+
  
 func _ready():
 	$ReflectionProbe.visible = true
 	$ReflectionProbe.intensity = 0.75
 	randomize()
-	SceneManager.GameScene.world.environment = EnvironmentUsed
+#	SceneManager.GameScene.world.environment = EnvironmentUsed
 	_add_objs()
 	SaveGame.game_data.CurrentRoom = _room
 	_room_event()
@@ -44,9 +45,9 @@ func _add_objs():
 			_i.queue_free()
 
 func _summon_enemy():
-	await get_tree().idle_frame
-	await get_tree().idle_frame
-	await get_tree().idle_frame
+	await(get_tree().process_frame)
+	await(get_tree().process_frame)
+	await(get_tree().process_frame)
 	if EnemyAllowed:
 		var RNG := randi() % 5
 		if RNG == 0 or SaveGame.isChased > 0:

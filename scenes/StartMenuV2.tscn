@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6pj57v4p2htv"]
 
 [ext_resource type="PackedScene" path="res://scenes/audio/MusicPlayer.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/UI/AchievementPopupManager.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bbwtywufrhnfs" path="res://scenes/UI/AchievementPopupManager.tscn" id="2"]
 [ext_resource type="Theme" uid="uid://biyfm0rxrcuru" path="res://assets/theme/MinimalUI/MinimalUI.tres" id="5"]
 [ext_resource type="PackedScene" path="res://scenes/audio/ScarePlayer.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://ciksd20q8f3fh" path="res://scenes/UI/SettingsMenu.tscn" id="11"]
@@ -59,7 +59,7 @@ text = "Quit"
 [node name="SettingsMenu" parent="Menu" instance=ExtResource("11")]
 layout_mode = 1
 
-[node name="VersionBtn" type="Button" parent="Menu"]
+[node name="ChangelogBtn" type="Button" parent="Menu"]
 layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
@@ -69,107 +69,124 @@ offset_left = -193.0
 offset_top = -59.0
 text = "Changelog"
 
-[node name="VersionDialog" type="Popup" parent="Menu"]
-
-[node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog"]
+[node name="Changelog" type="Control" parent="Menu"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Clickout" type="TextureButton" parent="Menu/Changelog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Holder" type="Control" parent="Menu/Changelog"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -275.0
+offset_right = 250.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu/Changelog/Holder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -519.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.592157)
 
-[node name="TabContainer" type="TabContainer" parent="Menu/VersionDialog"]
+[node name="TabContainer" type="TabContainer" parent="Menu/Changelog/Holder"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Current" type="TabBar" parent="Menu/VersionDialog/TabContainer"]
+[node name="What\'s New" type="TabBar" parent="Menu/Changelog/Holder/TabContainer"]
 layout_mode = 2
 
-[node name="InfoContainer" type="ScrollContainer" parent="Menu/VersionDialog/TabContainer/Current"]
-layout_mode = 0
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Changelog/Holder/TabContainer/What\'s New"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 14.0
-offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
 
-[node name="Control" type="Control" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer"]
-custom_minimum_size = Vector2(698, 372)
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Changelog/Holder/TabContainer/What\'s New/MarginContainer"]
 layout_mode = 2
 
-[node name="Info" type="Label" parent="Menu/VersionDialog/TabContainer/Current/InfoContainer/Control"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 2.0
-text = "
+[node name="Version" type="Label" parent="Menu/Changelog/Holder/TabContainer/What\'s New/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Update 1.08"
+horizontal_alignment = 1
+vertical_alignment = 1
 
+[node name="Info" type="Label" parent="Menu/Changelog/Holder/TabContainer/What\'s New/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "- Ported game to new Engine (Godot 4.0).
+- Numerous graphical optimizations and upgrades."
 
-- Better reflections & more  accurate lighting
-- Added several new textures
-- Updated textures (Better depth, occlusion, etc)
-- Better bloom
-- Upscaled art
-- Touched up several models
-- Adjusted difficulty
-- Adjusted rarity of certain rooms
-- Added several new rooms
-- Added controls to settings
-- Fixed (small) bug making Player borderline invincible
-- Updated the intro cutscene
-- Added messages to main menu :)"
-
-[node name="ColorRect" type="ColorRect" parent="Menu/VersionDialog/TabContainer/Current"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -308.0
-color = Color(0, 0, 0, 1)
-
-[node name="Version" type="Label" parent="Menu/VersionDialog/TabContainer/Current/ColorRect"]
-layout_mode = 0
-anchor_right = 1.0
-offset_top = 10.0
-offset_bottom = 61.0
-text = "Update 1.07"
-
-[node name="Next" type="TabBar" parent="Menu/VersionDialog/TabContainer"]
+[node name="Upcoming" type="TabBar" parent="Menu/Changelog/Holder/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Version" type="Label" parent="Menu/VersionDialog/TabContainer/Next"]
-layout_mode = 0
-anchor_right = 1.0
-offset_top = 10.0
-offset_bottom = 61.0
-text = "Coming Soon (Hopefully)"
-
-[node name="InfoContainer" type="ScrollContainer" parent="Menu/VersionDialog/TabContainer/Next"]
-layout_mode = 0
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Changelog/Holder/TabContainer/Upcoming"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
 
-[node name="Control" type="Control" parent="Menu/VersionDialog/TabContainer/Next/InfoContainer"]
-custom_minimum_size = Vector2(698, 308)
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Changelog/Holder/TabContainer/Upcoming/MarginContainer"]
 layout_mode = 2
 
-[node name="Info" type="Label" parent="Menu/VersionDialog/TabContainer/Next/InfoContainer/Control"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 1.0
-text = "- New Enemies
-- Fixing Arcade machines
-- More games for the arcade
-- More Story/Lore
-- Revamped Puzzles"
+[node name="Version" type="Label" parent="Menu/Changelog/Holder/TabContainer/Upcoming/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Update 1.09"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CloseBtn" type="Button" parent="Menu/VersionDialog"]
+[node name="Info" type="Label" parent="Menu/Changelog/Holder/TabContainer/Upcoming/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "- Yurr"
+
+[node name="CloseBtn" type="Button" parent="Menu/Changelog/Holder"]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 25.0
+offset_left = -50.0
+offset_bottom = 31.0
+grow_horizontal = 0
 text = "X"
 
 [node name="FeedbackBtn" type="Button" parent="Menu"]
@@ -196,11 +213,10 @@ text = "Test Text??!?!?!"
 bus = &"SfxBus"
 
 [node name="MusicPlayer" parent="." instance=ExtResource("1")]
+process_mode = 0
 bus = &"MusicBus"
 
 [node name="AchievementPopupManager" parent="." instance=ExtResource("2")]
-layout_mode = 3
-anchors_preset = 15
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -210,7 +226,8 @@ grow_vertical = 2
 [connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/AchievementsBtn" to="Menu" method="_on_AchievementsBtn_pressed"]
 [connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/CreditsBtn" to="Menu" method="_on_CreditsBtn_pressed"]
 [connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/QuitBtn" to="Menu" method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="Menu/VersionBtn" to="Menu" method="_on_VersionBtn_pressed"]
-[connection signal="pressed" from="Menu/VersionDialog/CloseBtn" to="Menu" method="_on_CloseBtn_pressed"]
+[connection signal="pressed" from="Menu/ChangelogBtn" to="Menu" method="_on_changelog_btn_pressed"]
+[connection signal="pressed" from="Menu/Changelog/Clickout" to="Menu" method="_on_clickout_pressed"]
+[connection signal="pressed" from="Menu/Changelog/Holder/CloseBtn" to="Menu" method="_on_close_btn_pressed"]
 [connection signal="pressed" from="Menu/FeedbackBtn" to="Menu" method="_on_FeedbackBtn_pressed"]
 [connection signal="timeout" from="Menu/Timer" to="Menu" method="_on_Timer_timeout"]
