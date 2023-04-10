@@ -1,12 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dap7bj72ntyb2"]
+[gd_scene load_steps=18 format=3 uid="uid://dap7bj72ntyb2"]
 
 [ext_resource type="Script" path="res://scripts/RoomEvent.gd" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/Gridmaps/GridMap.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://br6b3n80m31cq" path="res://scenes/Player.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/objects/doors/Door2.tscn" id="4"]
 [ext_resource type="Environment" path="res://resources/WorldEnvironment1.tres" id="5"]
-[ext_resource type="PackedScene" path="res://scenes/objects/WallTorch.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://scenes/objects/doors/Door2Closed.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://cn204e3ktprmk" path="res://scenes/objects/WallTorch.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://buv24d5oclw7e" path="res://scenes/objects/doors/Door2Closed.tscn" id="7"]
 [ext_resource type="Script" path="res://scripts/load_world.gd" id="10"]
 [ext_resource type="PackedScene" path="res://scenes/objects/signs/JumpScareSign1.tscn" id="11"]
 [ext_resource type="PackedScene" path="res://scenes/objects/signs/JumpScareSign2.tscn" id="12"]
@@ -14,6 +13,8 @@
 [ext_resource type="PackedScene" path="res://scenes/audio/ScarePlayer.tscn" id="14"]
 [ext_resource type="PackedScene" path="res://scenes/Narrator.tscn" id="15"]
 [ext_resource type="PackedScene" path="res://scenes/objects/NonFunctionals/Planks.tscn" id="16"]
+[ext_resource type="PackedScene" path="res://scenes/WorldEnvironment.tscn" id="16_7digu"]
+[ext_resource type="MeshLibrary" uid="uid://d1wvgq61fgpc6" path="res://scenes/meshlib/meshlib_1.meshlib" id="16_w5gbj"]
 [ext_resource type="PackedScene" path="res://scenes/objects/NonFunctionals/Bricks.tscn" id="17"]
 
 [sub_resource type="Resource" id="1"]
@@ -63,10 +64,13 @@ transform = Transform3D(-6.11959e-08, -5.34992e-15, -1.4, -1.22392e-07, 1.4, 0, 
 [node name="ScarePlayer" parent="RoomItems" instance=ExtResource("14")]
 bus = &"SfxBus"
 
-[node name="GridMap" parent="." instance=ExtResource("2")]
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("16_w5gbj")
+collision_layer = 5
 data = {
-"cells": PackedInt32Array(0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 11, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 65543, 2, 0, 65544, 2, 0, 65545, 2, 0, 65546, 2, 0, 65547, 2, 0, 12, 3, 0, 65535, 3, 0, 65548, 3, 0, 131071, 3, 0, 131072, 3, 2, 131073, 3, 2, 131074, 3, 2, 131075, 3, 2, 131076, 3, 2, 131077, 3, 2, 131078, 3, 2, 131079, 3, 2, 131080, 3, 2, 131081, 3, 2, 131082, 3, 2, 131083, 3, 2, -65536, 3, 1, -65535, 3, 1, -65534, 3, 1, -65533, 3, 1, -65532, 3, 1, -65531, 3, 1, -65530, 3, 1, -65529, 3, 1, -65528, 3, 1, -65527, 3, 1, -65526, 3, 1, -65525, 3, 1, 12, 4, 0, 65535, 4, 0, 65548, 4, 0, 131071, 4, 0, 131072, 4, 2, 131073, 4, 2, 131074, 4, 2, 131075, 4, 2, 131076, 4, 2, 131077, 4, 2, 131078, 4, 2, 131079, 4, 2, 131080, 4, 2, 131081, 4, 2, 131082, 4, 2, 131083, 4, 2, -65536, 4, 1, -65535, 4, 1, -65534, 4, 1, -65533, 4, 1, -65532, 4, 1, -65531, 4, 1, -65530, 4, 1, -65529, 4, 1, -65528, 4, 1, -65527, 4, 1, -65526, 4, 1, -65525, 4, 1, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 65536, 5, 0, 65537, 5, 0, 65538, 5, 0, 65539, 5, 0, 65540, 5, 0, 65541, 5, 0, 65542, 5, 0, 65543, 5, 0, 65544, 5, 0, 65545, 5, 0, 65546, 5, 0, 65547, 5, 0)
+"cells": PackedInt32Array(-65535, 3, 1310722, -65535, 4, 1310722, -65534, 4, 1310722, -65533, 4, 1310722, -65532, 4, 1310722, -65531, 4, 1310722, -65530, 4, 1310722, -65529, 4, 1310722, -65528, 4, 1310722, -65527, 4, 1310722, -65526, 4, 1310722, -65525, 4, 1310722, -65525, 3, 1310722, -65526, 3, 1310722, -65527, 3, 1310722, -65528, 3, 1310722, -65529, 3, 1310722, -65530, 3, 1310722, -65531, 3, 1310722, -65532, 3, 1310722, -65533, 3, 1310722, -65534, 3, 1310722, -65536, 3, 1310722, -65536, 4, 1310722, 65535, 2, 1310720, 65535, 3, 1310720, 65535, 4, 1310720, 65535, 5, 1310720, 0, 5, 1310720, 0, 2, 1310720, 1, 2, 1310720, 2, 2, 1310720, 3, 2, 1310720, 4, 2, 1310720, 5, 2, 1310720, 6, 2, 1310720, 7, 2, 1310720, 8, 2, 1310720, 9, 2, 1310720, 10, 2, 1310720, 11, 2, 1310720, 12, 2, 1310720, 12, 3, 1310720, 12, 4, 1310720, 12, 5, 1310720, 11, 5, 1310720, 10, 5, 1310720, 9, 5, 1310720, 8, 5, 1310720, 7, 5, 1310720, 6, 5, 1310720, 5, 5, 1310720, 4, 5, 1310720, 3, 5, 1310720, 2, 5, 1310720, 1, 5, 1310720, 131071, 2, 1310720, 65536, 2, 1310720, 65537, 2, 1310720, 65538, 2, 1310720, 65539, 2, 1310720, 65540, 2, 1310720, 65541, 2, 1310720, 65542, 2, 1310720, 65543, 2, 1310720, 65544, 2, 1310720, 65547, 2, 1310720, 65546, 2, 1310720, 65545, 2, 1310720, 65548, 2, 1310720, 65548, 3, 1310720, 65548, 4, 1310720, 65548, 5, 1310720, 65547, 5, 1310720, 65546, 5, 1310720, 65545, 5, 1310720, 65544, 5, 1310720, 65543, 5, 1310720, 65542, 5, 1310720, 65541, 5, 1310720, 65540, 5, 1310720, 65539, 5, 1310720, 65538, 5, 1310720, 65537, 5, 1310720, 65536, 5, 1310720, 131071, 3, 1310720, 131071, 4, 1310720, 131071, 5, 1310720, 131084, 2, 1310721, 131084, 3, 1310721, 131084, 4, 1310721, 131084, 5, 1310721, 131083, 3, 1310721, 131083, 2, 1310721, 131082, 2, 1310721, 131081, 2, 1310721, 131080, 2, 1310721, 131079, 2, 1310721, 131078, 2, 1310721, 131077, 2, 1310721, 131076, 2, 1310721, 131075, 2, 1310721, 131074, 2, 1310721, 131073, 2, 1310721, 131072, 2, 1310721, 196607, 2, 1310721, 196607, 3, 1310721, 131072, 3, 1310721, 131073, 3, 1310721, 131074, 3, 1310721, 131075, 3, 1310721, 131076, 3, 1310721, 131077, 3, 1310721, 131078, 3, 1310721, 131079, 3, 1310721, 131080, 3, 1310721, 131081, 3, 1310721, 131082, 3, 1310721, 131082, 4, 1310721, 131083, 4, 1310721, 131083, 5, 1310721, 131082, 5, 1310721, 131081, 5, 1310721, 131080, 5, 1310721, 131079, 5, 1310721, 131079, 4, 1310721, 131080, 4, 1310721, 131081, 4, 1310721, 131078, 4, 1310721, 131078, 5, 1310721, 131077, 5, 1310721, 131076, 5, 1310721, 131075, 5, 1310721, 131077, 4, 1310721, 131075, 4, 1310721, 131074, 4, 1310721, 131074, 5, 1310721, 131073, 5, 1310721, 131073, 4, 1310721, 131076, 4, 1310721, 131072, 4, 1310721, 196607, 4, 1310721, 196607, 5, 1310721, 131072, 5, 1310721)
 }
+metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [node name="Narrator" parent="." instance=ExtResource("15")]
 layout_mode = 3
@@ -93,8 +97,10 @@ transform = Transform3D(0.484439, 0, -0.12377, 0, 0.5, 0, 0.12377, 0, 0.484439, 
 visible = false
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, 8.35823)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, 8.07663)
 intensity = 0.75
-size = Vector3(15, 4.5, 5)
+size = Vector3(30.2074, 8.58588, 8.45092)
 box_projection = true
 enable_shadows = true
+
+[node name="WorldEnvironment1" parent="." instance=ExtResource("16_7digu")]

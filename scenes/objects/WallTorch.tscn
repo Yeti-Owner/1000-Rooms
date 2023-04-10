@@ -1,66 +1,74 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://cn204e3ktprmk"]
 
-[ext_resource path="res://assets/3D models/torch/torchWall.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://resources/WallTorch.tres" type="Material" id=2]
-[ext_resource path="res://assets/3D models/torch/Smoke30Frames_0.png" type="Texture2D" id=3]
-[ext_resource path="res://assets/audio/misc/crackling-flames.ogg" type="AudioStream" id=4]
+[ext_resource type="ArrayMesh" uid="uid://bo6k4k325ypk" path="res://assets/3D models/torch/torchWall.obj" id="1"]
+[ext_resource type="Material" uid="uid://cu76lmfwqbx2k" path="res://resources/WallTorch.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://jcbpgsirqmer" path="res://assets/3D models/torch/Smoke30Frames_0.png" id="3"]
+[ext_resource type="AudioStream" uid="uid://np8kupfdeyob" path="res://assets/audio/misc/crackling-flames.ogg" id="4"]
 
-[sub_resource type="BoxShape3D" id=5]
-size = Vector3( 0.203, 0.568878, 0.181 )
+[sub_resource type="BoxShape3D" id="5"]
+size = Vector3(0.38, 0.906, 0.301)
 
-[sub_resource type="CapsuleShape3D" id=6]
-radius = 0.191451
+[sub_resource type="CapsuleShape3D" id="6"]
+radius = 0.253
+height = 1.313
 
-[sub_resource type="StandardMaterial3D" id=7]
-flags_transparent = true
-flags_unshaded = true
+[sub_resource type="StandardMaterial3D" id="7"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
 vertex_color_use_as_albedo = true
-params_blend_mode = 1
-params_billboard_mode = 3
+albedo_texture = ExtResource("3")
+billboard_mode = 3
 particles_anim_h_frames = 6
 particles_anim_v_frames = 5
 particles_anim_loop = true
-albedo_texture = ExtResource( 3 )
 
-[sub_resource type="QuadMesh" id=3]
-material = SubResource( 7 )
+[sub_resource type="QuadMesh" id="3"]
+material = SubResource("7")
+size = Vector2(0.5, 0.5)
 
 [node name="WallTorch" type="StaticBody3D"]
-transform = Transform3D( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
 collision_layer = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 cast_shadow = 2
-mesh = ExtResource( 1 )
+mesh = ExtResource("1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.003 )
-shape = SubResource( 5 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019, 0)
+shape = SubResource("5")
 
 [node name="CollisionShape2" type="CollisionShape3D" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 0.30988, 0.950776, 0, -0.950776, 0.30988, 0, 0.268495, 0.493154 )
-shape = SubResource( 6 )
+transform = Transform3D(1, 0, 0, 0, 0.950776, -0.30988, 0, 0.30988, 0.950776, 0, 0.268495, 0.384859)
+shape = SubResource("6")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.357394, 1.27184 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.357394, 1.27184)
+visible = false
 omni_range = 8.5
 omni_attenuation = 2.5
 
-[node name="Flame" type="Node3D" parent="."]
-transform = Transform3D( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.813805, 0.62 )
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.357394, 1.27184)
+omni_range = 8.0
+omni_attenuation = 2.0
 
-[node name="Particles" type="Particles" parent="Flame"]
-transform = Transform3D( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
+[node name="Flame" type="Node3D" parent="."]
+transform = Transform3D(1.645, 0, 0, 0, 1.645, 0, 0, 0, 1.645, 0, 0.813511, 0.62)
+
+[node name="Particles" type="GPUParticles3D" parent="Flame"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 amount = 150
 lifetime = 0.5
 randomness = 1.0
-local_coords = false
+visibility_aabb = AABB(-0.939629, -1.01791, -0.8634, 1.87926, 2.03582, 1.20336)
 draw_order = 2
-process_material = ExtResource( 2 )
-draw_pass_1 = SubResource( 3 )
+process_material = ExtResource("2")
+draw_pass_1 = SubResource("3")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource("4")
 volume_db = 14.337
 autoplay = true
-bus = "SfxBus"
+bus = &"SfxBus"

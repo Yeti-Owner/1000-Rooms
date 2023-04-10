@@ -4,6 +4,7 @@ var mouse_sensitivity = float(Settingsholder.save_data.MouseSensitivity)/100
 var light_speed := 15.0
 
 @onready var _camera := $Camera3D
+#@onready var tween := get_tree().create_tween()
 @onready var light := get_node("%Light3D") #get_parent().get_node("Light3D")
 @onready var LightCast := get_node("%LightCast")
 @onready var LightCast2 := get_node("%LightCast2")
@@ -23,9 +24,9 @@ func _input(event: InputEvent) -> void:
 		_camera.rotation_degrees.x = clamp(_camera.rotation_degrees.x, -89.9, 89.9)
 
 func _physics_process(_delta) -> void:
-	var tween := get_tree().create_tween()
-	tween.tween_property(light, "global_transform:basis", self.global_transform.basis, 0.1).set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(light, "global_transform:basis", _camera.global_transform.basis, 0.1).set_trans(Tween.TRANS_LINEAR)
+	# Lerp Flashlight alongside cam
+	light.rotation_degrees.y = lerp(light.rotation_degrees.y, self.rotation_degrees.y, 0.2)
+	light.rotation_degrees.x = lerp(light.rotation_degrees.x, _camera.rotation_degrees.x, 0.2)
 	
 	# Move Flashlight when raycasts hit wall/obj
 	if LightCast.is_colliding():

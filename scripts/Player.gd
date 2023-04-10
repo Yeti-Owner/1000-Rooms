@@ -109,7 +109,7 @@ func _movement(delta, UsedSpeed, bob_speed):
 	
 	# If moving play head bob animation
 	if _dir != Vector3():
-		PlayerAnim.playback_speed = bob_speed
+		PlayerAnim.speed_scale = bob_speed
 		PlayerAnim.play("Head Bob")
 
 func _on_PlayerArea_area_entered(area):

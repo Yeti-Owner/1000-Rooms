@@ -1,8 +1,8 @@
 [gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://cu76lmfwqbx2k"]
 
-[ext_resource type="Gradient" path="res://assets/3D models/torch/Fire.tres" id="1"]
+[ext_resource type="Gradient" uid="uid://qkkalacuxvfm" path="res://assets/3D models/torch/Fire.tres" id="1"]
 
-[sub_resource type="GradientTexture2D" id="6"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k4sb0"]
 gradient = ExtResource("1")
 
 [sub_resource type="Curve" id="5"]
@@ -14,9 +14,9 @@ curve = SubResource("5")
 
 [resource]
 emission_shape = 1
-emission_sphere_radius = 0.4
+emission_sphere_radius = 0.27
 direction = Vector3(0, 1, 0)
 spread = 0.0
-gravity = Vector3(0, 0, 0)
+gravity = Vector3(0, 4.9, 0)
 scale_curve = SubResource("7")
-color_ramp = SubResource("6")
+color_ramp = SubResource("GradientTexture1D_k4sb0")

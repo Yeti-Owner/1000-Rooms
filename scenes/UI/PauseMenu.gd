@@ -32,7 +32,7 @@ func _on_QuitBtn_pressed():
 
 func _on_OptionsBtn_pressed():
 	ClickPlayer._click_sound()
-	$CanvasLayer/SettingsMenu.popup_centered()
+	$CanvasLayer/SettingsMenu.show()
 
 
 func _on_StartMenuBtn_pressed():
