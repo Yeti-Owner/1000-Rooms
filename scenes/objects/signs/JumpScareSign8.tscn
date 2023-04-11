@@ -1,53 +1,57 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=3 uid="uid://oooxtjt8jeqc"]
 
-[ext_resource path="res://scenes/objects/signs/SignCustom/EditedSign.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://scripts/JumpScareSign1.gd" type="Script" id=2]
-[ext_resource path="res://assets/textures/scary/8.png" type="Texture2D" id=3]
+[ext_resource type="ArrayMesh" uid="uid://c0qdqr6s867hp" path="res://scenes/objects/signs/SignCustom/EditedSign.obj" id="1"]
+[ext_resource type="Script" path="res://scripts/JumpScareSign1.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://e2wlybgyqr3r" path="res://assets/textures/scary/8.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://b05qaovirqsmp" path="res://scenes/objects/signs/SignCustom/DiffuseTexture_Wooden Sign.tga" id="3_1g0yf"]
 
-[sub_resource type="StandardMaterial3D" id=6]
-albedo_texture = ExtResource( 3 )
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mlr"]
+albedo_texture = ExtResource("3_1g0yf")
 
-[sub_resource type="QuadMesh" id=3]
-material = SubResource( 6 )
-size = Vector2( 0.75, 1.15 )
+[sub_resource type="StandardMaterial3D" id="6"]
+albedo_texture = ExtResource("3")
 
-[sub_resource type="BoxShape3D" id=4]
-size = Vector3( 0.509, 0.605337, 0.540285 )
+[sub_resource type="QuadMesh" id="3"]
+material = SubResource("6")
+size = Vector2(0.75, 1.15)
 
-[sub_resource type="BoxShape3D" id=7]
-size = Vector3( 0.0775988, 1.92791, 0.0587141 )
+[sub_resource type="BoxShape3D" id="4"]
+size = Vector3(0.969549, 1.28263, 0.704156)
 
-[sub_resource type="BoxShape3D" id=8]
-size = Vector3( 0.480048, 0.641977, 0.0270688 )
+[sub_resource type="BoxShape3D" id="BoxShape3D_fwuf6"]
+size = Vector3(0.964644, 1.27791, 0.0521584)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gb5g6"]
+size = Vector3(0.143881, 1.93127, 0.10952)
 
 [node name="JumpScareSign1" type="StaticBody3D"]
-transform = Transform3D( -0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+transform = Transform3D(-0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 collision_layer = 5
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 0.75, 0, 0, 0, 1, 0, 0, 0 )
-mesh = ExtResource( 1 )
+transform = Transform3D(1, 0, 0, 0, 0.75, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("1")
+surface_material_override/0 = SubResource("StandardMaterial3D_g3mlr")
 
 [node name="PictureHolder" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PictureHolder"]
-transform = Transform3D( -1, -2.62269e-07, 0, 2.62269e-07, -1, 0, 0, 0, 1, -0.0381088, 1.50541, 0.135 )
-mesh = SubResource( 3 )
+transform = Transform3D(-1, -2.62269e-07, 0, 2.62269e-07, -1, 0, 0, 0, 1, -0.0381088, 1.50541, 0.135)
+mesh = SubResource("3")
 
 [node name="Area3D" type="Area3D" parent="."]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52958, 0.625131 )
-shape = SubResource( 4 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0354736, 1.50378, 0.483237)
+shape = SubResource("4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.046626, 0.970061, 0.0215968 )
-shape = SubResource( 7 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0365796, 1.50684, 0.104303)
+shape = SubResource("BoxShape3D_fwuf6")
 
-[node name="CollisionShape2" type="CollisionShape3D" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0384088, 1.50762, 0.105814 )
-shape = SubResource( 8 )
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0488991, 0.96102, 0.0246011)
+shape = SubResource("BoxShape3D_gb5g6")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_Area_area_entered"]

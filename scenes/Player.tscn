@@ -1,25 +1,29 @@
-[gd_scene load_steps=31 format=3 uid="uid://br6b3n80m31cq"]
+[gd_scene load_steps=36 format=3 uid="uid://br6b3n80m31cq"]
 
 [ext_resource type="Script" path="res://scripts/CameraHolder.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2"]
 [ext_resource type="Script" path="res://interactable/InteractionRay.gd" id="3"]
 [ext_resource type="AudioStream" uid="uid://b0c8h271dt4de" path="res://assets/audio/misc/footsteps/wood_floor1.wav" id="4"]
+[ext_resource type="Texture2D" uid="uid://b1l2os6mjutq8" path="res://assets/3D models/flashlight/torch_BaseColor.png" id="4_w5y77"]
 [ext_resource type="AudioStream" uid="uid://pf2rm1vxh1mv" path="res://assets/audio/misc/hurt.ogg" id="5"]
+[ext_resource type="Texture2D" uid="uid://djifcqlq0i3ty" path="res://assets/3D models/flashlight/torch_Metallic.png" id="5_jheti"]
 [ext_resource type="PackedScene" path="res://scenes/items/Shield.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://5h2ai58dtpee" path="res://assets/3D models/flashlight/torch_Normal.png" id="6_t2l0e"]
 [ext_resource type="Script" path="res://scripts/HeldSway.gd" id="7"]
+[ext_resource type="Texture2D" uid="uid://v4b0j7sppiao" path="res://assets/3D models/flashlight/torch_Roughness.png" id="7_jeltm"]
 [ext_resource type="ArrayMesh" uid="uid://gyhoy2ds4pnm" path="res://assets/3D models/flashlight/flashlight.obj" id="8"]
 [ext_resource type="AudioStream" uid="uid://cpnmmalr2flx1" path="res://assets/audio/misc/heaving-breathing.wav" id="13"]
 
-[sub_resource type="CapsuleShape3D" id="1"]
-radius = 0.45
-height = 1.8
-
-[sub_resource type="CapsuleMesh" id="2"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a48v5"]
 radius = 0.4
 height = 1.8
 
-[sub_resource type="CapsuleShape3D" id="14"]
-radius = 0.47
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dgexc"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6gbcc"]
+radius = 0.435
 height = 1.8
 
 [sub_resource type="Animation" id="9"]
@@ -241,6 +245,14 @@ _data = {
 "hurt": SubResource("15")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq7bt"]
+albedo_texture = ExtResource("4_w5y77")
+metallic = 1.0
+metallic_texture = ExtResource("5_jheti")
+roughness_texture = ExtResource("7_jeltm")
+normal_enabled = true
+normal_texture = ExtResource("6_t2l0e")
+
 [sub_resource type="CylinderShape3D" id="20"]
 height = 0.785537
 radius = 1.83466
@@ -295,20 +307,20 @@ shader_parameter/softness = 3.0
 script = ExtResource("2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0.8, 0)
-shape = SubResource("1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_a48v5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0.8, 0)
-mesh = SubResource("2")
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_dgexc")
 
 [node name="PlayerArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.8, 0)
 collision_mask = 9
 
-[node name="CollisionShape2" type="CollisionShape3D" parent="PlayerArea"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("14")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlayerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_6gbcc")
 
 [node name="StepPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4")
@@ -327,7 +339,7 @@ libraries = {
 
 [node name="Light3D" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.985, 0)
 
 [node name="LightCast" type="RayCast3D" parent="Light3D"]
 unique_name_in_owner = true
@@ -354,6 +366,7 @@ unique_name_in_owner = true
 transform = Transform3D(-1.31134e-09, 0, -0.03, 0, 0.03, 0, 0.03, 0, -1.31134e-09, 0.280837, -0.00901097, -0.188161)
 mesh = ExtResource("8")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_dq7bt")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Light3D/Flashlight/LightMesh"]
 transform = Transform3D(-2.91409e-06, 0, 66.6667, 0, 66.6667, 0, -66.6667, 0, -2.91409e-06, -11.0915, 0.0578976, 1.68843)
