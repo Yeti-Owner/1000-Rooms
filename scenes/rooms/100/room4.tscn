@@ -78,6 +78,8 @@ metadata/_editor_floor_ = Vector3(0, 2, 0)
 [node name="Narrator" parent="." instance=ExtResource("4")]
 layout_mode = 3
 anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Objs" type="Node3D" parent="."]
 
