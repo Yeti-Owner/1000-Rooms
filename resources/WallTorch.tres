@@ -5,12 +5,12 @@
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_k4sb0"]
 gradient = ExtResource("1")
 
-[sub_resource type="Curve" id="5"]
+[sub_resource type="Curve" id="Curve_u8isy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.17037, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.118182), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="7"]
-curve = SubResource("5")
+[sub_resource type="CurveTexture" id="CurveTexture_vu1m3"]
+curve = SubResource("Curve_u8isy")
 
 [resource]
 emission_shape = 1
@@ -18,5 +18,5 @@ emission_sphere_radius = 0.27
 direction = Vector3(0, 1, 0)
 spread = 0.0
 gravity = Vector3(0, 4.9, 0)
-scale_curve = SubResource("7")
+scale_curve = SubResource("CurveTexture_vu1m3")
 color_ramp = SubResource("GradientTexture1D_k4sb0")

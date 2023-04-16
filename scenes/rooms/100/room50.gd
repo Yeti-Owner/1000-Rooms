@@ -4,11 +4,11 @@ extends Node3D
 @onready var Narrator := $Narrator
 @onready var Monster := $NavMesh/GhostEnemy
 @onready var player := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
-@onready var _room := self.filename
+@onready var _room:String = self.get_scene_file_path()
 
 func _ready():
 	randomize()
-	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
+#	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
 	_add_objs()
 	get_node("ObjHolder/WallObj3").queue_free()
 	get_node("ObjHolder/WallObj4").queue_free()
@@ -108,7 +108,7 @@ func _on_Check9_area_entered(area):
 func _on_Check10_area_entered(area):
 	if area.name == "PlayerArea":
 		$AreaHolder/Check10.queue_free()
-		$ObjHolder/FloorObj11.transform.origin = Vector3(-44, 2, -37.9)
+		$ObjHolder/FloorObj11.transform.origin.z -= 0.9
 
 func _on_Timer_timeout():
 	Monster.queue_free()
