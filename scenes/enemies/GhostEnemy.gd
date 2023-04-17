@@ -14,11 +14,11 @@ func _ready():
 	randomize()
 # warning-ignore:return_value_discarded
 	SaveGame.connect("EnemyPassive",Callable(self,"_passive"))
-	nav.set_target_location(target.transform.origin)
-	targetPos = nav.get_next_location()
+	nav.set_target_position(target.transform.origin)
+	targetPos = nav.get_next_path_position()
 
 func _physics_process(_delta):
-	look_at(target.get_position(), Vector3.UP)
+#	look_at(target.get_position(), Vector3.UP)
 	if EnabledChasing:
 		if $Timer.is_stopped():
 			$Timer.start()
@@ -34,8 +34,8 @@ func move_to_target():
 	var _error := velocity
 
 func _on_Timer_timeout():
-	nav.set_target_location(target.transform.origin)
-	targetPos = nav.get_next_location()
+	nav.set_target_position(target.transform.origin)
+	targetPos = nav.get_next_path_position()
 
 func _on_EnemyArea_area_entered(area):
 	if area.name == "PlayerArea":

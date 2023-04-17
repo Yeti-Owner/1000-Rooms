@@ -16,11 +16,11 @@ func _on_Area_mouse_entered():
 
 func _unhandled_input(event):
 	var is_mouse_event := false
-	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag]:
-		if event is mouse_event:
-			is_mouse_event = true
-			break
-	
+#	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag]:
+#		if event is mouse_event:
+#			is_mouse_event = true
+#			break
+#
 	if is_mouse_event and (is_mouse_inside or is_mouse_held):
 		handle_mouse(event)
 	elif not is_mouse_event:
@@ -73,12 +73,12 @@ func find_mouse(global_position):
 	var dist = find_further_distance_to(camera.transform.origin)
 	var to = from + camera.project_ray_normal(global_position) * dist
 	
-	var result = get_world_3d().direct_space_state.intersect_ray(from, to, [], node_area.collision_layer,false,true) #for 3.1 changes
+#	var result = get_world_3d().direct_space_state.intersect_ray(from, to, [], node_area.collision_layer,false,true) #for 3.1 changes
 	
-	if result.size() > 0:
-		return result.position
-	else:
-		return null
+#	if result.size() > 0:
+#		return result.position
+#	else:
+#		return null
 
 
 func find_further_distance_to(origin):
