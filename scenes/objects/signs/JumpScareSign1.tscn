@@ -1,12 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://4bceqqqt3pvy"]
+[gd_scene load_steps=9 format=3 uid="uid://4bceqqqt3pvy"]
 
 [ext_resource type="ArrayMesh" uid="uid://c0qdqr6s867hp" path="res://scenes/objects/signs/SignCustom/EditedSign.obj" id="1"]
 [ext_resource type="Texture2D" uid="uid://ko4rxgkd34uq" path="res://assets/textures/scary/1.png" id="2"]
 [ext_resource type="Script" path="res://scripts/JumpScareSign1.gd" id="3"]
-[ext_resource type="Texture2D" uid="uid://b05qaovirqsmp" path="res://scenes/objects/signs/SignCustom/DiffuseTexture_Wooden Sign.tga" id="3_ugyfe"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtahc"]
-albedo_texture = ExtResource("3_ugyfe")
 
 [sub_resource type="StandardMaterial3D" id="2"]
 albedo_texture = ExtResource("2")
@@ -31,13 +27,14 @@ script = ExtResource("3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+cast_shadow = 0
 mesh = ExtResource("1")
-surface_material_override/0 = SubResource("StandardMaterial3D_mtahc")
 
 [node name="PictureHolder" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PictureHolder"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.05, 1.055, 0.135)
+cast_shadow = 0
 mesh = SubResource("3")
 
 [node name="Area3D" type="Area3D" parent="."]

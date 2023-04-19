@@ -18,7 +18,7 @@ func _ready():
 	targetPos = nav.get_next_path_position()
 
 func _physics_process(_delta):
-#	look_at(target.get_position(), Vector3.UP)
+	look_at(target.get_position(), Vector3.UP)
 	if EnabledChasing:
 		if $Timer.is_stopped():
 			$Timer.start()

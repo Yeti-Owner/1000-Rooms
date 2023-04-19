@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0y5wwclnufpd"]
+
+[ext_resource type="Texture2D" uid="uid://wibaumpapukt" path="res://assets/textures/floors/floor1/Wood052_1K_Color.jpg" id="1_8lwab"]
+[ext_resource type="Texture2D" uid="uid://bb3fcp1fy3mak" path="res://assets/textures/floors/floor1/Wood052_1K_NormalDX.jpg" id="2_0cgu0"]
+[ext_resource type="Texture2D" uid="uid://bxxql84btgdi4" path="res://assets/textures/floors/floor1/Wood052_1K_Roughness.jpg" id="3_i1eya"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_owvpw"]
+left_to_right = 1.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8jpoq"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxlqq"]
+albedo_texture = ExtResource("1_8lwab")
+roughness_texture = ExtResource("3_i1eya")
+normal_enabled = true
+normal_scale = -1.0
+normal_texture = ExtResource("2_0cgu0")
+uv1_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_dugck"]
+material = SubResource("StandardMaterial3D_cxlqq")
+size = Vector2(1.415, 1)
+
+[node name="FloorAngledObj1" type="MeshInstance3D"]
+mesh = SubResource("PrismMesh_owvpw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_8jpoq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 1.12382e-08, -0.707107, 0.707107, -7.30555e-08, 0.707107, -4.37114e-08, -1, -5.96046e-08, -0.001, 0, 0)
+mesh = SubResource("QuadMesh_dugck")
