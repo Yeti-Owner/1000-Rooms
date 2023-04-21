@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://dru5lhbvl6pou"]
+[gd_scene load_steps=24 format=3 uid="uid://dru5lhbvl6pou"]
 
 [ext_resource type="Script" path="res://scripts/load_world.gd" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/Narrator.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bknate8rity16" path="res://scenes/Narrator.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://cn204e3ktprmk" path="res://scenes/objects/WallTorch.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://buv24d5oclw7e" path="res://scenes/objects/doors/Door2Closed.tscn" id="4"]
 [ext_resource type="Environment" path="res://resources/WorldEnvironment1.tres" id="5"]
@@ -14,9 +14,11 @@
 [ext_resource type="PackedScene" path="res://scenes/objects/NonFunctionals/Bricks.tscn" id="15"]
 [ext_resource type="PackedScene" path="res://scenes/objects/NonFunctionals/Grate.tscn" id="16"]
 [ext_resource type="PackedScene" uid="uid://cl28dbs0mufff" path="res://scenes/objects/NonFunctionals/Planks.tscn" id="17"]
+[ext_resource type="Texture2D" uid="uid://cjges5qk47b4r" path="res://assets/textures/general/BloodHandprint.png" id="17_ag8d4"]
 [ext_resource type="MeshLibrary" uid="uid://d1wvgq61fgpc6" path="res://scenes/meshlib/meshlib_1.meshlib" id="17_muua2"]
 [ext_resource type="PackedScene" path="res://scenes/WorldEnvironment.tscn" id="17_qo3y5"]
 [ext_resource type="PackedScene" uid="uid://b7g38rrj4i232" path="res://scenes/objects/NonFunctionals/Crate.tscn" id="18"]
+[ext_resource type="Texture2D" uid="uid://c74m55hov1v2t" path="res://assets/textures/general/BloodHandprint_n.png" id="18_ijfmk"]
 
 [sub_resource type="Resource" id="4"]
 script = ExtResource("8")
@@ -30,6 +32,20 @@ var_used = ""
 
 [sub_resource type="QuadMesh" id="1"]
 size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1no85"]
+transparency = 1
+albedo_texture = ExtResource("17_ag8d4")
+normal_enabled = true
+normal_scale = -1.0
+normal_texture = ExtResource("18_ijfmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydwff"]
+transparency = 1
+albedo_texture = ExtResource("17_ag8d4")
+normal_enabled = true
+normal_scale = -1.0
+normal_texture = ExtResource("18_ijfmk")
 
 [node name="world" type="Node3D"]
 process_mode = 1
@@ -110,8 +126,6 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [node name="Narrator" parent="." instance=ExtResource("2")]
-layout_mode = 3
-anchors_preset = 15
 
 [node name="Objs" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.08719)
@@ -150,11 +164,13 @@ visible = false
 transform = Transform3D(1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 4.305, 1.414, 25.998)
 mesh = SubResource("1")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1no85")
 
 [node name="MeshInstance2" type="MeshInstance3D" parent="HandPrints"]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 5.696, 0.986892, 25.999)
 mesh = SubResource("1")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ydwff")
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 17)

@@ -7,6 +7,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1")
 
@@ -21,6 +23,8 @@ offset_left = 10.0
 offset_top = 422.0
 offset_right = -10.0
 offset_bottom = -1.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="next_char" type="Timer" parent="."]
 
