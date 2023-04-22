@@ -8,7 +8,6 @@ extends Node3D
 
 func _ready():
 	randomize()
-#	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
 	_add_objs()
 	get_node("ObjHolder/WallObj3").queue_free()
 	get_node("ObjHolder/WallObj4").queue_free()

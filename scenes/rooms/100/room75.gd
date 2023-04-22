@@ -5,13 +5,12 @@ extends Node3D
 @onready var Narrator := $Narrator
 @onready var Objs := $Objs
 @onready var player := $RoomItems/Player
-@onready var _room := self.filename
+@onready var _room:String = self.get_scene_file_path()
 
 var Ending:String
 var MovePos:Vector3
 
 func _ready():
-	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
 	Narrator.connect("DialogueFinished",Callable(self,"_dialogue_finished"))
 	SaveGame.game_data.CurrentRoom = _room
 	if SaveGame.game_data.CurrentPos == Vector3(7.731, 0.7, 45.853):

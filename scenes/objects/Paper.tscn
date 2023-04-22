@@ -1,56 +1,40 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://c6lxavcudbey6"]
 
-[ext_resource path="res://assets/3D models/Paper/A4_Lined_Paper_OBJ.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://assets/3D models/Paper/Lined_Paper_Base_Colour.png" type="Texture2D" id=2]
-[ext_resource path="res://assets/3D models/Paper/Lined_Paper_AO.png" type="Texture2D" id=3]
-[ext_resource path="res://assets/3D models/Paper/Lined_Paper_Metallic.png" type="Texture2D" id=4]
-[ext_resource path="res://assets/3D models/Paper/Lined_Paper_Roughness.png" type="Texture2D" id=5]
-[ext_resource path="res://assets/3D models/Paper/Lined_Paper_Normal_OpenGL.png" type="Texture2D" id=6]
-[ext_resource path="res://resources/PaperTextFont.tres" type="FontFile" id=7]
-[ext_resource path="res://interactable/InteractablePaper.gd" type="Script" id=8]
-[ext_resource path="res://assets/audio/misc/Paper.ogg" type="AudioStream" id=9]
-[ext_resource path="res://assets/3D models/Paper/PaperTex.png" type="Texture2D" id=10]
-[ext_resource path="res://resources/PaperTitleFont.tres" type="FontFile" id=11]
+[ext_resource type="ArrayMesh" uid="uid://kc46vk6ny6n8" path="res://assets/3D models/Paper/A4_Lined_Paper_OBJ.obj" id="1"]
+[ext_resource type="Script" path="res://interactable/InteractablePaper.gd" id="8"]
+[ext_resource type="AudioStream" uid="uid://bakqq7dffb14s" path="res://assets/audio/misc/Paper.ogg" id="9"]
+[ext_resource type="Texture2D" uid="uid://d3se2ajy10kbp" path="res://assets/3D models/Paper/PaperTex.png" id="10"]
 
-[sub_resource type="StandardMaterial3D" id=1]
-albedo_texture = ExtResource( 2 )
-metallic_texture = ExtResource( 4 )
-roughness_texture = ExtResource( 5 )
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = ExtResource( 6 )
-ao_enabled = true
-ao_light_affect = 0.0
-ao_texture = ExtResource( 3 )
-ao_on_uv2 = false
-ao_texture_channel = 0
-
-[sub_resource type="CylinderShape3D" id=5]
+[sub_resource type="CylinderShape3D" id="5"]
 height = 1.0
 radius = 1.9
 
-[sub_resource type="ConvexPolygonShape3D" id=2]
-points = PackedVector3Array( 10.4979, 0.05, 14.85, 10.4979, -0.05, 14.85, 10.4979, 0.05, -14.85, -10.5, 0.05, 14.85, -10.5, -0.05, 14.85, 10.4979, -0.05, -14.85, -10.5, 0.05, -14.85, -10.5, -0.05, -14.85 )
+[sub_resource type="ConvexPolygonShape3D" id="2"]
+points = PackedVector3Array(10.4979, 0.05, 14.85, 10.4979, -0.05, 14.85, 10.4979, 0.05, -14.85, -10.5, 0.05, 14.85, -10.5, -0.05, 14.85, 10.4979, -0.05, -14.85, -10.5, 0.05, -14.85, -10.5, -0.05, -14.85)
 
 [node name="Paper" type="StaticBody3D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 8 )
+script = ExtResource("8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
-mesh = ExtResource( 1 )
-material/0 = SubResource( 1 )
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
+mesh = ExtResource("1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 3
+layer = 4
 
-[node name="Popup" type="Popup" parent="CanvasLayer"]
-visible = true
+[node name="PopupManager" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Popup"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PopupManager"]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -59,53 +43,55 @@ offset_left = -240.0
 offset_top = -310.0
 offset_right = 240.0
 offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Popup/MarginContainer"]
-offset_right = 480.0
-offset_bottom = 620.0
-texture = ExtResource( 10 )
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PopupManager/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("10")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Popup/MarginContainer"]
-offset_right = 480.0
-offset_bottom = 620.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PopupManager/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
 
-[node name="Title" type="Label" parent="CanvasLayer/Popup/MarginContainer/VBoxContainer"]
-offset_right = 480.0
-offset_bottom = 51.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = ExtResource( 11 )
+[node name="Title" type="Label" parent="CanvasLayer/PopupManager/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Title"
-align = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Popup/MarginContainer/VBoxContainer"]
-offset_top = 55.0
-offset_right = 480.0
-offset_bottom = 85.0
-custom_constants/offset_top = 30
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PopupManager/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
 
-[node name="Text" type="Label" parent="CanvasLayer/Popup/MarginContainer/VBoxContainer"]
-offset_top = 89.0
-offset_right = 480.0
-offset_bottom = 108.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = ExtResource( 7 )
+[node name="Text" type="Label" parent="CanvasLayer/PopupManager/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Lorem Ipsum"
-align = 1
-autowrap = true
+
+[node name="Clickout" type="TextureButton" parent="CanvasLayer/PopupManager"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-shape = SubResource( 5 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
-shape = SubResource( 2 )
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
+shape = SubResource("2")
 
 [node name="PaperNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource("9")
 volume_db = 15.0
-bus = "SfxBus"
+bus = &"SfxBus"
 
+[connection signal="pressed" from="CanvasLayer/PopupManager/Clickout" to="." method="_on_clickout_pressed"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_Area_area_exited"]
