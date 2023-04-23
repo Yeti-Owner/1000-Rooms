@@ -17,15 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://d5c521aa3qnk" path="res://scenes/objects/SavePentagram.tscn" id="18"]
 [ext_resource type="PackedScene" uid="uid://cn204e3ktprmk" path="res://scenes/objects/WallTorch.tscn" id="19"]
 
+[sub_resource type="QuadMesh" id="2"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx20h"]
 transparency = 1
 albedo_texture = ExtResource("15")
 normal_enabled = true
-normal_scale = -1.0
 normal_texture = ExtResource("3")
-
-[sub_resource type="QuadMesh" id="2"]
-material = SubResource("StandardMaterial3D_lx20h")
 
 [sub_resource type="StandardMaterial3D" id="4"]
 transparency = 1
@@ -75,6 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.7)
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, 1, 0, -10, -4.37114e-08, 0, 0.01, -15.487)
 cast_shadow = 0
 mesh = SubResource("2")
+surface_material_override/0 = SubResource("StandardMaterial3D_lx20h")
 
 [node name="Paper" parent="RoomItems/ObjHolder" instance=ExtResource("6")]
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 2.26658, 0, -12.3201)

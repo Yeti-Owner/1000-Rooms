@@ -364,8 +364,8 @@ unique_name_in_owner = true
 
 [node name="LightMesh" type="MeshInstance3D" parent="Light3D/Flashlight"]
 transform = Transform3D(-1.31134e-09, 0, -0.03, 0, 0.03, 0, 0.03, 0, -1.31134e-09, 0.280837, -0.00901097, -0.188161)
+cast_shadow = 0
 mesh = ExtResource("8")
-skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_dq7bt")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Light3D/Flashlight/LightMesh"]
