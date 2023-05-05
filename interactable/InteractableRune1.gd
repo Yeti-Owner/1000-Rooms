@@ -1,9 +1,9 @@
 extends Interactable
-@onready var room = get_parent().get_parent()
+onready var room = get_parent().get_parent()
 var InteractedWith = 0
 
 func get_interaction_text():
-	return "Press %s to touch the Rune" % [OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode)]
+	return "Press %s to touch the Rune" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
 
 func interact():
 	if InteractedWith:

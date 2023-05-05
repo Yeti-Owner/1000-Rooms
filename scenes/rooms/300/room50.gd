@@ -1,12 +1,12 @@
-extends Node3D
+extends Spatial
 
-@export var EnvironmentUsed: Environment
+export(Environment) var EnvironmentUsed
 
-@onready var Narrator := $Narrator
-@onready var _room := self.filename
-@onready var Player := $RoomItems/Player
-@onready var TimeLabel := $RoomItems/StaticBody3D/TimeLeft
-@onready var SecondTimer := $RoomItems/StaticBody3D/SecondTimer
+onready var Narrator := $Narrator
+onready var _room := self.filename
+onready var Player := $RoomItems/Player
+onready var TimeLabel := $RoomItems/StaticBody/TimeLeft
+onready var SecondTimer := $RoomItems/StaticBody/SecondTimer
 var stage:int = 0
 var Seconds:int = 29
 
@@ -22,7 +22,7 @@ func _ready():
 		$LightHandler.queue_free()
 	else:
 # warning-ignore:return_value_discarded
-		Narrator.connect("DialogueFinished",Callable(self,"_dialogue_finished"))
+		Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 		Narrator.messages = ["Be prepared, there is a time trial ahead.","You must grab all the orbs before the time runs out.","Ready in.."]
 
 func _on_Sensor_PlayerDetected():

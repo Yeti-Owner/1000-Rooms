@@ -1,9 +1,9 @@
-extends Node3D
+extends Spatial
 
-@export var Environment1: Environment
-@onready var Narrator := $Narrator
-@onready var _room := self.filename
-@onready var DialoguePause := $DialoguePause
+export(Environment) var Environment1
+onready var Narrator := $Narrator
+onready var _room := self.filename
+onready var DialoguePause := $DialoguePause
 
 var stage:int = 0
 
@@ -12,7 +12,7 @@ func _ready():
 	$ReflectionProbe.intensity = 0.01
 	SceneManager.GameScene.world.environment = Environment1
 # warning-ignore:return_value_discarded
-	Narrator.connect("DialogueFinished",Callable(self,"_dialogue_finished"))
+	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	SaveGame.game_data.CurrentRoom = _room
 	SaveGame._update_presence()
 	Narrator.messages = ["Welcome welcome to room 200.","Once again things are about to change, and unfortunately for the worse."]

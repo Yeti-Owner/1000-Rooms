@@ -1,21 +1,21 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/3D models/NonFunctionals/CardboardBox.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://assets/3D models/NonFunctionals/CardboardBox.jpg" type="Texture2D" id=2]
+[ext_resource path="res://assets/3D models/NonFunctionals/CardboardBox.jpg" type="Texture" id=2]
 
-[sub_resource type="StandardMaterial3D" id=1]
+[sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
 
-[sub_resource type="ConvexPolygonShape3D" id=2]
-points = PackedVector3Array( -17.4134, 0.530445, -17.9438, -17.9438, 0.530445, -17.4134, -17.4134, 35.3536, -17.9438, 17.4098, 0.530445, -17.9438, -17.4134, 0, -17.4134, -17.9438, 35.3536, -17.4134, -17.9438, 0.530445, 17.4098, -17.4134, 35.8876, -17.4134, 17.4098, 35.3536, -17.9438, 17.9403, 0.530445, -17.4134, 17.4098, 0, -17.4134, -17.4134, 0, 17.4098, -17.9438, 35.3536, 17.4098, -17.4134, 0.530445, 17.9403, -17.4134, 35.8876, 17.4098, 17.4098, 35.8876, -17.4134, 17.9403, 35.3536, -17.4134, 17.9403, 0.530445, 17.4098, 17.4098, 0, 17.4098, -17.4134, 35.3536, 17.9403, 17.4098, 0.530445, 17.9403, 17.4098, 35.8876, 17.4098, 17.9403, 35.3536, 17.4098, 17.4098, 35.3536, 17.9403 )
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( -17.4134, 0.530445, -17.9438, -17.9438, 0.530445, -17.4134, -17.4134, 35.3536, -17.9438, 17.4098, 0.530445, -17.9438, -17.4134, 0, -17.4134, -17.9438, 35.3536, -17.4134, -17.9438, 0.530445, 17.4098, -17.4134, 35.8876, -17.4134, 17.4098, 35.3536, -17.9438, 17.9403, 0.530445, -17.4134, 17.4098, 0, -17.4134, -17.4134, 0, 17.4098, -17.9438, 35.3536, 17.4098, -17.4134, 0.530445, 17.9403, -17.4134, 35.8876, 17.4098, 17.4098, 35.8876, -17.4134, 17.9403, 35.3536, -17.4134, 17.9403, 0.530445, 17.4098, 17.4098, 0, 17.4098, -17.4134, 35.3536, 17.9403, 17.4098, 0.530445, 17.9403, 17.4098, 35.8876, 17.4098, 17.9403, 35.3536, 17.4098, 17.4098, 35.3536, 17.9403 )
 
-[node name="CardboardBox" type="MeshInstance3D"]
-transform = Transform3D( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0 )
+[node name="CardboardBox" type="MeshInstance"]
+transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0 )
 mesh = ExtResource( 1 )
 material/0 = SubResource( 1 )
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody" type="StaticBody" parent="."]
 collision_layer = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 2 )

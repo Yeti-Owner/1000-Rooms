@@ -1,20 +1,20 @@
-extends Node3D
+extends Spatial
 
 var CameraStage:int = 5
 var CurrentPos:Vector3
 var LerpWeight:float = 0.05
 var MaxStage:int = 10
 
-@onready var parent := get_parent()
-@onready var Cam := self
-@onready var Text := get_parent().get_node("Renderer/AchievementText")
+onready var parent := get_parent()
+onready var Cam := self
+onready var Text := get_parent().get_node("Renderer/AchievementText")
 
 func _ready():
 	# Connect Signals
 # warning-ignore:return_value_discarded
-	get_node("/root/SceneManager/GameScene/HUD/AchievementHolder").connect("LeftA",Callable(self,"_left"))
+	get_node("/root/SceneManager/GameScene/HUD/AchievementHolder").connect("LeftA", self, "_left")
 # warning-ignore:return_value_discarded
-	get_node("/root/SceneManager/GameScene/HUD/AchievementHolder").connect("RightA",Callable(self,"_right"))
+	get_node("/root/SceneManager/GameScene/HUD/AchievementHolder").connect("RightA", self, "_right")
 	
 	# Check if unlocked
 	
@@ -50,7 +50,7 @@ func _process(_delta):
 			# NotoLotta Award
 			get_parent().get_node("Renderer/NotoLotta/hide").visible = !AchievementsHolder.game_data.NotoLotta
 			if AchievementsHolder.game_data.NotoLotta == 0:
-				Text.text = "Use %s to access the Dev console and fill in: blasters are BLANK." % [OS.get_keycode_string(InputMap.action_get_events("console")[0].keycode)]
+				Text.text = "Use %s to access the Dev console and fill in: blasters are BLANK." % [OS.get_scancode_string(InputMap.get_action_list("console")[0].scancode)]
 			else:
 				Text.text = "The NotoLotta achievement, buff lord goat."
 			CurrentPos = Cam.global_transform.origin

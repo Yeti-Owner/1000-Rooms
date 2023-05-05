@@ -1,4 +1,4 @@
-extends Node3D
+extends Spatial
 
 enum {
 	NEUTRAL,
@@ -9,8 +9,8 @@ var state := NEUTRAL
 
 var cooldown := false
 
-@onready var anim_player := $AnimationPlayer
-@onready var ShieldArea := $Shield/ShieldArea/CollisionShape3D
+onready var anim_player := $AnimationPlayer
+onready var ShieldArea := $Shield/ShieldArea/CollisionShape
 
 func _ready():
 	ShieldArea.disabled = true

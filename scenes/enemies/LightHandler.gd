@@ -1,6 +1,6 @@
-extends Node3D
+extends Spatial
 
-@export var Amount := 2 # (int, 2, 15)
+export(int, 2, 15) var Amount := 2
 var Children
 
 # warning-ignore:unused_signal

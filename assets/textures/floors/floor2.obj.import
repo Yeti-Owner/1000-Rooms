@@ -1,21 +1,20 @@
 [remap]
 
 importer="wavefront_obj"
-importer_version=1
 type="Mesh"
-uid="uid://dmj6cx71eil82"
-path="res://.godot/imported/floor2.obj-65ab774209b3aa3c0084f64b938003bf.mesh"
+path="res://.import/floor2.obj-65ab774209b3aa3c0084f64b938003bf.mesh"
 
 [deps]
 
-files=["res://.godot/imported/floor2.obj-65ab774209b3aa3c0084f64b938003bf.mesh"]
+files=[ "res://.import/floor2.obj-65ab774209b3aa3c0084f64b938003bf.mesh" ]
 
 source_file="res://assets/textures/floors/floor2.obj"
-dest_files=["res://.godot/imported/floor2.obj-65ab774209b3aa3c0084f64b938003bf.mesh", "res://.godot/imported/floor2.obj-65ab774209b3aa3c0084f64b938003bf.mesh"]
+dest_files=[ "res://.import/floor2.obj-65ab774209b3aa3c0084f64b938003bf.mesh", "res://.import/floor2.obj-65ab774209b3aa3c0084f64b938003bf.mesh" ]
 
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3(1, 1, 1)
-offset_mesh=Vector3(0, 0, 0)
-optimize_mesh=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

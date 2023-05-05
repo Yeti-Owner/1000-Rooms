@@ -1,12 +1,12 @@
-extends CharacterBody3D
+extends KinematicBody
 
-@onready var _camera := get_node("%CameraHolder")
-@onready var Stamina := get_node("/root/SceneManager/GameScene/HUD/GUI/HPandStam/StamBar2")
-@onready var StepPlayer := $StepPlayer
-@onready var PlayerAnim := $PlayerAnims
-@onready var HurtAnims := $HurtPlayer
-@onready var Coyote := $CoyoteTimer
-@onready var Hurtbox := $PlayerArea
+onready var _camera := get_node("%CameraHolder")
+onready var Stamina := get_node("/root/SceneManager/GameScene/HUD/GUI/HPandStam/StamBar2")
+onready var StepPlayer := $StepPlayer
+onready var PlayerAnim := $PlayerAnims
+onready var HurtAnims := $HurtPlayer
+onready var Coyote := $CoyoteTimer
+onready var Hurtbox := $PlayerArea
 
 var walk_speed: float = 6.0
 var sprint_speed: float = 7.5
@@ -29,14 +29,14 @@ var state := WALKING
 
 func _ready():
 	isDead = false
-#	self.scale = Vector3(0.6, 0.6, 0.6)
+	self.scale = Vector3(0.6, 0.6, 0.6)
 	
 	StepPlayer.stream = load(FootStepList[SaveGame.game_data.StepUsed])
 	
 	if SaveGame.game_data.PlayerHP > 100:
 		SaveGame.game_data.PlayerHP = 100
 # warning-ignore:return_value_discarded
-	Settingsholder.connect("fov_changed",Callable(self,"_update_fov"))
+	Settingsholder.connect("fov_changed", self, "_update_fov")
 
 func _physics_process(delta: float):
 	# Set State
@@ -88,28 +88,25 @@ func _movement(delta, UsedSpeed, bob_speed):
 	
 	_vel.y += gravity * delta
 	
-	var _basis: Basis = _camera.global_transform.basis
+	var basis: Basis = _camera.global_transform.basis
 	_dir = Vector3.ZERO
-	_dir += -_basis.z * input.y
-	_dir += _basis.x * input.x
+	_dir += -basis.z * input.y
+	_dir += basis.x * input.x
 	_dir = _dir.normalized()
 	
 	
-	var acc := _vel.lerp(_dir * UsedSpeed, acceleration_speed * delta)
+	var acc := _vel.linear_interpolate(_dir * UsedSpeed, acceleration_speed * delta)
 	
 	var was_on_floor := is_on_floor()
 	
-	set_velocity(Vector3(acc.x, _vel.y, acc.z))
-	set_up_direction(Vector3.UP)
-	move_and_slide()
-	_vel = velocity
+	_vel = move_and_slide(Vector3(acc.x, _vel.y, acc.z), Vector3.UP)
 	
 	if was_on_floor && !is_on_floor():
 		Coyote.start()
 	
 	# If moving play head bob animation
 	if _dir != Vector3():
-		PlayerAnim.speed_scale = bob_speed
+		PlayerAnim.playback_speed = bob_speed
 		PlayerAnim.play("Head Bob")
 
 func _on_PlayerArea_area_entered(area):
@@ -156,7 +153,7 @@ func _hurt(source):
 			"ghost":
 				SaveGame.game_data.PlayerHP -= 15
 				HurtAnims.play("hurt")
-				$CameraHolder/Camera3D/HurtPlayer.play()
+				$CameraHolder/Camera/HurtPlayer.play()
 				SaveGame.DeathReason = "ghost"
 				Settingsholder.emit_signal("hp_changed")
 			"fairy":
@@ -183,7 +180,7 @@ func _on_PlayerAnims_animation_finished(anim_name):
 		SceneManager._init_HUD("deathscreen")
 
 func _update_fov():
-	$CameraHolder/Camera3D.set_fov(Settingsholder.save_data.PlayerFOV)
+	$CameraHolder/Camera.set_fov(Settingsholder.save_data.PlayerFOV)
 
 func _on_iFrames_timeout():
 	iframes = false

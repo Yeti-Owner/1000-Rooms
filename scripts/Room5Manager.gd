@@ -1,11 +1,11 @@
-extends Node3D
+extends Spatial
 
-@onready var Player := get_parent().get_node("RoomItems/Player")
+onready var Player := get_parent().get_node("RoomItems/Player")
 var hits := 0
 
 func _ready():
 	for child in get_children():
-		child.connect("PlayerDetected",Callable(self,"_player_hit"))
+		child.connect("PlayerDetected", self, "_player_hit")
 
 func _player_hit():
 	hits += 1

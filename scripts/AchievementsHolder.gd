@@ -1,6 +1,7 @@
 extends Node
 
-const save_path = "user://achievements.dat"
+var file = File.new()
+var save_data = "user://achievements.dat"
 
 var game_data := {
 	"FormagDrung" : 0,
@@ -15,13 +16,11 @@ var game_data := {
 	"IQTest" : 0
 }
 
+# warning-ignore:unused_signal
 signal NewAchievement
 
 func _ready():
-	if not FileAccess.file_exists(save_path):
-		_save()
-	else:
-		_load()
+	_load()
 
 func _check_contents():
 	game_data.FormagDrung = game_data.get("FormagDrung", 0)
@@ -36,12 +35,18 @@ func _check_contents():
 	game_data.IQTest = game_data.get("IQTest", 0)
 
 func _save():
-	var file := FileAccess.open(save_path, FileAccess.WRITE)
+	file.open(save_data, File.WRITE)
 	file.store_var(game_data)
+	file.close()
 
 func _load():
-	
-	var file := FileAccess.open(save_path, FileAccess.READ)
+	# If save file doesnt exist put in default values
+	if not file.file_exists(save_data):
+		_save()
+		
+	# Open save file and read values
+	file.open(save_data, File.READ)
 	game_data = file.get_var()
+	file.close()
 	
 	_check_contents()

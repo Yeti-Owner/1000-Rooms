@@ -1,13 +1,14 @@
-extends Node3D
+extends Spatial
 
-@export var EnvironmentUsed: Environment
-@onready var Narrator := $Narrator
-@onready var Monster := $NavMesh/GhostEnemy
-@onready var player := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
-@onready var _room:String = self.get_scene_file_path()
+export(Environment) var EnvironmentUsed
+onready var Narrator := $Narrator
+onready var Monster := $NavMesh/GhostEnemy
+onready var player := get_node("/root/SceneManager/GameScene/GameViewport/world/RoomItems/Player")
+onready var _room := self.filename
 
 func _ready():
 	randomize()
+	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
 	_add_objs()
 	get_node("ObjHolder/WallObj3").queue_free()
 	get_node("ObjHolder/WallObj4").queue_free()
@@ -16,7 +17,7 @@ func _ready():
 	SaveGame.game_data.CurrentRoom = _room
 	SaveGame._save()
 	SaveGame._update_presence()
-	Monster.transform.origin = Vector3(0, 1.623, 9)
+	Monster.transform.origin = Vector3(0, 0, 9)
 	SaveGame.game_data.CurrentRoom = _room
 	# if completed room
 	if SaveGame.game_data.CurrentPos == Vector3(7.9, 5, -65.8):
@@ -27,7 +28,7 @@ func _ready():
 		player.transform.origin = Vector3(SaveGame.game_data.CurrentPos)
 		Narrator.messages = ["Welcome back"]
 	else: # if not
-		get_node("ObjHolder/WallObj").position = Vector3(0, -4.1, 0)
+		get_node("ObjHolder/WallObj").translation = Vector3(0, -4.1, 0)
 		Narrator.messages = ["Run", "you need to run"]
 
 func _add_objs():
@@ -42,19 +43,19 @@ func _add_objs():
 func _on_Check1_area_entered(area1):
 	if area1.name == "PlayerArea":
 		$AreaHolder/Check1.queue_free()
-		Monster.transform.origin = Vector3(-1.5, 1.923, -24.3)
+		Monster.transform.origin = Vector3(-1.5, 0.3, -24.3)
 
 
 func _on_Check2_area_entered(area2):
 	if area2.name == "PlayerArea":
 		$AreaHolder/Check2.queue_free()
-		Monster.transform.origin = Vector3(-14.6, 3.623, -28)
+		Monster.transform.origin = Vector3(-14.6, 2, -28)
 
 
 func _on_Check3_area_entered(area3):
 	if area3.name == "PlayerArea":
 		$AreaHolder/Check3.queue_free()
-		get_node("ObjHolder/WallObj").position = Vector3(0,0,0)
+		get_node("ObjHolder/WallObj").translation = Vector3(0,0,0)
 		$Timer.start()
 
 func _on_Check4_area_entered(area4):
@@ -64,7 +65,7 @@ func _on_Check4_area_entered(area4):
 		$ObjHolder/WallObj2.queue_free()
 		Narrator.messages = ["It's back"]
 		Narrator.start_dialogue()
-		Monster.transform.origin = Vector3(-29.2, -2.852, -38.136)
+		Monster.transform.origin = Vector3(-29.2, -4.475, -38.136)
 		Monster.speed = 10
 
 func _on_Check5_area_entered(area5):
@@ -76,7 +77,7 @@ func _on_Check5_area_entered(area5):
 
 func _on_Check6_area_entered(area6):
 	if area6.name == "PlayerArea":
-		Monster.transform.origin = Vector3(-42.8, 9.448, -41.936)
+		Monster.transform.origin = Vector3(-42.8, 7.825, -41.936)
 		Monster.speed = 8
 		$AreaHolder/Check6.queue_free()
 
@@ -107,7 +108,7 @@ func _on_Check9_area_entered(area):
 func _on_Check10_area_entered(area):
 	if area.name == "PlayerArea":
 		$AreaHolder/Check10.queue_free()
-		$ObjHolder/FloorObj11.transform.origin.z -= 0.9
+		$ObjHolder/FloorObj11.transform.origin = Vector3(-44, 2, -37.9)
 
 func _on_Timer_timeout():
 	Monster.queue_free()

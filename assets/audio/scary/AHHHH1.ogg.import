@@ -1,19 +1,15 @@
 [remap]
 
-importer="oggvorbisstr"
-type="AudioStreamOggVorbis"
-uid="uid://e8a2yyfd6m3q"
-path="res://.godot/imported/AHHHH1.ogg-ccc310054d25b1a063f6d71897af4967.oggvorbisstr"
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/AHHHH1.ogg-ccc310054d25b1a063f6d71897af4967.oggstr"
 
 [deps]
 
 source_file="res://assets/audio/scary/AHHHH1.ogg"
-dest_files=["res://.godot/imported/AHHHH1.ogg-ccc310054d25b1a063f6d71897af4967.oggvorbisstr"]
+dest_files=[ "res://.import/AHHHH1.ogg-ccc310054d25b1a063f6d71897af4967.oggstr" ]
 
 [params]
 
 loop=false
 loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4

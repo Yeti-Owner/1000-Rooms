@@ -1,4 +1,4 @@
-extends Node3D
+extends Spatial
 
 
 # Declare member variables here. Examples:

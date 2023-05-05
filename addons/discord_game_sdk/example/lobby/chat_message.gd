@@ -1,5 +1,5 @@
 extends Resource
 class_name ChatMessage
 
-@export var member_id: int
-@export var message: String
+export(int) var member_id
+export(String) var message

@@ -1,6 +1,7 @@
 extends Node
 
-const save_data := "user://save_game.dat"
+var file := File.new()
+var save_data := "user://save_game.dat"
 
 # Unsaved vars
 var isChased := 0
@@ -8,6 +9,7 @@ var ChasedBy := 0 # 0 = ghost, 1 = [PLACEHOLDER]
 var LastSavedRoomNum:int = 0
 var DeathReason:String
 
+# warning-ignore:unused_signal
 signal EnemyPassive
 
 # Saved Vars
@@ -43,19 +45,18 @@ var game_data := {
 }
 
 func _ready():
-	if not FileAccess.file_exists(save_data):
-		_save()
-	else:
-		_load()
-
-func _save():
-	var file := FileAccess.open(save_data, FileAccess.WRITE)
-	file.store_var(game_data)
+	_load()
 
 func _load():
+	# If save file doesnt exist put in default values
+	if not file.file_exists(save_data):
+		_save()
+		
 	# Open save file and read values
-	var file := FileAccess.open(save_data, FileAccess.READ)
+# warning-ignore:return_value_discarded
+	file.open(save_data, File.READ)
 	game_data = file.get_var()
+	file.close()
 	
 	_check_contents()
 
@@ -88,6 +89,12 @@ func _check_contents():
 	game_data.FirstTimeRoom309 = game_data.get("FirstTimeRoom309", 1)
 	game_data.FirstTimeConfusing300 = game_data.get("FirstTimeConfusing300", 1)
 	game_data.FirstTimeConfusing312 = game_data.get("FirstTimeConfusing312", 1)
+
+func _save():
+# warning-ignore:return_value_discarded
+	file.open(save_data, File.WRITE)
+	file.store_var(game_data)
+	file.close()
 
 func _clear_save():
 	game_data = {
@@ -136,7 +143,7 @@ func _update_presence():
 #	assets.set_small_image("blank")
 #	assets.set_small_text("")
 
-#	var result = await Discord.activity_manager.update_activity(activity).result.result
+#	var result = yield(Discord.activity_manager.update_activity(activity), "result").result
 #	if result != Discord.Result.Ok:
 #		push_error(result)
 

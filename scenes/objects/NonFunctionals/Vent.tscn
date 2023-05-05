@@ -2,25 +2,25 @@
 
 [ext_resource path="res://assets/3D models/NonFunctionals/vent.obj" type="ArrayMesh" id=1]
 
-[sub_resource type="BoxShape3D" id=4]
-size = Vector3( 0.666, 0.311, 0.064 )
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.666, 0.311, 0.064 )
 
 [sub_resource type="QuadMesh" id=2]
 size = Vector2( 1.163, 0.522 )
 
-[sub_resource type="StandardMaterial3D" id=3]
+[sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0, 0, 0, 1 )
 
-[node name="Vent" type="MeshInstance3D"]
+[node name="Vent" type="MeshInstance"]
 mesh = ExtResource( 1 )
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody" type="StaticBody" parent="."]
 collision_layer = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.049 )
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.049 )
 shape = SubResource( 4 )
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )

@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=5]
-size = Vector2( 32, 32 )
+extents = Vector2( 32, 32 )
 
 [node name="Death" type="Area2D" groups=["Death"]]
 position = Vector2( 1503, 381 )

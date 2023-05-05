@@ -1,27 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://beii0t3h0dr7k"]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource type="ArrayMesh" uid="uid://bwtw0yo0cp6w7" path="res://assets/textures/floors/floor1.obj" id="1"]
-[ext_resource type="Texture2D" uid="uid://wibaumpapukt" path="res://assets/textures/floors/floor1/Wood052_1K_Color.jpg" id="2_cvvew"]
-[ext_resource type="Texture2D" uid="uid://bb3fcp1fy3mak" path="res://assets/textures/floors/floor1/Wood052_1K_NormalDX.jpg" id="3_vpwr8"]
-[ext_resource type="Texture2D" uid="uid://bxxql84btgdi4" path="res://assets/textures/floors/floor1/Wood052_1K_Roughness.jpg" id="4_tsthd"]
+[ext_resource path="res://assets/textures/floors/floor1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/textures/floors/floor1/Wood052_1K_Roughness.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/textures/floors/floor1/Wood052_1K_NormalDX.jpg" type="Texture" id=3]
+[ext_resource path="res://assets/textures/floors/floor1/Wood052_1K_Color.jpg" type="Texture" id=4]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itj26"]
-albedo_texture = ExtResource("2_cvvew")
-roughness_texture = ExtResource("4_tsthd")
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 4 )
+metallic = 0.5
+roughness_texture = ExtResource( 2 )
 normal_enabled = true
 normal_scale = -1.0
-normal_texture = ExtResource("3_vpwr8")
+normal_texture = ExtResource( 3 )
 
-[sub_resource type="ConcavePolygonShape3D" id="1"]
-data = PackedVector3Array(-1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, 1)
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, 1 )
 
-[node name="FloorObj" type="MeshInstance3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("1")
-surface_material_override/0 = SubResource("StandardMaterial3D_itj26")
+[node name="FloorObj" type="MeshInstance"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 2 )
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody" type="StaticBody" parent="."]
 collision_layer = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("1")
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )

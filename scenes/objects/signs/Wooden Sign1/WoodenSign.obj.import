@@ -1,21 +1,20 @@
 [remap]
 
 importer="wavefront_obj"
-importer_version=1
 type="Mesh"
-uid="uid://rcbt3n6jul0v"
-path="res://.godot/imported/WoodenSign.obj-8e63508d5d9018d6ce9438a6b2daf2e0.mesh"
+path="res://.import/WoodenSign.obj-8e63508d5d9018d6ce9438a6b2daf2e0.mesh"
 
 [deps]
 
-files=["res://.godot/imported/WoodenSign.obj-8e63508d5d9018d6ce9438a6b2daf2e0.mesh"]
+files=[ "res://.import/WoodenSign.obj-8e63508d5d9018d6ce9438a6b2daf2e0.mesh" ]
 
 source_file="res://scenes/objects/signs/Wooden Sign1/WoodenSign.obj"
-dest_files=["res://.godot/imported/WoodenSign.obj-8e63508d5d9018d6ce9438a6b2daf2e0.mesh", "res://.godot/imported/WoodenSign.obj-8e63508d5d9018d6ce9438a6b2daf2e0.mesh"]
+dest_files=[ "res://.import/WoodenSign.obj-8e63508d5d9018d6ce9438a6b2daf2e0.mesh", "res://.import/WoodenSign.obj-8e63508d5d9018d6ce9438a6b2daf2e0.mesh" ]
 
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3(1, 1, 1)
-offset_mesh=Vector3(0, 0, 0)
-optimize_mesh=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

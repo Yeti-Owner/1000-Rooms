@@ -1,11 +1,11 @@
-extends Node3D
+extends Spatial
 
-@export(NodePath) onready var Removable
-@export var EnvironmentUsed: Environment
-@export var room_event: Resource
-@export var AllowEnemy:bool = true
-@onready var Narrator := $Narrator
-@onready var _room := self.filename
+export(NodePath) onready var Removable
+export(Environment) var EnvironmentUsed
+export var room_event: Resource
+export var AllowEnemy:bool = true
+onready var Narrator := $Narrator
+onready var _room := self.filename
 
 var RemovableList := ["Good job","Congrats","Well Done","I knew you could do it","You could've done it faster","Lets not waste any more time","Next time try doing it faster","I'm very proud of you and your ability to hit glowing orbs","have you tried walking... but faster?"]
 

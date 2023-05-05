@@ -1,27 +1,27 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/3D models/GlassJar/Mason Jar.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://assets/textures/general/Fairy.png" type="Texture2D" id=2]
+[ext_resource path="res://assets/textures/general/Fairy.png" type="Texture" id=2]
 [ext_resource path="res://interactable/InteractableFairyJar.gd" type="Script" id=3]
 [ext_resource path="res://resources/FairyParticleMaterial.tres" type="Material" id=4]
 [ext_resource path="res://assets/3D models/GlassJar/Cracked Mason Jar.obj" type="ArrayMesh" id=5]
-[ext_resource path="res://assets/textures/general/glass.png" type="Texture2D" id=6]
+[ext_resource path="res://assets/textures/general/glass.png" type="Texture" id=6]
 [ext_resource path="res://assets/audio/misc/GlassBreaking.ogg" type="AudioStream" id=7]
 
-[sub_resource type="StandardMaterial3D" id=9]
+[sub_resource type="SpatialMaterial" id=9]
 flags_transparent = true
 flags_do_not_receive_shadows = true
 params_blend_mode = 1
 params_cull_mode = 2
 albedo_color = Color( 1, 1, 1, 0.164706 )
 
-[sub_resource type="StandardMaterial3D" id=1]
+[sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 
 [sub_resource type="CylinderMesh" id=2]
 material = SubResource( 1 )
 
-[sub_resource type="StandardMaterial3D" id=5]
+[sub_resource type="SpatialMaterial" id=5]
 flags_transparent = true
 flags_unshaded = true
 params_billboard_mode = 3
@@ -40,14 +40,14 @@ length = 10.0
 loop = true
 step = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath("Fairy:position")
+tracks/0/path = NodePath("Fairy:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.25, 1, 1.25, 2, 2.25, 3, 3.25, 4, 4.25, 5, 5.25, 6, 6.25, 7, 7.25, 8, 8.25, 8.75, 9, 9.5, 10 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.25, 1, 1.25, 2, 2.25, 3, 3.25, 4, 4.25, 5, 5.25, 6, 6.25, 7, 7.25, 8, 8.25, 8.75, 9, 9.5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 2.01061, 0 ), Vector3( 0.808747, 2.625, 0 ), Vector3( 0.808747, 2.625, 0 ), Vector3( 0.136979, 2.59266, 0.823792 ), Vector3( 0.136979, 2.59266, 0.823792 ), Vector3( 0.740887, 0.384789, 0.16582 ), Vector3( 0.740887, 0.384789, 0.16582 ), Vector3( -0.727354, 3.4913, 0.160471 ), Vector3( -0.727354, 3.4913, 0.160471 ), Vector3( 0.0146341, 3.94511, 0.15474 ), Vector3( 0.0146341, 3.94511, 0.15474 ), Vector3( 0.48001, 0.740488, 0.774046 ), Vector3( 0.48001, 0.740488, 0.774046 ), Vector3( -0.221312, 0.241044, -0.143519 ), Vector3( -0.221312, 0.241044, -0.143519 ), Vector3( -0.209664, 0.729793, -0.839518 ), Vector3( -0.209664, 0.729793, -0.839518 ), Vector3( 0.706333, 3.16217, 0.558414 ), Vector3( 0.706333, 3.16217, 0.558414 ), Vector3( -0.349823, 3.92287, -0.470958 ), Vector3( -0.349823, 3.92287, -0.470958 ), Vector3( 0, 2.01061, 0 ) ]
 }
@@ -55,23 +55,23 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=8]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Fairy:position")
+tracks/0/path = NodePath("Fairy:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 2.01061, 0 ) ]
 }
 
-[sub_resource type="CylinderShape3D" id=17]
+[sub_resource type="CylinderShape" id=17]
 height = 4.6
 radius = 1.2
 
-[sub_resource type="StandardMaterial3D" id=11]
+[sub_resource type="SpatialMaterial" id=11]
 flags_transparent = true
 flags_do_not_receive_shadows = true
 params_blend_mode = 1
@@ -84,7 +84,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 [sub_resource type="CurveTexture" id=16]
 curve = SubResource( 15 )
 
-[sub_resource type="ParticleProcessMaterial" id=12]
+[sub_resource type="ParticlesMaterial" id=12]
 direction = Vector3( 0, 0, 10 )
 spread = 72.28
 gravity = Vector3( 0, -4, 0 )
@@ -99,7 +99,7 @@ scale = 2.0
 scale_random = 1.0
 scale_curve = SubResource( 16 )
 
-[sub_resource type="StandardMaterial3D" id=14]
+[sub_resource type="SpatialMaterial" id=14]
 flags_transparent = true
 params_billboard_mode = 3
 particles_anim_h_frames = 1
@@ -110,21 +110,21 @@ albedo_texture = ExtResource( 6 )
 [sub_resource type="QuadMesh" id=13]
 material = SubResource( 14 )
 
-[node name="GlassCage" type="StaticBody3D"]
+[node name="GlassCage" type="StaticBody"]
 collision_layer = 7
 script = ExtResource( 3 )
 
-[node name="Jar" type="MeshInstance3D" parent="."]
+[node name="Jar" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
 material/0 = SubResource( 9 )
 
-[node name="JarTop" type="MeshInstance3D" parent="Jar"]
-transform = Transform3D( 0.850969, 0, 0, 0, 0.0379736, 0, 0, 0, 0.864697, 0, 4.22044, 0 )
+[node name="JarTop" type="MeshInstance" parent="Jar"]
+transform = Transform( 0.850969, 0, 0, 0, 0.0379736, 0, 0, 0, 0.864697, 0, 4.22044, 0 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
 
 [node name="Fairy" type="Particles" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01061, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01061, 0 )
 amount = 100
 lifetime = 0.1
 visibility_aabb = AABB( -1.32986, -1.06183, -1.0623, 3.65972, 3.12366, 3.12461 )
@@ -137,23 +137,23 @@ reset_on_save = false
 anims/FairyRandomFly = SubResource( 7 )
 anims/RESET = SubResource( 8 )
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.423, 0 )
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.423, 0 )
 shape = SubResource( 17 )
 
-[node name="CrackedMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0 )
+[node name="CrackedMesh" type="MeshInstance" parent="."]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0 )
 visible = false
 mesh = ExtResource( 5 )
 material/0 = SubResource( 11 )
 
-[node name="JarTop2" type="MeshInstance3D" parent="CrackedMesh"]
-transform = Transform3D( 0.736961, 0, -0.432348, 0, 0.0379736, 0, 0.425485, 0, 0.74885, 0, 4.22044, 0 )
+[node name="JarTop2" type="MeshInstance" parent="CrackedMesh"]
+transform = Transform( 0.736961, 0, -0.432348, 0, 0.0379736, 0, 0.425485, 0, 0.74885, 0, 4.22044, 0 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
 
 [node name="GlassBreaking" type="Particles" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0552633, 2.2, 0.935983 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0552633, 2.2, 0.935983 )
 emitting = false
 amount = 30
 lifetime = 0.75
@@ -163,7 +163,7 @@ process_material = SubResource( 12 )
 draw_pass_1 = SubResource( 13 )
 
 [node name="GlassSound" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1 )
 stream = ExtResource( 7 )
-volume_db = 2.0
+unit_db = 2.0
 bus = "SfxBus"

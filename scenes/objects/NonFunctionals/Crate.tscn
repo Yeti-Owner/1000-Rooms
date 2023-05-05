@@ -1,22 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7g38rrj4i232"]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource type="ArrayMesh" uid="uid://c63olg16rvmn1" path="res://assets/3D models/NonFunctionals/Crate.obj" id="1"]
-[ext_resource type="Texture2D" uid="uid://li5a736flfa0" path="res://assets/3D models/NonFunctionals/CrateTex.png" id="2"]
+[ext_resource path="res://assets/3D models/NonFunctionals/Crate.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/3D models/NonFunctionals/CrateTex.png" type="Texture" id=2]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rqsh"]
-albedo_texture = ExtResource("2")
+[sub_resource type="SpatialMaterial" id=1]
+flags_vertex_lighting = true
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.756863, 0.756863, 0.756863, 1 )
+albedo_texture = ExtResource( 2 )
 
-[sub_resource type="BoxShape3D" id="2"]
-size = Vector3(30.2, 30.2, 30.2)
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 30.2, 30.2, 30.2 )
 
-[node name="Crate" type="MeshInstance3D"]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
-mesh = ExtResource("1")
-surface_material_override/0 = SubResource("StandardMaterial3D_5rqsh")
+[node name="Crate" type="MeshInstance"]
+transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody" type="StaticBody" parent="."]
 collision_layer = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.638419, 29.8616, 1.50458)
-shape = SubResource("2")
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.638419, 29.8616, 1.50458 )
+shape = SubResource( 2 )

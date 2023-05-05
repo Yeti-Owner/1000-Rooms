@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-@onready var RoomNum := $RoomNumHolder/CenterContainer/RoomNum
-@onready var FpsCounter := $MarginContainer/FpsCounter
-@onready var HpBar := $HPandStam/HpBar2
-@onready var StamBar := $HPandStam/StamBar2
+onready var RoomNum := $RoomNumHolder/CenterContainer/RoomNum
+onready var FpsCounter := $MarginContainer/FpsCounter
+onready var HpBar := $HPandStam/HpBar2
+onready var StamBar := $HPandStam/StamBar2
 
 var Stamina:float = 200
 
@@ -12,9 +12,9 @@ func _ready():
 	RoomNum.set_text("Room: " + str(SaveGame.game_data.RoomNum))
 	HpBar.set_value(SaveGame.game_data.PlayerHP)
 # warning-ignore:return_value_discarded
-	Settingsholder.connect("fps_changed",Callable(self,"_update_vals"))
+	Settingsholder.connect("fps_changed", self, "_update_vals")
 # warning-ignore:return_value_discarded
-	Settingsholder.connect("hp_changed",Callable(self,"_update_hp"))
+	Settingsholder.connect("hp_changed", self, "_update_hp")
 
 
 func _on_UpdateTimer_timeout():

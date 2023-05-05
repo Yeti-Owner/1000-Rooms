@@ -1,8 +1,8 @@
 extends Control
 
-@onready var DeathText := $DeathLabel
-@onready var DeathReason := SaveGame.DeathReason
-@onready var DeathPic := $DeathTexture
+onready var DeathText := $DeathLabel
+onready var DeathReason := SaveGame.DeathReason
+onready var DeathPic := $DeathTexture
 
 var text: String
 

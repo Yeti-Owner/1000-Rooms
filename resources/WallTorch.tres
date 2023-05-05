@@ -1,22 +1,36 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://cu76lmfwqbx2k"]
+[gd_resource type="ParticlesMaterial" load_steps=5 format=2]
 
-[ext_resource type="Gradient" uid="uid://qkkalacuxvfm" path="res://assets/3D models/torch/Fire.tres" id="1"]
+[ext_resource path="res://assets/3D models/torch/Fire.tres" type="Gradient" id=1]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_k4sb0"]
-gradient = ExtResource("1")
+[sub_resource type="GradientTexture" id=6]
+gradient = ExtResource( 1 )
 
-[sub_resource type="Curve" id="Curve_u8isy"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.17037, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.118182), 0.0, 0.0, 0, 0]
-point_count = 3
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.17037, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.118182 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id="CurveTexture_vu1m3"]
-curve = SubResource("Curve_u8isy")
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 5 )
 
 [resource]
+trail_divisor = 15
 emission_shape = 1
-emission_sphere_radius = 0.27
-direction = Vector3(0, 1, 0)
+emission_sphere_radius = 0.4
+direction = Vector3( 0, 1, 0 )
 spread = 0.0
-gravity = Vector3(0, 4.9, 0)
-scale_curve = SubResource("CurveTexture_vu1m3")
-color_ramp = SubResource("GradientTexture1D_k4sb0")
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.1
+angular_velocity = 40.0
+angular_velocity_random = 1.0
+linear_accel = 4.0
+linear_accel_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 0.8
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 6 )
+hue_variation = -0.01
+hue_variation_random = 1.0
+anim_speed = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0

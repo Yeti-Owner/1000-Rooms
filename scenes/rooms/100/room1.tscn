@@ -1,156 +1,145 @@
-[gd_scene load_steps=26 format=3 uid="uid://dn0hk46t36hr8"]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource type="Environment" path="res://resources/WorldEnvironment1.tres" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/Narrator.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/objects/NonFunctionals/SiBPoster.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://br6b3n80m31cq" path="res://scenes/Player.tscn" id="4"]
-[ext_resource type="Script" path="res://scripts/RoomEvent.gd" id="5"]
-[ext_resource type="PackedScene" uid="uid://cn204e3ktprmk" path="res://scenes/objects/WallTorch.tscn" id="6"]
-[ext_resource type="PackedScene" uid="uid://b48vgpmcn433u" path="res://scenes/objects/doors/Door2.tscn" id="7"]
-[ext_resource type="PackedScene" uid="uid://buv24d5oclw7e" path="res://scenes/objects/doors/Door2Closed.tscn" id="8"]
-[ext_resource type="Script" path="res://scripts/load_world.gd" id="9"]
-[ext_resource type="PackedScene" uid="uid://d1clp0sjuyfmv" path="res://scenes/objects/signs/JumpScareSign5.tscn" id="11"]
-[ext_resource type="PackedScene" uid="uid://cqv5dpbp63l4a" path="res://scenes/objects/signs/JumpScareSign3.tscn" id="12"]
-[ext_resource type="PackedScene" uid="uid://0n8rc3rdqaee" path="res://scenes/objects/signs/JumpScareSign7.tscn" id="13"]
-[ext_resource type="PackedScene" path="res://scenes/audio/ScarePlayer.tscn" id="14"]
-[ext_resource type="PackedScene" path="res://scenes/objects/NonFunctionals/Vent.tscn" id="16"]
-[ext_resource type="PackedScene" path="res://scenes/objects/NonFunctionals/Ladder.tscn" id="17"]
-[ext_resource type="PackedScene" path="res://scenes/objects/NonFunctionals/Bricks.tscn" id="18"]
-[ext_resource type="PackedScene" uid="uid://cl28dbs0mufff" path="res://scenes/objects/NonFunctionals/Planks.tscn" id="19"]
-[ext_resource type="PackedScene" path="res://scenes/objects/NonFunctionals/Grate.tscn" id="20"]
-[ext_resource type="PackedScene" path="res://scenes/objects/NonFunctionals/Table1.tscn" id="21"]
-[ext_resource type="PackedScene" path="res://scenes/objects/Paper.tscn" id="22"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/EnemySpawner.tscn" id="23"]
-[ext_resource type="MeshLibrary" uid="uid://d1wvgq61fgpc6" path="res://scenes/meshlib/meshlib_1.meshlib" id="23_g0bfk"]
-[ext_resource type="PackedScene" path="res://scenes/WorldEnvironment.tscn" id="23_w2tj2"]
+[ext_resource path="res://resources/WorldEnvironment1.tres" type="Environment" id=1]
+[ext_resource path="res://scenes/Narrator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/objects/NonFunctionals/SiBPoster.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/RoomEvent.gd" type="Script" id=5]
+[ext_resource path="res://scenes/objects/WallTorch.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/objects/doors/Door2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/objects/doors/Door2Closed.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/load_world.gd" type="Script" id=9]
+[ext_resource path="res://scenes/objects/signs/JumpScareSign5.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/objects/signs/JumpScareSign3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/objects/signs/JumpScareSign7.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/audio/ScarePlayer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Gridmaps/GridMap.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/objects/NonFunctionals/Vent.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/objects/NonFunctionals/Ladder.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/objects/NonFunctionals/Bricks.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/objects/NonFunctionals/Planks.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/objects/NonFunctionals/Grate.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/objects/NonFunctionals/Table1.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/objects/Paper.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/enemies/EnemySpawner.tscn" type="PackedScene" id=23]
 
-[sub_resource type="Resource" id="2"]
-script = ExtResource("5")
+[sub_resource type="Resource" id=2]
+script = ExtResource( 5 )
 on_number = 18
 table_path = NodePath("Table1")
 table_remove = true
 enemy_allowed = false
-narrator_text = []
+narrator_text = [  ]
 first_time = false
 var_used = ""
 
-[sub_resource type="NavigationMesh" id="1"]
-vertices = PackedVector3Array(-17.2, 6.5, -8.6, -10.8, 6.5, -8.6, -10.8, 6.5, -10.2, -10.2, 6.5, -10.8, -8.6, 6.5, -10.8, -8.6, 6.5, -17.2, -17.2, 6.5, -8.6, -10.8, 6.5, -10.2, -10.2, 6.5, -10.8, -8.6, 6.5, -17.2, -17.2, 6.5, -17.2, -8.6, 6.5, -10.8, 1.2, 6.5, -10.8, 1.2, 6.5, -17.2, -8.6, 6.5, -17.2, -12.2, 0.5, -12.8, -11, 0.5, -12.8, -11.2, 0.5, -15, -12.8, 0.5, -12.2, -12.2, 0.5, -12.8, -11.2, 0.5, -15, -15, 0.5, -15, -15, 0.5, -4.8, -12.8, 0.5, -4.8, -12.8, 0.5, -12.2, -15, 0.5, -15, -11, 0.5, -12.8, -0.799999, 0.5, -12.8, -0.799999, 0.5, -15, -11.2, 0.5, -15, -10.8, 6.5, -8.6, -17.2, 6.5, -8.6, -17.2, 6.5, -2.8, -10.8, 6.5, -2.8)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 10), PackedInt32Array(8, 10, 9), PackedInt32Array(14, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(17, 16, 15), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29), PackedInt32Array(33, 32, 30), PackedInt32Array(30, 32, 31)]
+[sub_resource type="NavigationMesh" id=1]
+vertices = PoolVector3Array( -15.2, 4.5, -17.2, -15.2, 4.5, -16.8, -8, 4.5, -16.8, -8, 4.5, -17.2, -0.799999, 4.5, -17.2, -8, 4.5, -17.2, -8, 4.5, -16.8, -0.799999, 4.5, -16.8, -17.2, 4.5, -15.2, -17.2, 4.5, -4.8, -16.8, 4.5, -4.8, -16.8, 4.5, -15.2, -12.2, 6.5, -12.6, -11, 6.5, -12.6, -11.2, 6.5, -15.2, -12.8, 6.5, -12, -12.2, 6.5, -12.6, -11.2, 6.5, -15.2, -15.2, 6.5, -15.2, -15.2, 6.5, -4.6, -12.6, 6.5, -4.8, -12.8, 6.5, -12, -15.2, 6.5, -15.2, -11, 6.5, -12.6, -0.799999, 6.5, -12.6, -0.6, 6.5, -15, -11.2, 6.5, -15.2, -12.2, 0.5, -12.8, -11, 0.5, -12.8, -11.2, 0.5, -15, -12.8, 0.5, -12.2, -12.2, 0.5, -12.8, -11.2, 0.5, -15, -15, 0.5, -15, -15, 0.5, -4.8, -12.8, 0.5, -4.8, -12.8, 0.5, -12.2, -15, 0.5, -15, -11, 0.5, -12.8, -0.799999, 0.5, -12.8, -0.799999, 0.5, -15, -11.2, 0.5, -15, -11, 4.5, -11, -11, 4.5, -4.8, -10.8, 4.5, -10.2, -11, 4.5, -11, -10.8, 4.5, -10.2, -10.2, 4.5, -10.8, -11, 4.5, -11, -10.2, 4.5, -10.8, -0.799999, 4.5, -10.8 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ), PoolIntArray( 7, 6, 4 ), PoolIntArray( 4, 6, 5 ), PoolIntArray( 11, 10, 8 ), PoolIntArray( 8, 10, 9 ), PoolIntArray( 14, 13, 12 ), PoolIntArray( 16, 15, 17 ), PoolIntArray( 17, 15, 18 ), PoolIntArray( 20, 19, 21 ), PoolIntArray( 21, 19, 22 ), PoolIntArray( 24, 23, 25 ), PoolIntArray( 25, 23, 26 ), PoolIntArray( 29, 28, 27 ), PoolIntArray( 31, 30, 32 ), PoolIntArray( 32, 30, 33 ), PoolIntArray( 35, 34, 36 ), PoolIntArray( 36, 34, 37 ), PoolIntArray( 39, 38, 40 ), PoolIntArray( 40, 38, 41 ), PoolIntArray( 44, 43, 42 ), PoolIntArray( 47, 46, 45 ), PoolIntArray( 48, 50, 49 ) ]
 cell_size = 0.2
 agent_radius = 0.7
 agent_max_climb = 1.0
 
-[node name="world" type="Node3D"]
-process_mode = 1
-script = ExtResource("9")
-EnvironmentUsed = ExtResource("1")
-room_event = SubResource("2")
+[node name="world" type="Spatial"]
+pause_mode = 1
+script = ExtResource( 9 )
+EnvironmentUsed = ExtResource( 1 )
+room_event = SubResource( 2 )
 
-[node name="RoomItems" type="Node3D" parent="."]
+[node name="RoomItems" type="Spatial" parent="."]
 
-[node name="Player" parent="RoomItems" instance=ExtResource("4")]
-transform = Transform3D(-3.14315e-06, 0, 1, 0, 1, 0, -1, 0, -3.14315e-06, -0.577915, 0.0505859, -14)
+[node name="Player" parent="RoomItems" instance=ExtResource( 4 )]
+transform = Transform( -1.57158e-06, 0, 0.5, 0, 0.5, 0, -0.5, 0, -1.57158e-06, -0.4, 0.68, -14 )
 
-[node name="WallTorch" parent="RoomItems" instance=ExtResource("6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6, 1.1, -16)
+[node name="WallTorch" parent="RoomItems" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6, 1.1, -16 )
 
-[node name="WallTorch3" parent="RoomItems" instance=ExtResource("6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 1.1, -16)
+[node name="WallTorch3" parent="RoomItems" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 1.1, -16 )
 
-[node name="WallTorch2" parent="RoomItems" instance=ExtResource("6")]
-transform = Transform3D(-1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -13, 1.1, -4)
+[node name="WallTorch2" parent="RoomItems" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -13, 1.1, -4 )
 
-[node name="Pivot" parent="RoomItems" instance=ExtResource("7")]
-transform = Transform3D(-3.14315e-06, 0, -1, 0, 1, 0, 1, 0, -3.14315e-06, -14.4, 0, -4.02)
+[node name="Pivot" parent="RoomItems" instance=ExtResource( 7 )]
+transform = Transform( -3.14315e-06, 0, -1, 0, 1, 0, 1, 0, -3.14315e-06, -14.4, 0, -4.02 )
 
-[node name="Door2Closed" parent="RoomItems" instance=ExtResource("8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+[node name="Door2Closed" parent="RoomItems" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14 )
 skeleton = NodePath("")
 
-[node name="JumpScareSign1" parent="RoomItems" instance=ExtResource("11")]
-transform = Transform3D(-2.82884e-06, 0, 0.7, -0.9, -2.20021e-06, -2.20021e-06, 2.82884e-06, -0.7, 6.91559e-12, -11.9, 1.4, -12)
+[node name="JumpScareSign1" parent="RoomItems" instance=ExtResource( 11 )]
+transform = Transform( -2.82884e-06, 0, 0.7, -0.9, -2.20021e-06, -2.20021e-06, 2.82884e-06, -0.7, 6.91559e-12, -11.9, 1.4, -12 )
 
-[node name="JumpScareSign2" parent="RoomItems" instance=ExtResource("12")]
-transform = Transform3D(-2.1, 0, 0, 0, -2.5, 0, 0, 0, -2.1, -14.1, 4.1, -4.9)
+[node name="JumpScareSign2" parent="RoomItems" instance=ExtResource( 12 )]
+transform = Transform( -2.1, 0, 0, 0, -2.5, 0, 0, 0, -2.1, -14.1, 4.1, -4.9 )
 
-[node name="JumpScareSign3" parent="RoomItems" instance=ExtResource("13")]
-transform = Transform3D(4.44492e-06, 3.88587e-13, 1.4, -1.22392e-07, 1.4, 0, 1.4, 1.22392e-07, -4.44492e-06, -7.5, 0, -14.2)
+[node name="JumpScareSign3" parent="RoomItems" instance=ExtResource( 13 )]
+transform = Transform( 4.44492e-06, 3.88587e-13, 1.4, -1.22392e-07, 1.4, 0, 1.4, 1.22392e-07, -4.44492e-06, -7.5, 0, -14.2 )
 
-[node name="ScarePlayer" parent="RoomItems" instance=ExtResource("14")]
-bus = &"SfxBus"
+[node name="ScarePlayer" parent="RoomItems" instance=ExtResource( 14 )]
 
-[node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("23_g0bfk")
-collision_layer = 5
+[node name="Narrator" parent="." instance=ExtResource( 2 )]
+
+[node name="GridMap" parent="." instance=ExtResource( 15 )]
 data = {
-"cells": PackedInt32Array(-1, 65529, 2, -1, 65528, 2, -2, 65529, 2, -2, 65528, 2, -3, 65528, 2, -3, 65529, 2, -4, 65529, 2, -5, 65529, 2, -6, 65529, 2, -6, 65528, 2, -5, 65528, 2, -4, 65528, 2, -7, 65529, 2, -8, 65529, 2, -7, 65528, 2, -8, 65528, 2, -7, 65530, 2, -7, 65531, 2, -7, 65532, 2, -7, 65533, 2, -8, 65533, 2, -8, 65532, 2, -8, 65531, 2, -8, 65530, 2, 65530, 65533, 0, 65530, 65534, 0, 65529, 65534, 0, 65528, 65534, 0, 65527, 65534, 0, 65527, 65533, 0, 65530, 65532, 0, 65530, 65531, 0, 65530, 65530, 0, 65527, 65532, 0, 65527, 65531, 0, 65527, 65530, 0, 65527, 65529, 0, 65527, 65528, 0, 65527, 65527, 0, 65528, 65527, 0, 65529, 65527, 0, 65530, 65527, 0, 65531, 65530, 0, 65532, 65530, 0, 65533, 65530, 0, 65534, 65530, 0, 65535, 65530, 0, 0, 65530, 0, 0, 65529, 0, 0, 65528, 0, 0, 65527, 0, 65535, 65527, 0, 65534, 65527, 0, 65533, 65527, 0, 65532, 65527, 0, 65531, 65527, 0, 131063, 65534, 0, 131064, 65534, 0, 131065, 65534, 0, 131066, 65534, 0, 131066, 65533, 0, 131066, 65532, 0, 131066, 65531, 0, 131066, 65530, 0, 131067, 65530, 0, 131068, 65530, 0, 131069, 65530, 0, 131070, 65530, 0, 131071, 65530, 0, 65536, 65530, 0, 65536, 65529, 0, 65536, 65528, 0, 65536, 65527, 0, 131071, 65527, 0, 131070, 65527, 0, 131069, 65527, 0, 131068, 65527, 0, 131067, 65527, 0, 131063, 65533, 0, 131063, 65532, 0, 131063, 65531, 0, 131063, 65530, 0, 131063, 65529, 0, 131063, 65528, 0, 131063, 65527, 0, 131064, 65527, 0, 131065, 65527, 0, 131066, 65527, 0, 196599, 65534, 1, 196600, 65534, 1, 196601, 65534, 1, 196602, 65534, 1, 196602, 65533, 1, 196602, 65532, 1, 196601, 65533, 1, 196600, 65533, 1, 196599, 65533, 1, 196599, 65532, 1, 196599, 65531, 1, 196599, 65530, 1, 196600, 65531, 1, 196601, 65531, 1, 196601, 65532, 1, 196600, 65532, 1, 196602, 65531, 1, 196602, 65530, 1, 196601, 65530, 1, 196600, 65530, 1, 196599, 65529, 1, 196599, 65528, 1, 196599, 65527, 1, 196600, 65527, 1, 196600, 65528, 1, 196601, 65528, 1, 196601, 65527, 1, 196600, 65529, 1, 196602, 65528, 1, 196601, 65529, 1, 196602, 65529, 1, 196603, 65529, 1, 196603, 65530, 1, 196604, 65530, 1, 196605, 65530, 1, 196606, 65530, 1, 196607, 65530, 1, 131072, 65530, 1, 131072, 65529, 1, 196607, 65529, 1, 196606, 65529, 1, 196605, 65529, 1, 196604, 65529, 1, 196603, 65528, 1, 196604, 65528, 1, 196605, 65528, 1, 196606, 65528, 1, 196607, 65528, 1, 131072, 65528, 1, 131072, 65527, 1, 196607, 65527, 1, 196606, 65527, 1, 196605, 65527, 1, 196604, 65527, 1, 196603, 65527, 1, 196602, 65527, 1)
+"cells": PoolIntArray( 65528, 65527, 786432, 65529, 65527, 786432, 65530, 65527, 786432, 65531, 65527, 786432, 65532, 65527, 786432, 65533, 65527, 786432, 65534, 65527, 786432, 65535, 65527, 786432, 131064, 65527, 786432, 131065, 65527, 786432, 131066, 65527, 786432, 131067, 65527, 786432, 131068, 65527, 786432, 131069, 65527, 786432, 131070, 65527, 786432, 131071, 65527, 786432, 0, 65528, 0, 65527, 65528, 0, 65536, 65528, 0, 131063, 65528, 0, 196600, 65528, 786434, 196601, 65528, 786434, 196602, 65528, 786434, 196603, 65528, 786434, 196604, 65528, 786434, 196605, 65528, 786434, 196606, 65528, 786434, 196607, 65528, 786434, -8, 65528, 786433, -7, 65528, 786433, -6, 65528, 786433, -5, 65528, 786433, -4, 65528, 786433, -3, 65528, 786433, -2, 65528, 786433, -1, 65528, 786433, 0, 65529, 0, 65527, 65529, 0, 65536, 65529, 0, 131063, 65529, 0, 196600, 65529, 786434, 196601, 65529, 786434, 196602, 65529, 786434, 196603, 65529, 786434, 196604, 65529, 786434, 196605, 65529, 786434, 196606, 65529, 786434, 196607, 65529, 786434, -8, 65529, 786433, -7, 65529, 786433, -6, 65529, 786433, -5, 65529, 786433, -4, 65529, 786433, -3, 65529, 786433, -2, 65529, 786433, -1, 65529, 1, 65527, 65530, 0, 65530, 65530, 0, 65531, 65530, 786432, 65532, 65530, 786432, 65533, 65530, 786432, 65534, 65530, 786432, 65535, 65530, 786432, 131063, 65530, 0, 131066, 65530, 0, 131067, 65530, 786432, 131068, 65530, 786432, 131069, 65530, 786432, 131070, 65530, 786432, 131071, 65530, 786432, 196600, 65530, 786434, 196601, 65530, 786434, -8, 65530, 786433, -7, 65530, 786433, 65527, 65531, 0, 65530, 65531, 0, 131063, 65531, 0, 131066, 65531, 0, 196600, 65531, 786434, 196601, 65531, 786434, -8, 65531, 786433, -7, 65531, 786433, 65527, 65532, 0, 65530, 65532, 0, 131063, 65532, 0, 131066, 65532, 0, 196600, 65532, 786434, 196601, 65532, 786434, -8, 65532, 1, -7, 65532, 1, 65527, 65533, 0, 65530, 65533, 0, 131063, 65533, 0, 131066, 65533, 0, 196600, 65533, 786434, 196601, 65533, 786434, -8, 65533, 1, -7, 65533, 1, 65528, 65534, 0, 65529, 65534, 0, 131064, 65534, 0, 131065, 65534, 0 )
 }
-metadata/_editor_floor_ = Vector3(0, 2, 0)
 
-[node name="Narrator" parent="." instance=ExtResource("2")]
-layout_mode = 3
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Objs" type="Spatial" parent="."]
 
-[node name="Objs" type="Node3D" parent="."]
+[node name="Vent" parent="Objs" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -6, 2.4, -12.01 )
 
-[node name="Vent" parent="Objs" instance=ExtResource("16")]
-transform = Transform3D(-1, 0, -6.28631e-06, 0, 1, 0, 6.28631e-06, 0, -1, -6, 2.4, -12.01)
+[node name="Vent2" parent="Objs" instance=ExtResource( 16 )]
+transform = Transform( -3.14316e-06, 0, 1, 0, 1, 0, -1, 0, -3.14316e-06, -15.99, 2.4, -8 )
 
-[node name="Vent2" parent="Objs" instance=ExtResource("16")]
-transform = Transform3D(-3.14316e-06, 0, 1, 0, 1, 0, -1, 0, -3.14316e-06, -15.99, 2.4, -8)
+[node name="Vent3" parent="Objs" instance=ExtResource( 16 )]
+transform = Transform( 9.42946e-06, 0, -1, 0, 1, 0, 1, 0, 9.42946e-06, -12.01, 2.4, -8.01 )
 
-[node name="Vent3" parent="Objs" instance=ExtResource("16")]
-transform = Transform3D(9.42946e-06, 0, -1, 0, 1, 0, 1, 0, 9.42946e-06, -12.01, 2.4, -8.01)
+[node name="Ladder" parent="Objs" instance=ExtResource( 17 )]
+transform = Transform( 0.5, 0, 0, 0, 0.499154, 0.0290725, 0, -0.0290725, 0.499154, -10.4, 1.71089, -15.8 )
 
-[node name="Ladder" parent="Objs" instance=ExtResource("17")]
-transform = Transform3D(0.5, 0, 0, 0, 0.499154, 0.0290725, 0, -0.0290725, 0.499154, -10.4, 1.71089, -15.8)
+[node name="Bricks" parent="Objs" instance=ExtResource( 18 )]
+transform = Transform( -0.184605, 0, -0.464673, 0, 0.5, 0, 0.464673, 0, -0.184605, -5, 0, -15.5 )
 
-[node name="Bricks" parent="Objs" instance=ExtResource("18")]
-transform = Transform3D(-0.184605, 0, -0.464673, 0, 0.5, 0, 0.464673, 0, -0.184605, -5, 0, -15.5)
+[node name="Planks" parent="Objs" instance=ExtResource( 19 )]
+transform = Transform( 0.0727373, 0, -0.0686243, 0, 0.1, 0, 0.0686243, 0, 0.0727373, -14, 0.0622827, -13 )
 
-[node name="Planks" parent="Objs" instance=ExtResource("19")]
-transform = Transform3D(0.0727373, 0, -0.0686243, 0, 0.1, 0, 0.0686243, 0, 0.0727373, -14, 0.0622827, -13)
+[node name="Planks2" parent="Objs" instance=ExtResource( 19 )]
+transform = Transform( -0.0173651, 0, -0.0984807, 0, 0.1, 0, 0.0984807, 0, -0.0173651, -5, 0.0622827, -13 )
 
-[node name="Planks2" parent="Objs" instance=ExtResource("19")]
-transform = Transform3D(-0.0173651, 0, -0.0984807, 0, 0.1, 0, 0.0984807, 0, -0.0173651, -5, 0.0622827, -13)
+[node name="Grate" parent="Objs" instance=ExtResource( 20 )]
+transform = Transform( -3.14315e-06, -1, 0, 1, -3.14315e-06, 0, 0, 0, 1, -12.01, 0.6, -10 )
 
-[node name="Grate" parent="Objs" instance=ExtResource("20")]
-transform = Transform3D(-3.14315e-06, -1, 0, 1, -3.14315e-06, 0, 0, 0, 1, -12.01, 0.6, -10)
+[node name="Grate2" parent="Objs" instance=ExtResource( 20 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -12, 0.6, -15.991 )
 
-[node name="Grate2" parent="Objs" instance=ExtResource("20")]
-transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -12, 0.6, -15.991)
+[node name="Table1" parent="Objs" instance=ExtResource( 21 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -15.1, 0, -15.2 )
 
-[node name="Table1" parent="Objs" instance=ExtResource("21")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -15.1, 0, -15.2)
+[node name="SiBPoster" parent="Objs" instance=ExtResource( 3 )]
+transform = Transform( -3.14315e-06, 0, 1, 0, 1, 0, -1, 0, -3.14315e-06, -15.991, 1.3, -11.6 )
 
-[node name="SiBPoster" parent="Objs" instance=ExtResource("3")]
-transform = Transform3D(-3.14315e-06, 0, 1, 0, 1, 0, -1, 0, -3.14315e-06, -15.991, 1.3, -11.6)
+[node name="Table1" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -15.1, 0, -15.2 )
 
-[node name="Table1" parent="." instance=ExtResource("21")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -15.1, 0, -15.2)
-
-[node name="Paper" parent="Table1" instance=ExtResource("22")]
-transform = Transform3D(-1.33158, 0, -3.77185, 0, 4, 0, 3.77185, 0, -1.33158, 0.400002, 3.6, 0.400002)
+[node name="Paper" parent="Table1" instance=ExtResource( 22 )]
+transform = Transform( -1.33158, 0, -3.77185, 0, 4, 0, 3.77185, 0, -1.33158, 0.400002, 3.6, 0.400002 )
 Text = "He's here still I can sense it. He might be silent but he's always watching I can feel it no matter where I go.
 
 I hate it I hate it I hate it I hate it 
 I want to leave I am constantly running for my life it's a nightmare.."
 
-[node name="NavMesh" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("1")
+[node name="NavMesh" type="NavigationMeshInstance" parent="."]
+navmesh = SubResource( 1 )
 
-[node name="EnemySpawner" parent="NavMesh" instance=ExtResource("23")]
-transform = Transform3D(-1.57158e-06, 0, -0.5, 0, 0.5, 0, 0.5, 0, -1.57158e-06, 0, 1.3, -14)
+[node name="EnemySpawner" parent="NavMesh" instance=ExtResource( 23 )]
+transform = Transform( -1.57158e-06, 0, -0.5, 0, 0.5, 0, 0.5, 0, -1.57158e-06, 0, 1.3, -14 )
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -10)
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -10 )
 intensity = 0.75
-size = Vector3(21, 9, 17)
+extents = Vector3( 10.5, 4.5, 8.5 )
 box_projection = true
-interior = true
 enable_shadows = true
-
-[node name="WorldEnvironment1" parent="." instance=ExtResource("23_w2tj2")]
+interior_enable = true

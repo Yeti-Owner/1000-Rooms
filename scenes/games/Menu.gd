@@ -1,20 +1,20 @@
 extends Control
 
 var Hidden:bool
-@onready var tween := $MenuTween
+onready var tween := $MenuTween
 
 func _ready():
 	$MarginContainer.visible = false
 
 func _active():
-	await get_tree().idle_frame
+	yield(get_tree(), "idle_frame")
 	$GamesHider.color.a = 1
 	$GamesHider.visible = true
 	Hidden = true
 	$Hider.color.a = 0
 	$MarginContainer.visible = true
-	tween.interpolate_property($MarginContainer/VBoxContainer/CenterContainer, "position", Vector2(0,-360), Vector2(0,0), 2, 9)
-	tween.interpolate_property($MarginContainer/VBoxContainer/VBoxContainer, "position", Vector2(-1260,344), Vector2(0,344), 2.5, 2)
+	tween.interpolate_property($MarginContainer/VBoxContainer/CenterContainer, "rect_position", Vector2(0,-360), Vector2(0,0), 2, 9)
+	tween.interpolate_property($MarginContainer/VBoxContainer/VBoxContainer, "rect_position", Vector2(-1260,344), Vector2(0,344), 2.5, 2)
 	tween.start()
 
 func _on_GamesBtn_pressed():
@@ -49,8 +49,8 @@ func _on_FairyJump_pressed():
 
 func _on_SuperShadeBros_pressed():
 	var scene = preload("res://scenes/games/SuperShadeBros2/SuperShadeBros2.tscn")
-	await get_tree().idle_frame
-	var Game = scene.instantiate()
+	yield(get_tree(), "idle_frame")
+	var Game = scene.instance()
 	get_parent().add_child(Game)
 	self.queue_free()
 

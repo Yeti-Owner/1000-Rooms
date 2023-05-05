@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var MaxRoomLabel := $Control/RoomsPopup/Label
-@onready var RoomNumChanger := $Control/RoomsPopup/RoomNumChanger
+onready var MaxRoomLabel := $Control/RoomsPopup/Label
+onready var RoomNumChanger := $Control/RoomsPopup/RoomNumChanger
 
 signal LeftA
 signal RightA

@@ -1,24 +1,24 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/3D models/NonFunctionals/plank 1 model.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://assets/3D models/NonFunctionals/plan_n.png" type="Texture2D" id=2]
-[ext_resource path="res://assets/3D models/NonFunctionals/plank_tex.png" type="Texture2D" id=3]
+[ext_resource path="res://assets/3D models/NonFunctionals/plan_n.png" type="Texture" id=2]
+[ext_resource path="res://assets/3D models/NonFunctionals/plank_tex.png" type="Texture" id=3]
 
-[sub_resource type="StandardMaterial3D" id=1]
+[sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 3 )
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 2 )
 
-[sub_resource type="BoxShape3D" id=2]
-size = Vector3( 1, 0.1, 8 )
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1, 0.1, 8 )
 
-[node name="Plank" type="MeshInstance3D"]
-transform = Transform3D( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+[node name="Plank" type="MeshInstance"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 1 )
 material/0 = SubResource( 1 )
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody" type="StaticBody" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 2 )

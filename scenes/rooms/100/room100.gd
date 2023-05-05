@@ -1,12 +1,12 @@
-extends Node3D
+extends Spatial
 
-@export var EnvironmentUsed: Environment
+export(Environment) var EnvironmentUsed
 
-@onready var Narrator := $Narrator
-@onready var FakeDoor := $RoomItems/FakeDoor/StaticBody3D
-@onready var FairyCage := $RoomItems/GlassCage
-@onready var player := get_node("RoomItems/Player")
-@onready var _room := self.filename
+onready var Narrator := $Narrator
+onready var FakeDoor := $RoomItems/FakeDoor/StaticBody
+onready var FairyCage := $RoomItems/GlassCage
+onready var player := get_node("RoomItems/Player")
+onready var _room := self.filename
 
 var RoomStage := 0
 var DoorStage := 0
@@ -18,9 +18,9 @@ func _ready():
 	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
 	_add_objs()
 	SaveGame.game_data.CurrentRoom = _room
-	Narrator.connect("DialogueFinished",Callable(self,"_dialogue_finished"))
-	FakeDoor.connect("DoorOpened",Callable(self,"_door_triggered"))
-	FairyCage.connect("FairyReleased",Callable(self,"_release_fairy"))
+	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
+	FakeDoor.connect("DoorOpened", self, "_door_triggered")
+	FairyCage.connect("FairyReleased", self, "_release_fairy")
 	
 	# Check if Asshole Achievement done
 	if AchievementsHolder.game_data.Asshole:
@@ -124,7 +124,7 @@ func _release_fairy():
 	$Timer.start()
 	
 	# Instance in Hatch
-	var Hatch2 = Hatch.instantiate()
+	var Hatch2 = Hatch.instance()
 	Hatch2.transform.origin = Vector3(0, 0, -32.3)
 	get_node("RoomItems").add_child(Hatch2)
 	$ArrowSigns.visible = true
@@ -140,7 +140,7 @@ func _release_fairy():
 
 func _on_Timer_timeout():
 	# instance in Fairy
-	var FairyEnemy2 = FairyEnemy.instantiate()
+	var FairyEnemy2 = FairyEnemy.instance()
 	FairyEnemy2.transform.origin = Vector3(0, 1, -50.3) # 0,1,-51.3
 	add_child(FairyEnemy2)
 	get_node("FairyEnemy")._change_state(2)

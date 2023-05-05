@@ -1,294 +1,280 @@
-[gd_scene load_steps=36 format=3 uid="uid://br6b3n80m31cq"]
+[gd_scene load_steps=35 format=2]
 
-[ext_resource type="Script" path="res://scripts/CameraHolder.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/Player.gd" id="2"]
-[ext_resource type="Script" path="res://interactable/InteractionRay.gd" id="3"]
-[ext_resource type="AudioStream" uid="uid://b0c8h271dt4de" path="res://assets/audio/misc/footsteps/wood_floor1.wav" id="4"]
-[ext_resource type="Texture2D" uid="uid://b1l2os6mjutq8" path="res://assets/3D models/flashlight/torch_BaseColor.png" id="4_w5y77"]
-[ext_resource type="AudioStream" uid="uid://pf2rm1vxh1mv" path="res://assets/audio/misc/hurt.ogg" id="5"]
-[ext_resource type="Texture2D" uid="uid://djifcqlq0i3ty" path="res://assets/3D models/flashlight/torch_Metallic.png" id="5_jheti"]
-[ext_resource type="PackedScene" path="res://scenes/items/Shield.tscn" id="6"]
-[ext_resource type="Texture2D" uid="uid://5h2ai58dtpee" path="res://assets/3D models/flashlight/torch_Normal.png" id="6_t2l0e"]
-[ext_resource type="Script" path="res://scripts/HeldSway.gd" id="7"]
-[ext_resource type="Texture2D" uid="uid://v4b0j7sppiao" path="res://assets/3D models/flashlight/torch_Roughness.png" id="7_jeltm"]
-[ext_resource type="ArrayMesh" uid="uid://gyhoy2ds4pnm" path="res://assets/3D models/flashlight/flashlight.obj" id="8"]
-[ext_resource type="AudioStream" uid="uid://cpnmmalr2flx1" path="res://assets/audio/misc/heaving-breathing.wav" id="13"]
+[ext_resource path="res://scripts/CameraHolder.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://interactable/InteractionRay.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/misc/footsteps/wood_floor1.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/misc/hurt.ogg" type="AudioStream" id=5]
+[ext_resource path="res://scenes/items/Shield.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/HeldSway.gd" type="Script" id=7]
+[ext_resource path="res://assets/3D models/flashlight/flashlight.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://assets/3D models/flashlight/torch_BaseColor.png" type="Texture" id=9]
+[ext_resource path="res://assets/3D models/flashlight/torch_Normal.png" type="Texture" id=10]
+[ext_resource path="res://assets/3D models/flashlight/torch_Roughness.png" type="Texture" id=11]
+[ext_resource path="res://assets/3D models/flashlight/torch_Metallic.png" type="Texture" id=12]
+[ext_resource path="res://assets/audio/misc/heaving-breathing.wav" type="AudioStream" id=13]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a48v5"]
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.45
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id=2]
 radius = 0.4
+mid_height = 1.8
+
+[sub_resource type="CapsuleShape" id=14]
+radius = 0.47
 height = 1.8
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dgexc"]
-radius = 0.4
-height = 1.8
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6gbcc"]
-radius = 0.435
-height = 1.8
-
-[sub_resource type="Animation" id="9"]
+[sub_resource type="Animation" id=9]
 resource_name = "Head Bob"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CameraHolder/Camera3D:position")
+tracks/0/path = NodePath("CameraHolder/Camera:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [Vector3(0, 0.2, 0), Vector3(0, 0, 0), Vector3(0, 0.2, 0)]
+"values": [ Vector3( 0, 0.2, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0.2, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/path = NodePath("StepPlayer:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CameraHolder:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1, 0)]
-}
-tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CameraHolder:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1, 0 ) ]
+}
+tracks/1/type = "value"
 tracks/1/path = NodePath("CameraHolder:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [ Vector3( 0, 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CameraHolder/Camera3D:rotation_degrees")
+tracks/2/path = NodePath("CameraHolder/Camera:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [ Vector3( 0, 0, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CameraHolder/Camera3D:position")
+tracks/3/path = NodePath("CameraHolder/Camera:translation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [Vector3(0, 0.2, 0)]
+"values": [ Vector3( 0, 0.2, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/path = NodePath("StepPlayer:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [false]
+"values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CameraHolder/Camera3D/CanvasLayer/Hurt:color")
+tracks/5/path = NodePath("CameraHolder/Camera/CanvasLayer/Hurt:color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [Color(1, 0, 0, 0)]
+"values": [ Color( 1, 0, 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CameraHolder/Camera3D/CanvasLayer/Vignette:material:shader_param/color")
+tracks/6/path = NodePath("CameraHolder/Camera/CanvasLayer/Vignette:material:shader_param/color")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [ Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id="12"]
+[sub_resource type="Animation" id=12]
 resource_name = "acid_death"
 length = 4.0
 tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CameraHolder/Camera3D/CanvasLayer/Vignette:material:shader_param/color")
+tracks/0/path = NodePath("CameraHolder/Camera/CanvasLayer/Vignette:material:shader_param/color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [Color(0.027451, 0.211765, 0, 1), Color(0.0313726, 1, 0, 1)]
+"values": [ Color( 0.027451, 0.211765, 0, 1 ), Color( 0.0313726, 1, 0, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CameraHolder/Camera3D:rotation_degrees")
+tracks/1/path = NodePath("CameraHolder/Camera:rotation_degrees")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 2.2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PoolRealArray( 0.5, 2.2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [Vector3(80, 0, 0), Vector3(60, 10, 0), Vector3(-20, -10, -20)]
+"values": [ Vector3( 80, 0, 0 ), Vector3( 60, 10, 0 ), Vector3( -20, -10, -20 ) ]
 }
 
-[sub_resource type="Animation" id="5"]
+[sub_resource type="Animation" id=5]
 resource_name = "die"
 length = 3.0
 tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CameraHolder:position")
+tracks/0/path = NodePath("CameraHolder:translation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PoolRealArray( 0, 0.8, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [Vector3(0, 1, 0), Vector3(0, 1, 0), Vector3(0, 0.784406, 0), Vector3(-0.394991, 0.488655, 0), Vector3(-0.741249, -0.220662, 0)]
+"values": [ Vector3( 0, 1, 0 ), Vector3( 0, 1, 0 ), Vector3( 0, 0.784406, 0 ), Vector3( -0.394991, 0.488655, 0 ), Vector3( -0.741249, -0.220662, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CameraHolder/Camera3D:rotation_degrees")
+tracks/1/path = NodePath("CameraHolder/Camera:rotation_degrees")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 22.3), Vector3(0, 0, 90)]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 22.3 ), Vector3( 0, 0, 90 ) ]
 }
 
-[sub_resource type="Animation" id="8"]
+[sub_resource type="Animation" id=8]
 resource_name = "hurt"
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CameraHolder/Camera3D/CanvasLayer/Hurt:color")
+tracks/0/path = NodePath("CameraHolder/Camera/CanvasLayer/Hurt:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.121569), Color(1, 0, 0, 0)]
+"values": [ Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 0.121569 ), Color( 1, 0, 0, 0 ) ]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_10qul"]
-_data = {
-"Head Bob": SubResource("9"),
-"RESET": SubResource("6"),
-"acid_death": SubResource("12"),
-"die": SubResource("5"),
-"hurt": SubResource("8")
-}
-
-[sub_resource type="Animation" id="15"]
+[sub_resource type="Animation" id=15]
 resource_name = "hurt"
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CameraHolder/Camera3D/CanvasLayer/Hurt:color")
+tracks/0/path = NodePath("CameraHolder/Camera/CanvasLayer/Hurt:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.121569), Color(1, 0, 0, 0)]
+"values": [ Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 0.121569 ), Color( 1, 0, 0, 0 ) ]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vam56"]
-_data = {
-"hurt": SubResource("15")
-}
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq7bt"]
-albedo_texture = ExtResource("4_w5y77")
-metallic = 1.0
-metallic_texture = ExtResource("5_jheti")
-roughness_texture = ExtResource("7_jeltm")
+[sub_resource type="SpatialMaterial" id=13]
+albedo_texture = ExtResource( 9 )
+metallic_texture = ExtResource( 12 )
+roughness_texture = ExtResource( 11 )
 normal_enabled = true
-normal_texture = ExtResource("6_t2l0e")
+normal_scale = 1.0
+normal_texture = ExtResource( 10 )
 
-[sub_resource type="CylinderShape3D" id="20"]
+[sub_resource type="CylinderShape" id=20]
 height = 0.785537
 radius = 1.83466
 
-[sub_resource type="CylinderShape3D" id="21"]
+[sub_resource type="CylinderShape" id=21]
 height = 0.217494
 radius = 1.45963
 
-[sub_resource type="CylinderShape3D" id="22"]
+[sub_resource type="CylinderShape" id=22]
 height = 0.234267
 radius = 1.20446
 
-[sub_resource type="CylinderShape3D" id="23"]
+[sub_resource type="CylinderShape" id=23]
 height = 0.217494
 radius = 0.980213
 
-[sub_resource type="CylinderShape3D" id="24"]
+[sub_resource type="CylinderShape" id=24]
 height = 0.283668
 radius = 0.674779
 
-[sub_resource type="CylinderShape3D" id="25"]
+[sub_resource type="CylinderShape" id=25]
 height = 0.217494
 radius = 0.481881
 
-[sub_resource type="CylinderShape3D" id="26"]
+[sub_resource type="CylinderShape" id=26]
 height = 0.217494
 radius = 0.269854
 
-[sub_resource type="CylinderShape3D" id="27"]
+[sub_resource type="CylinderShape" id=27]
 height = 0.616306
 radius = 0.148501
 
-[sub_resource type="Shader" id="10"]
+[sub_resource type="Shader" id=10]
 code = "shader_type canvas_item;
 
-uniform vec4 color: source_color;
+uniform vec4 color: hint_color;
 uniform float multiplier = 0.2;
 uniform float softness = 3.0;
 
@@ -297,176 +283,210 @@ void fragment() {
 	COLOR = vec4(color.rgb, smoothstep(multiplier, softness, value));
 }"
 
-[sub_resource type="ShaderMaterial" id="11"]
-shader = SubResource("10")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/multiplier = -0.683
-shader_parameter/softness = 3.0
+[sub_resource type="ShaderMaterial" id=11]
+shader = SubResource( 10 )
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/multiplier = -0.683
+shader_param/softness = 3.0
 
-[node name="Player" type="CharacterBody3D"]
-script = ExtResource("2")
+[sub_resource type="OccluderShapePolygon" id=17]
+polygon_points = PoolVector2Array( 8, -8, 8, 8, -8, 8, -8, -8 )
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-shape = SubResource("CapsuleShape3D_a48v5")
+[node name="Player" type="KinematicBody"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+script = ExtResource( 2 )
 
-[node name="Body" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 visible = false
-mesh = SubResource("CapsuleMesh_dgexc")
+mesh = SubResource( 2 )
 
-[node name="PlayerArea" type="Area3D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+visible = false
+
+[node name="ViewportContainer" type="ViewportContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Viewport" type="Viewport" parent="CanvasLayer/ViewportContainer"]
+size = Vector2( 1280, 720 )
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="PlayerArea" type="Area" parent="."]
+visible = false
 collision_mask = 9
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlayerArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-shape = SubResource("CapsuleShape3D_6gbcc")
+[node name="CollisionShape2" type="CollisionShape" parent="PlayerArea"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 14 )
 
 [node name="StepPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4")
+stream = ExtResource( 4 )
 volume_db = 5.0
-bus = &"SfxBus"
+bus = "SfxBus"
 
 [node name="PlayerAnims" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_10qul")
-}
+"anims/Head Bob" = SubResource( 9 )
+anims/RESET = SubResource( 6 )
+anims/acid_death = SubResource( 12 )
+anims/die = SubResource( 5 )
+anims/hurt = SubResource( 8 )
 
 [node name="HurtPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_vam56")
-}
+anims/hurt = SubResource( 15 )
 
-[node name="Light3D" type="Node3D" parent="."]
+[node name="Light" type="Spatial" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.985, 0)
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785, 0 )
 
-[node name="LightCast" type="RayCast3D" parent="Light3D"]
+[node name="LightCast" type="RayCast" parent="Light"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.233801, -0.00901097, 0.166676)
-target_position = Vector3(0, 0, -1)
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.233801, -0.00901097, 0.166676 )
+enabled = true
+cast_to = Vector3( 0, 0, -1 )
 collision_mask = 4
 
-[node name="LightCast2" type="RayCast3D" parent="Light3D"]
+[node name="LightCast2" type="RayCast" parent="Light"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135377, -0.00901097, 0)
-target_position = Vector3(0.25, 0, 0)
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135377, -0.00901097, 0 )
+enabled = true
+cast_to = Vector3( 0.25, 0, 0 )
 collision_mask = 4
 
-[node name="LightCast3" type="RayCast3D" parent="Light3D"]
+[node name="LightCast3" type="RayCast" parent="Light"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135377, -0.00901097, -0.362116)
-target_position = Vector3(0.25, 0, 0)
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135377, -0.00901097, -0.362116 )
+enabled = true
+cast_to = Vector3( 0.25, 0, 0 )
 collision_mask = 4
 
-[node name="Flashlight" type="Node3D" parent="Light3D"]
+[node name="Flashlight" type="Spatial" parent="Light"]
 unique_name_in_owner = true
 
-[node name="LightMesh" type="MeshInstance3D" parent="Light3D/Flashlight"]
-transform = Transform3D(-1.31134e-09, 0, -0.03, 0, 0.03, 0, 0.03, 0, -1.31134e-09, 0.280837, -0.00901097, -0.188161)
-cast_shadow = 0
-mesh = ExtResource("8")
-surface_material_override/0 = SubResource("StandardMaterial3D_dq7bt")
+[node name="LightMesh" type="MeshInstance" parent="Light/Flashlight"]
+transform = Transform( -1.31134e-09, 0, -0.03, 0, 0.03, 0, 0.03, 0, -1.31134e-09, 0.280837, -0.00901097, -0.188161 )
+mesh = ExtResource( 8 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 13 )
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Light3D/Flashlight/LightMesh"]
-transform = Transform3D(-2.91409e-06, 0, 66.6667, 0, 66.6667, 0, -66.6667, 0, -2.91409e-06, -11.0915, 0.0578976, 1.68843)
+[node name="SpotLight" type="SpotLight" parent="Light/Flashlight/LightMesh"]
+transform = Transform( -2.91409e-06, 0, 66.6667, 0, 66.6667, 0, -66.6667, 0, -2.91409e-06, -11.0915, 0.0578976, 1.68843 )
 spot_range = 3.2878
 spot_angle = 48.2042
 
-[node name="LightArea" type="Area3D" parent="Light3D/Flashlight/LightMesh/SpotLight3D" groups=["Light3D"]]
+[node name="LightArea" type="Area" parent="Light/Flashlight/LightMesh/SpotLight" groups=["Light"]]
 visible = false
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape2" type="CollisionShape3D" parent="Light3D/Flashlight/LightMesh/SpotLight3D/LightArea"]
-transform = Transform3D(1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -1.93354)
-shape = SubResource("20")
+[node name="CollisionShape2" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -1.93354 )
+shape = SubResource( 20 )
 
-[node name="CollisionShape3" type="CollisionShape3D" parent="Light3D/Flashlight/LightMesh/SpotLight3D/LightArea"]
-transform = Transform3D(1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -1.44363)
-shape = SubResource("21")
+[node name="CollisionShape3" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -1.44363 )
+shape = SubResource( 21 )
 
-[node name="CollisionShape4" type="CollisionShape3D" parent="Light3D/Flashlight/LightMesh/SpotLight3D/LightArea"]
-transform = Transform3D(1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -1.22872)
-shape = SubResource("22")
+[node name="CollisionShape4" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -1.22872 )
+shape = SubResource( 22 )
 
-[node name="CollisionShape5" type="CollisionShape3D" parent="Light3D/Flashlight/LightMesh/SpotLight3D/LightArea"]
-transform = Transform3D(1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -1.01081)
-shape = SubResource("23")
+[node name="CollisionShape5" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -1.01081 )
+shape = SubResource( 23 )
 
-[node name="CollisionShape6" type="CollisionShape3D" parent="Light3D/Flashlight/LightMesh/SpotLight3D/LightArea"]
-transform = Transform3D(1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -0.788245)
-shape = SubResource("24")
+[node name="CollisionShape6" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -0.788245 )
+shape = SubResource( 24 )
 
-[node name="CollisionShape7" type="CollisionShape3D" parent="Light3D/Flashlight/LightMesh/SpotLight3D/LightArea"]
-transform = Transform3D(1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -0.546034)
-shape = SubResource("25")
+[node name="CollisionShape7" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -0.546034 )
+shape = SubResource( 25 )
 
-[node name="CollisionShape8" type="CollisionShape3D" parent="Light3D/Flashlight/LightMesh/SpotLight3D/LightArea"]
-transform = Transform3D(1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -0.341123)
-shape = SubResource("26")
+[node name="CollisionShape8" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.0740453, 8.9407e-08, -0.341123 )
+shape = SubResource( 26 )
 
-[node name="CollisionShape9" type="CollisionShape3D" parent="Light3D/Flashlight/LightMesh/SpotLight3D/LightArea"]
-transform = Transform3D(1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.044686, 8.9407e-08, 0.0510825)
-shape = SubResource("27")
+[node name="CollisionShape9" type="CollisionShape" parent="Light/Flashlight/LightMesh/SpotLight/LightArea"]
+transform = Transform( 1, 7.10542e-15, -7.10542e-15, -7.10542e-15, -4.37114e-08, -1, -7.10542e-15, 1, -4.37114e-08, -0.044686, 8.9407e-08, 0.0510825 )
+shape = SubResource( 27 )
+
+[node name="LightTween" type="Tween" parent="."]
+unique_name_in_owner = true
+repeat = true
+playback/repeat = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.18
 one_shot = true
 
-[node name="CameraHolder" type="Node3D" parent="."]
+[node name="CameraHolder" type="Spatial" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("1")
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+script = ExtResource( 1 )
 
-[node name="Camera3D" type="Camera3D" parent="CameraHolder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+[node name="Camera" type="Camera" parent="CameraHolder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
 current = true
 
-[node name="InteractionRay" type="RayCast3D" parent="CameraHolder/Camera3D"]
-target_position = Vector3(0, 0, -1.75)
+[node name="InteractionRay" type="RayCast" parent="CameraHolder/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -1.75 )
 collision_mask = 2
-script = ExtResource("3")
+script = ExtResource( 3 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="CameraHolder/Camera3D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="CameraHolder/Camera"]
 
-[node name="Vignette" type="ColorRect" parent="CameraHolder/Camera3D/CanvasLayer"]
-material = SubResource("11")
-anchors_preset = 15
+[node name="Vignette" type="ColorRect" parent="CameraHolder/Camera/CanvasLayer"]
+material = SubResource( 11 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color(1, 0, 0, 0)
+color = Color( 1, 0, 0, 0 )
 
-[node name="Hurt" type="ColorRect" parent="CameraHolder/Camera3D/CanvasLayer"]
-anchors_preset = 15
+[node name="Hurt" type="ColorRect" parent="CameraHolder/Camera/CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color(1, 0, 0, 0)
+color = Color( 1, 0, 0, 0 )
 
-[node name="HurtPlayer" type="AudioStreamPlayer3D" parent="CameraHolder/Camera3D"]
-stream = ExtResource("5")
-bus = &"SfxBus"
+[node name="HurtPlayer" type="AudioStreamPlayer3D" parent="CameraHolder/Camera"]
+stream = ExtResource( 5 )
+bus = "SfxBus"
 
-[node name="HeldSway" type="Node3D" parent="CameraHolder/Camera3D"]
-script = ExtResource("7")
-sway_left = Vector3(0, 0.1, 0)
-sway_right = Vector3(0, -0.1, 0)
+[node name="HeldSway" type="Spatial" parent="CameraHolder/Camera"]
+script = ExtResource( 7 )
+sway_left = Vector3( 0, 0.1, 0 )
+sway_right = Vector3( 0, -0.1, 0 )
 
-[node name="Shield" parent="CameraHolder/Camera3D/HeldSway" instance=ExtResource("6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275, -0.32, -0.274795)
+[node name="Shield" parent="CameraHolder/Camera/HeldSway" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275, -0.32, -0.274795 )
 visible = false
 
-[node name="Timer" type="Timer" parent="CameraHolder/Camera3D/HeldSway"]
+[node name="Timer" type="Timer" parent="CameraHolder/Camera/HeldSway"]
 wait_time = 0.05
 one_shot = true
 autostart = true
 
+[node name="Occluder" type="Occluder" parent="CameraHolder/Camera"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.161751 )
+shape = SubResource( 17 )
+
 [node name="BreathingPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13")
+stream = ExtResource( 13 )
 volume_db = 10.0
-bus = &"SfxBus"
+bus = "SfxBus"
 
 [node name="iFrames" type="Timer" parent="."]
 wait_time = 2.25
@@ -474,5 +494,6 @@ one_shot = true
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 [connection signal="animation_finished" from="PlayerAnims" to="." method="_on_PlayerAnims_animation_finished"]
-[connection signal="timeout" from="CameraHolder/Camera3D/HeldSway/Timer" to="CameraHolder/Camera3D/HeldSway" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="CameraHolder" method="_on_Timer_timeout"]
+[connection signal="timeout" from="CameraHolder/Camera/HeldSway/Timer" to="CameraHolder/Camera/HeldSway" method="_on_Timer_timeout"]
 [connection signal="timeout" from="iFrames" to="." method="_on_iFrames_timeout"]

@@ -1,27 +1,27 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://cl72fgvo7p3my"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=2]
 
-[sub_resource type="AudioEffectReverb" id="1"]
+[sub_resource type="AudioEffectReverb" id=1]
 resource_name = "Reverb"
 
 [resource]
 bus/0/volume_db = -9.63278
-bus/1/name = &"MusicBus"
+bus/1/name = "MusicBus"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
-bus/1/send = &"Master"
-bus/2/name = &"SfxBus"
+bus/1/send = "Master"
+bus/2/name = "SfxBus"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
-bus/2/send = &"Master"
-bus/3/name = &"ReverbBus"
+bus/2/send = "Master"
+bus/3/name = "ReverbBus"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
-bus/3/send = &"SfxBus"
-bus/3/effect/0/effect = SubResource("1")
+bus/3/send = "SfxBus"
+bus/3/effect/0/effect = SubResource( 1 )
 bus/3/effect/0/enabled = true

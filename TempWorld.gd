@@ -1,8 +1,8 @@
-extends Node3D
+extends Spatial
 
-@export var EnvironmentUsed: Environment
-@export var EnvironmentUsed2: Environment
-@export var EnvironmentUsed3: Environment
+export(Environment) var EnvironmentUsed
+export(Environment) var EnvironmentUsed2
+export(Environment) var EnvironmentUsed3
 
 
 func _ready():

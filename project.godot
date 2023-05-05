@@ -6,16 +6,133 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=5
+config_version=4
+
+_global_script_classes=[ {
+"base": "Resource",
+"class": "ChatMessage",
+"language": "GDScript",
+"path": "res://addons/discord_game_sdk/example/lobby/chat_message.gd"
+}, {
+"base": "Reference",
+"class": "DiscordActivity",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordActivityAssets",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_assets.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordActivityManager",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_manager.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordActivityParty",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_party.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordActivitySecrets",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_secrets.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordActivityTimestamps",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_timestamps.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordCore",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_core.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordLobby",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_lobby.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordLobbyManager",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_lobby_manager.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordLobbyTransaction",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_lobby_transaction.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordOverlayManager",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_overlay_manager.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordPartySize",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_party_size.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordResult",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_result.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordUser",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_user.gdns"
+}, {
+"base": "Resource",
+"class": "GameState",
+"language": "GDScript",
+"path": "res://addons/discord_game_sdk/example/lobby/game_state.gd"
+}, {
+"base": "Node",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://interactable/Interactable.gd"
+}, {
+"base": "Resource",
+"class": "Member",
+"language": "GDScript",
+"path": "res://addons/discord_game_sdk/example/lobby/member.gd"
+}, {
+"base": "Resource",
+"class": "RoomEvent",
+"language": "GDScript",
+"path": "res://scripts/RoomEvent.gd"
+} ]
+_global_script_class_icons={
+"ChatMessage": "",
+"DiscordActivity": "",
+"DiscordActivityAssets": "",
+"DiscordActivityManager": "",
+"DiscordActivityParty": "",
+"DiscordActivitySecrets": "",
+"DiscordActivityTimestamps": "",
+"DiscordCore": "",
+"DiscordLobby": "",
+"DiscordLobbyManager": "",
+"DiscordLobbyTransaction": "",
+"DiscordOverlayManager": "",
+"DiscordPartySize": "",
+"DiscordResult": "",
+"DiscordUser": "",
+"GameState": "",
+"Interactable": "",
+"Member": "",
+"RoomEvent": ""
+}
 
 [application]
 
 config/name="1000-Rooms"
 run/main_scene="res://scenes/FirstScene.tscn"
-config/features=PackedStringArray("4.0")
-boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://assets/ExportData/NiceYetiPic.png"
 boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://assets/ExportData/LOGO.png"
 config/windows_native_icon="res://assets/ExportData/NewIcon.ico"
 
@@ -25,13 +142,18 @@ Settingsholder="*res://scripts/settingsholder.gd"
 RoomLoader="*res://scripts/RoomLoader.gd"
 SaveGame="*res://scripts/save_game.gd"
 AchievementsHolder="*res://scripts/AchievementsHolder.gd"
+Discord="*res://addons/discord_game_sdk/discord.gd"
 SceneManager="*res://scenes/SceneManager.tscn"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/width=1280
+window/size/height=720
 window/size/resizable=false
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/discord_game_sdk/plugin.cfg" )
 
 [global]
 
@@ -41,75 +163,74 @@ frames=false
 
 ui_cancel={
 "deadzone": 0.5,
-"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
-]
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 left={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"echo":false,"script":null)
-]
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 right={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"echo":false,"script":null)
-]
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 down={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"echo":false,"script":null)
-]
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 up={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"echo":false,"script":null)
-]
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 jump={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"echo":false,"script":null)
-]
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 pause={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
-]
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 interact={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
-]
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 console={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":96,"echo":false,"script":null)
-]
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":96,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 sprint={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"echo":false,"script":null)
-]
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 primary={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
-]
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
 }
 secondary={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"pressed":false,"double_click":false,"script":null)
-]
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
 }
 
 [physics]
 
-3d/physics_engine="GodotPhysics"
 common/physics_fps=120
 common/enable_pause_aware_picking=true
+3d/physics_engine="GodotPhysics"
 
 [rendering]
 
-occlusion_culling/bvh_build_quality=1
-occlusion_culling/use_occlusion_culling=true
-environment/defaults/default_environment="res://default_env.tres"
 quality/reflections/high_quality_ggx=false
 quality/filters/anisotropic_filter_level=16
+environment/default_environment="res://default_env.tres"

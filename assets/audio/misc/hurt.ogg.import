@@ -1,19 +1,15 @@
 [remap]
 
-importer="oggvorbisstr"
-type="AudioStreamOggVorbis"
-uid="uid://pf2rm1vxh1mv"
-path="res://.godot/imported/hurt.ogg-ab475dcb02850100d6aa3cb128275a81.oggvorbisstr"
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hurt.ogg-ab475dcb02850100d6aa3cb128275a81.oggstr"
 
 [deps]
 
 source_file="res://assets/audio/misc/hurt.ogg"
-dest_files=["res://.godot/imported/hurt.ogg-ab475dcb02850100d6aa3cb128275a81.oggvorbisstr"]
+dest_files=[ "res://.import/hurt.ogg-ab475dcb02850100d6aa3cb128275a81.oggstr" ]
 
 [params]
 
 loop=false
 loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4

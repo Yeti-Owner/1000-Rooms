@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends KinematicBody2D
 
 var speed : int = 200
 var jump_speed : int = -300
@@ -18,13 +18,10 @@ func get_input(delta):
 	
 	# Turn left or right
 	if vel.x != 0:
-		$Sprite2D.scale.x = -sign(vel.x)
+		$Sprite.scale.x = -sign(vel.x)
 	
 	vel.y += grav * delta
-	set_velocity(vel)
-	set_up_direction(Vector2.UP)
-	move_and_slide()
-	vel = velocity
+	vel = move_and_slide(vel, Vector2.UP)
 
 func _physics_process(delta):
 	if EnabledMovement:

@@ -1,9 +1,9 @@
-extends Node3D
+extends Spatial
 
-@export var EnvironmentUsed: Environment 
-@onready var Narrator := $Narrator
-@onready var player := $RoomItems/Player
-@onready var _room := self.filename
+export(Environment) var EnvironmentUsed 
+onready var Narrator := $Narrator
+onready var player := $RoomItems/Player
+onready var _room := self.filename
 
 var RuneStage:int = 0
 

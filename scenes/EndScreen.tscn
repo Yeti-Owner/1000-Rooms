@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="FontFile" id=1]
+[ext_resource path="res://assets/theme/MinimalUI/EquipmentPro.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/EndScreen.gd" type="Script" id=2]
 [ext_resource path="res://assets/theme/MinimalUI/MinimalUI.tres" type="Theme" id=3]
 
-[sub_resource type="FontFile" id=3]
+[sub_resource type="DynamicFont" id=3]
 size = 70
 font_data = ExtResource( 1 )
 
-[sub_resource type="FontFile" id=2]
+[sub_resource type="DynamicFont" id=2]
 size = 40
 font_data = ExtResource( 1 )
 
@@ -26,9 +26,9 @@ color = Color( 0.113725, 0.113725, 0.113725, 1 )
 [node name="ThanksText" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 57.0
-offset_right = -15.0
+margin_left = 15.0
+margin_top = 57.0
+margin_right = -15.0
 custom_fonts/font = SubResource( 3 )
 text = "That's it for now, 300 rooms. I'd like to thank you from the bottom of my heart for playtesting my game. It's not that much now but it's a passion project and I'm pretty happy with it. 
 I'd really appreciate any and all feedback/criticism, click the button below to open a google form link.
@@ -41,15 +41,15 @@ autowrap = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -42.0
+margin_top = -42.0
 custom_fonts/font = SubResource( 2 )
 text = "Feedback?"
 
 [node name="MainMenuBtn" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -195.0
-offset_bottom = 58.0
+margin_left = -195.0
+margin_bottom = 58.0
 custom_fonts/font = SubResource( 2 )
 text = "Main Menu"
 

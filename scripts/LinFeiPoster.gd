@@ -1,7 +1,7 @@
 extends Interactable
 
 func get_interaction_text():
-	return "Press %s to collect Lin Fei Poster" % [OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode)]
+	return "Press %s to collect Lin Fei Poster" % [OS.get_scancode_string(InputMap.get_action_list("interact")[0].scancode)]
 
 func interact():
 	$AudioStreamPlayer3D.play()

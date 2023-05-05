@@ -4,5 +4,5 @@
 
 [node name="BricksBreaking" type="AudioStreamPlayer3D"]
 stream = ExtResource( 1 )
-volume_db = 25.0
+unit_db = 25.0
 bus = "SfxBus"

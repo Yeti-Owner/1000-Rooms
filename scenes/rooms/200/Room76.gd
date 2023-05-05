@@ -1,8 +1,8 @@
-extends Node3D
+extends Spatial
 
-@export var EnvironmentUsed: Environment 
-@onready var Narrator := $Narrator
-@onready var _room := self.filename
+export(Environment) var EnvironmentUsed 
+onready var Narrator := $Narrator
+onready var _room := self.filename
 
 func _ready():
 	$ReflectionProbe.intensity = 0.01

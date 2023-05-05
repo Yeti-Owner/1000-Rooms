@@ -1,21 +1,20 @@
 [remap]
 
 importer="wavefront_obj"
-importer_version=1
 type="Mesh"
-uid="uid://d1dt87xhy1rbd"
-path="res://.godot/imported/medkit.obj-59a5179a7dd89bbce3f0bbf56c0abf33.mesh"
+path="res://.import/medkit.obj-59a5179a7dd89bbce3f0bbf56c0abf33.mesh"
 
 [deps]
 
-files=["res://.godot/imported/medkit.obj-59a5179a7dd89bbce3f0bbf56c0abf33.mesh"]
+files=[ "res://.import/medkit.obj-59a5179a7dd89bbce3f0bbf56c0abf33.mesh" ]
 
 source_file="res://assets/3D models/medkit/medkit.obj"
-dest_files=["res://.godot/imported/medkit.obj-59a5179a7dd89bbce3f0bbf56c0abf33.mesh", "res://.godot/imported/medkit.obj-59a5179a7dd89bbce3f0bbf56c0abf33.mesh"]
+dest_files=[ "res://.import/medkit.obj-59a5179a7dd89bbce3f0bbf56c0abf33.mesh", "res://.import/medkit.obj-59a5179a7dd89bbce3f0bbf56c0abf33.mesh" ]
 
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3(1, 1, 1)
-offset_mesh=Vector3(0, 0, 0)
-optimize_mesh=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,9 +1,9 @@
-extends RayCast3D
+extends RayCast
 
 var current_collider
 
-@onready var interaction_label = get_node("/root/SceneManager/GameScene/HUD/GUI/InteractLabel")
-@onready var interaction_hand = get_node("/root/SceneManager/GameScene/HUD/GUI/hand/handpng")
+onready var interaction_label = get_node("/root/SceneManager/GameScene/HUD/GUI/InteractLabel")
+onready var interaction_hand = get_node("/root/SceneManager/GameScene/HUD/GUI/hand/handpng")
 
 func _ready():
 	interaction_hand.visible = false
@@ -23,11 +23,11 @@ func _process(_delta):
 			set_interaction_text(collider.get_interaction_text())
 	elif current_collider:
 		interaction_hand.visible = false
-		current_collider = null
+		current_collider = null	
 		set_interaction_text("")
 
 func set_interaction_text(text):
-	if text == null:
+	if !text:
 		interaction_label.set_text("")
 		interaction_label.set_visible(false)
 	else:

@@ -1,12 +1,12 @@
-extends StaticBody3D
+extends StaticBody
 var RNG:int
 var HasNotJumpScared:bool = 1
 
 func _ready():
 	randomize()
 	self.set_visible(false)
-	get_node("CollisionShape3D").disabled = true
-	get_node("CollisionShape3D2").disabled = true
+	get_node("CollisionShape").disabled = true
+	get_node("CollisionShape2").disabled = true
 
 func _on_Area_area_entered(area):
 	if area.name == "PlayerArea" && HasNotJumpScared:
@@ -21,8 +21,8 @@ func _on_Area_area_entered(area):
 
 func _jumpscare():
 	self.set_visible(true)
-	get_node("CollisionShape3D").set_deferred("disabled",  false)
-	get_node("CollisionShape3D2").set_deferred("disabled",  false)
+	get_node("CollisionShape").set_deferred("disabled",  false)
+	get_node("CollisionShape2").set_deferred("disabled",  false)
 	HasNotJumpScared = !HasNotJumpScared
 	SaveGame.game_data.JumpScareAmt = 0
 	get_parent().get_node("ScarePlayer")._scare_sound()

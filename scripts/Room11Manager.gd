@@ -1,16 +1,16 @@
-extends Node3D
+extends Spatial
 
-@onready var Switch := $SwitchTimer
+onready var Switch := $SwitchTimer
 
 
 func _ready():
 	randomize()
-	Switch.wait_time = randf_range(0.5, 1)
+	Switch.wait_time = rand_range(0.5, 1)
 	Switch.start()
 
 func _on_SwitchTimer_timeout():
 	_swap_visible()
-	Switch.wait_time = randf_range(0.5, 1)
+	Switch.wait_time = rand_range(0.5, 1)
 	Switch.start()
 
 func _swap_visible():

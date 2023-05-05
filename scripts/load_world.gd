@@ -1,19 +1,18 @@
-extends Node3D
+extends Spatial
 
-@export var EnemyAllowed: bool = true
-@export var EnvironmentUsed: Environment
-@export var room_event: Resource
+export(bool) var EnemyAllowed = true
+export(Environment) var EnvironmentUsed
+export var room_event: Resource
 
-@onready var Narrator := $Narrator
-@onready var Objs := $Objs
-@onready var _room:String = self.get_scene_file_path()
-
+onready var Narrator := $Narrator
+onready var Objs := $Objs
+onready var _room := self.filename
  
 func _ready():
 	$ReflectionProbe.visible = true
 	$ReflectionProbe.intensity = 0.75
 	randomize()
-#	SceneManager.GameScene.world.environment = EnvironmentUsed
+	SceneManager.GameScene.world.environment = EnvironmentUsed
 	_add_objs()
 	SaveGame.game_data.CurrentRoom = _room
 	_room_event()
@@ -45,9 +44,9 @@ func _add_objs():
 			_i.queue_free()
 
 func _summon_enemy():
-	await(get_tree().process_frame)
-	await(get_tree().process_frame)
-	await(get_tree().process_frame)
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 	if EnemyAllowed:
 		var RNG := randi() % 5
 		if RNG == 0 or SaveGame.isChased > 0:
