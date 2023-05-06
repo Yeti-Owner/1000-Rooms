@@ -1,6 +1,5 @@
 extends Spatial
 
-export(Environment) var Environment1
 onready var Narrator := $Narrator
 onready var _room := self.filename
 onready var DialoguePause := $DialoguePause
@@ -10,7 +9,6 @@ var stage:int = 0
 func _ready():
 	randomize()
 	$ReflectionProbe.intensity = 0.01
-	SceneManager.GameScene.world.environment = Environment1
 # warning-ignore:return_value_discarded
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	SaveGame.game_data.CurrentRoom = _room

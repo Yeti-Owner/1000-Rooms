@@ -1,7 +1,6 @@
 extends Spatial
 
 export(bool) var EnemyAllowed = true
-export(Environment) var EnvironmentUsed
 export var room_event: Resource
 
 onready var Narrator := $Narrator
@@ -12,7 +11,6 @@ func _ready():
 	$ReflectionProbe.visible = true
 	$ReflectionProbe.intensity = 0.75
 	randomize()
-	SceneManager.GameScene.world.environment = EnvironmentUsed
 	_add_objs()
 	SaveGame.game_data.CurrentRoom = _room
 	_room_event()

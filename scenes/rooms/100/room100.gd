@@ -1,7 +1,5 @@
 extends Spatial
 
-export(Environment) var EnvironmentUsed
-
 onready var Narrator := $Narrator
 onready var FakeDoor := $RoomItems/FakeDoor/StaticBody
 onready var FairyCage := $RoomItems/GlassCage
@@ -15,7 +13,6 @@ var Hatch := preload("res://scenes/objects/doors/Hatch.tscn")
 
 func _ready():
 	randomize()
-	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
 	_add_objs()
 	SaveGame.game_data.CurrentRoom = _room
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")

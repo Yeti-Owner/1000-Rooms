@@ -6,7 +6,7 @@ onready var Canvas := $CanvasLayer
 onready var GameScene := $GameScene/GameViewport
 onready var GameViewportContainer := $GameScene
 onready var GameHud := $GameScene/HUD
-onready var environment:Environment = $GameScene/GameViewport.world.environment
+#onready var environment:Environment = $GameScene/GameViewport.world.environment
 onready var TextureHolder := $CanvasLayer/Transitions/TextureRect
 
 var SceneToLoad: String
@@ -19,15 +19,6 @@ signal FakeFadeDone
 
 func _ready():
 	VisualServer.scenario_set_reflection_atlas_size(GameScene.find_world().scenario, 2048, 8)
-# warning-ignore:return_value_discarded
-	Settingsholder.connect("bloom_changed", self, "_bloom")
-# warning-ignore:return_value_discarded
-	Settingsholder.connect("brightness_changed", self, "_brightness")
-# warning-ignore:return_value_discarded
-	Settingsholder.connect("quality_bloom_changed", self, "_quality_bloom")
-	
-	_bloom()
-	
 	GameViewportContainer.mouse_filter = 0
 
 func _change_scene(scene:String, type := "normal"):
@@ -96,33 +87,6 @@ func _swap_HUD(step, scene = null):
 				scene.queue_free()
 			var _s = load(scene).instance()
 			GameHud.add_child(_s)
-
-# WorldEnvironment Shenanigans
-func _bloom():
-	environment.set_glow_bloom(0.75)
-	if (Settingsholder.save_data.BloomSet):
-#		environment.set_glow_bloom(0.75)
-		environment.set_adjustment_saturation(1.7)
-	else:
-		Settingsholder.save_data.QualityBloom = 0
-#		environment.set_glow_bloom(0)
-		environment.set_adjustment_saturation(1.5)
-		environment.glow_bicubic_upscale = false
-		environment.glow_high_quality = false
-
-func _brightness():
-	environment.set_adjustment_brightness(float(Settingsholder.save_data.Brightness)/8)
-
-func _quality_bloom():
-	if (Settingsholder.save_data.QualityBloom):
-		Settingsholder.save_data.BloomSet = 1
-		environment.set_glow_bloom(0.75)
-		environment.set_adjustment_saturation(1.7)
-		environment.glow_bicubic_upscale = true
-		environment.glow_high_quality = true
-	else:
-		environment.glow_bicubic_upscale = false
-		environment.glow_high_quality = false
 
 func _fake_fade():
 	Transitions.play("fake_out")

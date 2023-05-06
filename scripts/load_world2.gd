@@ -1,7 +1,6 @@
 extends Spatial
 
 export(bool) var AllowChase := true
-export(Environment) var EnvironmentUsed
 export var room_event: Resource
 onready var Narrator := $Narrator
 onready var MonsterHandler := $EnemyPath/PathFollow
@@ -16,7 +15,6 @@ func _ready():
 # warning-ignore:return_value_discarded
 	$Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	randomize()
-	SceneManager.GameScene.world.environment = EnvironmentUsed
 	SaveGame.game_data.CurrentRoom = _room
 	if _room == "res://scenes/rooms/200/room12.tscn": _check_room()
 	_room_event()

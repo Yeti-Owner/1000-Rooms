@@ -1,7 +1,5 @@
 extends Spatial
 
-export(Environment) var EnvironmentUsed
-
 onready var Narrator := $Narrator
 onready var Objs := $Objs
 onready var player := $RoomItems/Player
@@ -11,7 +9,6 @@ var Ending:String
 var MovePos:Vector3
 
 func _ready():
-	SceneManager.GameScene.world.set_environment(EnvironmentUsed)
 	Narrator.connect("DialogueFinished", self, "_dialogue_finished")
 	SaveGame.game_data.CurrentRoom = _room
 	if SaveGame.game_data.CurrentPos == Vector3(7.731, 0.7, 45.853):
