@@ -1,7 +1,6 @@
 extends Node
 
 var file := File.new()
-var file2 := File.new()
 var save_settings := "user://Settings.dat"
 var save_keybinds := "user://Keybinds.dat"
 
@@ -55,37 +54,39 @@ signal hp_changed
 
 # Check saved data
 func _ready():
-	_load()
-
-func _save():
-	# Normal Settings
-# warning-ignore:return_value_discarded
-	file.open(save_settings, File.WRITE)
-	file.store_var(save_data)
-	file.close()
-	
-# warning-ignore:return_value_discarded
-	file2.open(save_keybinds, File.WRITE)
-	file2.store_var(keybinds_data)
-	file2.close()
-
-func _load():
 	if not file.file_exists(save_settings):
-		_save()
-	if not file2.file_exists(save_keybinds):
-		_save()
+		_save(save_settings, save_data)
+	if not file.file_exists(save_keybinds):
+		_save(save_keybinds, keybinds_data)
 	
+	_load(save_settings, "save_data")
+	_load(save_keybinds, "keybinds_data")
+
+func _save(location, data):
+# warning-ignore:return_value_discarded
+	file.open(location, File.WRITE)
+	file.store_var(data)
+	file.close()
+
+#	file.open(save_settings, File.WRITE)
+#	file.store_var(save_data)
+#	file.close()
+#
+## warning-ignore:return_value_discarded
+#	file2.open(save_keybinds, File.WRITE)
+#	file2.store_var(keybinds_data)
+#	file2.close()
+
+func _load(location, data):
 	# Open save file and read values
 # warning-ignore:return_value_discarded
-	file.open(save_settings, File.READ)
-	save_data = file.get_var()
+	file.open(location, File.READ)
+	match data:
+		"save_data":
+			save_data = file.get_var()
+		"keybinds_data":
+			keybinds_data = file.get_var()
 	file.close()
-	
-	# ^^^ but binds
-# warning-ignore:return_value_discarded
-	file2.open(save_keybinds, File.READ)
-	keybinds_data = file2.get_var()
-	file2.close()
 
 func _default():
 	save_data = {
@@ -106,7 +107,7 @@ func _default():
 	"ResolutionScale" : 6,
 	"QualityBloom" : 0
 	}
-	_save()
+	_save(save_settings, save_data)
 
 func _apply_keybinds():
 	var binds = ["up","down","left","right","jump","sprint","interact","console","pause"]

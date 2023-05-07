@@ -2,7 +2,7 @@ extends Spatial
 var Prompt := 0
 
 func _ready():
-	get_node("/root/FirstScene").queue_free()
+	if has_node("/root/FirstScene"): get_node("/root/FirstScene").queue_free()
 	$CustomFader/PromptText.visible = false
 	$IntroAnim.play("Drag")
 

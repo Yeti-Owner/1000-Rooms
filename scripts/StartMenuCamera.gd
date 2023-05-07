@@ -6,6 +6,7 @@ onready var timer := get_parent().get_node("Timer")
 var Last:int = 1
 
 func _ready():
+	if has_node("/root/FirstScene"): get_node("/root/FirstScene").queue_free()
 	SceneManager.HudMode = "mainmenu"
 	randomize()
 	_change_cam()
