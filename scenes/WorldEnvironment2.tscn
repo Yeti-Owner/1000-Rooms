@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://scripts/WorldEnvironment1.gd" type="Script" id=1]
-[ext_resource path="res://resources/WorldEnvironment2.tres" type="Environment" id=2]
-
-[node name="WorldEnvironment2" type="WorldEnvironment"]
-environment = ExtResource( 2 )
-script = ExtResource( 1 )

@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://assets/3D models/NonFunctionals/Shackles.obj" type="ArrayMesh" id=1]
-
-[node name="Shackle" type="MeshInstance"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-mesh = ExtResource( 1 )
