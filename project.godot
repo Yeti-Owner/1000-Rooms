@@ -11,5 +11,22 @@ config_version=5
 [application]
 
 config/name="1000-rooms"
+run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+EventBus="*res://scripts/global/event_bus.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/size/resizable=false
+window/size/borderless=true
+
+[physics]
+
+common/physics_ticks_per_second=120
