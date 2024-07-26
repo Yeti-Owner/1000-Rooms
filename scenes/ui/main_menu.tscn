@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://l8i46gi6a1nt"]
+
+[sub_resource type="Theme" id="Theme_ls1be"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ls1be")
+alignment = 1
+
+[node name="Title" type="Label" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "1000-Rooms"
+
+[node name="Spacer" type="MarginContainer" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Start" type="Button" parent="Container"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start"
+
+[node name="Options" type="Button" parent="Container"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options"
+
+[node name="Secrets" type="Button" parent="Container"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Secrets"
+
+[node name="Quit" type="Button" parent="Container"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"
