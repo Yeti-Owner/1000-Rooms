@@ -1,6 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjigda7m1bnsp"]
+[gd_scene load_steps=10 format=3 uid="uid://cjigda7m1bnsp"]
+
+[ext_resource type="Material" uid="uid://c1m47qji0vofv" path="res://resources/floor1.tres" id="1_y85mr"]
+[ext_resource type="Material" uid="uid://bj53t288u8ej4" path="res://resources/ceiling1.tres" id="2_7gqq8"]
+[ext_resource type="Material" uid="uid://cfeytmpk75a54" path="res://resources/wall1.tres" id="3_0x2ln"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5i2g0"]
+material = ExtResource("1_y85mr")
+size = Vector3(5, 1, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4a4y3"]
+material = ExtResource("2_7gqq8")
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6c7ob"]
+material = ExtResource("3_0x2ln")
+size = Vector3(5, 4, 1)
+
+[sub_resource type="Animation" id="Animation_787ee"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Room1/Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.631565, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_p5js4"]
 resource_name = "showcase"
@@ -19,21 +48,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0.631565, 0), Vector3(0, -0.56985, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_787ee"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Room1/Camera3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.631565, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bbrkq"]
 _data = {
 "RESET": SubResource("Animation_787ee"),
@@ -47,13 +61,20 @@ _data = {
 [node name="Camera3D" type="Camera3D" parent="Room1"]
 transform = Transform3D(0.807105, 0, 0.590409, 0, 1, 0, -0.590409, 0, 0.807105, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Room1"]
+[node name="floor" type="MeshInstance3D" parent="Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, -2.9)
+mesh = SubResource("BoxMesh_5i2g0")
+
+[node name="ceiling" type="MeshInstance3D" parent="Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00957575, 2.4181, -2.95249)
 mesh = SubResource("BoxMesh_4a4y3")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -4.5)
-mesh = SubResource("BoxMesh_4a4y3")
+[node name="wall" type="MeshInstance3D" parent="Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -5.83612)
+mesh = SubResource("BoxMesh_6c7ob")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -3.8)
 
 [node name="Room2" type="Node3D" parent="."]
 visible = false
@@ -77,3 +98,12 @@ libraries = {
 "": SubResource("AnimationLibrary_bbrkq")
 }
 autoplay = "showcase"
+
+[node name="Fader" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

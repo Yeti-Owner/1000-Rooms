@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bj53t288u8ej4"]
+
+[ext_resource type="Texture2D" uid="uid://7ecaodxwsiex" path="res://assets/textures/floor1/ceiling.png" id="1_cd2xm"]
+[ext_resource type="Texture2D" uid="uid://b1xkduvma6xq5" path="res://assets/textures/floor1/ceiling_n.png" id="2_06met"]
+
+[resource]
+albedo_texture = ExtResource("1_cd2xm")
+normal_enabled = true
+normal_texture = ExtResource("2_06met")
+uv1_triplanar = true

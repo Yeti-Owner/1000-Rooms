@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c1m47qji0vofv"]
+
+[ext_resource type="Texture2D" uid="uid://dpotv38xupddq" path="res://assets/textures/floor1/floor.png" id="1_7ck3q"]
+[ext_resource type="Texture2D" uid="uid://b32eeur743ikw" path="res://assets/textures/floor1/floor_n.png" id="2_dbe2d"]
+
+[resource]
+albedo_texture = ExtResource("1_7ck3q")
+normal_enabled = true
+normal_texture = ExtResource("2_dbe2d")
+uv1_scale = Vector3(0.65, 0.65, 0.65)
+uv1_triplanar = true
