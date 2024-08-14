@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cvwhj3em6hlh7"]
+[gd_scene load_steps=26 format=3 uid="uid://cvwhj3em6hlh7"]
 
 [ext_resource type="Material" uid="uid://c1m47qji0vofv" path="res://resources/floor1.tres" id="1_kyelx"]
 [ext_resource type="Material" uid="uid://cfeytmpk75a54" path="res://resources/wall1.tres" id="2_3tgm3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bav5ksxlb0fqi" path="res://scenes/objects/floor1/wooden_door.tscn" id="5_ja4wd"]
 [ext_resource type="PackedScene" uid="uid://bst84eiu7dd5p" path="res://scenes/objects/floor1/wooden_plank.tscn" id="6_6t1x6"]
 [ext_resource type="PackedScene" uid="uid://dn0qi5kxak642" path="res://scenes/objects/floor1/vent.tscn" id="7_6g5nk"]
+[ext_resource type="PackedScene" uid="uid://bqs8q2d1jji8j" path="res://scenes/objects/floor1/bricks.tscn" id="8_4vve8"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_e818u"]
 material = ExtResource("1_kyelx")
@@ -180,3 +181,14 @@ transform = Transform3D(1.83627, 0, -0.792534, 0, 0.5, 0, 0.792534, 0, 1.83627, 
 
 [node name="Vent" parent="." instance=ExtResource("7_6g5nk")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.216742, -11.0568)
+
+[node name="Bricks" parent="." instance=ExtResource("8_4vve8")]
+transform = Transform3D(0.553828, 0, -0.832631, 0, 1, 0, 0.832631, 0, 0.553828, 1.12322, 0, -8.48534)
+
+[node name="Bricks2" parent="Bricks" instance=ExtResource("8_4vve8")]
+transform = Transform3D(0.91131, 0, -0.411721, 0, 1, 0, 0.411721, 0, 0.91131, 0.0368609, 0, 0.248745)
+skeleton = NodePath("../..")
+
+[node name="Bricks3" parent="Bricks" instance=ExtResource("8_4vve8")]
+transform = Transform3D(0.467343, 0, -0.884075, 0, 1, 0, 0.884075, 0, 0.467343, 0.00765371, 0.0971547, 0.122998)
+skeleton = NodePath("../..")
