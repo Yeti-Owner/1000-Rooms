@@ -1,5 +1,8 @@
 extends Node
 
+# Settings
+var player_sensitivity:float = 0.12
+
 # Save Data
 const save_location:String = "user://save.dat"
 

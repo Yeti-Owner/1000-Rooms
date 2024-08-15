@@ -1,194 +1,72 @@
-[gd_scene load_steps=26 format=3 uid="uid://cvwhj3em6hlh7"]
+[gd_scene load_steps=11 format=3 uid="uid://cvwhj3em6hlh7"]
 
-[ext_resource type="Material" uid="uid://c1m47qji0vofv" path="res://resources/floor1.tres" id="1_kyelx"]
-[ext_resource type="Material" uid="uid://cfeytmpk75a54" path="res://resources/wall1.tres" id="2_3tgm3"]
-[ext_resource type="Material" uid="uid://bj53t288u8ej4" path="res://resources/ceiling1.tres" id="3_pi5xt"]
 [ext_resource type="PackedScene" uid="uid://rsv8g6hqv0ns" path="res://scenes/objects/floor1/wall_torch.tscn" id="4_1136p"]
 [ext_resource type="PackedScene" uid="uid://bav5ksxlb0fqi" path="res://scenes/objects/floor1/wooden_door.tscn" id="5_ja4wd"]
 [ext_resource type="PackedScene" uid="uid://bst84eiu7dd5p" path="res://scenes/objects/floor1/wooden_plank.tscn" id="6_6t1x6"]
 [ext_resource type="PackedScene" uid="uid://dn0qi5kxak642" path="res://scenes/objects/floor1/vent.tscn" id="7_6g5nk"]
 [ext_resource type="PackedScene" uid="uid://bqs8q2d1jji8j" path="res://scenes/objects/floor1/bricks.tscn" id="8_4vve8"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_e818u"]
-material = ExtResource("1_kyelx")
-size = Vector2(3, 10)
-
-[sub_resource type="QuadMesh" id="QuadMesh_cdhgn"]
-material = ExtResource("1_kyelx")
-size = Vector2(7, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0cswt"]
-size = Vector3(3, 1, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_252op"]
-size = Vector3(7, 1, 2)
-
-[sub_resource type="QuadMesh" id="QuadMesh_jttt3"]
-material = ExtResource("2_3tgm3")
-size = Vector2(12, 3)
-
-[sub_resource type="QuadMesh" id="QuadMesh_5505g"]
-material = ExtResource("2_3tgm3")
-size = Vector2(10, 3)
-
-[sub_resource type="QuadMesh" id="QuadMesh_hfsqy"]
-material = ExtResource("2_3tgm3")
-size = Vector2(3, 3)
-
-[sub_resource type="QuadMesh" id="QuadMesh_gim0p"]
-material = ExtResource("2_3tgm3")
-size = Vector2(3.5, 3)
-
-[sub_resource type="QuadMesh" id="QuadMesh_lcc2e"]
-material = ExtResource("2_3tgm3")
-size = Vector2(7, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_38718"]
-size = Vector3(1, 3, 12)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ouiut"]
-size = Vector3(1, 3, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nx5k6"]
-size = Vector3(0.5, 3, 3.6)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a5eyb"]
-size = Vector3(0.5, 3, 3.4)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jja3i"]
-size = Vector3(0.5, 3, 2.7)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qgk8f"]
-size = Vector3(0.5, 3, 7.1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_sbt3c"]
-material = ExtResource("3_pi5xt")
-size = Vector2(3, 10)
-
-[sub_resource type="QuadMesh" id="QuadMesh_6ytle"]
-material = ExtResource("3_pi5xt")
-size = Vector2(7, 2)
+[ext_resource type="PackedScene" uid="uid://t71obfsws1tb" path="res://scenes/entities/ghost.tscn" id="10_5phms"]
+[ext_resource type="PackedScene" uid="uid://c5fg15ufpxf1x" path="res://scenes/objects/table_1.tscn" id="11_cdspf"]
+[ext_resource type="PackedScene" uid="uid://cxhi8tt6274w5" path="res://scenes/objects/floor1/ladder.tscn" id="12_8rkej"]
+[ext_resource type="PackedScene" uid="uid://60o3nuiptyph" path="res://scenes/entities/player.tscn" id="12_wkknj"]
+[ext_resource type="PackedScene" uid="uid://cyybd3yaxjltf" path="res://scenes/objects/floor1/floor_1_grid_map.tscn" id="13_fb363"]
 
 [node name="room1" type="Node3D"]
 
-[node name="floor" type="StaticBody3D" parent="."]
+[node name="Floor1GridMap" parent="." instance=ExtResource("13_fb363")]
+data = {
+"cells": PackedInt32Array(-1, 65525, 1114112, -65536, 65525, 1114112, -65536, 65526, 1114112, -1, 65526, 1114112, -1, 65527, 1114112, -1, 65528, 1114112, -1, 65529, 1114112, -1, 65530, 1114112, -65536, 65530, 1114112, -65536, 65531, 1114112, -65536, 65532, 1114112, -65536, 65533, 1114112, -1, 65533, 1114112, -1, 65534, 1114112, -1, 65535, 1114112, -65536, 65535, 1114112, -65536, 0, 1114112, -1, 0, 1114112, -65536, 65534, 1114112, -1, 65532, 1114112, -1, 65531, 1114112, -65536, 65529, 1114112, -65536, 65528, 1114112, -65536, 65527, 1114112, -65535, 65525, 1114112, -65534, 65525, 1114112, -65533, 65525, 1114112, -65532, 65525, 1114112, -65532, 65526, 1114112, -65533, 65526, 1114112, -65534, 65526, 1114112, -65535, 65526, 1114112, -65531, 65524, 1114112, -65531, 65525, 1114112, -65531, 65526, 1114112, -65531, 65527, 1114112, -65532, 65527, 1114112, -65533, 65527, 1114112, -65534, 65527, 1114112, -65535, 65527, 1114112, -65535, 65528, 1114112, -65535, 65529, 1114112, -65535, 65530, 1114112, -65535, 65531, 1114112, -65535, 65532, 1114112, -65535, 65533, 1114112, -65535, 65534, 1114112, -65535, 65535, 1114112, -65535, 0, 1114112, -65535, 1, 1114112, -65536, 1, 1114112, -1, 1, 1114112, -2, 1, 1114112, -2, 0, 1114112, -2, 65535, 1114112, -2, 65534, 1114112, -2, 65533, 1114112, -2, 65532, 1114112, -2, 65531, 1114112, -2, 65530, 1114112, -2, 65529, 1114112, -2, 65528, 1114112, -2, 65527, 1114112, -2, 65526, 1114112, -2, 65525, 1114112, -2, 65524, 1114112, -1, 65524, 1114112, -65536, 65524, 1114112, -65535, 65524, 1114112, -65534, 65524, 1114112, -65533, 65524, 1114112, -65532, 65524, 1114112, -65534, 1, 1114112, -65534, 0, 1114112, -65534, 65535, 1114112, -65534, 65534, 1114112, -65534, 65533, 1114112, -65534, 65532, 1114112, -65534, 65531, 1114112, -65534, 65530, 1114112, -65534, 65529, 1114112, -65534, 65528, 1114112, -65533, 65528, 1114112, -65532, 65528, 1114112, -65531, 65528, 1114112, 65534, 1, 1114113, 65535, 1, 1114113, 0, 1, 1114113, 1, 1, 1114113, 2, 1, 1114113, 5, 65528, 1114113, 5, 65524, 1114113, 4, 65524, 1114113, 3, 65524, 1114113, 2, 65524, 1114113, 1, 65524, 1114113, 0, 65524, 1114113, 65535, 65524, 1114113, 65534, 65524, 1114113, 65534, 65525, 1114113, 65534, 65526, 1114113, 65534, 65527, 1114113, 65534, 65528, 1114113, 65534, 65529, 1114113, 65534, 65530, 1114113, 65534, 65531, 1114113, 65534, 65532, 1114113, 65534, 65533, 1114113, 65534, 65534, 1114113, 65534, 65535, 1114113, 65534, 0, 1114113, 3, 65528, 1114113, 4, 65528, 1114113, 2, 65528, 1114113, 2, 65529, 1114113, 2, 65530, 1114113, 2, 65531, 1114113, 2, 65532, 1114113, 2, 65533, 1114113, 2, 65534, 1114113, 2, 65535, 1114113, 2, 0, 1114113, 6, 65524, 1114113, -65530, 65524, 1114112, -65530, 65525, 1114112, -65530, 65526, 1114112, -65530, 65527, 1114112, -65530, 65528, 1114112, 6, 65525, 1114113, 6, 65526, 1114113, 6, 65527, 1114113, 6, 65528, 1114113, 65538, 65528, 1114113, 65539, 65528, 1114113, 65540, 65528, 1114113, 65541, 65528, 1114113, 65542, 65528, 1114113, 65542, 65527, 1114113, 65542, 65526, 1114113, 65542, 65525, 1114113, 65542, 65524, 1114113, 65541, 65524, 1114113, 65540, 65524, 1114113, 65539, 65524, 1114113, 65538, 65524, 1114113, 65537, 65524, 1114113, 65536, 65524, 1114113, 131071, 65524, 1114113, 131070, 65524, 1114113, 131070, 65525, 1114113, 131070, 65526, 1114113, 131070, 65527, 1114113, 131070, 65528, 1114113, 131070, 65529, 1114113, 131070, 65530, 1114113, 131070, 65531, 1114113, 131070, 65532, 1114113, 131070, 65533, 1114113, 131070, 65534, 1114113, 131070, 65535, 1114113, 131070, 0, 1114113, 131070, 1, 1114113, 131071, 1, 1114113, 65536, 1, 1114113, 65537, 1, 1114113, 65538, 1, 1114113, 65538, 0, 1114113, 65538, 65535, 1114113, 65538, 65534, 1114113, 65538, 65533, 1114113, 65538, 65532, 1114113, 65538, 65531, 1114113, 65538, 65530, 1114113, 65538, 65529, 1114113, 131078, 65528, 1114113, 131078, 65527, 1114113, 131078, 65526, 1114113, 131078, 65525, 1114113, 131078, 65524, 1114113, 131077, 65524, 1114113, 131076, 65524, 1114113, 131075, 65524, 1114113, 131074, 65524, 1114113, 131073, 65524, 1114113, 131072, 65524, 1114113, 196607, 65524, 1114113, 196606, 65524, 1114113, 196606, 65525, 1114113, 196606, 65526, 1114113, 196606, 65527, 1114113, 196606, 65528, 1114113, 196606, 65529, 1114113, 196606, 65530, 1114113, 196606, 65531, 1114113, 196606, 65532, 1114113, 196606, 65533, 1114113, 196606, 65534, 1114113, 196606, 65535, 1114113, 196606, 0, 1114113, 196606, 1, 1114113, 196607, 1, 1114113, 131072, 1, 1114113, 131073, 1, 1114113, 131074, 1, 1114113, 131074, 0, 1114113, 131074, 65535, 1114113, 131074, 65534, 1114113, 131074, 65533, 1114113, 131074, 65532, 1114113, 131074, 65531, 1114113, 131074, 65530, 1114113, 131074, 65529, 1114113, 131074, 65528, 1114113, 131075, 65528, 1114113, 131076, 65528, 1114113, 131077, 65528, 1114113, 196610, 1, 1114114, 196610, 0, 1114114, 196610, 65535, 1114114, 196610, 65534, 1114114, 196610, 65533, 1114114, 196610, 65532, 1114114, 196609, 65532, 1114114, 196608, 65532, 1114114, 262143, 65532, 1114114, 262142, 65532, 1114114, 262142, 65533, 1114114, 262142, 65534, 1114114, 262142, 65535, 1114114, 262142, 0, 1114114, 262142, 1, 1114114, 262143, 1, 1114114, 262143, 0, 1114114, 262143, 65535, 1114114, 262143, 65534, 1114114, 262143, 65533, 1114114, 196608, 65534, 1114114, 196608, 65535, 1114114, 196608, 0, 1114114, 196608, 65533, 1114114, 196609, 65533, 1114114, 196609, 65534, 1114114, 196609, 65535, 1114114, 196609, 0, 1114114, 196609, 1, 1114114, 196608, 1, 1114114, 196610, 65531, 1114114, 196609, 65531, 1114114, 196608, 65531, 1114114, 262143, 65531, 1114114, 262142, 65531, 1114114, 262142, 65530, 1114114, 262142, 65529, 1114114, 262142, 65528, 1114114, 262142, 65527, 1114114, 262142, 65526, 1114114, 262142, 65525, 1114114, 262142, 65524, 1114114, 262143, 65524, 1114114, 196608, 65524, 1114114, 196609, 65524, 1114114, 196610, 65524, 1114114, 196611, 65524, 1114114, 196612, 65524, 1114114, 196613, 65524, 1114114, 196614, 65524, 1114114, 196614, 65525, 1114114, 196614, 65526, 1114114, 196614, 65527, 1114114, 196614, 65528, 1114114, 196613, 65528, 1114114, 196613, 65527, 1114114, 196613, 65526, 1114114, 196613, 65525, 1114114, 196612, 65525, 1114114, 196612, 65526, 1114114, 196612, 65527, 1114114, 196612, 65528, 1114114, 196611, 65528, 1114114, 196610, 65528, 1114114, 196609, 65528, 1114114, 196610, 65529, 1114114, 196610, 65530, 1114114, 196609, 65529, 1114114, 196609, 65530, 1114114, 196608, 65530, 1114114, 196608, 65529, 1114114, 196608, 65528, 1114114, 262143, 65530, 1114114, 262143, 65529, 1114114, 262143, 65528, 1114114, 196608, 65527, 1114114, 262143, 65527, 1114114, 262143, 65525, 1114114, 196608, 65525, 1114114, 262143, 65526, 1114114, 196609, 65525, 1114114, 196608, 65526, 1114114, 196609, 65526, 1114114, 196610, 65525, 1114114, 196610, 65526, 1114114, 196609, 65527, 1114114, 196611, 65525, 1114114, 196610, 65527, 1114114, 196611, 65526, 1114114, 196611, 65527, 1114114)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -4)
-mesh = SubResource("QuadMesh_e818u")
+[node name="WallTorch" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98431, 1.24217, -2.40595)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.53897, 0, -10)
-mesh = SubResource("QuadMesh_cdhgn")
+[node name="WallTorch2" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.99667, 1.24217, -6.40595)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -4)
-shape = SubResource("BoxShape3D_0cswt")
+[node name="WallTorch3" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98431, 1.24217, -9.80595)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.539, -0.5, -10)
-shape = SubResource("BoxShape3D_252op")
+[node name="WallTorch4" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.21569, 1.24217, -8.00595)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="WoodenDoor" parent="Floor1GridMap" instance=ExtResource("5_ja4wd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 0, 0.972388)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 1.5, -5)
-mesh = SubResource("QuadMesh_jttt3")
+[node name="WoodenDoor2" parent="Floor1GridMap" instance=ExtResource("5_ja4wd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98476, 0, -9.5276)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 1.5, 1.5, -4)
-mesh = SubResource("QuadMesh_5505g")
+[node name="Player" parent="." instance=ExtResource("12_wkknj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.639098, 0.350579)
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.5, 1)
-mesh = SubResource("QuadMesh_hfsqy")
+[node name="Objs" type="Node3D" parent="."]
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5, 1.5, -10)
-mesh = SubResource("QuadMesh_hfsqy")
+[node name="WoodenPlank" parent="Objs" instance=ExtResource("6_6t1x6")]
+transform = Transform3D(1.83627, 0, -0.792534, 0, 0.5, 0, 0.792534, 0, 1.83627, -0.105386, 0.015, -4.8)
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.25, 1.5, -9)
-mesh = SubResource("QuadMesh_gim0p")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 1.8, 1.5, -11)
-mesh = SubResource("QuadMesh_lcc2e")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, -5)
-shape = SubResource("BoxShape3D_38718")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -4)
-shape = SubResource("BoxShape3D_ouiut")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.3411e-07, 1.5, 1.25)
-shape = SubResource("BoxShape3D_nx5k6")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.5, 1.5, -8.75)
-shape = SubResource("BoxShape3D_a5eyb")
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 1.5, -10.15)
-shape = SubResource("BoxShape3D_jja3i")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.75, 1.5, -11.25)
-shape = SubResource("BoxShape3D_qgk8f")
-
-[node name="Ceiling" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, 0, 3, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -4)
-mesh = SubResource("QuadMesh_sbt3c")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ceiling"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.53897, 0, -10)
-mesh = SubResource("QuadMesh_6ytle")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -4)
-shape = SubResource("BoxShape3D_0cswt")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Ceiling"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.539, -0.5, -10)
-shape = SubResource("BoxShape3D_252op")
-
-[node name="WallTorch" parent="." instance=ExtResource("4_1136p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48431, 1.24217, -2.40595)
-
-[node name="WallTorch2" parent="." instance=ExtResource("4_1136p")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.51569, 1.24217, -6.40595)
-
-[node name="WallTorch3" parent="." instance=ExtResource("4_1136p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48431, 1.24217, -9.80595)
-
-[node name="WallTorch4" parent="." instance=ExtResource("4_1136p")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.21569, 1.24217, -9.00595)
-
-[node name="WoodenDoor" parent="." instance=ExtResource("5_ja4wd")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.972388)
-
-[node name="WoodenDoor2" parent="." instance=ExtResource("5_ja4wd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98476, 0, -10.0276)
-
-[node name="WoodenPlank" parent="." instance=ExtResource("6_6t1x6")]
-transform = Transform3D(1.83627, 0, -0.792534, 0, 0.5, 0, 0.792534, 0, 1.83627, -0.3, 0.015, -4.8)
-
-[node name="Vent" parent="." instance=ExtResource("7_6g5nk")]
+[node name="Vent" parent="Objs" instance=ExtResource("7_6g5nk")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.216742, -11.0568)
+skeleton = NodePath("../..")
 
-[node name="Bricks" parent="." instance=ExtResource("8_4vve8")]
-transform = Transform3D(0.553828, 0, -0.832631, 0, 1, 0, 0.832631, 0, 0.553828, 1.12322, 0, -8.48534)
+[node name="Bricks" parent="Objs" instance=ExtResource("8_4vve8")]
+transform = Transform3D(0.553828, 0, -0.832631, 0, 1, 0, 0.832631, 0, 0.553828, 1.43243, 0, -8.48534)
+skeleton = NodePath("../..")
 
-[node name="Bricks2" parent="Bricks" instance=ExtResource("8_4vve8")]
+[node name="Bricks2" parent="Objs/Bricks" instance=ExtResource("8_4vve8")]
 transform = Transform3D(0.91131, 0, -0.411721, 0, 1, 0, 0.411721, 0, 0.91131, 0.0368609, 0, 0.248745)
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Bricks3" parent="Bricks" instance=ExtResource("8_4vve8")]
+[node name="Bricks3" parent="Objs/Bricks" instance=ExtResource("8_4vve8")]
 transform = Transform3D(0.467343, 0, -0.884075, 0, 1, 0, 0.884075, 0, 0.467343, 0.00765371, 0.0971547, 0.122998)
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
+
+[node name="Table1" parent="Objs" instance=ExtResource("11_cdspf")]
+transform = Transform3D(0.989175, 0, -0.146739, 0, 1, 0, 0.146739, 0, 0.989175, 4.11305, 0, -10.373)
+
+[node name="Ladder" parent="Objs" instance=ExtResource("12_8rkej")]
+transform = Transform3D(-4.35904e-08, 0.0743522, 0.997232, 3.25004e-09, 0.997232, -0.0743522, -1, 0, -4.37114e-08, 1.80195, 0, -2.69496)
+
+[node name="Ghost" parent="." instance=ExtResource("10_5phms")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.51466, 0, -7.63866)

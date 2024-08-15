@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyybd3yaxjltf"]
+
+[ext_resource type="MeshLibrary" uid="uid://dg2f7xng5835w" path="res://resources/floor1_meshlib.meshlib" id="1_qg7ls"]
+
+[node name="Floor1GridMap" type="GridMap"]
+mesh_library = ExtResource("1_qg7ls")
+cell_size = Vector3(1, 1, 1)
+metadata/_editor_floor_ = Vector3(0, -1, 0)
