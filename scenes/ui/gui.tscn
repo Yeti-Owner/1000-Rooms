@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://wc6oq2wy04hl"]
+
+[ext_resource type="Script" path="res://scripts/ui/gui.gd" id="1_na3sr"]
+[ext_resource type="Texture2D" uid="uid://b3wbqhj0u4138" path="res://assets/ui/default_crosshair.png" id="2_7dmf4"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_na3sr")
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair" type="TextureRect" parent="Center"]
+layout_mode = 2
+texture = ExtResource("2_7dmf4")
+
+[node name="InteractLabel" type="RichTextLabel" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 34.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true

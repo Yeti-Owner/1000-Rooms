@@ -1,11 +1,26 @@
-extends StaticBody3D
+extends Interactable
 
+@export var is_locked:bool = true
+var used:bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass 
 
+func get_interaction_text():
+	if (used == true):
+		return ""
+	elif is_locked == true:
+		return "[center][color=BLACK]The door is locked[/color][/center]"
+	else:
+		return "[center][color=BLACK]Open door?[/color][/center]"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func get_interaction_icon():
+	if (is_locked == true) or (used == true):
+		return EventBus.default_crosshair
+	else:
+		return EventBus.interact_crosshair
+
+func interact():
+	if (is_locked == false) and (used == false):
+		$Anims.play("open")
+		used = true

@@ -36,6 +36,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 0
 
 [node name="WoodenDoor2" parent="Floor1GridMap" instance=ExtResource("5_ja4wd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98476, 0, -9.5276)
+is_locked = false
 
 [node name="Player" parent="." instance=ExtResource("12_wkknj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.639098, 0.350579)
