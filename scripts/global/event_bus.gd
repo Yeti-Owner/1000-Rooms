@@ -12,6 +12,9 @@ const interact_crosshair := "res://assets/ui/interact_crosshair.png"
 # Save Data
 const save_location:String = "user://save.dat"
 
+# Misc
+var current_scene:Node = null
+
 func _ready():
 	if FileAccess.file_exists(save_location):
 		_load()
@@ -20,16 +23,22 @@ func _ready():
 
 # advantage of this is to create objects outside the scene 
 # and do loading without default change scene function
-func _change_scene(current_scene:Node, scene_path:String):
-	print("Changing scene from: ", current_scene, " to: ", scene_path)
+func _change_scene(new_scene:String, current:Node = current_scene):
+	if current == null:
+		print("Current Scene missing")
+		return
+	
+	print("Changing scene from: ", current, " to: ", new_scene)
 	
 	# remove current scene
-	current_scene.queue_free()
+	current.queue_free()
 	
 	# load scene based off path
-	var s := load(scene_path)
+	var s := load(new_scene)
 	var _s = s.instantiate()
 	get_node("/root/").add_child(_s)
+	
+	current_scene = _s
 
 func _save():
 	var file := FileAccess.open(save_location, FileAccess.WRITE)
