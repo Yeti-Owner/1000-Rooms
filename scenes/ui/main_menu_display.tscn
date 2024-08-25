@@ -1,8 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjigda7m1bnsp"]
+[gd_scene load_steps=13 format=3 uid="uid://cjigda7m1bnsp"]
 
 [ext_resource type="Material" uid="uid://c1m47qji0vofv" path="res://resources/floor1.tres" id="1_y85mr"]
 [ext_resource type="Material" uid="uid://bj53t288u8ej4" path="res://resources/ceiling1.tres" id="2_7gqq8"]
 [ext_resource type="Material" uid="uid://cfeytmpk75a54" path="res://resources/wall1.tres" id="3_0x2ln"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3djqr"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_n52nj"]
+sky_material = SubResource("ProceduralSkyMaterial_3djqr")
+
+[sub_resource type="Environment" id="Environment_f1jsb"]
+background_mode = 2
+sky = SubResource("Sky_n52nj")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_5i2g0"]
 material = ExtResource("1_y85mr")
@@ -55,6 +68,13 @@ _data = {
 }
 
 [node name="MainMenuDisplay" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f1jsb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Room1" type="Node3D" parent="."]
 

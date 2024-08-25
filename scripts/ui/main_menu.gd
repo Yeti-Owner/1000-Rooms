@@ -4,7 +4,7 @@ func _ready():
 	pass
 
 func _on_start_pressed():
-	EventBus._change_scene("res://rooms/100/room_1.tscn", self)
+	SceneManager._change_scene("GAME", "res://rooms/100/room_1.tscn")
 
 func _on_options_pressed():
 	pass

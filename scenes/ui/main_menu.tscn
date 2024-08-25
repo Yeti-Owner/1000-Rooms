@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://l8i46gi6a1nt"]
+[gd_scene load_steps=7 format=3 uid="uid://l8i46gi6a1nt"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_kby66"]
 [ext_resource type="FontFile" uid="uid://b4xapu2xuors3" path="res://assets/theme/fonts/ui.ttf" id="1_lgtxk"]
-[ext_resource type="PackedScene" uid="uid://cjigda7m1bnsp" path="res://scenes/ui/main_menu_display.tscn" id="2_b2oay"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spbn5"]
 bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
@@ -33,12 +32,12 @@ border_blend = true
 
 [sub_resource type="Theme" id="Theme_ls1be"]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
-Button/font_sizes/font_size = 24
+Button/font_sizes/font_size = 45
 Button/fonts/font = ExtResource("1_lgtxk")
 Button/styles/hover = SubResource("StyleBoxFlat_spbn5")
 Button/styles/normal = SubResource("StyleBoxFlat_wj0f2")
 Button/styles/pressed = SubResource("StyleBoxFlat_4j4h8")
-Label/font_sizes/font_size = 65
+Label/font_sizes/font_size = 95
 Label/fonts/font = ExtResource("1_lgtxk")
 
 [node name="MainMenu" type="Control"]
@@ -49,8 +48,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kby66")
-
-[node name="MainMenuDisplay" parent="." instance=ExtResource("2_b2oay")]
 
 [node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -74,25 +71,25 @@ size_flags_horizontal = 4
 theme_override_constants/margin_top = 25
 
 [node name="Start" type="Button" parent="Container"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Start"
 
 [node name="Options" type="Button" parent="Container"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Options"
 
 [node name="Secrets" type="Button" parent="Container"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Secrets"
 
 [node name="Quit" type="Button" parent="Container"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Quit"

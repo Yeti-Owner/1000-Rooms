@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://60o3nuiptyph"]
+[gd_scene load_steps=13 format=4 uid="uid://60o3nuiptyph"]
 
 [ext_resource type="Script" path="res://scripts/entities/player.gd" id="1_3eur8"]
 [ext_resource type="Texture2D" uid="uid://caty6qlw13qmh" path="res://assets/models/flashlight_tex.png" id="2_kxtox"]
 [ext_resource type="Script" path="res://scripts/interactable/interact_ray.gd" id="3_fqspr"]
-[ext_resource type="PackedScene" uid="uid://wc6oq2wy04hl" path="res://scenes/ui/gui.tscn" id="4_ykr3f"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_th2o3"]
 radius = 0.3
@@ -158,7 +157,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.357853, 0)
 [node name="Cam" type="Camera3D" parent="Head/Eyes"]
 
 [node name="Flashlight" type="MeshInstance3D" parent="Head/Eyes/Cam"]
-transform = Transform3D(-0.575, 0, -5.02681e-08, 0, 0.575, 0, 5.02681e-08, 0, -0.575, 0.275, -0.31, -0.335)
+transform = Transform3D(-0.575, 0, -5.02681e-08, 0, 0.575, 0, 5.02681e-08, 0, -0.575, 0.275, -0.31, -0.407008)
 mesh = SubResource("ArrayMesh_ykpag")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Eyes/Cam/Flashlight"]
@@ -174,5 +173,3 @@ script = ExtResource("3_fqspr")
 libraries = {
 "": SubResource("AnimationLibrary_aw5fi")
 }
-
-[node name="GUI" parent="." instance=ExtResource("4_ykr3f")]

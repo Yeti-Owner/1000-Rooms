@@ -11,18 +11,19 @@ config_version=5
 [application]
 
 config/name="1000-Rooms"
-run/main_scene="res://scenes/ui/main_menu.tscn"
+run/main_scene="res://scenes/ui/first_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/theme/LOGO.png"
 
 [autoload]
 
 EventBus="*res://scripts/global/event_bus.gd"
+SceneManager="*res://scenes/ui/scene_manager.tscn"
 
 [display]
 
-window/size/viewport_width=854
-window/size/viewport_height=480
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=4
 window/size/resizable=false
 window/size/borderless=true

@@ -29,6 +29,8 @@ var tilt_change := 1.0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	SceneManager._change_scene("UI", "res://scenes/ui/gui.tscn")
 
 func _input(event):
 	if event is InputEventMouseMotion:
