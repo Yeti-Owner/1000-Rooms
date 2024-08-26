@@ -41,6 +41,7 @@ func _input(event):
 
 ## TODO, clean up into a state machine
 func _physics_process(delta):
+	
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	
 	# sprint

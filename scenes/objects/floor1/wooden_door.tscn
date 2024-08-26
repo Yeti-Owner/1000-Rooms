@@ -119,7 +119,7 @@ mesh = SubResource("ArrayMesh_wjdtv")
 skeleton = NodePath("../..")
 
 [node name="BackMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0337124, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383701, 0.75, 0)
 mesh = SubResource("BoxMesh_psa1c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

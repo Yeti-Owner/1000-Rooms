@@ -1,17 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvwhj3em6hlh7"]
+[gd_scene load_steps=12 format=3 uid="uid://cvwhj3em6hlh7"]
 
+[ext_resource type="Script" path="res://rooms/100/room.gd" id="1_besht"]
 [ext_resource type="PackedScene" uid="uid://rsv8g6hqv0ns" path="res://scenes/objects/floor1/wall_torch.tscn" id="4_1136p"]
+[ext_resource type="Script" path="res://scripts/misc/prop_manager.gd" id="5_ayc36"]
 [ext_resource type="PackedScene" uid="uid://bav5ksxlb0fqi" path="res://scenes/objects/floor1/wooden_door.tscn" id="5_ja4wd"]
 [ext_resource type="PackedScene" uid="uid://bst84eiu7dd5p" path="res://scenes/objects/floor1/wooden_plank.tscn" id="6_6t1x6"]
 [ext_resource type="PackedScene" uid="uid://dn0qi5kxak642" path="res://scenes/objects/floor1/vent.tscn" id="7_6g5nk"]
 [ext_resource type="PackedScene" uid="uid://bqs8q2d1jji8j" path="res://scenes/objects/floor1/bricks.tscn" id="8_4vve8"]
-[ext_resource type="PackedScene" uid="uid://t71obfsws1tb" path="res://scenes/entities/ghost.tscn" id="10_5phms"]
 [ext_resource type="PackedScene" uid="uid://c5fg15ufpxf1x" path="res://scenes/objects/table_1.tscn" id="11_cdspf"]
 [ext_resource type="PackedScene" uid="uid://cxhi8tt6274w5" path="res://scenes/objects/floor1/ladder.tscn" id="12_8rkej"]
 [ext_resource type="PackedScene" uid="uid://60o3nuiptyph" path="res://scenes/entities/player.tscn" id="12_wkknj"]
 [ext_resource type="PackedScene" uid="uid://cyybd3yaxjltf" path="res://scenes/objects/floor1/floor_1_grid_map.tscn" id="13_fb363"]
 
 [node name="room1" type="Node3D"]
+script = ExtResource("1_besht")
 
 [node name="Floor1GridMap" parent="." instance=ExtResource("13_fb363")]
 data = {
@@ -20,16 +22,16 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="WallTorch" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98431, 1.24217, -2.40595)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98431, 1.52651, -2.40595)
 
 [node name="WallTorch2" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.99667, 1.24217, -6.40595)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.99667, 1.52651, -6.40595)
 
 [node name="WallTorch3" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98431, 1.24217, -9.80595)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98431, 1.52651, -9.80595)
 
 [node name="WallTorch4" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.21569, 1.24217, -8.00595)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.21569, 1.52651, -8.00595)
 
 [node name="WoodenDoor" parent="Floor1GridMap" instance=ExtResource("5_ja4wd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 0, 0.972388)
@@ -39,16 +41,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98476, 0, -9.5276)
 is_locked = false
 
 [node name="Player" parent="." instance=ExtResource("12_wkknj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.639098, 0.350579)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.639098, 0.350579)
 
 [node name="Objs" type="Node3D" parent="."]
+script = ExtResource("5_ayc36")
 
 [node name="WoodenPlank" parent="Objs" instance=ExtResource("6_6t1x6")]
 transform = Transform3D(1.83627, 0, -0.792534, 0, 0.5, 0, 0.792534, 0, 1.83627, -0.105386, 0.015, -4.8)
 skeleton = NodePath("../..")
 
+[node name="WoodenPlank2" parent="Objs" instance=ExtResource("6_6t1x6")]
+transform = Transform3D(-0.359322, 0, -1.96746, 0, 0.5, 0, 1.96746, 0, -0.359322, 4.70422, 0.015, -8.69287)
+skeleton = NodePath("../..")
+
 [node name="Vent" parent="Objs" instance=ExtResource("7_6g5nk")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.216742, -11.0568)
+skeleton = NodePath("../..")
+
+[node name="Vent2" parent="Objs" instance=ExtResource("7_6g5nk")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -1.04433, 0.216742, -3.0568)
+skeleton = NodePath("../..")
+
+[node name="Vent3" parent="Objs" instance=ExtResource("7_6g5nk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.034, 1.60097, -9.52669)
 skeleton = NodePath("../..")
 
 [node name="Bricks" parent="Objs" instance=ExtResource("8_4vve8")]
@@ -63,11 +78,20 @@ skeleton = NodePath("../../..")
 transform = Transform3D(0.467343, 0, -0.884075, 0, 1, 0, 0.884075, 0, 0.467343, 0.00765371, 0.0971547, 0.122998)
 skeleton = NodePath("../../..")
 
+[node name="Bricks2" parent="Objs" instance=ExtResource("8_4vve8")]
+transform = Transform3D(-0.95255, 0, -0.304383, 0, 1, 0, 0.304383, 0, -0.95255, -0.4, 0, -10.3392)
+skeleton = NodePath("../..")
+
+[node name="Bricks2" parent="Objs/Bricks2" instance=ExtResource("8_4vve8")]
+transform = Transform3D(0.464162, 0, -0.88575, 0, 1, 0, 0.88575, 0, 0.464162, 0.191485, 0, 0.271665)
+skeleton = NodePath("../../..")
+
+[node name="Bricks3" parent="Objs" instance=ExtResource("8_4vve8")]
+transform = Transform3D(-0.630608, 0, 0.776101, 0, 1, 0, -0.776101, 0, -0.630608, 1.35846, 0, -4.17062)
+skeleton = NodePath("../..")
+
 [node name="Table1" parent="Objs" instance=ExtResource("11_cdspf")]
-transform = Transform3D(0.989175, 0, -0.146739, 0, 1, 0, 0.146739, 0, 0.989175, 4.11305, 0, -10.373)
+transform = Transform3D(0.989175, 0, -0.146739, 0, 1, 0, 0.146739, 0, 0.989175, 4.11305, 0, -10.0807)
 
 [node name="Ladder" parent="Objs" instance=ExtResource("12_8rkej")]
 transform = Transform3D(-4.35904e-08, 0.0743522, 0.997232, 3.25004e-09, 0.997232, -0.0743522, -1, 0, -4.37114e-08, 1.80195, 0, -2.69496)
-
-[node name="Ghost" parent="." instance=ExtResource("10_5phms")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.51466, 0, -7.63866)

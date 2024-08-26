@@ -4,12 +4,18 @@ extends Node
 @warning_ignore("unused_signal")
 signal interaction(icon, text)
 
+@onready var fader := preload("res://scenes/ui/fader.tscn").instantiate()
+
 # Settings
-var player_sensitivity:float = 0.12
+var player_sensitivity:float = 0.16
 const default_crosshair := "res://assets/ui/default_crosshair.png"
 const interact_crosshair := "res://assets/ui/interact_crosshair.png"
 
-# Save Data
+# Data
+var room_num:int = 0
+var current_room:String
+
+# Save
 const save_location:String = "user://save.dat"
 
 func _ready():
@@ -17,6 +23,8 @@ func _ready():
 		_load()
 	else:
 		_save()
+	
+	add_child(fader)
 
 func _save():
 	var file := FileAccess.open(save_location, FileAccess.WRITE)

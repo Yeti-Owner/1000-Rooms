@@ -19,6 +19,7 @@ config/icon="res://assets/theme/LOGO.png"
 
 EventBus="*res://scripts/global/event_bus.gd"
 SceneManager="*res://scenes/ui/scene_manager.tscn"
+RoomLoader="*res://scripts/global/room_loader.gd"
 
 [display]
 
