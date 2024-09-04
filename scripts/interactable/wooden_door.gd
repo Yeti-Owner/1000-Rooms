@@ -26,6 +26,6 @@ func interact():
 		used = true
 		
 		var next_room:String = RoomLoader._find_next(EventBus.room_num)
-		EventBus.fader._fade_out(Color(0,0,0))
+		EventBus.fader._fade_out(Color(0,0,0), 0.5)
 		await EventBus.fader.fade_done
 		SceneManager._change_scene("GAME", next_room)

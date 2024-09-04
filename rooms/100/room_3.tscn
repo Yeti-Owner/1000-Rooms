@@ -38,6 +38,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98431, 1.52651, -7.40595)
 [node name="WallTorch5" parent="Floor1GridMap" instance=ExtResource("4_1jh8h")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.01569, 1.52651, -7.40595)
 
+[node name="WallTorch6" parent="Floor1GridMap" instance=ExtResource("4_1jh8h")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 5.01569, 1.52651, -3.00595)
+
+[node name="WallTorch7" parent="Floor1GridMap" instance=ExtResource("4_1jh8h")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.01569, 1.52651, -3.00595)
+
 [node name="WallTorch2" parent="Floor1GridMap" instance=ExtResource("4_1jh8h")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.51569, 1.52651, -5.00595)
 

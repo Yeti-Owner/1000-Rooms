@@ -22,13 +22,13 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="WallTorch" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98431, 1.52651, -2.40595)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98431, 1.52651, -0.66758)
 
 [node name="WallTorch2" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.99667, 1.52651, -6.40595)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.99667, 1.52651, -4.89747)
 
 [node name="WallTorch3" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98431, 1.52651, -9.80595)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98431, 1.52651, -10.0059)
 
 [node name="WallTorch4" parent="Floor1GridMap" instance=ExtResource("4_1136p")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.21569, 1.52651, -8.00595)
