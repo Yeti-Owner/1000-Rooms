@@ -1,0 +1,221 @@
+[gd_scene load_steps=21 format=3 uid="uid://2g3l81sl6atn"]
+
+[ext_resource type="PackedScene" uid="uid://cyybd3yaxjltf" path="res://scenes/objects/floor1/floor_1_grid_map.tscn" id="1_1k86q"]
+[ext_resource type="PackedScene" uid="uid://c5fg15ufpxf1x" path="res://scenes/objects/table_1.tscn" id="2_7vyxt"]
+[ext_resource type="PackedScene" uid="uid://cxhi8tt6274w5" path="res://scenes/objects/floor1/ladder.tscn" id="3_w4kjk"]
+[ext_resource type="PackedScene" uid="uid://bst84eiu7dd5p" path="res://scenes/objects/floor1/wooden_plank.tscn" id="4_0u527"]
+[ext_resource type="PackedScene" uid="uid://bav5ksxlb0fqi" path="res://scenes/objects/floor1/wooden_door.tscn" id="5_c8nn7"]
+[ext_resource type="PackedScene" uid="uid://bqs8q2d1jji8j" path="res://scenes/objects/floor1/bricks.tscn" id="6_qqb5t"]
+[ext_resource type="PackedScene" uid="uid://t71obfsws1tb" path="res://scenes/entities/ghost.tscn" id="7_n2sbj"]
+[ext_resource type="Texture2D" uid="uid://bnqr1cg2bgc1l" path="res://assets/textures/floor1/flame_particle.png" id="8_0yvkg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7e02u"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.55, 0.54225, 0.53325, 1)
+sky_energy_multiplier = 2.05
+ground_horizon_color = Color(0.55, 0.54225, 0.53325, 1)
+
+[sub_resource type="Sky" id="Sky_smaxf"]
+sky_material = SubResource("ProceduralSkyMaterial_7e02u")
+
+[sub_resource type="Environment" id="Environment_ncwio"]
+background_mode = 2
+sky = SubResource("Sky_smaxf")
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+adjustment_enabled = true
+adjustment_brightness = 0.8
+adjustment_saturation = 1.2
+
+[sub_resource type="Gradient" id="Gradient_61s53"]
+offsets = PackedFloat32Array(0.1, 0.414286, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.984314, 0.313726, 0, 1, 0.999997, 0.481915, 0.26879, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x6qjn"]
+gradient = SubResource("Gradient_61s53")
+
+[sub_resource type="Curve" id="Curve_fpe34"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.836735, 0.043956), -0.0717949, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3teul"]
+curve = SubResource("Curve_fpe34")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e8qdx"]
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, 2, 0)
+scale_min = 0.25
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_3teul")
+color_ramp = SubResource("GradientTexture1D_x6qjn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llfkx"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("8_0yvkg")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_c6tpb"]
+material = SubResource("StandardMaterial3D_llfkx")
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oik84"]
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, 2, 0)
+scale_min = 0.25
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_3teul")
+color_ramp = SubResource("GradientTexture1D_x6qjn")
+
+[sub_resource type="QuadMesh" id="QuadMesh_bmlb4"]
+material = SubResource("StandardMaterial3D_llfkx")
+size = Vector2(0.5, 0.5)
+
+[node name="Temp" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ncwio")
+
+[node name="Floor1GridMap" parent="." instance=ExtResource("1_1k86q")]
+data = {
+"cells": PackedInt32Array(-65533, 2, 0, -65532, 2, 0, -65531, 2, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65529, 2, 0, -65530, 2, 0, -65528, 2, 0, -65527, 2, 0, -65527, 1, 0, -65527, 0, 0, -65528, 0, 0, -65529, 0, 0, -65532, 1, 0, -65533, 1, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65528, 1, 0, -65526, 1, 0, -65526, 0, 0, -65526, 2, 0, -65526, 3, 0, -65526, 4, 0, -65526, 5, 0, -65525, 5, 0, -65525, 4, 0, -65525, 3, 0, -65525, 2, 0, -65525, 1, 0, -65533, 4, 0, -65533, 5, 0, -65532, 4, 0, -65532, 3, 0, -65533, 3, 0, -65532, 5, 0, -65531, 3, 0, -65531, 4, 0, -65531, 5, 0, -65533, 65535, 0, -65532, 65535, 0, -65531, 65535, 0, -65530, 65535, 0, -65526, 65535, 0, -65527, 65535, 0, -65528, 65535, 0, -65529, 65535, 0, -65527, 3, 0, -65527, 4, 0, -65527, 5, 0, -65525, 65535, 0, -65525, 0, 0, -65525, 65534, 0, -65526, 65534, 0, -65527, 65534, 0, -65528, 65534, 0, -65529, 65534, 0, -65530, 65534, 0, -65531, 65534, 0, -65532, 65534, 0, -65533, 65534, 0, -65533, 65533, 0, -65532, 65533, 0, -65531, 65533, 0, -65530, 65533, 0, -65529, 65533, 0, -65528, 65533, 0, -65527, 65533, 0, -65526, 65533, 0, -65525, 65533, 0, 12, 5, 1, 12, 4, 1, 12, 3, 1, 12, 2, 1, 12, 1, 1, 12, 0, 1, 12, 65535, 1, 12, 65534, 1, 12, 65533, 1, 12, 65532, 1, 11, 65532, 1, 10, 65532, 1, 9, 65532, 1, 8, 65532, 1, 7, 65532, 1, 6, 65532, 1, 5, 65532, 1, 4, 65532, 1, 3, 65532, 1, 2, 65532, 1, 2, 65533, 1, 2, 65534, 1, 2, 65535, 1, 2, 0, 1, 2, 1, 1, 2, 2, 1, 2, 3, 1, 2, 4, 1, 2, 5, 1, 2, 6, 1, 3, 6, 1, 4, 6, 1, 5, 6, 1, 6, 6, 1, 6, 5, 1, 6, 4, 1, 6, 3, 1, 7, 3, 1, 8, 3, 1, 8, 4, 1, 8, 5, 1, 8, 6, 1, 9, 6, 1, 10, 6, 1, 11, 6, 1, 12, 6, 1, 65548, 6, 1, 65548, 5, 1, 65548, 4, 1, 65548, 3, 1, 65548, 2, 1, 65548, 1, 1, 65548, 0, 1, 65548, 65535, 1, 65548, 65534, 1, 65548, 65533, 1, 65548, 65532, 1, 65547, 65532, 1, 65546, 65532, 1, 65545, 65532, 1, 65544, 65532, 1, 65543, 65532, 1, 65542, 65532, 1, 65541, 65532, 1, 65540, 65532, 1, 65539, 65532, 1, 65538, 65532, 1, 65538, 65533, 1, 65538, 65534, 1, 65538, 65535, 1, 65538, 0, 1, 65538, 1, 1, 65538, 2, 1, 65538, 3, 1, 65538, 4, 1, 65538, 5, 1, 65538, 6, 1, 65539, 6, 1, 65540, 6, 1, 65541, 6, 1, 65542, 6, 1, 65542, 5, 1, 65542, 4, 1, 65542, 3, 1, 65543, 3, 1, 65544, 3, 1, 65544, 4, 1, 65544, 5, 1, 65544, 6, 1, 65545, 6, 1, 65546, 6, 1, 65547, 6, 1, 131084, 6, 1, 131083, 6, 1, 131082, 6, 1, 131081, 6, 1, 131080, 6, 1, 131080, 5, 1, 131080, 4, 1, 131080, 3, 1, 131079, 3, 1, 131078, 3, 1, 131078, 4, 1, 131078, 5, 1, 131078, 6, 1, 131077, 6, 1, 131076, 6, 1, 131075, 6, 1, 131074, 6, 1, 131074, 5, 1, 131074, 4, 1, 131074, 3, 1, 131074, 2, 1, 131074, 1, 1, 131074, 0, 1, 131074, 65535, 1, 131074, 65534, 1, 131074, 65533, 1, 131074, 65532, 1, 131075, 65532, 1, 131076, 65532, 1, 131077, 65532, 1, 131078, 65532, 1, 131079, 65532, 1, 131080, 65532, 1, 131081, 65532, 1, 131082, 65532, 1, 131083, 65532, 1, 131084, 65532, 1, 131084, 65533, 1, 131084, 65534, 1, 131084, 65535, 1, 131084, 0, 1, 131084, 1, 1, 131084, 2, 1, 131084, 3, 1, 131084, 4, 1, 131084, 5, 1, 196620, 65532, 2, 196619, 65532, 2, 196618, 65532, 2, 196617, 65532, 2, 196616, 65532, 2, 196615, 65532, 2, 196614, 65532, 2, 196613, 65532, 2, 196612, 65532, 2, 196611, 65532, 2, 196610, 65532, 2, 196610, 65533, 2, 196610, 65534, 2, 196610, 65535, 2, 196610, 0, 2, 196610, 1, 2, 196610, 2, 2, 196610, 3, 2, 196610, 4, 2, 196610, 5, 2, 196611, 5, 2, 196611, 6, 2, 196610, 6, 2, 196612, 6, 2, 196613, 6, 2, 196614, 6, 2, 196614, 5, 2, 196614, 4, 2, 196613, 5, 2, 196613, 4, 2, 196612, 5, 2, 196612, 4, 2, 196612, 3, 2, 196613, 3, 2, 196611, 4, 2, 196611, 3, 2, 196612, 2, 2, 196612, 1, 2, 196611, 1, 2, 196611, 0, 2, 196611, 65535, 2, 196611, 65534, 2, 196611, 65533, 2, 196611, 2, 2, 196612, 0, 2, 196612, 65535, 2, 196613, 65534, 2, 196613, 65533, 2, 196613, 65535, 2, 196613, 0, 2, 196613, 1, 2, 196613, 2, 2, 196612, 65533, 2, 196612, 65534, 2, 196614, 2, 2, 196614, 3, 2, 196615, 3, 2, 196616, 3, 2, 196617, 3, 2, 196617, 4, 2, 196616, 4, 2, 196616, 5, 2, 196616, 6, 2, 196617, 6, 2, 196618, 6, 2, 196619, 6, 2, 196619, 5, 2, 196619, 4, 2, 196619, 3, 2, 196620, 6, 2, 196620, 5, 2, 196620, 4, 2, 196620, 3, 2, 196620, 2, 2, 196620, 1, 2, 196620, 0, 2, 196620, 65535, 2, 196620, 65534, 2, 196620, 65533, 2, 196619, 65533, 2, 196618, 65533, 2, 196617, 65533, 2, 196616, 65533, 2, 196615, 65533, 2, 196614, 65533, 2, 196614, 65534, 2, 196614, 65535, 2, 196615, 65535, 2, 196615, 65534, 2, 196616, 65534, 2, 196616, 65535, 2, 196616, 0, 2, 196615, 0, 2, 196615, 1, 2, 196614, 1, 2, 196614, 0, 2, 196615, 2, 2, 196616, 2, 2, 196616, 1, 2, 196617, 2, 2, 196617, 1, 2, 196618, 2, 2, 196618, 3, 2, 196618, 4, 2, 196618, 5, 2, 196617, 5, 2, 196619, 2, 2, 196619, 1, 2, 196619, 65534, 2, 196619, 65535, 2, 196619, 0, 2, 196618, 0, 2, 196618, 65535, 2, 196618, 65534, 2, 196617, 65534, 2, 196617, 65535, 2, 196617, 0, 2, 196618, 1, 2)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Floor1GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9795, 2.20577, -1.98372)
+omni_range = 30.852
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Floor1GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6795, 2.20577, -1.98372)
+omni_range = 30.852
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Floor1GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9795, 1.246, 4.11628)
+omni_range = 30.852
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Floor1GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6795, 1.246, 4.11628)
+omni_range = 30.852
+
+[node name="Table1" parent="Floor1GridMap" instance=ExtResource("2_7vyxt")]
+transform = Transform3D(1.17897, 0, 0.458546, 0, 1.265, 0, -0.458546, 0, 1.17897, 11, 0, 3.6)
+
+[node name="Table2" parent="Floor1GridMap" instance=ExtResource("2_7vyxt")]
+transform = Transform3D(-1.23023, -1.0755e-07, -0.294557, 1.1059e-07, -1.265, 0, -0.294557, -2.5751e-08, 1.23023, 4.02035, 0.552464, 1)
+
+[node name="Ladder" parent="Floor1GridMap" instance=ExtResource("3_w4kjk")]
+transform = Transform3D(-4.33781e-08, -0.123255, -0.992375, -5.38765e-09, 0.992375, -0.123255, 1, 0, -4.37114e-08, 3.29, 0, 4.165)
+
+[node name="WoodenPlank" parent="Floor1GridMap" instance=ExtResource("4_0u527")]
+transform = Transform3D(1.76608, 0, -0.938604, 0, 0.5, 0, 0.938604, 0, 1.76608, 6.6104, 0.015, 1.19178)
+
+[node name="WoodenPlank2" parent="Floor1GridMap" instance=ExtResource("4_0u527")]
+transform = Transform3D(0.431107, 0, -1.95298, 0, 0.5, 0, 1.95298, 0, 0.431107, 10.5104, 0.015, -0.0266051)
+
+[node name="WoodenPlank3" parent="Floor1GridMap" instance=ExtResource("4_0u527")]
+transform = Transform3D(1.48264, 0, -1.3423, 0, 0.5, 0, 1.3423, 0, 1.48264, 4.6104, 0.015, 5.02488)
+
+[node name="WoodenDoor" parent="Floor1GridMap" instance=ExtResource("5_c8nn7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.5, 0, 5.9731)
+
+[node name="WoodenDoor2" parent="Floor1GridMap" instance=ExtResource("5_c8nn7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, 1, 0, 4.37114e-08, 10.5, 0, 5.9731)
+
+[node name="Bricks" parent="Floor1GridMap" instance=ExtResource("6_qqb5t")]
+transform = Transform3D(0.84459, 0, -0.535414, 0, 1, 0, 0.535414, 0, 0.84459, 9.23766, 0, 2.6)
+
+[node name="Bricks2" parent="Floor1GridMap/Bricks" instance=ExtResource("6_qqb5t")]
+transform = Transform3D(0.8653, 0, 0.501254, 0, 1, 0, -0.501254, 0, 0.8653, -0.160624, 0, -0.253377)
+skeleton = NodePath("../..")
+
+[node name="Bricks3" parent="Floor1GridMap" instance=ExtResource("6_qqb5t")]
+transform = Transform3D(0.888, 0, -0.459843, 0, 1, 0, 0.459843, 0, 0.888, 11.7615, 0, 0.704862)
+
+[node name="Bricks4" parent="Floor1GridMap" instance=ExtResource("6_qqb5t")]
+transform = Transform3D(0.0798337, 0, -0.996808, 0, 1, 0, 0.996808, 0, 0.0798337, 4.96151, 0, -0.295138)
+
+[node name="Bricks5" parent="Floor1GridMap" instance=ExtResource("6_qqb5t")]
+transform = Transform3D(-0.529135, 0.848538, 3.70908e-08, 0, -4.37114e-08, 1, 0.848538, 0.529135, 2.31292e-08, 5.72659, 0.0633484, 3.33114)
+
+[node name="Ghost" parent="Floor1GridMap" instance=ExtResource("7_n2sbj")]
+transform = Transform3D(0.920505, 0, -0.390731, 0, 1, 0, 0.390731, 0, 0.920505, 7.90323, 0, 2.186)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, -2.77397e-08, 8.29051e-08, 0, 0.948324, 0.317305, -8.74228e-08, 0.317305, -0.948324, 7.5, 2.375, -3)
+
+[node name="Fire" type="Node3D" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Fire"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.39168, 0.647615, 1.36982)
+amount = 32
+lifetime = 0.95
+preprocess = 1.0
+explosiveness = 0.08
+randomness = 0.38
+process_material = SubResource("ParticleProcessMaterial_e8qdx")
+draw_pass_1 = SubResource("QuadMesh_c6tpb")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="Fire"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.40236, 0.107259, 4.9862)
+amount = 32
+lifetime = 0.95
+preprocess = 1.0
+explosiveness = 0.08
+randomness = 0.38
+process_material = SubResource("ParticleProcessMaterial_oik84")
+draw_pass_1 = SubResource("QuadMesh_bmlb4")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="Fire"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.25276, 1.1244, 4.45229)
+amount = 32
+lifetime = 0.95
+preprocess = 1.0
+explosiveness = 0.08
+randomness = 0.38
+process_material = SubResource("ParticleProcessMaterial_oik84")
+draw_pass_1 = SubResource("QuadMesh_bmlb4")
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="Fire"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.37375, 0.209067, 3.07256)
+amount = 32
+lifetime = 0.95
+preprocess = 1.0
+explosiveness = 0.08
+randomness = 0.38
+process_material = SubResource("ParticleProcessMaterial_oik84")
+draw_pass_1 = SubResource("QuadMesh_bmlb4")
+
+[node name="GPUParticles3D5" type="GPUParticles3D" parent="Fire"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.77493, 0.209067, -0.227443)
+amount = 32
+lifetime = 0.95
+preprocess = 1.0
+explosiveness = 0.08
+randomness = 0.38
+process_material = SubResource("ParticleProcessMaterial_oik84")
+draw_pass_1 = SubResource("QuadMesh_bmlb4")
+
+[node name="GPUParticles3D6" type="GPUParticles3D" parent="Fire"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.6749, 0.679608, 3.77256)
+amount = 32
+lifetime = 0.95
+preprocess = 1.0
+explosiveness = 0.08
+randomness = 0.38
+process_material = SubResource("ParticleProcessMaterial_oik84")
+draw_pass_1 = SubResource("QuadMesh_bmlb4")
